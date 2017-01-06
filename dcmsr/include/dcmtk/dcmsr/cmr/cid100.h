@@ -5,8 +5,8 @@
  *
  *  Header file for class CID100_QuantitativeDiagnosticImagingProcedures
  *
- *  Generated automatically from DICOM PS 3.16-2016b
- *  File created on 2016-04-06 16:26:37 by J. Riesmeier
+ *  Generated automatically from DICOM PS 3.16-2016e
+ *  File created on 2016-11-23 13:58:40 by J. Riesmeier
  *
  */
 

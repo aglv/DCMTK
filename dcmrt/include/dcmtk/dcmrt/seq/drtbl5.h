@@ -1,13 +1,13 @@
 /*
  *
  *  Copyright (C) 2008-2012, OFFIS e.V. and ICSMED AG, Oldenburg, Germany
- *  Copyright (C) 2013-2015, J. Riesmeier, Oldenburg, Germany
+ *  Copyright (C) 2013-2016, J. Riesmeier, Oldenburg, Germany
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  Header file for class DRTBlockSequenceInRTImageModule
  *
- *  Generated automatically from DICOM PS 3.3-2015c
- *  File created on 2015-12-07 16:29:33
+ *  Generated automatically from DICOM PS 3.3-2016e
+ *  File created on 2016-11-23 14:23:36
  *
  */
 
@@ -55,6 +55,7 @@ class DCMTK_DCMRT_EXPORT DRTBlockSequenceInRTImageModule
 
         /** assigment operator
          *  @param copy item object to be copied
+         *  @return reference to this object
          */
         Item &operator=(const Item &copy);
 
@@ -215,6 +216,13 @@ class DCMTK_DCMRT_EXPORT DRTBlockSequenceInRTImageModule
          */
         OFCondition getSourceToBlockTrayDistance(Float64 &value, const unsigned long pos = 0) const;
 
+        /** get TrayAccessoryCode (300a,0355)
+         *  @param  value  reference to variable in which the value should be stored
+         *  @param  pos    index of the value to get (0..vm-1), -1 for all components
+         *  @return status, EC_Normal if successful, an error code otherwise
+         */
+        OFCondition getTrayAccessoryCode(OFString &value, const signed long pos = 0) const;
+
       // --- set DICOM attribute values ---
 
         /** set AccessoryCode (300a,00f9)
@@ -301,6 +309,13 @@ class DCMTK_DCMRT_EXPORT DRTBlockSequenceInRTImageModule
          */
         OFCondition setSourceToBlockTrayDistance(const OFString &value, const OFBool check = OFTrue);
 
+        /** set TrayAccessoryCode (300a,0355)
+         *  @param  value  value to be set (single value only) or "" for no value
+         *  @param  check  check 'value' for conformance with VR (LO) and VM (1) if enabled
+         *  @return status, EC_Normal if successful, an error code otherwise
+         */
+        OFCondition setTrayAccessoryCode(const OFString &value, const OFBool check = OFTrue);
+
       private:
 
         /// internal flag used to mark the empty default item
@@ -330,6 +345,8 @@ class DCMTK_DCMRT_EXPORT DRTBlockSequenceInRTImageModule
         DcmShortString MaterialID;
         /// SourceToBlockTrayDistance (300a,00f6) vr=DS, vm=1, type=2
         DcmDecimalString SourceToBlockTrayDistance;
+        /// TrayAccessoryCode (300a,0355) vr=LO, vm=1, type=3
+        DcmLongString TrayAccessoryCode;
 
     };
 
@@ -351,6 +368,7 @@ class DCMTK_DCMRT_EXPORT DRTBlockSequenceInRTImageModule
 
     /** assigment operator
      *  @param copy sequence object to be copied
+     *  @return reference to this object
      */
     DRTBlockSequenceInRTImageModule &operator=(const DRTBlockSequenceInRTImageModule &copy);
 

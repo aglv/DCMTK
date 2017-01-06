@@ -6,9 +6,8 @@
  *
  *  Source file for class DRTModifiedAttributesSequence
  *
- *  Generated automatically from DICOM PS 3.3-2015c
- *  File created on 2015-12-07 16:29:33
- *  Last modified on 2016-02-05 by Riesmeier
+ *  Generated automatically from DICOM PS 3.3-2016e
+ *  File created on 2016-12-09 16:57:45
  *
  */
 
@@ -68,27 +67,29 @@ OFBool DRTModifiedAttributesSequence::Item::isValid() const
 }
 
 
-OFCondition DRTModifiedAttributesSequence::Item::read(DcmItem & /*item*/)
+OFCondition DRTModifiedAttributesSequence::Item::read(DcmItem &item)
 {
     OFCondition result = EC_IllegalCall;
     if (!EmptyDefaultItem)
     {
         /* re-initialize object */
         clear();
-        /* manual comment: nothing to do */
-        result = EC_Normal;
+        /* avoid compiler warning on unused parameter */
+        (void)item;
+        result = EC_NotYetImplemented;
     }
     return result;
 }
 
 
-OFCondition DRTModifiedAttributesSequence::Item::write(DcmItem & /*item*/)
+OFCondition DRTModifiedAttributesSequence::Item::write(DcmItem &item)
 {
     OFCondition result = EC_IllegalCall;
     if (!EmptyDefaultItem)
     {
-        /* manual comment: nothing to do */
-        result = EC_Normal;
+        /* avoid compiler warning on unused parameter */
+        (void)item;
+        result = EC_NotYetImplemented;
     }
     return result;
 }

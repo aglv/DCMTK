@@ -927,7 +927,7 @@ OFCondition DcmStorageSCU::sendSOPInstances()
 }
 
 
-void DcmStorageSCU::notifySOPInstanceToBeSent(const TransferEntry &transferEntry)
+void DcmStorageSCU::notifySOPInstanceToBeSent(const TransferEntry & /*transferEntry*/)
 {
     // do nothing in the default implementation
 }

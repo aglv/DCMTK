@@ -1357,18 +1357,22 @@ OFBool DVInterface::createIndexCache()
                         if (!series->List.isElem(record.SOPInstanceUID))
                         {
                             DVPSInstanceType type = DVPSI_image;
-                            if (record.Modality != NULL)
-                            {
-                                if (strcmp(record.Modality, "PR") == 0)
-                                    type = DVPSI_presentationState;
-                                if (strcmp(record.Modality, "SR") == 0)
-                                    type = DVPSI_structuredReport;
-                                else if (strcmp(record.Modality, "HC") == 0)
-                                    type =DVPSI_hardcopyGrayscale;
-                                else if (strcmp(record.Modality, "STORED_PRINT") == 0)
-                                    type = DVPSI_storedPrint;
-                            }
-                            series->List.addItem(record.SOPInstanceUID, counter, record.hstat, type, record.ImageSize, record.filename);
+                            if (DSRTypes::sopClassUIDToDocumentType(record.SOPClassUID) != DSRTypes::DT_invalid)
+                                type = DVPSI_structuredReport;
+                            else if (strcmp(record.Modality, "PR") == 0)
+                                type = DVPSI_presentationState;
+                            else if (strcmp(record.Modality, "SR") == 0)
+                                type = DVPSI_structuredReport;
+                            else if (strcmp(record.Modality, "HC") == 0)
+                                type =DVPSI_hardcopyGrayscale;
+                            else if (strcmp(record.Modality, "STORED_PRINT") == 0)
+                                type = DVPSI_storedPrint;
+                            series->List.addItem(record.SOPInstanceUID,
+                                                 counter,
+                                                 OFstatic_cast(DVIFhierarchyStatus, record.hstat),
+                                                 type,
+                                                 record.ImageSize,
+                                                 record.filename);
                             if (series->Type == DVPSI_image)
                                 series->Type = type;                // series contains only one type of instances
                         }
@@ -1677,7 +1681,7 @@ OFCondition DVInterface::selectInstance(const char *instanceUID, const char *sop
                             {
                                 if (sopClassUID == NULL)
                                     return EC_Normal;
-                                else if ((idxRec.SOPClassUID != NULL) && (strcmp(sopClassUID, idxRec.SOPClassUID) == 0))
+                                else if (strcmp(sopClassUID, idxRec.SOPClassUID) == 0)
                                     return EC_Normal;
                             }
                         }
@@ -1953,7 +1957,9 @@ OFCondition DVInterface::instanceReviewed(int pos)
     lockDatabase();
     OFBool wasNew = newInstancesReceived();
     if (pHandle == NULL) return EC_IllegalCall;
+    pHandle->DB_unlock();
     OFCondition result = pHandle->instanceReviewed(pos);
+    pHandle->DB_lock(OFFalse);
     if (!wasNew) resetDatabaseReferenceTime();
     releaseDatabase();
     return result;
@@ -1985,11 +1991,8 @@ int DVInterface::findStudyIdx(StudyDescRecord *study,
         int i = 0;
         for (i = 0; i < PSTAT_MAXSTUDYCOUNT; i++)
         {
-            if ((study[i].StudyInstanceUID != NULL) &&
-                (strcmp(uid, study[i].StudyInstanceUID) == 0))
-            {
+            if (strcmp(uid, study[i].StudyInstanceUID) == 0)
                 return i;
-            }
         }
     }
     return -1;
@@ -2136,8 +2139,7 @@ OFCondition DVInterface::deleteInstance(const char *studyUID,
                     int i = 0;
                     for (i = 0; i < PSTAT_MAXSTUDYCOUNT; i++)
                     {
-                        if ((study_desc[i].StudyInstanceUID != NULL) &&
-                            (strcmp(studyUID, study_desc[i].StudyInstanceUID) != 0))
+                        if (strcmp(studyUID, study_desc[i].StudyInstanceUID) != 0)
                         {
                             if (study_desc[i].NumberofRegistratedImages > 0)
                             {
@@ -4080,7 +4082,7 @@ OFBool DVInterface::verifyUserPassword(const char * /*userID*/, const char * /*p
 
     /* attempt to load the private key with the given password*/
     EVP_PKEY *pkey = NULL;
-    BIO *in = BIO_new(BIO_s_file_internal());
+    BIO *in = BIO_new(BIO_s_file());
     if (in)
     {
       if (BIO_read_filename(in, filename.c_str()) > 0)

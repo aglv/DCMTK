@@ -15,7 +15,7 @@ INCLUDE(CMake/dcmtkPrepare.cmake NO_POLICY_SCOPE)
 
 SET(DCMTK_MODULES ofstd oflog dcmdata dcmimgle
   dcmimage dcmjpeg dcmjpls dcmtls dcmnet dcmsr
-  dcmsign dcmwlm dcmqrdb dcmpstat dcmrt dcmiod dcmfg dcmseg dcmtract
+  dcmsign dcmwlm dcmqrdb dcmpstat dcmrt dcmiod dcmfg dcmseg dcmtract dcmpmap
   CACHE STRING "List of modules that should be built.")
 
 #-----------------------------------------------------------------------------
@@ -67,6 +67,8 @@ INSTALL(FILES ${DCMTK_BINARY_DIR}/config/include/dcmtk/config/osconfig.h
 INSTALL(FILES ANNOUNCE CHANGES COPYRIGHT CREDITS FAQ HISTORY VERSION
         DESTINATION ${DCMTK_INSTALL_DOCDIR}
         COMPONENT doc)
+INSTALL(DIRECTORY docs/ DESTINATION ${DCMTK_INSTALL_DOCDIR}
+        COMPONENT doc FILES_MATCHING PATTERN "CHANGES.???")
 
 #-----------------------------------------------------------------------------
 # Create an install configuration files for external projects

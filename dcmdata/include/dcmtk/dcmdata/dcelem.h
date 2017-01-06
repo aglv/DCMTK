@@ -1,6 +1,6 @@
 /*
  *
- *  Copyright (C) 1994-2015, OFFIS e.V.
+ *  Copyright (C) 1994-2016, OFFIS e.V.
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  This software and supporting documentation were developed by
@@ -30,6 +30,7 @@
 
 // forward declarations
 class DcmInputStreamFactory;
+class DcmJsonFormat;
 class DcmFileCache;
 class DcmItem;
 
@@ -213,6 +214,14 @@ class DCMTK_DCMDATA_EXPORT DcmElement
      */
     virtual OFCondition writeXML(STD_NAMESPACE ostream &out,
                                  const size_t flags = 0);
+
+    /** write object in JSON format
+     *  @param out output stream to which the JSON document is written
+     *  @param format used to format and customize the output
+     *  @return status, EC_Normal if successful, an error code otherwise
+     */
+    virtual OFCondition writeJson(STD_NAMESPACE ostream &out,
+                                  DcmJsonFormat &format);
 
     /** special write method for creation of digital signatures
      *  @param outStream DICOM output stream
@@ -826,6 +835,7 @@ class DCMTK_DCMDATA_EXPORT DcmElement
     /** This function creates a byte array of Length bytes and returns this
      *  array. In case Length is odd, an array of Length+1 bytes will be
      *  created and Length will be increased by 1.
+     *  @return pointer to created byte array
      */
     virtual Uint8 *newValueField();
 
@@ -850,6 +860,20 @@ class DCMTK_DCMDATA_EXPORT DcmElement
      */
     virtual void writeXMLEndTag(STD_NAMESPACE ostream &out,
                                 const size_t flags);
+
+    /** write element start tag in JSON format
+     *  @param out output stream to which the JSON document is written
+     *  @param format used to format the output
+     */
+    virtual void writeJsonOpener(STD_NAMESPACE ostream &out,
+                                 DcmJsonFormat &format);
+
+    /** write element end tag in JSON format
+     *  @param out output stream to which the JSON document is written
+     *  @param format used to format the output
+     */
+    virtual void writeJsonCloser(STD_NAMESPACE ostream &out,
+                                 DcmJsonFormat &format);
 
     /** return the current byte order of the value field
      *  @return current byte order of the value field

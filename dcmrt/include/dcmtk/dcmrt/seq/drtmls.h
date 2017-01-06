@@ -1,13 +1,13 @@
 /*
  *
  *  Copyright (C) 2008-2012, OFFIS e.V. and ICSMED AG, Oldenburg, Germany
- *  Copyright (C) 2013-2015, J. Riesmeier, Oldenburg, Germany
+ *  Copyright (C) 2013-2016, J. Riesmeier, Oldenburg, Germany
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  Header file for class DRTModalityLUTSequence
  *
- *  Generated automatically from DICOM PS 3.3-2015c
- *  File created on 2015-12-07 16:29:33
+ *  Generated automatically from DICOM PS 3.3-2016e
+ *  File created on 2016-11-23 14:23:36
  *
  */
 
@@ -55,6 +55,7 @@ class DCMTK_DCMRT_EXPORT DRTModalityLUTSequence
 
         /** assigment operator
          *  @param copy item object to be copied
+         *  @return reference to this object
          */
         Item &operator=(const Item &copy);
 
@@ -153,13 +154,13 @@ class DCMTK_DCMRT_EXPORT DRTModalityLUTSequence
         /// internal flag used to mark the empty default item
         /*const*/ OFBool EmptyDefaultItem;
 
-        /// LUTData (0028,3006) vr=US/OW, vm=1-n, type=1C
+        /// LUTData (0028,3006) vr=US/OW, vm=1-n, type=1
         DcmOtherByteOtherWord LUTData;
-        /// LUTDescriptor (0028,3002) vr=US/SS, vm=3, type=1C
+        /// LUTDescriptor (0028,3002) vr=US/SS, vm=3, type=1
         DcmUnsignedShort LUTDescriptor;
         /// LUTExplanation (0028,3003) vr=LO, vm=1, type=3
         DcmLongString LUTExplanation;
-        /// ModalityLUTType (0028,3004) vr=LO, vm=1, type=1C
+        /// ModalityLUTType (0028,3004) vr=LO, vm=1, type=1
         DcmLongString ModalityLUTType;
 
     };
@@ -182,6 +183,7 @@ class DCMTK_DCMRT_EXPORT DRTModalityLUTSequence
 
     /** assigment operator
      *  @param copy sequence object to be copied
+     *  @return reference to this object
      */
     DRTModalityLUTSequence &operator=(const DRTModalityLUTSequence &copy);
 

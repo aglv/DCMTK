@@ -2,11 +2,15 @@
 
 #define OFTEST_OFSTD_ONLY
 #include "dcmtk/ofstd/oftest.h"
+#include "dcmtk/ofstd/ofdiag.h"
 #include "dcmtk/ofstd/oflimits.h"
 #include "dcmtk/ofstd/ofstd.h"
 #include "dcmtk/ofstd/oftraits.h"
 #include "dcmtk/ofstd/ofmath.h"   // for isinf and isnan
 
+#include DCMTK_DIAGNOSTIC_PUSH
+#include DCMTK_DIAGNOSTIC_IGNORE_OVERFLOW
+#include DCMTK_DIAGNOSTIC_IGNORE_IMPLICIT_CONVERSION
 template<typename T>
 static void checkMinMax()
 {
@@ -24,6 +28,7 @@ static void checkMinMax()
     );
     OFCHECK( ( OFnumeric_limits<T>::lowest() == OFnumeric_limits<T>::min() ) || !OFnumeric_limits<T>::is_integer );
 }
+#include DCMTK_DIAGNOSTIC_POP
 
 template<typename T>
 static OFTypename OFenable_if<OFnumeric_limits<T>::has_quiet_NaN>::type checkNaN()
@@ -49,6 +54,8 @@ static OFTypename OFenable_if<!OFnumeric_limits<T>::has_infinity>::type checkInf
 
 }
 
+#include DCMTK_DIAGNOSTIC_PUSH
+#include DCMTK_DIAGNOSTIC_IGNORE_OVERFLOW
 template<typename T>
 static void checkLimits()
 {
@@ -60,6 +67,7 @@ static void checkLimits()
     if( OFnumeric_limits<T>::is_modulo )
         OFCHECK( OFstatic_cast( T, OFnumeric_limits<T>::max() + 1 ) == OFnumeric_limits<T>::min() );
 }
+#include DCMTK_DIAGNOSTIC_POP
 
 OFTEST(ofstd_limits)
 {

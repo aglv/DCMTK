@@ -149,6 +149,22 @@ handling of wrong delimitation items:
   +rd  --replace-wrong-delim
          replace wrong sequence/item delimitation items
 
+handling of illegal undefined length OB/OW elements:
+
+  -oi  --illegal-obow-rej
+         reject dataset with illegal element (default)
+
+  +oi  --illegal-obow-conv
+         convert undefined length OB/OW element to SQ
+
+handling of VOI LUT Sequence with OW VR and explicit length:
+
+  -vi  --illegal-voi-rej
+         reject dataset with illegal VOI LUT (default)
+
+  +vi  --illegal-voi-conv
+         convert illegal VOI LUT to SQ
+
 general handling of parser errors:
 
   +Ep  --ignore-parse-errors
@@ -183,7 +199,8 @@ bitstream format of deflated input:
 \verbatim
 specific character set:
 
-  # the following options require support from the libiconv toolkit
+  # the following options require support from an underlying character
+  # encoding library (see output of --version on which one is available)
 
   +U8  --convert-to-utf8
          convert all element values that are affected
@@ -358,6 +375,6 @@ It is an error if no data dictionary can be loaded.
 
 \section copyright COPYRIGHT
 
-Copyright (C) 1994-2014 by OFFIS e.V., Escherweg 2, 26121 Oldenburg, Germany.
+Copyright (C) 1994-2016 by OFFIS e.V., Escherweg 2, 26121 Oldenburg, Germany.
 
 */

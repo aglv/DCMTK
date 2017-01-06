@@ -1,13 +1,13 @@
 /*
  *
  *  Copyright (C) 2008-2012, OFFIS e.V. and ICSMED AG, Oldenburg, Germany
- *  Copyright (C) 2013-2015, J. Riesmeier, Oldenburg, Germany
+ *  Copyright (C) 2013-2016, J. Riesmeier, Oldenburg, Germany
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  Header file for class DRTOverrideSequence
  *
- *  Generated automatically from DICOM PS 3.3-2015c
- *  File created on 2015-12-07 16:29:33
+ *  Generated automatically from DICOM PS 3.3-2016e
+ *  File created on 2016-11-23 14:23:36
  *
  */
 
@@ -19,6 +19,7 @@
 
 #include "dcmtk/ofstd/oflist.h"        // for standard list class
 #include "dcmtk/dcmrt/drttypes.h"      // module-specific helper class
+#include "dcmtk/dcmrt/seq/drtois.h"    // for OperatorIdentificationSequence
 
 
 /** Interface class for OverrideSequence (3008,0060)
@@ -55,6 +56,7 @@ class DCMTK_DCMRT_EXPORT DRTOverrideSequence
 
         /** assigment operator
          *  @param copy item object to be copied
+         *  @return reference to this object
          */
         Item &operator=(const Item &copy);
 
@@ -132,6 +134,27 @@ class DCMTK_DCMRT_EXPORT DRTOverrideSequence
          */
         OFCondition getParameterSequencePointer(OFString &value, const signed long pos = 0) const;
 
+        /** get ParameterValueNumber (3008,0067)
+         *  @param  value  reference to variable in which the value should be stored
+         *  @param  pos    index of the value to get (0..vm-1)
+         *  @return status, EC_Normal if successful, an error code otherwise
+         */
+        OFCondition getParameterValueNumber(Uint16 &value, const unsigned long pos = 0) const;
+
+      // --- get DICOM sequence attributes ---
+
+        /** get OperatorIdentificationSequence (0008,1072)
+         *  @return reference to sequence element
+         */
+        DRTOperatorIdentificationSequence &getOperatorIdentificationSequence()
+            { return OperatorIdentificationSequence; }
+
+        /** get OperatorIdentificationSequence (0008,1072)
+         *  @return const reference to sequence element
+         */
+        const DRTOperatorIdentificationSequence &getOperatorIdentificationSequence() const
+            { return OperatorIdentificationSequence; }
+
       // --- set DICOM attribute values ---
 
         /** set OperatorsName (0008,1070)
@@ -169,11 +192,20 @@ class DCMTK_DCMRT_EXPORT DRTOverrideSequence
          */
         OFCondition setParameterSequencePointer(const OFString &value, const OFBool check = OFTrue);
 
+        /** set ParameterValueNumber (3008,0067)
+         *  @param  value  value to be set (should be valid for this VR)
+         *  @param  pos    index of the value to be set (0..vm-1), vm=1
+         *  @return status, EC_Normal if successful, an error code otherwise
+         */
+        OFCondition setParameterValueNumber(const Uint16 value, const unsigned long pos = 0);
+
       private:
 
         /// internal flag used to mark the empty default item
         /*const*/ OFBool EmptyDefaultItem;
 
+        /// OperatorIdentificationSequence (0008,1072) vr=SQ, vm=1, type=3
+        DRTOperatorIdentificationSequence OperatorIdentificationSequence;
         /// OperatorsName (0008,1070) vr=PN, vm=1-n, type=2
         DcmPersonName OperatorsName;
         /// OverrideParameterPointer (3008,0062) vr=AT, vm=1, type=1
@@ -184,6 +216,8 @@ class DCMTK_DCMRT_EXPORT DRTOverrideSequence
         DcmIntegerString ParameterItemIndex;
         /// ParameterSequencePointer (3008,0061) vr=AT, vm=1, type=1
         DcmAttributeTag ParameterSequencePointer;
+        /// ParameterValueNumber (3008,0067) vr=US, vm=1, type=3
+        DcmUnsignedShort ParameterValueNumber;
 
     };
 
@@ -205,6 +239,7 @@ class DCMTK_DCMRT_EXPORT DRTOverrideSequence
 
     /** assigment operator
      *  @param copy sequence object to be copied
+     *  @return reference to this object
      */
     DRTOverrideSequence &operator=(const DRTOverrideSequence &copy);
 

@@ -1,6 +1,6 @@
 /*
  *
- *  Copyright (C) 2009-2011, OFFIS e.V.
+ *  Copyright (C) 2009-2016, OFFIS e.V.
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  This software and supporting documentation were developed by
@@ -63,7 +63,7 @@ public:
         ERROR_LOG_LEVEL = dcmtk::log4cplus::ERROR_LOG_LEVEL,
         /// fatal: very severe error events that will presumably lead the application to abort
         FATAL_LOG_LEVEL = dcmtk::log4cplus::FATAL_LOG_LEVEL,
-        /// internal: turn off logging competely
+        /// internal: turn off logging completely
         OFF_LOG_LEVEL = dcmtk::log4cplus::OFF_LOG_LEVEL
     };
 
@@ -95,8 +95,10 @@ class DCMTK_LOG4CPLUS_EXPORT OFLog
 
  public:
 
-    /** create a new Logger object
+    /** create a new logger object.
+     *  Logger objects have a reference counting copy-constructor, so returning by-value is cheap.
      *  @param name the name of the logger
+     *  @return requested logger object
      */
     static OFLogger getLogger(const char *name);
 
@@ -108,6 +110,7 @@ class DCMTK_LOG4CPLUS_EXPORT OFLog
     /** handle the command line options used for logging
      *  @param cmd the command line whose options are handled
      *  @param app the console application which is used for console output and error checking
+     *  @param defaultLevel default log level that is used if not specified on the command line
      */
     static void configureFromCommandLine(OFCommandLine &cmd,
                                          OFConsoleApplication &app,

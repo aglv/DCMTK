@@ -1,13 +1,13 @@
 /*
  *
  *  Copyright (C) 2008-2012, OFFIS e.V. and ICSMED AG, Oldenburg, Germany
- *  Copyright (C) 2013-2015, J. Riesmeier, Oldenburg, Germany
+ *  Copyright (C) 2013-2016, J. Riesmeier, Oldenburg, Germany
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  Header file for class DRTReferencedFractionGroupSequence
  *
- *  Generated automatically from DICOM PS 3.3-2015c
- *  File created on 2015-12-07 16:29:33
+ *  Generated automatically from DICOM PS 3.3-2016e
+ *  File created on 2016-11-23 14:23:36
  *
  */
 
@@ -57,6 +57,7 @@ class DCMTK_DCMRT_EXPORT DRTReferencedFractionGroupSequence
 
         /** assigment operator
          *  @param copy item object to be copied
+         *  @return reference to this object
          */
         Item &operator=(const Item &copy);
 
@@ -173,6 +174,7 @@ class DCMTK_DCMRT_EXPORT DRTReferencedFractionGroupSequence
 
     /** assigment operator
      *  @param copy sequence object to be copied
+     *  @return reference to this object
      */
     DRTReferencedFractionGroupSequence &operator=(const DRTReferencedFractionGroupSequence &copy);
 

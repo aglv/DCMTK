@@ -1,6 +1,6 @@
 /*
  *
- *  Copyright (C) 2005–2010, Pascal Getreuer
+ *  Copyright (C) 2005-2010, Pascal Getreuer
  *  Copyright (C) 2016, Open Connections GmbH
  *  All rights reserved.  See COPYRIGHT file for details.
  *
@@ -191,7 +191,7 @@ double IODCIELabUtil::labfInv(double n)
 }
 
 
-double IODCIELabUtil::min(double a, double b)
+double IODCIELabUtil::min2(double a, double b)
 {
   if (a <= b)
     return a;
@@ -203,7 +203,7 @@ double IODCIELabUtil::min(double a, double b)
 double IODCIELabUtil::min3(double a, double b, double c)
 {
   if (a <= b)
-    return min(a,c);
+    return min2(a,c);
   else
-    return min (b,c);
+    return min2(b,c);
 }

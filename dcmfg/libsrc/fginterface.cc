@@ -250,11 +250,11 @@ OFCondition FGInterface::readPerFrameFG(DcmItem& dataset)
   }
 
   /* Read functional groups for each item (one per frame) */
-  for (size_t count = 0; count < numFrames; count++)
+  DcmItem *oneFrameItem = OFstatic_cast(DcmItem*, perFrame->nextInContainer(NULL));
+  Uint32 count = 0;
+  while (oneFrameItem != NULL)
   {
-    DcmItem* oneFrameItem = perFrame->getItem(count);
     OFauto_ptr<FunctionalGroups> perFrameGroups(new FunctionalGroups());
-    // FunctionalGroups* perFrameGroups = new FunctionalGroups();
     if (!oneFrameItem)
     {
       DCMFG_ERROR("Could not get functional group item for frame #" << count << " (internal error)");
@@ -278,6 +278,8 @@ OFCondition FGInterface::readPerFrameFG(DcmItem& dataset)
         DCMFG_ERROR("Could not read functional groups for frame #" << count << ": " << result.text());
       }
     }
+    oneFrameItem = OFstatic_cast(DcmItem*, perFrame->nextInContainer(oneFrameItem));
+    count++;
   }
   return EC_Normal; // for now we always return EC_Normal...
 }
@@ -353,7 +355,6 @@ OFCondition FGInterface::write(DcmItem& dataset)
 }
 
 
-// TODO: overload (templates?) to return correct derived class type?
 FGBase* FGInterface::getShared(const DcmFGTypes::E_FGType fgType)
 {
   return m_shared.find(fgType);
@@ -431,6 +432,25 @@ size_t FGInterface::deletePerFrame(const DcmFGTypes::E_FGType fgType)
   return numDeleted;
 }
 
+
+size_t FGInterface::deleteFrame(const Uint32 frameNo)
+{
+  OFMap<Uint32, FunctionalGroups*>::iterator it = m_perFrame.find(frameNo);
+  if (it != m_perFrame.end())
+  {
+    if ( (*it).second )
+    {
+      FunctionalGroups::iterator fg = (*it).second->begin();
+      while (fg != (*it).second->end())
+      {
+        delete (*fg).second;
+        fg++;
+      }
+    }
+    m_perFrame.erase(it);
+  }
+  return OFFalse;
+}
 
 
 FunctionalGroups* FGInterface::getOrCreatePerFrameGroups(const Uint32 frameNo)
@@ -512,7 +532,8 @@ OFCondition FGInterface::writeSharedFG(DcmItem& dataset)
   }
 
   FunctionalGroups::iterator it = m_shared.begin();
-  while ( (it != m_shared.end()) && result.good() )
+  FunctionalGroups::iterator end = m_shared.end();
+  while ( (it != end) && result.good() )
   {
     DCMFG_DEBUG("Writing shared group: " << DcmFGTypes::FGType2OFString((*it).second->getType()));
     result = (*it).second->write(*sharedFGItem);
@@ -623,10 +644,12 @@ OFBool FGInterface::check()
     // Every frame requires the FrameContent functional group, check "en passant"
     OFBool foundFrameContent = OFFalse;
     OFMap<Uint32, FunctionalGroups*>::iterator frameFG = m_perFrame.begin();
-    while (frameFG != m_perFrame.end())
+    OFMap<Uint32, FunctionalGroups*>::iterator end = m_perFrame.end();
+    while (frameFG != end)
     {
       FunctionalGroups::iterator group = (*frameFG).second->begin();
-      while (group !=  (*frameFG).second->end())
+      FunctionalGroups::iterator groupEnd = (*frameFG).second->end();
+      while (group != groupEnd)
       {
         // Check that per-frame group is not shared group at the same time
         DcmFGTypes::E_FGType groupType = group->second->getType();
@@ -660,7 +683,8 @@ OFBool FGInterface::check()
 
   // Check whether shared groups contain FGs that are only permitted per-frame
   FunctionalGroups::iterator it = m_shared.begin();
-  while (it != m_shared.begin())
+  FunctionalGroups::iterator end = m_shared.end();
+  while (it != end)
   {
     if ( (*it).second->getSharedType() == DcmFGTypes::EFGS_ONLYPERFRAME )
     {

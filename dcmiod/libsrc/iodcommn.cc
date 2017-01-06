@@ -1,6 +1,6 @@
 /*
  *
- *  Copyright (C) 2015, Open Connections GmbH
+ *  Copyright (C) 2015-2016, Open Connections GmbH
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  This software and supporting documentation are maintained by
@@ -51,6 +51,32 @@ DcmIODCommon::DcmIODCommon()
 }
 
 
+DcmIODCommon::DcmIODCommon(const DcmIODCommon& rhs)
+: m_Item(rhs.m_Item),
+  m_Rules(rhs.m_Rules),
+  m_Patient(m_Item, m_Rules),
+  m_PatientStudy(m_Item, m_Rules),
+  m_Study(m_Item, m_Rules),
+  m_Equipment(m_Item, m_Rules),
+  m_Series(m_Item, m_Rules),
+  m_FrameOfReference(m_Item, m_Rules),
+  m_SOPCommon(m_Item, m_Rules),
+  m_CommonInstanceReferenceModule(m_Item, m_Rules),
+  m_Modules()
+{
+  // Set initial values for a new SOP instance
+  ensureInstanceUIDs(OFFalse);
+  m_Modules.push_back(&m_Patient);
+  m_Modules.push_back(&m_PatientStudy);
+  m_Modules.push_back(&m_Study);
+  m_Modules.push_back(&m_Equipment);
+  m_Modules.push_back(&m_Series);
+  m_Modules.push_back(&m_FrameOfReference);
+  m_Modules.push_back(&m_SOPCommon);
+  m_Modules.push_back(&m_CommonInstanceReferenceModule);
+}
+
+
 DcmIODCommon::~DcmIODCommon()
 {
 }
@@ -58,12 +84,13 @@ DcmIODCommon::~DcmIODCommon()
 
 void DcmIODCommon::clearData()
 {
-  OFVector<IODModule*>::iterator it = m_Modules.begin();
-  while (it != m_Modules.end())
-  {
-    (*it)->clearData();
-    it++;
-  }
+  // TODO
+//   OFVector<IODModule*>::iterator it = m_Modules.begin();
+//   while (it != m_Modules.end())
+//   {
+//     (*it)->clearData();
+//     it++;
+//   }
 }
 
 
@@ -175,6 +202,42 @@ OFCondition DcmIODCommon::import(DcmItem& dataset,
   }
 
   return EC_Normal;
+}
+
+
+OFCondition DcmIODCommon::importPatientStudyFoR(const OFString& filename,
+                                                const OFBool usePatient,
+                                                const OFBool useStudy,
+                                                const OFBool useSeries,
+                                                const OFBool useFoR)
+{
+  DCMIOD_WARN("This function is deprecated and will be removed in later versions of DCMTK, please use import()");
+  return import(filename, usePatient, useStudy, useSeries, useFoR);
+}
+
+
+OFCondition DcmIODCommon::import(const OFString& filename,
+                                 const OFBool usePatient,
+                                 const OFBool useStudy,
+                                 const OFBool useSeries,
+                                 const OFBool useFoR)
+{
+  DcmFileFormat dcmff;
+  OFCondition result = dcmff.loadFile(filename.c_str());
+  if ( result.good() )
+  {
+    DcmDataset *dset = dcmff.getDataset();
+    if (dset != NULL)
+    {
+      result = import(*dset, usePatient, useStudy, useSeries, useFoR);
+    }
+    else
+    {
+      DCMIOD_ERROR("Unable to get dataset from file for copying patient, study, series and/or frame of reference information");
+      result = EC_IllegalCall;
+    }
+  }
+  return result;
 }
 
 

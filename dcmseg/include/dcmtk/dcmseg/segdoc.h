@@ -26,6 +26,7 @@
 #include "dcmtk/ofstd/ofvector.h"               // for OFVector
 #include "dcmtk/dcmiod/iodimage.h"              // common image IOD attribute access
 #include "dcmtk/dcmiod/iodmacro.h"
+#include "dcmtk/dcmiod/modimagepixel.h"
 #include "dcmtk/dcmiod/modsegmentationseries.h" // for segmentation series module
 #include "dcmtk/dcmiod/modenhequipment.h"       // for enhanced general equipment module
 
@@ -48,7 +49,7 @@ class FGDerivationImage;
 /** Class representing an object of the "Segmentation SOP Class".
  */
 class DCMTK_DCMSEG_EXPORT DcmSegmentation
-: public DcmIODImage
+: public DcmIODImage<IODImagePixelModule<Uint8> >
 {
 
 public:
@@ -61,7 +62,7 @@ public:
 
   // -------------------- loading and saving ---------------------
 
-  /** Load Segmentation object from item file
+  /** Load Segmentation object from file
    *  @param  filename The file to read from
    *  @param  segmentation  The resulting segmentation object. NULL if dataset
    *          could not be read successfully.
@@ -70,7 +71,7 @@ public:
   static OFCondition loadFile(const OFString& filename,
                               DcmSegmentation*& segmentation);
 
-  /** Load Segmentation object from item object.
+  /** Load Segmentation object from dataset object.
    *  @param  dataset The dataset to read from
    *  @param  segmentation  The resulting segmentation object. NULL if dataset
    *          could not be read successfully.
@@ -146,22 +147,6 @@ public:
   static FGDerivationImage* createDerivationImageFG(const OFVector<ImageSOPInstanceReferenceMacro>& derivationImages,
                                                     const OFString& derivationDescription);
 
-  /** Take over general information for Patient, Study, Series and/or Frame of Reference
-   *  from existing file
-   *  @param  filename The filename to read from
-   *  @param  usePatient If OFTrue, Patient level information is imported
-   *  @param  useStudy If OFTrue, Study level information is imported
-   *  @param  useSeries If OFTrue, Series level information is imported
-   *  @param  useFoR If OFTrue, Frame of Reference information is imported
-   *  @return EC_Normal if reading was successful (i.e.\ if any information could
-   *          be read), otherwise an error is returned
-   */
-  OFCondition importPatientStudyFoR(const OFString& filename,
-                                    const OFBool usePatient,
-                                    const OFBool useStudy,
-                                    const OFBool useSeries,
-                                    const OFBool useFoR = OFFalse);
-
   // -------------------- access ---------------------
 
   /** Get number of frames, based on the number of items in the shared
@@ -212,6 +197,11 @@ public:
    *  @return General Equipment Module
    */
   virtual IODGeneralEquipmentModule& getEquipment();
+
+  /** Get Segmentation Series Module
+   *  @return Segmentation Series Module
+   */
+  virtual IODSegmentationSeriesModule& getSegmentationSeriesModule();
 
   /** Get modality (overwrite from DcmIODCommon. We always return "SEG" here)
    *  @param  value  Reference to variable in which the value should be stored
@@ -268,7 +258,7 @@ public:
                                  Uint16& segmentNumber);
 
   /** Add a functional group for all frames
-   *  @param  group The group to be added as shared functional group
+   *  @param  group The group to be added as shared functional group. The
    *  @return EC_Normal if adding was successful, error otherwise
    */
   virtual OFCondition addForAllFrames(const FGBase& group);
@@ -282,7 +272,9 @@ public:
    *  @param  segmentNumber The logical segment number (>=1) this frame refers to.
    *          The segment identified by the segmentNumber must already exist.
    *  @param  perFrameInformation The functional groups that identify this frame (i.e.
-   *           which are planned to be not common for all other frames)
+   *          which are planned to be not common for all other frames). The
+   *          functional groups are copied, so ownership of each group stays
+   *          with the caller no matter what the method returns.
    *  @return EC_Normal if adding was successful, error otherwise
    */
   virtual OFCondition addFrame(Uint8* pixData,
@@ -368,7 +360,7 @@ protected:
   *  the image pixel module manually.
   *  @return The Image Pixel Module
   */
-  virtual IODImagePixelModule& getImagePixel();
+  virtual IODImagePixelModule<Uint8>& getImagePixel();
 
   /** Initialize IOD rules
    */

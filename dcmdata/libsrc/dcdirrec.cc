@@ -1124,22 +1124,20 @@ DcmEVR DcmDirectoryRecord::ident() const
 
 OFCondition DcmDirectoryRecord::convertCharacterSet(const OFString &fromCharset,
                                                     const OFString &toCharset,
-                                                    const OFBool transliterate,
-                                                    const OFBool updateCharset,
-                                                    const OFBool discardIllegal)
+                                                    const size_t flags,
+                                                    const OFBool updateCharset)
 {
     // call the method of the base class; this method is only needed to avoid a compiler warning
-    return DcmItem::convertCharacterSet(fromCharset, toCharset, transliterate, updateCharset, discardIllegal);
+    return DcmItem::convertCharacterSet(fromCharset, toCharset, flags, updateCharset);
 }
 
 
 OFCondition DcmDirectoryRecord::convertCharacterSet(const OFString &toCharset,
-                                                    const OFBool transliterate,
-                                                    const OFBool ignoreCharset,
-                                                    const OFBool discardIllegal)
+                                                    const size_t flags,
+                                                    const OFBool ignoreCharset)
 {
     // call the method of the base class; this method is only needed to avoid a compiler warning
-    return DcmItem::convertCharacterSet(toCharset, transliterate, ignoreCharset, discardIllegal);
+    return DcmItem::convertCharacterSet(toCharset, flags, ignoreCharset);
 }
 
 
@@ -1162,13 +1160,19 @@ OFCondition DcmDirectoryRecord::convertCharacterSet(DcmSpecificCharacterSet &con
             << fromCharset << "'" << (fromCharset.empty() ? " (ASCII)" : "") << " to '"
             << toCharset << "'" << (toCharset.empty() ? " (ASCII)" : ""));
         // select source and destination character set, use same transliteration mode
-        status = newConverter.selectCharacterSet(fromCharset, toCharset, converter.getTransliterationMode(), converter.getDiscardIllegalSequenceMode());
+        status = newConverter.selectCharacterSet(fromCharset, toCharset);
         if (status.good())
         {
-            // convert all affected element values in the item with the new converter
-            status = DcmItem::convertCharacterSet(newConverter);
-            // update the Specific Character Set (0008,0005) element
-            updateSpecificCharacterSet(status, newConverter);
+            const unsigned cflags = converter.getConversionFlags();
+            if (cflags > 0)
+                status = newConverter.setConversionFlags(cflags);
+            if (status.good())
+            {
+                // convert all affected element values in the item with the new converter
+                status = DcmItem::convertCharacterSet(newConverter);
+                // update the Specific Character Set (0008,0005) element
+                updateSpecificCharacterSet(status, newConverter);
+            }
         }
     } else {
         // no Specific Character Set attribute or the same character set,

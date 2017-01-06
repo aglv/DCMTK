@@ -42,7 +42,7 @@ SET(DCMTK_MINOR_VERSION 6)
 SET(DCMTK_BUILD_VERSION 1)
 # The ABI is not guaranteed to be stable between different snapshots/releases,
 # so this particular version number is increased for each snapshot or release.
-SET(DCMTK_ABI_VERSION 8)
+SET(DCMTK_ABI_VERSION 10)
 
 # Package "release" settings (some are currently unused and, therefore, disabled)
 SET(DCMTK_PACKAGE_NAME "dcmtk")
@@ -78,6 +78,7 @@ OPTION(DCMTK_WITH_ZLIB "Configure DCMTK with support for ZLIB." ON)
 OPTION(DCMTK_WITH_OPENSSL "Configure DCMTK with support for OPENSSL." ON)
 OPTION(DCMTK_WITH_SNDFILE "Configure DCMTK with support for SNDFILE." ON)
 OPTION(DCMTK_WITH_ICONV "Configure DCMTK with support for ICONV." ON)
+OPTION(DCMTK_WITH_ICU "Configure DCMTK with support for ICU." ON)
 IF(NOT WIN32)
   OPTION(DCMTK_WITH_WRAP "Configure DCMTK with support for WRAP." ON)
 ENDIF(NOT WIN32)
@@ -93,11 +94,11 @@ OPTION(DCMTK_WIDE_CHAR_MAIN_FUNCTION "Build command line tools with wide char ma
 # configured the the opposite way since most users won't be interested in using
 # the external default dictionary if it is already compiled in.
 IF(WIN32 OR MINGW)
-  OPTION(DCMTK_ENABLE_BUILTIN_DICTIONARY "Configure DCMTK with compiled-in data dictionary" ON)
-  OPTION(DCMTK_ENABLE_EXTERNAL_DICTIONARY "Configure DCMTK to load external dictionary from default path on startup" OFF)
+  OPTION(DCMTK_ENABLE_BUILTIN_DICTIONARY "Configure DCMTK with compiled-in data dictionary." ON)
+  OPTION(DCMTK_ENABLE_EXTERNAL_DICTIONARY "Configure DCMTK to load external dictionary from default path on startup." OFF)
 ELSE(WIN32 or MINGW) # built-in dictionary turned off on Unix per default
-  OPTION(DCMTK_ENABLE_BUILTIN_DICTIONARY "Configure DCMTK with compiled-in data dictionary" OFF)
-  OPTION(DCMTK_ENABLE_EXTERNAL_DICTIONARY "Configure DCMTK to load external dictionary from default path on startup" ON)
+  OPTION(DCMTK_ENABLE_BUILTIN_DICTIONARY "Configure DCMTK with compiled-in data dictionary." OFF)
+  OPTION(DCMTK_ENABLE_EXTERNAL_DICTIONARY "Configure DCMTK to load external dictionary from default path on startup." ON)
 ENDIF(WIN32 OR MINGW)
 if (NOT DCMTK_ENABLE_EXTERNAL_DICTIONARY AND NOT DCMTK_ENABLE_BUILTIN_DICTIONARY)
   MESSAGE(WARNING "Either external or built-in dictionary should be enabled, otherwise dictionary must be loaded manually on startup!")

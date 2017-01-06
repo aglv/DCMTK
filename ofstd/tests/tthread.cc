@@ -28,6 +28,7 @@
 #include "dcmtk/ofstd/ofthread.h"
 #include "dcmtk/ofstd/ofstring.h"
 #include "dcmtk/ofstd/ofstd.h"
+#include "dcmtk/ofstd/ofdiag.h"
 
 #define BAILOUT(msg) do { \
     OFCHECK_FAIL(msg); \
@@ -121,11 +122,6 @@ static void mutex_test()
   delete mutex;
 }
 
-/* Currently OFSemaphore is not working and disabled on Mac OS X. Thus,
- * it is not tested on Mac OS X.
- */
-#ifndef _DARWIN_C_SOURCE
-
 static OFSemaphore *semaphore=NULL;
 static int sem_cond1=0;
 static int sem_cond2=0;
@@ -216,8 +212,6 @@ static void semaphore_test()
   delete semaphore;
 }
 
-#endif //_DARWIN_C_SOURCE
-
 static OFReadWriteLock *rwlock=NULL;
 static OFMutex *mutex2=NULL;
 static int rw_cond1=0;
@@ -227,29 +221,6 @@ static int rw_cond4=0;
 static int rw_cond5=0;
 static int rw_cond6=0;
 static int rw_cond7=0;
-
-class RWLockT1: public OFThread
-{
-public:
-  RWLockT1(): OFThread() {}
-  ~RWLockT1() {}
-
-  virtual void run()
-  {
-    if (0 == rwlock->rdlock())
-    {
-      rw_cond1 = 1; // acquired read lock
-      mutex->lock();
-      mutex->unlock();
-      if (0== rwlock->unlock()) rw_cond2=1;
-      mutex2->lock();
-      mutex2->unlock();
-      if (OFReadWriteLock::busy == rwlock->tryrdlock()) rw_cond3=1;
-      if ((0 == rwlock->rdlock())&&(0==rwlock->unlock())) rw_cond4=1;
-    }
-    return;
-  }
-};
 
 class RWLockT2: public OFThread
 {
@@ -266,6 +237,35 @@ public:
       mutex2->unlock();
       OFStandard::milliSleep(wait_timeout);
       if (0==rwlock->unlock()) rw_cond7=1;
+    }
+    return;
+  }
+};
+
+class RWLockT1: public OFThread
+{
+private:
+  RWLockT2 &t2;
+public:
+#include DCMTK_DIAGNOSTIC_PUSH
+#include DCMTK_DIAGNOSTIC_IGNORE_SHADOW
+  RWLockT1(RWLockT2 &t2) : OFThread(), t2(t2) {}
+#include DCMTK_DIAGNOSTIC_POP
+  ~RWLockT1() {}
+
+  virtual void run()
+  {
+    if (0 == rwlock->rdlock())
+    {
+      t2.start();
+      rw_cond1 = 1; // acquired read lock
+      mutex->lock();
+      mutex->unlock();
+      if (0== rwlock->unlock()) rw_cond2=1;
+      mutex2->lock();
+      mutex2->unlock();
+      if (OFReadWriteLock::busy == rwlock->tryrdlock()) rw_cond3=1;
+      if ((0 == rwlock->rdlock())&&(0==rwlock->unlock())) rw_cond4=1;
     }
     return;
   }
@@ -298,12 +298,9 @@ static void rwlock_test()
     BAILOUT(errmsg);
   }
 
-  RWLockT1 t1;
-  if (0 != t1.start()) BAILOUT("unable to create thread, semaphore test failed");
-
   RWLockT2 t2;
-  if (0 != t2.start()) BAILOUT("unable to create thread, semaphore test failed");
-
+  RWLockT1 t1(t2);
+  if (0 != t1.start()) BAILOUT("unable to create thread, read/write lock/unlock test failed");
 
   int i=0;
   while ((i++<5) && ((!rw_cond1)||(!rw_cond5))) OFStandard::milliSleep(wait_timeout);
@@ -317,7 +314,7 @@ static void rwlock_test()
     BAILOUT(errmsg);
   }
   OFStandard::milliSleep(wait_timeout);
-  if (rw_cond6) BAILOUT("read/write lock test failed");
+  if (rw_cond6) BAILOUT("read/write lock/unlock test failed");
 
   mutex->unlock();
 
@@ -325,38 +322,13 @@ static void rwlock_test()
   while ((i++<5) && ((!rw_cond2)||(!rw_cond3)||(!rw_cond4)||(!rw_cond5)||(!rw_cond6)||(!rw_cond7))) OFStandard::milliSleep(wait_timeout);
   if ((!rw_cond2)||(!rw_cond3)||(!rw_cond4)||(!rw_cond5)||(!rw_cond6)||(!rw_cond7)) BAILOUT("read/write lock/unlock test failed");
 
-  if (0 != t1.join()) BAILOUT("unable to join thread, semaphore test failed");
-  if (0 != t2.join()) BAILOUT("unable to join thread, semaphore test failed");
+  if (0 != t1.join()) BAILOUT("unable to join thread, read/write lock/unlock test failed");
+  if (0 != t2.join()) BAILOUT("unable to join thread, read/write lock/unlock test failed");
 
   delete mutex;
   delete mutex2;
   delete rwlock;
 }
-
-class RWLockerT1: public OFThread
-{
-public:
-  RWLockerT1(): OFThread() {}
-  ~RWLockerT1() {}
-
-  virtual void run()
-  {
-    OFReadWriteLocker locker(*rwlock);
-    if (0 == locker.rdlock())
-    {
-      rw_cond1 = 1; // acquired read lock
-      mutex->lock();
-      mutex->unlock();
-      if (0== locker.unlock()) rw_cond2=1;
-      mutex2->lock();
-      mutex2->unlock();
-      if (OFReadWriteLock::busy == locker.tryrdlock()) rw_cond3=1;
-      if (0 == locker.rdlock()) rw_cond4=1;
-      // Implicit unlock() at the end
-    }
-    return;
-  }
-};
 
 class RWLockerT2: public OFThread
 {
@@ -375,6 +347,37 @@ public:
       OFStandard::milliSleep(wait_timeout);
       // Explicite unlock(), check if this causes one unlock() too much
       if (0==locker.unlock()) rw_cond7=1;
+    }
+    return;
+  }
+};
+
+class RWLockerT1: public OFThread
+{
+private:
+  RWLockerT2 &t2;
+public:
+#include DCMTK_DIAGNOSTIC_PUSH
+#include DCMTK_DIAGNOSTIC_IGNORE_SHADOW
+  RWLockerT1(RWLockerT2 &t2): OFThread(), t2(t2) {}
+#include DCMTK_DIAGNOSTIC_POP
+  ~RWLockerT1() {}
+
+  virtual void run()
+  {
+    OFReadWriteLocker locker(*rwlock);
+    if (0 == locker.rdlock())
+    {
+      t2.start();
+      rw_cond1 = 1; // acquired read lock
+      mutex->lock();
+      mutex->unlock();
+      if (0== locker.unlock()) rw_cond2=1;
+      mutex2->lock();
+      mutex2->unlock();
+      if (OFReadWriteLock::busy == locker.tryrdlock()) rw_cond3=1;
+      if (0 == locker.rdlock()) rw_cond4=1;
+      // Implicit unlock() at the end
     }
     return;
   }
@@ -419,17 +422,14 @@ static void rwlocker_test()
     BAILOUT(errmsg);
   }
 
-  RWLockerT1 t1;
-  if (0 != t1.start()) BAILOUT("unable to create thread, semaphore test failed");
-
   RWLockerT2 t2;
-  if (0 != t2.start()) BAILOUT("unable to create thread, semaphore test failed");
-
+  RWLockerT1 t1(t2);
+  if (0 != t1.start()) BAILOUT("unable to create thread, read/write lock test failed");
 
   int i=0;
   while ((i++<5) && ((!rw_cond1)||(!rw_cond5))) OFStandard::milliSleep(wait_timeout);
 
-  if ((!rw_cond1)||(!rw_cond5)) BAILOUT("read/write lock/unlock test failed");
+  if ((!rw_cond1)||(!rw_cond5)) BAILOUT("read/write lock test failed");
   condition = rwlockLocker.unlock();
   if (condition)
   {
@@ -444,10 +444,10 @@ static void rwlocker_test()
 
   i=0;
   while ((i++<5) && ((!rw_cond2)||(!rw_cond3)||(!rw_cond4)||(!rw_cond5)||(!rw_cond6)||(!rw_cond7))) OFStandard::milliSleep(wait_timeout);
-  if ((!rw_cond2)||(!rw_cond3)||(!rw_cond4)||(!rw_cond5)||(!rw_cond6)||(!rw_cond7)) BAILOUT("read/write lock/unlock test failed");
+  if ((!rw_cond2)||(!rw_cond3)||(!rw_cond4)||(!rw_cond5)||(!rw_cond6)||(!rw_cond7)) BAILOUT("read/write lock test failed");
 
-  if (0 != t1.join()) BAILOUT("unable to join thread, semaphore test failed");
-  if (0 != t2.join()) BAILOUT("unable to join thread, semaphore test failed");
+  if (0 != t1.join()) BAILOUT("unable to join thread, read/write lock test failed");
+  if (0 != t2.join()) BAILOUT("unable to join thread, read/write lock test failed");
 
   delete mutex;
   delete mutex2;
@@ -576,9 +576,7 @@ OFTEST(ofstd_thread)
 {
   // This makes sure tests are executed in the expected order
   mutex_test();
-#ifndef _DARWIN_C_SOURCE
   semaphore_test(); // may assume that mutexes work correctly
-#endif
   rwlock_test();    // may assume that mutexes and semaphores work correctly
   rwlocker_test();  // may assume that mutexes, semaphores and read/write locks work correctly
   tsdata_test();

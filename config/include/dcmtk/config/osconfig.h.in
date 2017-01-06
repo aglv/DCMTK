@@ -43,6 +43,14 @@
 /* Define if >> is unsigned on the C compiler */
 #undef C_RIGHTSHIFT_UNSIGNED
 
+/* character set conversion constants. */
+#define DCMTK_CHARSET_CONVERSION_ICU 1
+#define DCMTK_CHARSET_CONVERSION_ICONV 2
+#define DCMTK_CHARSET_CONVERSION_STDLIBC_ICONV 3
+
+/* Define to select character set conversion implementation. */
+#undef DCMTK_ENABLE_CHARSET_CONVERSION
+
 /* Define the DCMTK default path. */
 #undef DCMTK_PREFIX
 
@@ -1034,6 +1042,9 @@ typedef unsigned short ushort;
 /* Define if we are compiling with libiconv support. */
 #undef WITH_LIBICONV
 
+/* Define if we are compiling with ICU support. */
+#undef WITH_LIBICU
+
 /* Define if we are compiling with libpng support. */
 #undef WITH_LIBPNG
 
@@ -1048,6 +1059,9 @@ typedef unsigned short ushort;
 
 /* Define if we are compiling with libsndfile support. */
 #undef WITH_SNDFILE
+
+/* Define if the C standard library has iconv builtin. */
+#undef WITH_STDLIBC_ICONV
 
 /* Define if we are compiling with libwrap (TCP wrapper) support. */
 #undef WITH_TCPWRAPPER

@@ -29,6 +29,8 @@
 #include "dcmtk/dcmdata/dcelem.h"
 #include "dcmtk/ofstd/ofstring.h"
 
+// forward declarations
+class DcmJsonFormat;
 
 // include this file in doxygen documentation
 
@@ -169,6 +171,7 @@ class DCMTK_DCMDATA_EXPORT DcmByteString: public DcmElement
      *  @param oxfer transfer syntax used to write the data
      *  @param enctype flag, specifying the encoding with undefined or explicit length
      *  @param wcache pointer to write cache object, may be NULL
+     *  @return status, EC_Normal if successful, an error code otherwise
      */
     virtual OFCondition write(DcmOutputStream &outStream,
                               const E_TransferSyntax oxfer,
@@ -180,6 +183,7 @@ class DCMTK_DCMDATA_EXPORT DcmByteString: public DcmElement
      *  @param oxfer transfer syntax used to write the data
      *  @param enctype flag, specifying the encoding with undefined or explicit length
      *  @param wcache pointer to write cache object, may be NULL
+     *  @return status, EC_Normal if successful, an error code otherwise
      */
     virtual OFCondition writeSignatureFormat(DcmOutputStream &outStream,
                                              const E_TransferSyntax oxfer,
@@ -275,6 +279,14 @@ class DCMTK_DCMDATA_EXPORT DcmByteString: public DcmElement
      *  @return true if object is empty, i.e.\ has no value, false otherwise
      */
     virtual OFBool isEmpty(const OFBool normalize = OFTrue);
+
+    /** write object in JSON format
+     *  @param out output stream to which the JSON document is written
+     *  @param format used to format and customize the output
+     *  @return status, EC_Normal if successful, an error code otherwise
+     */
+    virtual OFCondition writeJson(STD_NAMESPACE ostream &out,
+                                  DcmJsonFormat &format);
 
  protected:
 

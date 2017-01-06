@@ -2843,7 +2843,7 @@ OFString OFStandard::getUserName()
         OFnullptr
     );
     return &*buf.begin();
-#elif defined(HAVE_CUSERID)
+#elif defined(HAVE_CUSERID) && !defined(__CYGWIN__)
     char buf[L_cuserid];
     return cuserid( buf );
 #elif defined(HAVE_GETLOGIN)
@@ -2880,3 +2880,5 @@ OFString OFStandard::getHostName()
     return "localhost";
 #endif
 }
+
+DCMTK_OFSTD_EXPORT OFin_place_tag OFin_place() { return *static_cast<OFin_place_tag*>(OFnullptr); }

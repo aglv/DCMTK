@@ -69,6 +69,7 @@ DSRDocument::DSRDocument(const E_DocumentType documentType)
     InstanceCreationTime(DCM_InstanceCreationTime),
     InstanceCreatorUID(DCM_InstanceCreatorUID),
     CodingSchemeIdentification(),
+    TimezoneOffsetFromUTC(DCM_TimezoneOffsetFromUTC),
     StudyInstanceUID(DCM_StudyInstanceUID),
     StudyDate(DCM_StudyDate),
     StudyTime(DCM_StudyTime),
@@ -135,6 +136,7 @@ void DSRDocument::clear()
     InstanceCreationTime.clear();
     InstanceCreatorUID.clear();
     CodingSchemeIdentification.clear();
+    TimezoneOffsetFromUTC.clear();
     StudyInstanceUID.clear();
     StudyDate.clear();
     StudyTime.clear();
@@ -305,7 +307,7 @@ OFCondition DSRDocument::print(STD_NAMESPACE ostream &stream,
                     DCMSR_PRINT_HEADER_FIELD_END
                 }
                 /* predecessor documents */
-                if (!PredecessorDocuments.empty())
+                if (!PredecessorDocuments.isEmpty())
                 {
                     DCMSR_PRINT_HEADER_FIELD_START("Predecessor Docs   ", " : ")
                     stream << PredecessorDocuments.getNumberOfInstances();
@@ -313,14 +315,14 @@ OFCondition DSRDocument::print(STD_NAMESPACE ostream &stream,
                 }
             }
             /* identical documents */
-            if (!IdenticalDocuments.empty())
+            if (!IdenticalDocuments.isEmpty())
             {
                 DCMSR_PRINT_HEADER_FIELD_START("Identical Docs     ", " : ")
                 stream << IdenticalDocuments.getNumberOfInstances();
                 DCMSR_PRINT_HEADER_FIELD_END
             }
             /* referenced instances */
-            if (!ReferencedInstances.empty())
+            if (!ReferencedInstances.isEmpty())
             {
                 DCMSR_PRINT_HEADER_FIELD_START("References Objects ", " : ")
                 stream << ReferencedInstances.getNumberOfItems();
@@ -452,6 +454,14 @@ OFCondition DSRDocument::read(DcmItem &dataset,
         getAndCheckElementFromDataset(dataset, InstanceCreationTime, "1", "3", "SOPCommonModule");
         getAndCheckElementFromDataset(dataset, InstanceCreatorUID, "1", "3", "SOPCommonModule");
         CodingSchemeIdentification.read(dataset, flags);
+        if (requiresTimezoneModule(documentType))
+        {
+            // --- Timezone Module ---
+            getAndCheckElementFromDataset(dataset, TimezoneOffsetFromUTC, "1", "1", "TimezoneModule");
+        } else {
+            // --- SOP Common Module ---
+            getAndCheckElementFromDataset(dataset, TimezoneOffsetFromUTC, "1", "3", "SOPCommonModule");
+        }
 
         // --- General Study and Patient Module ---
         readStudyData(dataset, flags);
@@ -623,6 +633,14 @@ OFCondition DSRDocument::write(DcmItem &dataset,
         addElementToDataset(result, dataset, new DcmTime(InstanceCreationTime), "1", "3", "SOPCommonModule");
         addElementToDataset(result, dataset, new DcmUniqueIdentifier(InstanceCreatorUID), "1", "3", "SOPCommonModule");
         CodingSchemeIdentification.write(dataset);
+        if (requiresTimezoneModule(getDocumentType()))
+        {
+            // --- Timezone Module ---
+            addElementToDataset(result, dataset, new DcmShortString(TimezoneOffsetFromUTC), "1", "1", "TimezoneModule");
+        } else {
+            // --- SOP Common Module ---
+            addElementToDataset(result, dataset, new DcmShortString(TimezoneOffsetFromUTC), "1", "3", "SOPCommonModule");
+        }
 
         // --- General Study Module ---
         addElementToDataset(result, dataset, new DcmUniqueIdentifier(StudyInstanceUID), "1", "1", "GeneralStudyModule");
@@ -795,6 +813,10 @@ OFCondition DSRDocument::readXMLDocumentHeader(DSRXMLDocument &doc,
                     doc.printUnexpectedNodeWarning(cursor);
                 }
             }
+            else if (doc.matchNode(cursor, "timezone"))
+            {
+                doc.getElementFromNodeContent(cursor, TimezoneOffsetFromUTC, NULL, OFTrue /*encoding*/);
+            }
             else if (doc.matchNode(cursor, "modality"))
             {
                 OFString tmpString;
@@ -910,14 +932,20 @@ OFCondition DSRDocument::readXMLPatientData(const DSRXMLDocument &doc,
 
 OFCondition DSRDocument::readXMLStudyData(const DSRXMLDocument &doc,
                                           DSRXMLCursor cursor,
-                                          const size_t /*flags*/)
+                                          const size_t flags)
 {
     OFCondition result = SR_EC_InvalidDocument;
     if (cursor.valid())
     {
         OFString tmpString;
         /* get Study Instance UID from XML attribute */
-        result = doc.getElementFromAttribute(cursor, StudyInstanceUID, "uid");
+        if (flags & XF_acceptEmptyStudySeriesInstanceUID)
+        {
+            if (doc.getElementFromAttribute(cursor, StudyInstanceUID, "uid", OFFalse /*encoding*/, OFFalse /*required*/).bad())
+                doc.printMissingAttributeWarning(cursor, "uid");
+            result = EC_Normal;
+        } else
+            result = doc.getElementFromAttribute(cursor, StudyInstanceUID, "uid");
         /* goto first sub-element */
         cursor.gotoChild();
         /* iterate over all nodes */
@@ -956,14 +984,20 @@ OFCondition DSRDocument::readXMLStudyData(const DSRXMLDocument &doc,
 
 OFCondition DSRDocument::readXMLSeriesData(const DSRXMLDocument &doc,
                                            DSRXMLCursor cursor,
-                                           const size_t /*flags*/)
+                                           const size_t flags)
 {
     OFCondition result = SR_EC_InvalidDocument;
     if (cursor.valid())
     {
         OFString tmpString;
         /* get Series Instance UID from XML attribute */
-        result = doc.getElementFromAttribute(cursor, SeriesInstanceUID, "uid");
+        if (flags & XF_acceptEmptyStudySeriesInstanceUID)
+        {
+            if (doc.getElementFromAttribute(cursor, SeriesInstanceUID, "uid", OFFalse /*encoding*/, OFFalse /*required*/).bad())
+                doc.printMissingAttributeWarning(cursor, "uid");
+            result = EC_Normal;
+        } else
+            result = doc.getElementFromAttribute(cursor, SeriesInstanceUID, "uid");
         /* goto first sub-element */
         cursor.gotoChild();
         /* iterate over all nodes */
@@ -999,14 +1033,20 @@ OFCondition DSRDocument::readXMLSeriesData(const DSRXMLDocument &doc,
 
 OFCondition DSRDocument::readXMLInstanceData(const DSRXMLDocument &doc,
                                              DSRXMLCursor cursor,
-                                             const size_t /*flags*/)
+                                             const size_t flags)
 {
     OFCondition result = SR_EC_InvalidDocument;
     if (cursor.valid())
     {
         OFString tmpString;
         /* get SOP Instance UID from XML attribute */
-        result = doc.getElementFromAttribute(cursor, SOPInstanceUID, "uid");
+        if (flags & XF_acceptEmptyStudySeriesInstanceUID)
+        {
+            if (doc.getElementFromAttribute(cursor, SOPInstanceUID, "uid", OFFalse /*encoding*/, OFFalse /*required*/).bad())
+                doc.printMissingAttributeWarning(cursor, "uid");
+            result = EC_Normal;
+        } else
+            result = doc.getElementFromAttribute(cursor, SOPInstanceUID, "uid");
         /* goto first sub-element */
         cursor.gotoChild();
         /* iterate over all nodes */
@@ -1015,6 +1055,8 @@ OFCondition DSRDocument::readXMLInstanceData(const DSRXMLDocument &doc,
             /* check for known element tags */
             if (doc.matchNode(cursor, "creation"))
             {
+                /* Instance Creator UID */
+                doc.getElementFromAttribute(cursor, InstanceCreatorUID, "uid", OFFalse /*encoding*/, OFFalse /*required*/);
                 /* Instance Creation Date */
                 DSRDateTreeNode::getValueFromXMLNodeContent(doc, doc.getNamedNode(cursor.getChild(), "date"), tmpString);
                 InstanceCreationDate.putOFStringArray(tmpString);
@@ -1224,6 +1266,7 @@ OFCondition DSRDocument::writeXML(STD_NAMESPACE ostream &stream,
         stream << dcmFindNameOfUID(tmpString.c_str(), "" /* empty value as default */);
         stream << "</sopclass>" << OFendl;
         writeStringFromElementToXML(stream, SpecificCharacterSet, "charset", (flags & XF_writeEmptyTags) > 0);
+        writeStringFromElementToXML(stream, TimezoneOffsetFromUTC, "timezone", (flags & XF_writeEmptyTags) > 0);
         writeStringFromElementToXML(stream, Modality, "modality", (flags & XF_writeEmptyTags) > 0);
         /* check for additional device information */
         if (!ManufacturerModelName.isEmpty())
@@ -1299,13 +1342,13 @@ OFCondition DSRDocument::writeXML(STD_NAMESPACE ostream &stream,
         }
         stream << "</instance>" << OFendl;
 
-        if ((flags & XF_writeEmptyTags) || !CodingSchemeIdentification.empty())
+        if ((flags & XF_writeEmptyTags) || !CodingSchemeIdentification.isEmpty())
         {
             stream << "<coding>" << OFendl;
             CodingSchemeIdentification.writeXML(stream, flags);
             stream << "</coding>" << OFendl;
         }
-        if ((flags & XF_writeEmptyTags) || !CurrentRequestedProcedureEvidence.empty())
+        if ((flags & XF_writeEmptyTags) || !CurrentRequestedProcedureEvidence.isEmpty())
         {
             stream << "<evidence type=\"Current Requested Procedure\">" << OFendl;
             CurrentRequestedProcedureEvidence.writeXML(stream, flags);
@@ -1313,13 +1356,13 @@ OFCondition DSRDocument::writeXML(STD_NAMESPACE ostream &stream,
         }
         if (getDocumentType() != DT_KeyObjectSelectionDocument)
         {
-            if ((flags & XF_writeEmptyTags) || !PertinentOtherEvidence.empty())
+            if ((flags & XF_writeEmptyTags) || !PertinentOtherEvidence.isEmpty())
             {
                 stream << "<evidence type=\"Pertinent Other\">" << OFendl;
                 PertinentOtherEvidence.writeXML(stream, flags);
                 stream << "</evidence>" << OFendl;
             }
-            if ((flags & XF_writeEmptyTags) || !ReferencedInstances.empty())
+            if ((flags & XF_writeEmptyTags) || !ReferencedInstances.isEmpty())
             {
                 stream << "<reference>" << OFendl;
                 ReferencedInstances.writeXML(stream, flags);
@@ -1366,14 +1409,14 @@ OFCondition DSRDocument::writeXML(STD_NAMESPACE ostream &stream,
             }
             stream << "</verification>" << OFendl;
 
-            if ((flags & XF_writeEmptyTags) || !PredecessorDocuments.empty())
+            if ((flags & XF_writeEmptyTags) || !PredecessorDocuments.isEmpty())
             {
                 stream << "<predecessor>" << OFendl;
                 PredecessorDocuments.writeXML(stream, flags);
                 stream << "</predecessor>" << OFendl;
             }
         }
-        if ((flags & XF_writeEmptyTags) || !IdenticalDocuments.empty())
+        if ((flags & XF_writeEmptyTags) || !IdenticalDocuments.isEmpty())
         {
             stream << "<identical>" << OFendl;
             IdenticalDocuments.writeXML(stream, flags);
@@ -1539,7 +1582,7 @@ OFCondition DSRDocument::renderHTML(STD_NAMESPACE ostream &stream,
         /* used for HTML tmpString conversion */
         OFString htmlString;
         /* update only some DICOM attributes */
-        updateAttributes(OFFalse /* updateAll */);
+        updateAttributes(OFFalse /*updateAll*/);
 
         // --- HTML/XHTML document structure (start) ---
 
@@ -1742,7 +1785,7 @@ OFCondition DSRDocument::renderHTML(STD_NAMESPACE ostream &stream,
                     stream << "</tr>" << OFendl;
                 }
                 /* predecessor documents */
-                if (!PredecessorDocuments.empty())
+                if (!PredecessorDocuments.isEmpty())
                 {
                     stream << "<tr>" << OFendl;
                     stream << "<td><b>Predecessor Docs:</b></td>" << OFendl;
@@ -1751,7 +1794,7 @@ OFCondition DSRDocument::renderHTML(STD_NAMESPACE ostream &stream,
                 }
             }
             /* identical documents */
-            if (!IdenticalDocuments.empty())
+            if (!IdenticalDocuments.isEmpty())
             {
                 stream << "<tr>" << OFendl;
                 stream << "<td><b>Identical Docs:</b></td>" << OFendl;
@@ -1759,7 +1802,7 @@ OFCondition DSRDocument::renderHTML(STD_NAMESPACE ostream &stream,
                 stream << "</tr>" << OFendl;
             }
             /* referenced instances */
-            if (!ReferencedInstances.empty())
+            if (!ReferencedInstances.isEmpty())
             {
                 stream << "<tr>" << OFendl;
                 stream << "<td><b>Referenced Objects:</b></td>" << OFendl;
@@ -1981,7 +2024,13 @@ DSRTypes::E_VerificationFlag DSRDocument::getVerificationFlag() const
 }
 
 
-size_t DSRDocument::getNumberOfVerifyingObservers()
+OFBool DSRDocument::hasVerifyingObservers() const
+{
+    return (VerifyingObserver.card() > 0);
+}
+
+
+size_t DSRDocument::getNumberOfVerifyingObservers() const
 {
     return OFstatic_cast(size_t, VerifyingObserver.card());
 }
@@ -2137,6 +2186,13 @@ OFCondition DSRDocument::getInstanceCreatorUID(OFString &value,
                                                const signed long pos) const
 {
     return getStringValueFromElement(InstanceCreatorUID, value, pos);
+}
+
+
+OFCondition DSRDocument::getTimezoneOffsetFromUTC(OFString &value,
+                                                  const signed long pos) const
+{
+    return getStringValueFromElement(TimezoneOffsetFromUTC, value, pos);
 }
 
 
@@ -2339,6 +2395,16 @@ OFCondition DSRDocument::setCompletionFlagDescription(const OFString &value,
         if (result.good())
             result = CompletionFlagDescription.putOFStringArray(value);
     }
+    return result;
+}
+
+
+OFCondition DSRDocument::setTimezoneOffsetFromUTC(const OFString &value,
+                                                  const OFBool check)
+{
+    OFCondition result = (check) ? DcmShortString::checkStringValue(value, "1", getSpecificCharacterSet()) : EC_Normal;
+    if (result.good())
+        result = TimezoneOffsetFromUTC.putOFStringArray(value);
     return result;
 }
 
@@ -2831,6 +2897,7 @@ OFCondition DSRDocument::finalizeDocument()
 
 void DSRDocument::updateAttributes(const OFBool updateAll)
 {
+    DCMSR_DEBUG("Updating " << (updateAll ? "all " : "") << "DICOM header attributes");
     const E_DocumentType documentType = getDocumentType();
     /* retrieve SOP class UID from internal document type */
     SOPClassUID.putString(documentTypeToSOPClassUID(documentType));
@@ -2838,6 +2905,14 @@ void DSRDocument::updateAttributes(const OFBool updateAll)
     Modality.putString(documentTypeToModality(documentType));
     if (updateAll)
     {
+        OFString tmpString;
+        /* determine local timezone (if required) */
+        if (requiresTimezoneModule(documentType) && TimezoneOffsetFromUTC.isEmpty())
+        {
+            DCMSR_DEBUG("  Determining local timezone for Timezone Offset From UTC");
+            TimezoneOffsetFromUTC.putOFStringArray(localTimezone(tmpString));
+        }
+
         /* create new instance number if required (type 1) */
         if (InstanceNumber.isEmpty())
             InstanceNumber.putString("1");
@@ -2849,7 +2924,7 @@ void DSRDocument::updateAttributes(const OFBool updateAll)
         /* create new SOP instance UID if required */
         if (SOPInstanceUID.isEmpty())
         {
-            OFString tmpString;
+            DCMSR_DEBUG("  Generating new value for SOP Instance UID");
             SOPInstanceUID.putString(dcmGenerateUniqueIdentifier(uid, SITE_INSTANCE_UID_ROOT));
             /* set instance creation date to current date (YYYYMMDD) */
             InstanceCreationDate.putOFStringArray(currentDate(tmpString));
@@ -2860,10 +2935,16 @@ void DSRDocument::updateAttributes(const OFBool updateAll)
         }
         /* create new study instance UID if required */
         if (StudyInstanceUID.isEmpty())
+        {
+            DCMSR_DEBUG("  Generating new value for Study Instance UID");
             StudyInstanceUID.putString(dcmGenerateUniqueIdentifier(uid, SITE_STUDY_UID_ROOT));
+        }
         /* create new series instance UID if required */
         if (SeriesInstanceUID.isEmpty())
+        {
+            DCMSR_DEBUG("  Generating new value for Series Instance UID");
             SeriesInstanceUID.putString(dcmGenerateUniqueIdentifier(uid, SITE_SERIES_UID_ROOT));
+        }
 
         /* check and set content date if required */
         if (ContentDate.isEmpty())

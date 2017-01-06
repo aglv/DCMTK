@@ -1,6 +1,6 @@
 /*
  *
- *  Copyright (C) 1994-2014, OFFIS e.V.
+ *  Copyright (C) 1994-2016, OFFIS e.V.
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  This software and supporting documentation were developed by
@@ -40,7 +40,7 @@
 #ifdef WITH_ZLIB
 #include <zlib.h>                      /* for zlibVersion() */
 #endif
-#ifdef WITH_LIBICONV
+#ifdef DCMTK_ENABLE_CHARSET_CONVERSION
 #include "dcmtk/ofstd/ofchrenc.h"      /* for OFCharacterEncoding */
 #endif
 
@@ -69,7 +69,7 @@ static DcmTagKey parseTagKey(const char *tagName)
     const DcmDictEntry *dicent = globalDataDict.findEntry(tagName);
     if (dicent == NULL)
     {
-      OFLOG_ERROR(dcmconvLogger, "unrecognised tag name: '" << tagName << "'");
+      OFLOG_ERROR(dcmconvLogger, "unrecognized tag name: '" << tagName << "'");
       tagKey = DCM_UndefinedTagKey;
     } else {
       tagKey = dicent->getKey();
@@ -105,10 +105,9 @@ int main(int argc, char *argv[])
 #ifdef WITH_ZLIB
   OFCmdUnsignedInt opt_compressionLevel = 0;
 #endif
-#ifdef WITH_LIBICONV
+#ifdef DCMTK_ENABLE_CHARSET_CONVERSION
   const char *opt_convertToCharset = NULL;
-  OFBool opt_transliterate = OFFalse;
-  OFBool opt_discardIllegal = OFFalse;
+  size_t opt_conversionFlags = 0;
 #endif
   OFBool opt_noInvalidGroups = OFFalse;
 
@@ -160,6 +159,12 @@ int main(int argc, char *argv[])
     cmd.addSubGroup("handling of wrong delimitation items:");
       cmd.addOption("--use-delim-items",     "-rd",    "use delimitation items from dataset (default)");
       cmd.addOption("--replace-wrong-delim", "+rd",    "replace wrong sequence/item delimitation items");
+      cmd.addSubGroup("handling of illegal undefined length OB/OW elements:");
+      cmd.addOption("--illegal-obow-rej",    "-oi",    "reject dataset with illegal element (default)");
+      cmd.addOption("--illegal-obow-conv",   "+oi",    "convert undefined length OB/OW element to SQ");
+    cmd.addSubGroup("handling of VOI LUT Sequence with OW VR and explicit length:");
+      cmd.addOption("--illegal-voi-rej",     "-vi",    "reject dataset with illegal VOI LUT (default)");
+      cmd.addOption("--illegal-voi-conv",    "+vi",    "convert illegal VOI LUT to SQ");
     cmd.addSubGroup("general handling of parser errors: ");
       cmd.addOption("--ignore-parse-errors", "+Ep",    "try to recover from parse errors");
       cmd.addOption("--handle-parse-errors", "-Ep",    "handle parse errors and stop parsing (default)");
@@ -176,7 +181,7 @@ int main(int argc, char *argv[])
 #endif
 
   cmd.addGroup("processing options:");
-#ifdef WITH_LIBICONV
+#ifdef DCMTK_ENABLE_CHARSET_CONVERSION
     cmd.addSubGroup("specific character set:");
       cmd.addOption("--convert-to-utf8",     "+U8",    "convert all element values that are affected\nby Specific Character Set (0008,0005) to UTF-8");
       cmd.addOption("--convert-to-latin1",   "+L1",    "convert affected element values to ISO 8859-1");
@@ -236,7 +241,7 @@ int main(int argc, char *argv[])
           {
               app.printHeader(OFTrue /*print host identifier*/);
               COUT << OFendl << "External libraries used:";
-#if !defined(WITH_ZLIB) && !defined(WITH_LIBICONV)
+#if !defined(WITH_ZLIB) && !defined(DCMTK_ENABLE_CHARSET_CONVERSION)
               COUT << " none" << OFendl;
 #else
               COUT << OFendl;
@@ -244,7 +249,7 @@ int main(int argc, char *argv[])
 #ifdef WITH_ZLIB
               COUT << "- ZLIB, Version " << zlibVersion() << OFendl;
 #endif
-#ifdef WITH_LIBICONV
+#ifdef DCMTK_ENABLE_CHARSET_CONVERSION
               COUT << "- " << OFCharacterEncoding::getLibraryVersionString() << OFendl;
 #endif
               return 0;
@@ -375,6 +380,28 @@ int main(int argc, char *argv[])
       cmd.endOptionBlock();
 
       cmd.beginOptionBlock();
+      if (cmd.findOption("--illegal-obow-reject"))
+      {
+        dcmConvertUndefinedLengthOBOWtoSQ.set(OFFalse);
+      }
+      if (cmd.findOption("--illegal-obow-convert"))
+      {
+        dcmConvertUndefinedLengthOBOWtoSQ.set(OFTrue);
+      }
+      cmd.endOptionBlock();
+
+      cmd.beginOptionBlock();
+      if (cmd.findOption("--illegal-voi-reject"))
+      {
+        dcmConvertVOILUTSequenceOWtoSQ.set(OFFalse);
+      }
+      if (cmd.findOption("--illegal-voi-convert"))
+      {
+        dcmConvertVOILUTSequenceOWtoSQ.set(OFTrue);
+      }
+      cmd.endOptionBlock();
+
+      cmd.beginOptionBlock();
       if (cmd.findOption("--ignore-parse-errors"))
       {
         dcmIgnoreParsingErrors.set(OFTrue);
@@ -421,7 +448,7 @@ int main(int argc, char *argv[])
 #endif
 
       /* processing options */
-#ifdef WITH_LIBICONV
+#ifdef DCMTK_ENABLE_CHARSET_CONVERSION
       cmd.beginOptionBlock();
       if (cmd.findOption("--convert-to-utf8")) opt_convertToCharset = "ISO_IR 192";
       if (cmd.findOption("--convert-to-latin1")) opt_convertToCharset = "ISO_IR 100";
@@ -431,12 +458,12 @@ int main(int argc, char *argv[])
       if (cmd.findOption("--transliterate"))
       {
         app.checkDependence("--transliterate", "one of the --convert-to-xxx options", opt_convertToCharset != NULL);
-        opt_transliterate = OFTrue;
+        opt_conversionFlags |= DCMTypes::CF_transliterate;
       }
       if (cmd.findOption("--discard-illegal"))
       {
         app.checkDependence("--discard-illegal", "one of the --convert-to-xxx options", opt_convertToCharset != NULL);
-        opt_discardIllegal = OFTrue;
+        opt_conversionFlags |= DCMTypes::CF_discardIllegal;
       }
 #endif
       if (cmd.findOption("--no-invalid-groups")) opt_noInvalidGroups = OFTrue;
@@ -550,7 +577,7 @@ int main(int argc, char *argv[])
         OFLOG_INFO(dcmconvLogger, "remove all elements with an invalid group number");
         fileformat.removeInvalidGroups();
     }
-#ifdef WITH_LIBICONV
+#ifdef DCMTK_ENABLE_CHARSET_CONVERSION
     if (opt_convertToCharset != NULL)
     {
         OFString toCharset(opt_convertToCharset);
@@ -558,7 +585,7 @@ int main(int argc, char *argv[])
         OFLOG_INFO(dcmconvLogger, "converting all element values that are affected by "
             << "Specific Character Set (0008,0005) to '" << opt_convertToCharset << "'"
             << (toCharset.empty() ? " (ASCII)" : ""));
-        error = fileformat.convertCharacterSet(toCharset, opt_transliterate, opt_discardIllegal);
+        error = fileformat.convertCharacterSet(toCharset, opt_conversionFlags);
         if (error.bad())
         {
             OFLOG_FATAL(dcmconvLogger, error.text() << ": processing file: " << opt_ifname);

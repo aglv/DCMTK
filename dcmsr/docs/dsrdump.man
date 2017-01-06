@@ -129,7 +129,8 @@ specific character set:
           convert all element values that are affected
           by Specific Character Set (0008,0005) to UTF-8
 
-          # requires support from the libiconv toolkit
+          # requires support from an underlying character encoding library
+          # (see output of --version on which one is available)
 \endverbatim
 
 \subsection output_options output options
@@ -223,6 +224,8 @@ XRayRadiationDoseSRStorage                  1.2.840.10008.5.1.4.1.1.88.67
 RadiopharmaceuticalRadiationDoseSRStorage   1.2.840.10008.5.1.4.1.1.88.68
 ColonCADSRStorage                           1.2.840.10008.5.1.4.1.1.88.69
 ImplantationPlanSRDocumentStorage           1.2.840.10008.5.1.4.1.1.88.70
+AcquisitionContextSRStorage                 1.2.840.10008.5.1.4.1.1.88.71
+SimplifiedAdultEchoSRStorage                1.2.840.10008.5.1.4.1.1.88.72
 \endverbatim
 
 \section logging LOGGING
@@ -288,6 +291,6 @@ It is an error if no data dictionary can be loaded.
 
 \section copyright COPYRIGHT
 
-Copyright (C) 2000-2015 by OFFIS e.V., Escherweg 2, 26121 Oldenburg, Germany.
+Copyright (C) 2000-2016 by OFFIS e.V., Escherweg 2, 26121 Oldenburg, Germany.
 
 */

@@ -1,6 +1,6 @@
 /*
  *
- *  Copyright (C) 2015, Open Connections GmbH
+ *  Copyright (C) 2015-2016, Open Connections GmbH
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  This software and supporting documentation are maintained by
@@ -47,6 +47,11 @@ public:
   /** Constructor
    */
   DcmIODCommon();
+
+  /** Copy Constructor
+   *  @param  rhs The object to copy from
+   */
+  DcmIODCommon(const DcmIODCommon& rhs);
 
   /** Get rules handled by this IOD
    *  @return The rules
@@ -177,6 +182,46 @@ public:
                              OFBool readFoR = OFFalse,
                              OFBool readSeries = OFFalse);
 
+  /** Import common module attributes from DICOM file but only read Patient, Study,
+   *  Series and/or Frame of Reference level portions. The current content
+   *  is not deleted before reading. If the log stream is set and valid the
+   *  reason for any error might be obtained from the error/warning output.
+   *  This function is deprecated and might be removed in later versions of
+   *  DCMTK. Use the import() call offering the same parameters and
+   *  functionality, instead.
+   *  @param  filename The filename to read from.
+   *  @param  usePatient If OFTrue, Patient level information is imported
+   *  @param  useStudy If OFTrue, Study level information is imported
+   *  @param  useSeries If OFTrue, Series level information is imported
+   *  @param  useFoR If OFTrue, Frame of Reference information is imported
+   *  @return EC_Normal if reading was successful (i.e.\ if any information could
+   *          be read), otherwise an error is returned
+   */
+  OFCondition importPatientStudyFoR(const OFString& filename,
+                                    const OFBool usePatient,
+                                    const OFBool useStudy,
+                                    const OFBool useSeries,
+                                    const OFBool useFoR = OFFalse);
+
+  /** Import common module attributes from DICOM file but only read Patient, Study,
+   *  Series and/or Frame of Reference level portions. The current content
+   *  is not deleted before reading. If the log stream is set and valid the
+   *  reason for any error might be obtained from the error/warning output.
+   *  @param  filename The filename to read from
+   *  @param  usePatient If OFTrue, Patient level information is imported
+   *  @param  useStudy If OFTrue, Study level information is imported
+   *  @param  useSeries If OFTrue, Series level information is imported
+   *  @param  useFoR If OFTrue, Frame of Reference information is imported
+   *  @return EC_Normal if reading was successful (i.e.\ if any information could
+   *          be read), otherwise an error is returned
+   */
+  virtual OFCondition import(const OFString& filename,
+                             const OFBool usePatient,
+                             const OFBool useStudy,
+                             const OFBool useSeries,
+                             const OFBool useFoR = OFFalse);
+
+
   /** Write the attributes managed by this class to DICOM dataset.
    *  @param dataset  Reference to DICOM dataset to which the current document
    *                  should be  written. The dataset is not cleared
@@ -187,6 +232,10 @@ public:
 
 
 private:
+
+  /** Copy assignment disabled
+   */
+  DcmIODCommon& operator=(const DcmIODCommon&);
 
   /// The data hold by this class (shared with modules below)
   OFshared_ptr<DcmItem> m_Item;

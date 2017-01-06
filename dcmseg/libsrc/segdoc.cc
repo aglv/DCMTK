@@ -33,11 +33,11 @@
 
 // default constructor (protected, instance creation via create() function)
 DcmSegmentation::DcmSegmentation()
-: DcmIODImage(),
-  m_SegmentationSeries(DcmIODImage::getData(), DcmIODImage::getRules()),
-  m_EnhancedGeneralEquipmentModule(DcmIODImage::getData(), DcmIODImage::getRules()),
-  m_FG(DcmIODImage::getData(), DcmIODImage::getRules()),
-  m_DimensionModule(DcmIODImage::getData(), DcmIODImage::getRules()),
+: DcmSegmentation::IODImage(OFin_place<IODImagePixelModule<Uint8> >),
+  m_SegmentationSeries(DcmSegmentation::IODImage::getData(), DcmSegmentation::IODImage::getRules()),
+  m_EnhancedGeneralEquipmentModule(DcmSegmentation::IODImage::getData(), DcmSegmentation::IODImage::getRules()),
+  m_FG(DcmSegmentation::IODImage::getData(), DcmSegmentation::IODImage::getRules()),
+  m_DimensionModule(DcmSegmentation::IODImage::getData(), DcmSegmentation::IODImage::getRules()),
   m_Frames(),
   m_ImageType("DERIVED\\PRIMARY"),
   m_ContentIdentificationMacro(),
@@ -182,15 +182,8 @@ OFCondition DcmSegmentation::createCommon(DcmSegmentation*& segmentation,
       segmentation = NULL;
       return EC_InvalidValue;
     }
-    OFDate date;
-    date.setCurrentDate();
-    date.getISOFormattedDate(tempstr, OFFalse /* no delimiters */);
-    segmentation->getGeneralImage().setContentDate(tempstr);
-    OFTime time;
-    time.setCurrentTime();
-    time.getISOFormattedTime(tempstr, OFTrue /* include seconds */, OFFalse, OFFalse, OFFalse);
-    segmentation->getGeneralImage().setContentTime(tempstr);
 
+    DcmIODUtil::setContentDateAndTimeNow(segmentation->getGeneralImage());
     result = segmentation->setEquipmentInfo(equipmentInfo, OFTrue /* check */);
   }
 
@@ -227,7 +220,7 @@ OFCondition DcmSegmentation::read(DcmItem &dataset)
   }
 
   // Read attributes in base classes
-  DcmIODImage::read(dataset);
+  DcmSegmentation::IODImage::read(dataset);
 
   // Read Segmentation Series Module
   m_SegmentationSeries.read(dataset);
@@ -309,33 +302,8 @@ OFCondition DcmSegmentation::write(DcmItem &dataset)
   // Multi-frame Functional Groups Module (except functional groups itself)
   // SOP Common Module
   // Common Instance Reference Module
-  if (result.good()) result = DcmIODImage::write(dataset);
+  if (result.good()) result = DcmSegmentation::IODImage::write(dataset);
 
-  return result;
-}
-
-
-OFCondition DcmSegmentation::importPatientStudyFoR(const OFString& filename,
-                                                   const OFBool usePatient,
-                                                   const OFBool useStudy,
-                                                   const OFBool useSeries,
-                                                   const OFBool useFoR)
-{
-  DcmFileFormat dcmff;
-  OFCondition result = dcmff.loadFile(filename.c_str());
-  if ( result.good() )
-  {
-    DcmDataset *dset = dcmff.getDataset();
-    if (dset != NULL)
-    {
-      result = import(*dset, usePatient, useStudy, useSeries, useFoR);
-    }
-    else
-    {
-      DCMSEG_ERROR("Unable to get dataset from file for copying patient, study, series and/or frame of reference information");
-      result = EC_IllegalCall;
-    }
-  }
   return result;
 }
 
@@ -361,7 +329,13 @@ size_t DcmSegmentation::getNumberOfSegments()
 
 IODGeneralEquipmentModule& DcmSegmentation::getEquipment()
 {
-  return DcmIODImage::getEquipment();
+  return DcmSegmentation::IODImage::getEquipment();
+}
+
+
+IODSegmentationSeriesModule & DcmSegmentation::getSegmentationSeriesModule()
+{
+  return m_SegmentationSeries;
 }
 
 
@@ -1030,7 +1004,7 @@ OFCondition DcmSegmentation::writeSegmentationImageModule(DcmItem& dataset)
 
 void DcmSegmentation::clearData()
 {
-  DcmIODImage::clearData();
+  DcmSegmentation::IODImage::clearData();
   m_FG.clearData();
   m_FGInterface.clear();
   DcmIODUtil::freeContainer(m_Frames);
@@ -1174,9 +1148,9 @@ OFCondition DcmSegmentation::readSegmentationType(DcmItem& item)
 
 
 // protected override of public base class function
-IODImagePixelModule& DcmSegmentation::getImagePixel()
+IODImagePixelModule<Uint8>& DcmSegmentation::getImagePixel()
 {
-  return DcmIODImage::getImagePixel();
+  return *OFget<IODImagePixelModule<Uint8> >( &DcmSegmentation::IODImage::getImagePixel() );
 }
 
 
@@ -1247,7 +1221,7 @@ OFCondition DcmSegmentation::decompress(DcmDataset& dset)
     }
     else // We do not accept any transfer syntax that could be lossy compressed
     {
-      DCMSEG_ERROR("No conversion from RLE original to uncompressed transfer syntax possible!");
+      DCMSEG_ERROR("Transfer syntax " << DcmXfer(xfer).getXferName() << " uses lossy compression, not supported for Segmentation objects!");
       result = IOD_EC_CannotDecompress;
     }
   }

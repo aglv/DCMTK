@@ -5,8 +5,8 @@
  *
  *  Source file for class CID11_RouteOfAdministration
  *
- *  Generated automatically from DICOM PS 3.16-2016b
- *  File created on 2016-04-06 16:26:32 by J. Riesmeier
+ *  Generated automatically from DICOM PS 3.16-2016e
+ *  File created on 2016-11-23 13:58:35 by J. Riesmeier
  *
  */
 

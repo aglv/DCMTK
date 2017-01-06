@@ -1,13 +1,13 @@
 /*
  *
  *  Copyright (C) 2008-2012, OFFIS e.V. and ICSMED AG, Oldenburg, Germany
- *  Copyright (C) 2013-2015, J. Riesmeier, Oldenburg, Germany
+ *  Copyright (C) 2013-2016, J. Riesmeier, Oldenburg, Germany
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  Header file for class DRTReferencedBeamSequenceInRTFractionSchemeModule
  *
- *  Generated automatically from DICOM PS 3.3-2015c
- *  File created on 2015-12-07 16:29:33
+ *  Generated automatically from DICOM PS 3.3-2016e
+ *  File created on 2016-11-23 14:23:36
  *
  */
 
@@ -56,6 +56,7 @@ class DCMTK_DCMRT_EXPORT DRTReferencedBeamSequenceInRTFractionSchemeModule
 
         /** assigment operator
          *  @param copy item object to be copied
+         *  @return reference to this object
          */
         Item &operator=(const Item &copy);
 
@@ -90,6 +91,27 @@ class DCMTK_DCMRT_EXPORT DRTReferencedBeamSequenceInRTFractionSchemeModule
         OFCondition write(DcmItem &item);
 
       // --- get DICOM attribute values ---
+
+        /** get AlternateBeamDose (300a,0091)
+         *  @param  value  reference to variable in which the value should be stored
+         *  @param  pos    index of the value to get (0..vm-1), -1 for all components
+         *  @return status, EC_Normal if successful, an error code otherwise
+         */
+        OFCondition getAlternateBeamDose(OFString &value, const signed long pos = 0) const;
+
+        /** get AlternateBeamDose (300a,0091)
+         *  @param  value  reference to variable in which the value should be stored
+         *  @param  pos    index of the value to get (0..vm-1)
+         *  @return status, EC_Normal if successful, an error code otherwise
+         */
+        OFCondition getAlternateBeamDose(Float64 &value, const unsigned long pos = 0) const;
+
+        /** get AlternateBeamDoseType (300a,0092)
+         *  @param  value  reference to variable in which the value should be stored
+         *  @param  pos    index of the value to get (0..vm-1), -1 for all components
+         *  @return status, EC_Normal if successful, an error code otherwise
+         */
+        OFCondition getAlternateBeamDoseType(OFString &value, const signed long pos = 0) const;
 
         /** get BeamDeliveryDurationLimit (300a,00c5)
          *  @param  value  reference to variable in which the value should be stored
@@ -131,6 +153,13 @@ class DCMTK_DCMRT_EXPORT DRTReferencedBeamSequenceInRTFractionSchemeModule
          *  @return status, EC_Normal if successful, an error code otherwise
          */
         OFCondition getBeamDoseSpecificationPoint(OFVector<Float64> &value) const;
+
+        /** get BeamDoseType (300a,0090)
+         *  @param  value  reference to variable in which the value should be stored
+         *  @param  pos    index of the value to get (0..vm-1), -1 for all components
+         *  @return status, EC_Normal if successful, an error code otherwise
+         */
+        OFCondition getBeamDoseType(OFString &value, const signed long pos = 0) const;
 
         /** get BeamMeterset (300a,0086)
          *  @param  value  reference to variable in which the value should be stored
@@ -176,6 +205,20 @@ class DCMTK_DCMRT_EXPORT DRTReferencedBeamSequenceInRTFractionSchemeModule
 
       // --- set DICOM attribute values ---
 
+        /** set AlternateBeamDose (300a,0091)
+         *  @param  value  value to be set (single value only) or "" for no value
+         *  @param  check  check 'value' for conformance with VR (DS) and VM (1) if enabled
+         *  @return status, EC_Normal if successful, an error code otherwise
+         */
+        OFCondition setAlternateBeamDose(const OFString &value, const OFBool check = OFTrue);
+
+        /** set AlternateBeamDoseType (300a,0092)
+         *  @param  value  value to be set (single value only) or "" for no value
+         *  @param  check  check 'value' for conformance with VR (CS) and VM (1) if enabled
+         *  @return status, EC_Normal if successful, an error code otherwise
+         */
+        OFCondition setAlternateBeamDoseType(const OFString &value, const OFBool check = OFTrue);
+
         /** set BeamDeliveryDurationLimit (300a,00c5)
          *  @param  value  value to be set (should be valid for this VR)
          *  @param  pos    index of the value to be set (0..vm-1), vm=1
@@ -197,6 +240,13 @@ class DCMTK_DCMRT_EXPORT DRTReferencedBeamSequenceInRTFractionSchemeModule
          */
         OFCondition setBeamDoseSpecificationPoint(const OFString &value, const OFBool check = OFTrue);
 
+        /** set BeamDoseType (300a,0090)
+         *  @param  value  value to be set (single value only) or "" for no value
+         *  @param  check  check 'value' for conformance with VR (CS) and VM (1) if enabled
+         *  @return status, EC_Normal if successful, an error code otherwise
+         */
+        OFCondition setBeamDoseType(const OFString &value, const OFBool check = OFTrue);
+
         /** set BeamMeterset (300a,0086)
          *  @param  value  value to be set (single value only) or "" for no value
          *  @param  check  check 'value' for conformance with VR (DS) and VM (1) if enabled
@@ -216,12 +266,18 @@ class DCMTK_DCMRT_EXPORT DRTReferencedBeamSequenceInRTFractionSchemeModule
         /// internal flag used to mark the empty default item
         /*const*/ OFBool EmptyDefaultItem;
 
+        /// AlternateBeamDose (300a,0091) vr=DS, vm=1, type=3
+        DcmDecimalString AlternateBeamDose;
+        /// AlternateBeamDoseType (300a,0092) vr=CS, vm=1, type=1C
+        DcmCodeString AlternateBeamDoseType;
         /// BeamDeliveryDurationLimit (300a,00c5) vr=FD, vm=1, type=3
         DcmFloatingPointDouble BeamDeliveryDurationLimit;
         /// BeamDose (300a,0084) vr=DS, vm=1, type=3
         DcmDecimalString BeamDose;
         /// BeamDoseSpecificationPoint (300a,0082) vr=DS, vm=3, type=3
         DcmDecimalString BeamDoseSpecificationPoint;
+        /// BeamDoseType (300a,0090) vr=CS, vm=1, type=1C
+        DcmCodeString BeamDoseType;
         /// BeamDoseVerificationControlPointSequence (300a,008c) vr=SQ, vm=1, type=3
         DRTBeamDoseVerificationControlPointSequence BeamDoseVerificationControlPointSequence;
         /// BeamMeterset (300a,0086) vr=DS, vm=1, type=3
@@ -249,6 +305,7 @@ class DCMTK_DCMRT_EXPORT DRTReferencedBeamSequenceInRTFractionSchemeModule
 
     /** assigment operator
      *  @param copy sequence object to be copied
+     *  @return reference to this object
      */
     DRTReferencedBeamSequenceInRTFractionSchemeModule &operator=(const DRTReferencedBeamSequenceInRTFractionSchemeModule &copy);
 
