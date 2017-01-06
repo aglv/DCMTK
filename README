@@ -1,5 +1,0 @@
-This is my take on keeping track of recent DCMTK versions.
-
-- The *offis* branch is synced with the *master* branch at *git://git.dcmtk.org/dcmtk.git*
-- The *patched* branch is synced with the *patched* branch at *ihnorton/DCMTK*
-- The *master* branch is synced with the *offis* branch and with the *patched* branch
