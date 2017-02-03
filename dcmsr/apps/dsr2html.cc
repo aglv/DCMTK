@@ -168,7 +168,7 @@ static OFCondition renderFile(STD_NAMESPACE ostream &out,
 int main(int argc, char *argv[])
 {
     size_t opt_readFlags = 0;
-    size_t opt_renderFlags = DSRTypes::HF_renderDcmtkFootnote;
+    size_t opt_renderFlags = 0;
     const char *opt_cssName = NULL;
     const char *opt_defaultCharset = NULL;
     E_FileReadMode opt_readMode = ERM_autoDetect;
