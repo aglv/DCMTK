@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DcmTransportConnection, DcmTCPConnection
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:02:18 $
- *  CVS/RCS Revision: $Revision: 1.7 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:49 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,13 +34,13 @@
 #ifndef DCMTRANS_H
 #define DCMTRANS_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/ofstd/oftypes.h"     /* for OFBool */
-#include "dcmtk/dcmnet/dcmlayer.h"    /* for DcmTransportLayerStatus */
-#include "dcmtk/ofstd/ofstream.h"    /* for ostream */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "oftypes.h"     /* for OFBool */
+#include "dcmlayer.h"    /* for DcmTransportLayerStatus */
+#include "ofstream.h"    /* for ostream */
 
 #define INCLUDE_UNISTD
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 /** this class represents a TCP/IP based transport connection
  *  which can be a transparent TCP/IP socket communication or a
@@ -331,7 +331,10 @@ private:
 
 /*
  *  $Log: dcmtrans.h,v $
- *  Revision 1.7  2005-12-08 16:02:18  meichel
+ *  Revision 1.1  2006/03/01 20:15:49  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.7  2005/12/08 16:02:18  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.6  2004/08/03 11:42:43  meichel

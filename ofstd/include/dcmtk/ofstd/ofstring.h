@@ -21,9 +21,9 @@
  *
  *  Purpose: A simple string class
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:06:07 $
- *  CVS/RCS Revision: $Revision: 1.20 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:56 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -33,9 +33,9 @@
 #ifndef OFSTRING_H
 #define OFSTRING_H
 
-#include "dcmtk/config/osconfig.h"     /* include OS specific configuration first */
-#include "dcmtk/ofstd/oftypes.h"      /* for OFBool */
-#include "dcmtk/ofstd/ofcast.h"
+#include "osconfig.h"     /* include OS specific configuration first */
+#include "oftypes.h"      /* for OFBool */
+#include "ofcast.h"
 
 #ifdef HAVE_STD_STRING
 /*
@@ -58,10 +58,10 @@
 #define INCLUDE_CSTDLIB
 #define INCLUDE_LIBC
 #define INCLUDE_UNISTD
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
-#include "dcmtk/ofstd/ofstream.h"
-#include "dcmtk/ofstd/oftypes.h"
+#include "ofstream.h"
+#include "oftypes.h"
 
 /*
 ** Error macros
@@ -1077,7 +1077,10 @@ OFBool operator>= (const OFString& lhs, char rhs);
 /*
 ** CVS/RCS Log:
 ** $Log: ofstring.h,v $
-** Revision 1.20  2005-12-08 16:06:07  meichel
+** Revision 1.1  2006/03/01 20:17:56  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.20  2005/12/08 16:06:07  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.19  2004/08/03 11:45:42  meichel

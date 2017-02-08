@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomOverlayPlane (Source) - Multiframe Overlays UNTESTED !
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:43:06 $
- *  CVS/RCS Revision: $Revision: 1.29 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,15 +31,15 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofconsol.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmdata/dcdeftag.h"
-#include "dcmtk/dcmdata/dctagkey.h"
-#include "dcmtk/ofstd/ofbmanip.h"
+#include "osconfig.h"
+#include "ofconsol.h"
+#include "dctypes.h"
+#include "dcdeftag.h"
+#include "dctagkey.h"
+#include "ofbmanip.h"
 
-#include "dcmtk/dcmimgle/diovpln.h"
-#include "dcmtk/dcmimgle/didocu.h"
+#include "diovpln.h"
+#include "didocu.h"
 
 
 /*----------------*
@@ -603,7 +603,10 @@ void DiOverlayPlane::setRotation(const int degree,
  *
  * CVS/RCS Log:
  * $Log: diovpln.cc,v $
- * Revision 1.29  2005-12-08 15:43:06  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.29  2005/12/08 15:43:06  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.28  2003/12/23 16:03:18  joergr

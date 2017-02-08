@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomColorImage (Source)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:21 $
- *  CVS/RCS Revision: $Revision: 1.35 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:33 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,20 +31,20 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmdata/dcdeftag.h"
-#include "dcmtk/dcmdata/dcpixel.h"
+#include "osconfig.h"
+#include "dctypes.h"
+#include "dcdeftag.h"
+#include "dcpixel.h"
 
-#include "dcmtk/dcmimage/dicoimg.h"
-#include "dcmtk/dcmimgle/dimo2img.h"
-#include "dcmtk/dcmimage/dicopxt.h"
-#include "dcmtk/dcmimage/dicocpt.h"
-#include "dcmtk/dcmimage/dicosct.h"
-#include "dcmtk/dcmimage/dicoflt.h"
-#include "dcmtk/dcmimage/dicorot.h"
-#include "dcmtk/dcmimage/dicoopxt.h"
-#include "dcmtk/dcmimgle/diutils.h"
+#include "dicoimg.h"
+#include "dimo2img.h"
+#include "dicopxt.h"
+#include "dicocpt.h"
+#include "dicosct.h"
+#include "dicoflt.h"
+#include "dicorot.h"
+#include "dicoopxt.h"
+#include "diutils.h"
 
 
 /*----------------*
@@ -742,7 +742,10 @@ int DiColorImage::writeBMP(FILE *stream,
  *
  * CVS/RCS Log:
  * $Log: dicoimg.cc,v $
- * Revision 1.35  2005-12-08 15:42:21  meichel
+ * Revision 1.1  2006/03/01 20:15:33  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.35  2005/12/08 15:42:21  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.34  2005/03/09 17:45:36  joergr

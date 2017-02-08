@@ -21,10 +21,10 @@
  *
  *  Purpose: enumerations, error constants and helper functions for dcmjpeg
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:59:38 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmjpeg/include/dcmtk/dcmjpeg/djutils.h,v $
- *  CVS/RCS Revision: $Revision: 1.3 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:44 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmjpeg/djutils.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,9 +34,9 @@
 #ifndef DJUTILS_H
 #define DJUTILS_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofcond.h"   /* for class OFCondition */
-#include "dcmtk/dcmimgle/diutils.h"  /* for EP_Interpretation */
+#include "osconfig.h"
+#include "ofcond.h"   /* for class OFCondition */
+#include "diutils.h"  /* for EP_Interpretation */
 
 class DcmItem;
 
@@ -199,7 +199,10 @@ public:
 /*
  * CVS/RCS Log
  * $Log: djutils.h,v $
- * Revision 1.3  2005-12-08 16:59:38  meichel
+ * Revision 1.1  2006/03/01 20:15:44  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.3  2005/12/08 16:59:38  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.2  2005/11/30 14:13:13  onken

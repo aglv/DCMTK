@@ -21,18 +21,18 @@
  *
  *  Purpose: classes DcmQueryRetrieveProcessSlot, DcmQueryRetrieveProcessTable
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:47:12 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmqrdb/libsrc/dcmqrptb.cc,v $
- *  CVS/RCS Revision: $Revision: 1.4 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmqrdb/dcmqrptb.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmqrdb/dcmqrptb.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dcmqrptb.h"
 
 /** helper class that describes entries in the process slot table. Internal use only.
  */
@@ -245,7 +245,10 @@ void DcmQueryRetrieveProcessTable::cleanChildren(OFBool verbose)
 /*
  * CVS Log
  * $Log: dcmqrptb.cc,v $
- * Revision 1.4  2005-12-08 15:47:12  meichel
+ * Revision 1.1  2006/03/01 20:16:07  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.4  2005/12/08 15:47:12  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.3  2005/11/29 10:54:52  meichel

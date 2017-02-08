@@ -21,10 +21,10 @@
  *
  *  Purpose: Interface of class DcmShortString
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:29:07 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrsh.h,v $
- *  CVS/RCS Revision: $Revision: 1.14 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcvrsh.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,9 +35,9 @@
 #ifndef DCVRSH_H
 #define DCVRSH_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
-#include "dcmtk/dcmdata/dcchrstr.h"
+#include "dcchrstr.h"
 
 
 /** a class representing the DICOM value representation 'Short String' (SH)
@@ -102,7 +102,10 @@ class DcmShortString
 /*
 ** CVS/RCS Log:
 ** $Log: dcvrsh.h,v $
-** Revision 1.14  2005-12-08 16:29:07  meichel
+** Revision 1.1  2006/03/01 20:15:22  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.14  2005/12/08 16:29:07  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.13  2004/07/01 12:28:25  meichel

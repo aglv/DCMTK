@@ -21,9 +21,9 @@
  *
  *  Purpose: RLE compressor
  *
- *  Last Update:      $Author: onken $
- *  Update Date:      $Date: 2005-12-16 09:04:47 $
- *  CVS/RCS Revision: $Revision: 1.12 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -33,11 +33,11 @@
 #ifndef DCRLEENC_H
 #define DCRLEENC_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/oflist.h"   /* for class OFList<> */
+#include "osconfig.h"
+#include "oflist.h"   /* for class OFList<> */
 
 #define INCLUDE_CSTRING
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 #define DcmRLEEncoder_BLOCKSIZE 16384
 
@@ -428,7 +428,10 @@ private:
 /*
  * CVS/RCS Log
  * $Log: dcrleenc.h,v $
- * Revision 1.12  2005-12-16 09:04:47  onken
+ * Revision 1.1  2006/03/01 20:15:22  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.12  2005/12/16 09:04:47  onken
  * - Added virtual (dummy) destructor to avoid compiler warnings
  *
  * Revision 1.11  2005/12/08 16:28:38  meichel

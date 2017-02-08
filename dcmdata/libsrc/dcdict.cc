@@ -21,28 +21,28 @@
  *
  *  Purpose: loadable DICOM data dictionary
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:04 $
- *  CVS/RCS Revision: $Revision: 1.36 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:19 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dcdict.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dcdict.h"
 
-#include "dcmtk/ofstd/ofconsol.h"
-#include "dcmtk/ofstd/ofstd.h"
-#include "dcmtk/dcmdata/dcdefine.h"
-#include "dcmtk/dcmdata/dcdicent.h"
+#include "ofconsol.h"
+#include "ofstd.h"
+#include "dcdefine.h"
+#include "dcdicent.h"
 
 #define INCLUDE_CSTDLIB
 #define INCLUDE_CSTDIO
 #define INCLUDE_CSTRING
 #define INCLUDE_CCTYPE
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 /*
 ** The separator character between fields in the data dictionary file(s)
@@ -839,7 +839,10 @@ void GlobalDcmDataDictionary::clear()
 /*
 ** CVS/RCS Log:
 ** $Log: dcdict.cc,v $
-** Revision 1.36  2005-12-08 15:41:04  meichel
+** Revision 1.1  2006/03/01 20:15:19  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.36  2005/12/08 15:41:04  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.35  2005/11/28 16:13:57  meichel

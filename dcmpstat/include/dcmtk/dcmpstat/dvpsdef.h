@@ -22,9 +22,9 @@
  *  Purpose:
  *    definitions of constants and macros for pstat module
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:03:41 $
- *  CVS/RCS Revision: $Revision: 1.8 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:52 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,7 +34,7 @@
 #ifndef __DVPSDEF_H__
 #define __DVPSDEF_H__
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 /* default for max PDU size */
 #define DEFAULT_MAXPDU 16384
@@ -181,7 +181,10 @@ if (result==EC_Normal)                                              \
 
 /*
  *  $Log: dvpsdef.h,v $
- *  Revision 1.8  2005-12-08 16:03:41  meichel
+ *  Revision 1.1  2006/03/01 20:15:52  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.8  2005/12/08 16:03:41  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.7  2002/01/08 10:32:12  joergr

@@ -22,10 +22,10 @@
  *  Purpose:
  *          Defines a template list class with interfaces similar to the C++ Standard
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:58 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/ofstd/include/dcmtk/ofstd/oflist.h,v $
- *  CVS/RCS Revision: $Revision: 1.22 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:56 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/ofstd/oflist.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -50,9 +50,9 @@
 //   function parameters, so you must give  them a hint casting
 //   the parameter function to the correct type (e.g. NeXT gcc 2.5.8)
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/ofstd/oftypes.h"
-#include "dcmtk/ofstd/ofcast.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "oftypes.h"
+#include "ofcast.h"
 
 #ifndef HAVE_CLASS_TEMPLATE
 #error Your C++ compiler cannot handle class templates:
@@ -90,7 +90,7 @@
 
 #define INCLUDE_CASSERT
 #define INCLUDE_CSTDDEF
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 #define OFLIST_TYPENAME
 
@@ -555,7 +555,10 @@ void OF_ListRemoveIf(OFList<T>& c, Predicate pred)
 /*
 ** CVS/RCS Log:
 ** $Log: oflist.h,v $
-** Revision 1.22  2005-12-08 16:05:58  meichel
+** Revision 1.1  2006/03/01 20:17:56  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.22  2005/12/08 16:05:58  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.21  2004/04/14 11:44:48  joergr

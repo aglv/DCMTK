@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomGSDFunction (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:47:40 $
- *  CVS/RCS Revision: $Revision: 1.15 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,10 +34,10 @@
 #ifndef DIGSDFN_H
 #define DIGSDFN_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/dcmimgle/didispfn.h"
-#include "dcmtk/dcmimgle/digsdlut.h"
+#include "didispfn.h"
+#include "digsdlut.h"
 
 
 /*---------------------*
@@ -240,7 +240,10 @@ class DiGSDFunction
  *
  * CVS/RCS Log:
  * $Log: digsdfn.h,v $
- * Revision 1.15  2005-12-08 16:47:40  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.15  2005/12/08 16:47:40  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.14  2003/12/08 18:21:00  joergr

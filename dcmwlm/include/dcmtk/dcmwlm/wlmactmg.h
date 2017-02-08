@@ -22,10 +22,10 @@
  *  Purpose: Activity manager class for basic worklist management service
  *           class provider engines.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:43 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmwlm/include/dcmtk/dcmwlm/wlmactmg.h,v $
- *  CVS/RCS Revision: $Revision: 1.13 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:20 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmwlm/wlmactmg.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,7 +35,7 @@
 #ifndef WlmActivityManager_h
 #define WlmActivityManager_h
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
 class WlmDataSource;
 class OFCondition;
@@ -238,7 +238,10 @@ class WlmActivityManager
 /*
 ** CVS Log
 ** $Log: wlmactmg.h,v $
-** Revision 1.13  2005-12-08 16:05:43  meichel
+** Revision 1.1  2006/03/01 20:16:20  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.13  2005/12/08 16:05:43  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.12  2005/11/17 13:45:39  meichel

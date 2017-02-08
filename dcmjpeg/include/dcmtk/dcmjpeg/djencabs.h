@@ -21,10 +21,10 @@
  *
  *  Purpose: abstract base class for compression classes
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:59:28 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmjpeg/include/dcmtk/dcmjpeg/djencabs.h,v $
- *  CVS/RCS Revision: $Revision: 1.2 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:44 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmjpeg/djencabs.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,10 +34,10 @@
 #ifndef DJENCABS_H
 #define DJENCABS_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmimgle/diutils.h" /* for EP_Interpretation */
-#include "dcmtk/dcmjpeg/djutils.h" /* for enums */
+#include "osconfig.h"
+#include "dctypes.h"
+#include "diutils.h" /* for EP_Interpretation */
+#include "djutils.h" /* for enums */
 
 /** abstract base class for compression classes. 
  */
@@ -113,7 +113,10 @@ public:
 /*
  * CVS/RCS Log
  * $Log: djencabs.h,v $
- * Revision 1.2  2005-12-08 16:59:28  meichel
+ * Revision 1.1  2006/03/01 20:15:44  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.2  2005/12/08 16:59:28  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.1  2001/11/13 15:56:25  meichel

@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DVPSOverlay
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:03:53 $
- *  CVS/RCS Revision: $Revision: 1.10 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:52 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,8 +34,8 @@
 #ifndef __DVPSOV_H__
 #define __DVPSOV_H__
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dctk.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dctk.h"
 
 class DicomImage;
 
@@ -197,7 +197,10 @@ private:
 
 /*
  *  $Log: dvpsov.h,v $
- *  Revision 1.10  2005-12-08 16:03:53  meichel
+ *  Revision 1.1  2006/03/01 20:15:52  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.10  2005/12/08 16:03:53  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.9  2003/08/27 14:59:41  meichel

@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomARGBPixelTemplate (Header) - UNTESTED !!!
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:01:25 $
- *  CVS/RCS Revision: $Revision: 1.20 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:33 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,11 +34,11 @@
 #ifndef DIARGPXT_H
 #define DIARGPXT_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/dcmimage/dicopxt.h"
-#include "dcmtk/dcmimgle/diluptab.h"
-#include "dcmtk/dcmimgle/diinpx.h"  /* gcc 3.4 needs this */
+#include "dicopxt.h"
+#include "diluptab.h"
+#include "diinpx.h"  /* gcc 3.4 needs this */
 
 /*---------------------*
  *  class declaration  *
@@ -208,7 +208,10 @@ class DiARGBPixelTemplate
  *
  * CVS/RCS Log:
  * $Log: diargpxt.h,v $
- * Revision 1.20  2005-12-08 16:01:25  meichel
+ * Revision 1.1  2006/03/01 20:15:33  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.20  2005/12/08 16:01:25  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.19  2004/04/21 10:00:31  meichel

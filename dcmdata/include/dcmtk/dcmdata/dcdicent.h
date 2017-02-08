@@ -21,10 +21,10 @@
  *
  *  Purpose: Interface for a dictionary entry in the loadable DICOM data dictionary
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:08 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcdicent.h,v $
- *  CVS/RCS Revision: $Revision: 1.20 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:19 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcdicent.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,12 +34,12 @@
 #ifndef DCDICENT_H
 #define DCDICENT_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dctagkey.h"
-#include "dcmtk/dcmdata/dcvr.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dctagkey.h"
+#include "dcvr.h"
 
 #define INCLUDE_CSTRING
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 /// constant describing an unlimited VM
 #define DcmVariableVM   -1
@@ -413,7 +413,10 @@ private:
 /*
 ** CVS/RCS Log:
 ** $Log: dcdicent.h,v $
-** Revision 1.20  2005-12-08 16:28:08  meichel
+** Revision 1.1  2006/03/01 20:15:19  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.20  2005/12/08 16:28:08  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.19  2004/01/16 14:07:03  joergr

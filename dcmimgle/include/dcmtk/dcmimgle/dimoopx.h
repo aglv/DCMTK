@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomMonoOutputPixel (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:47:53 $
- *  CVS/RCS Revision: $Revision: 1.18 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,14 +34,14 @@
 #ifndef DIMOOPX_H
 #define DIMOOPX_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmimgle/diutils.h"
+#include "osconfig.h"
+#include "diutils.h"
 
 #define INCLUDE_CSTDLIB
 #define INCLUDE_CSTDIO
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
-#include "dcmtk/ofstd/ofstream.h"
+#include "ofstream.h"
 
 
 /*------------------------*
@@ -176,7 +176,10 @@ class DiMonoOutputPixel
  *
  * CVS/RCS Log:
  * $Log: dimoopx.h,v $
- * Revision 1.18  2005-12-08 16:47:53  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.18  2005/12/08 16:47:53  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.17  2004/02/06 11:07:50  joergr

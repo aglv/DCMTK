@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomTransTemplate (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:48:11 $
- *  CVS/RCS Revision: $Revision: 1.14 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,12 +34,12 @@
 #ifndef DITRANST_H
 #define DITRANST_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/ofstd/ofcast.h"
+#include "osconfig.h"
+#include "dctypes.h"
+#include "ofcast.h"
 
-#include "dcmtk/dcmimgle/diutils.h"
-#include "dcmtk/ofstd/ofbmanip.h"
+#include "diutils.h"
+#include "ofbmanip.h"
 
 
 /*---------------------*
@@ -141,7 +141,10 @@ class DiTransTemplate
  *
  * CVS/RCS Log:
  * $Log: ditranst.h,v $
- * Revision 1.14  2005-12-08 16:48:11  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.14  2005/12/08 16:48:11  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.13  2003/12/23 15:53:22  joergr

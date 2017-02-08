@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomBaseLUT (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:47:32 $
- *  CVS/RCS Revision: $Revision: 1.16 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,11 +34,11 @@
 #ifndef DIBASLUT_H
 #define DIBASLUT_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofstring.h"
-#include "dcmtk/ofstd/ofcast.h"
+#include "osconfig.h"
+#include "ofstring.h"
+#include "ofcast.h"
 
-#include "dcmtk/dcmimgle/diutils.h"
+#include "diutils.h"
 
 
 /*---------------------*
@@ -325,7 +325,10 @@ class DiBaseLUT
  *
  * CVS/RCS Log:
  * $Log: dibaslut.h,v $
- * Revision 1.16  2005-12-08 16:47:32  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.16  2005/12/08 16:47:32  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.15  2003/12/08 18:40:32  joergr

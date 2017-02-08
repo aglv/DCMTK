@@ -21,10 +21,10 @@
  *
  *  Purpose: abstract base class for decompression classes
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:59:14 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmjpeg/include/dcmtk/dcmjpeg/djdecabs.h,v $
- *  CVS/RCS Revision: $Revision: 1.3 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:43 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmjpeg/djdecabs.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,10 +34,10 @@
 #ifndef DJDECABS_H
 #define DJDECABS_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmjpeg/djutils.h" /* for enums */
-#include "dcmtk/dcmimgle/diutils.h" /* for EP_Interpretation */
+#include "osconfig.h"
+#include "dctypes.h"
+#include "djutils.h" /* for enums */
+#include "diutils.h" /* for EP_Interpretation */
 
 /** abstract base class for decompression classes.
  *  Implementations of this class must support suspended decompression
@@ -99,7 +99,10 @@ public:
 /*
  * CVS/RCS Log
  * $Log: djdecabs.h,v $
- * Revision 1.3  2005-12-08 16:59:14  meichel
+ * Revision 1.1  2006/03/01 20:15:43  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.3  2005/12/08 16:59:14  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.2  2005/11/30 14:12:27  onken

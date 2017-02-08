@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomRegister (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:01:57 $
- *  CVS/RCS Revision: $Revision: 1.10 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,9 +34,9 @@
 #ifndef DIREGIST_H
 #define DIREGIST_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/dcmimgle/diregbas.h"
+#include "diregbas.h"
 
 
 /*---------------------*
@@ -101,7 +101,10 @@ static DiRegister Init_dcmimage_Module;        // registration pointer is initia
  *
  * CVS/RCS Log:
  * $Log: diregist.h,v $
- * Revision 1.10  2005-12-08 16:01:57  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.10  2005/12/08 16:01:57  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.9  2003/12/23 12:22:02  joergr

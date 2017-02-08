@@ -21,10 +21,10 @@
  *
  *  Purpose: class DcmQueryRetrieveIndexDatabaseHandle
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:04:22 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmqrdb/include/dcmtk/dcmqrdb/dcmqrdbi.h,v $
- *  CVS/RCS Revision: $Revision: 1.4 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmqrdb/dcmqrdbi.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,12 +34,12 @@
 #ifndef DCMQRDBI_H
 #define DCMQRDBI_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmqrdb/dcmqrdba.h"    /* for class DcmQueryRetrieveDatabaseHandle */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dcmqrdba.h"    /* for class DcmQueryRetrieveDatabaseHandle */
 
-#include "dcmtk/dcmnet/dicom.h"
-#include "dcmtk/dcmnet/dimse.h"
-#include "dcmtk/ofstd/offname.h"
+#include "dicom.h"
+#include "dimse.h"
+#include "offname.h"
 
 struct StudyDescRecord;
 struct DB_Private_Handle;
@@ -447,7 +447,10 @@ private:
 /*
  * CVS Log
  * $Log: dcmqrdbi.h,v $
- * Revision 1.4  2005-12-08 16:04:22  meichel
+ * Revision 1.1  2006/03/01 20:16:07  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.4  2005/12/08 16:04:22  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.3  2005/04/22 15:36:34  meichel

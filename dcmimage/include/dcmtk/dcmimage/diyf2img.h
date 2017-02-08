@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomYBR422Image (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:02:02 $
- *  CVS/RCS Revision: $Revision: 1.11 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,9 +34,9 @@
 #ifndef DIYF2IMG_H
 #define DIYF2IMG_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/dcmimage/dicoimg.h"
+#include "dicoimg.h"
 
 
 /*---------------------*
@@ -72,7 +72,10 @@ class DiYBR422Image
  *
  * CVS/RCS Log:
  * $Log: diyf2img.h,v $
- * Revision 1.11  2005-12-08 16:02:02  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.11  2005/12/08 16:02:02  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.10  2003/12/17 18:12:42  joergr

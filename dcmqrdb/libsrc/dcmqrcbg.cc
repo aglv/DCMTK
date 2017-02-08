@@ -21,26 +21,26 @@
  *
  *  Purpose: class DcmQueryRetrieveGetContext
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:47:05 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmqrdb/libsrc/dcmqrcbg.cc,v $
- *  CVS/RCS Revision: $Revision: 1.5 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmqrdb/dcmqrcbg.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmqrdb/dcmqrcbg.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dcmqrcbg.h"
 
-#include "dcmtk/dcmqrdb/dcmqrcnf.h"
-#include "dcmtk/dcmdata/dcdeftag.h"
-#include "dcmtk/dcmqrdb/dcmqropt.h"
-#include "dcmtk/dcmnet/diutil.h"
-#include "dcmtk/dcmdata/dcfilefo.h"
-#include "dcmtk/dcmqrdb/dcmqrdbs.h"
-#include "dcmtk/dcmqrdb/dcmqrdbi.h"
+#include "dcmqrcnf.h"
+#include "dcdeftag.h"
+#include "dcmqropt.h"
+#include "diutil.h"
+#include "dcfilefo.h"
+#include "dcmqrdbs.h"
+#include "dcmqrdbi.h"
 
 BEGIN_EXTERN_C
 #ifdef HAVE_FCNTL_H
@@ -361,7 +361,10 @@ void DcmQueryRetrieveGetContext::buildFailedInstanceList(DcmDataset ** rspIds)
 /*
  * CVS Log
  * $Log: dcmqrcbg.cc,v $
- * Revision 1.5  2005-12-08 15:47:05  meichel
+ * Revision 1.1  2006/03/01 20:16:07  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.5  2005/12/08 15:47:05  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.4  2005/11/17 13:44:40  meichel

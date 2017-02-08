@@ -22,9 +22,9 @@
  *  Purpose: general purpose 32-bit CRC in C++
  *           Code is based on the CRC32 implementation (C)1986 Gary S. Brown
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:24 $
- *  CVS/RCS Revision: $Revision: 1.5 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -32,9 +32,9 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dcpcache.h"
-#include "dcmtk/dcmdata/dcelem.h"      /* for DcmElement, DcmObject */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dcpcache.h"
+#include "dcelem.h"      /* for DcmElement, DcmObject */
 
 DcmPrivateTagCacheEntry::DcmPrivateTagCacheEntry(const DcmTagKey& tk, const char *pc)
 : tagKey(tk)
@@ -120,7 +120,10 @@ void DcmPrivateTagCache::updateCache(DcmObject *dobj)
 /*
  * CVS/RCS Log:
  * $Log: dcpcache.cc,v $
- * Revision 1.5  2005-12-08 15:41:24  meichel
+ * Revision 1.1  2006/03/01 20:15:22  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.5  2005/12/08 15:41:24  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.4  2004/10/20 15:56:15  meichel

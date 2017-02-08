@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DVInterface
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:03:31 $
- *  CVS/RCS Revision: $Revision: 1.91 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:52 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,16 +35,16 @@
 #ifndef DVIFACE_H
 #define DVIFACE_H
 
-#include "dcmtk/config/osconfig.h"   /* make sure OS specific configuration is included first */
+#include "osconfig.h"   /* make sure OS specific configuration is included first */
 
 
-#include "dcmtk/ofstd/ofstream.h"
-#include "dcmtk/dcmdata/dctk.h"
-#include "dcmtk/dcmpstat/dvpscf.h"     /* for class DVConfiguration */
-#include "dcmtk/dcmpstat/dvpstat.h"    /* for class DVPresentationState */
-#include "dcmtk/dcmqrdb/dcmqridx.h"   /* for struct IdxRecord */
-#include "dcmtk/ofstd/ofstring.h"   /* for class OFString */
-#include "dcmtk/dcmpstat/dvcache.h"    /* for index file caching */
+#include "ofstream.h"
+#include "dctk.h"
+#include "dvpscf.h"     /* for class DVConfiguration */
+#include "dvpstat.h"    /* for class DVPresentationState */
+#include "dcmqridx.h"   /* for struct IdxRecord */
+#include "ofstring.h"   /* for class OFString */
+#include "dvcache.h"    /* for index file caching */
 
 
 class OFLogFile;
@@ -1887,7 +1887,10 @@ private:
 /*
  *  CVS/RCS Log:
  *  $Log: dviface.h,v $
- *  Revision 1.91  2005-12-08 16:03:31  meichel
+ *  Revision 1.1  2006/03/01 20:15:52  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.91  2005/12/08 16:03:31  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.90  2005/04/04 10:11:57  meichel

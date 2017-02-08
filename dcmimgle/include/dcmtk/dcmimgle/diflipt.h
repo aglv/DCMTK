@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomFlipTemplate (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:47:39 $
- *  CVS/RCS Revision: $Revision: 1.18 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,12 +34,12 @@
 #ifndef DIFLIPT_H
 #define DIFLIPT_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/ofstd/ofcast.h"
+#include "osconfig.h"
+#include "dctypes.h"
+#include "ofcast.h"
 
-#include "dcmtk/dcmimgle/dipixel.h"
-#include "dcmtk/dcmimgle/ditranst.h"
+#include "dipixel.h"
+#include "ditranst.h"
 
 
 /*---------------------*
@@ -355,7 +355,10 @@ class DiFlipTemplate
  *
  * CVS/RCS Log:
  * $Log: diflipt.h,v $
- * Revision 1.18  2005-12-08 16:47:39  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.18  2005/12/08 16:47:39  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.17  2005/06/15 08:25:18  joergr

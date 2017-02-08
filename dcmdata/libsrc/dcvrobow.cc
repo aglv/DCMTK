@@ -21,9 +21,9 @@
  *
  *  Purpose: Implementation of class DcmOtherByteOtherWord
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:57 $
- *  CVS/RCS Revision: $Revision: 1.45 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,18 +31,18 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/ofstd/ofstd.h"
-#include "dcmtk/ofstd/ofstream.h"
-#include "dcmtk/dcmdata/dcvrobow.h"
-#include "dcmtk/dcmdata/dcdeftag.h"
-#include "dcmtk/dcmdata/dcswap.h"
-#include "dcmtk/dcmdata/dcvm.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "ofstd.h"
+#include "ofstream.h"
+#include "dcvrobow.h"
+#include "dcdeftag.h"
+#include "dcswap.h"
+#include "dcvm.h"
 
 #define INCLUDE_CSTDIO
 #define INCLUDE_CSTDLIB
 #define INCLUDE_CSTRING
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 // ********************************
@@ -613,7 +613,10 @@ OFCondition DcmOtherByteOtherWord::writeXML(ostream &out,
 /*
 ** CVS/RCS Log:
 ** $Log: dcvrobow.cc,v $
-** Revision 1.45  2005-12-08 15:41:57  meichel
+** Revision 1.1  2006/03/01 20:15:22  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.45  2005/12/08 15:41:57  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.44  2005/11/15 16:59:25  meichel

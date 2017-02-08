@@ -23,10 +23,10 @@
  *      Defines some C++ standard types that are not consistently 
  *      supported by all C++ Compilers
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:06:11 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/ofstd/include/dcmtk/ofstd/oftypes.h,v $
- *  CVS/RCS Revision: $Revision: 1.7 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:56 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/ofstd/oftypes.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -36,7 +36,7 @@
 #ifndef OFTYPES_H
 #define OFTYPES_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 
 #ifdef __CHAR_UNSIGNED__
@@ -92,7 +92,10 @@ typedef int OFBool;
 /*
  * CVS/RCS Log:
  * $Log: oftypes.h,v $
- * Revision 1.7  2005-12-08 16:06:11  meichel
+ * Revision 1.1  2006/03/01 20:17:56  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.7  2005/12/08 16:06:11  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.6  2002/07/10 11:45:26  meichel

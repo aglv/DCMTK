@@ -21,17 +21,17 @@
  *
  *  Purpose: classes DcmQueryRetrieveIndexDatabaseHandle, DcmQueryRetrieveIndexDatabaseHandleFactory
  *
- *  Last Update:      $Author: onken $
- *  Update Date:      $Date: 2005-12-16 09:16:08 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmqrdb/libsrc/dcmqrdbi.cc,v $
- *  CVS/RCS Revision: $Revision: 1.9 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmqrdb/dcmqrdbi.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 BEGIN_EXTERN_C
 #ifdef HAVE_SYS_STAT_H
@@ -47,16 +47,16 @@ END_EXTERN_C
 
 #define INCLUDE_CCTYPE
 #define INCLUDE_CSTDARG
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
-#include "dcmtk/dcmqrdb/dcmqrdbs.h"
-#include "dcmtk/dcmqrdb/dcmqrdbi.h"
-#include "dcmtk/dcmqrdb/dcmqrcnf.h"
+#include "dcmqrdbs.h"
+#include "dcmqrdbi.h"
+#include "dcmqrcnf.h"
 
-#include "dcmtk/dcmqrdb/dcmqridx.h"
-#include "dcmtk/dcmnet/diutil.h"
-#include "dcmtk/dcmdata/dcfilefo.h"
-#include "dcmtk/ofstd/ofstd.h"
+#include "dcmqridx.h"
+#include "diutil.h"
+#include "dcfilefo.h"
+#include "ofstd.h"
 
 const OFConditionConst DcmQRIndexDatabaseErrorC(OFM_imagectn, 0x001, OF_error, "DcmQR Index Database Error");
 const OFCondition DcmQRIndexDatabaseError(DcmQRIndexDatabaseErrorC);
@@ -3470,7 +3470,10 @@ DcmQueryRetrieveDatabaseHandle *DcmQueryRetrieveIndexDatabaseHandleFactory::crea
 /*
  * CVS Log
  * $Log: dcmqrdbi.cc,v $
- * Revision 1.9  2005-12-16 09:16:08  onken
+ * Revision 1.1  2006/03/01 20:16:07  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.9  2005/12/16 09:16:08  onken
  * - Added variable initialization to avoid compiler warning
  *
  * Revision 1.8  2005/12/14 14:29:43  joergr

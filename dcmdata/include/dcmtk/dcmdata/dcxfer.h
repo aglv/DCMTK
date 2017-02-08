@@ -21,10 +21,10 @@
  *
  *  Purpose: Handling of transfer syntaxes
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:29:17 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcxfer.h,v $
- *  CVS/RCS Revision: $Revision: 1.18 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcxfer.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,10 +34,10 @@
 #ifndef DCXFER_H
 #define DCXFER_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmdata/dcvr.h"
+#include "dctypes.h"
+#include "dcvr.h"
 
 /*
 ** Enumerated Types
@@ -171,7 +171,10 @@ extern const E_ByteOrder gLocalByteOrder;
 /*
  * CVS/RCS Log:
  * $Log: dcxfer.h,v $
- * Revision 1.18  2005-12-08 16:29:17  meichel
+ * Revision 1.1  2006/03/01 20:15:22  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.18  2005/12/08 16:29:17  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.17  2005/10/25 08:55:32  meichel

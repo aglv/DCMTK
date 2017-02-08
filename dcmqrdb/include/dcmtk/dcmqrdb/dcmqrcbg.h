@@ -21,10 +21,10 @@
  *
  *  Purpose: class DcmQueryRetrieveGetContext
  *
- *  Last Update:      $Author: joergr $
- *  Update Date:      $Date: 2005-12-15 08:32:49 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmqrdb/include/dcmtk/dcmqrdb/dcmqrcbg.h,v $
- *  CVS/RCS Revision: $Revision: 1.3 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmqrdb/dcmqrcbg.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,8 +34,8 @@
 #ifndef DCMQRCBG_H
 #define DCMQRCBG_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmnet/dimse.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dimse.h"
 
 class DcmQueryRetrieveDatabaseHandle;
 class DcmQueryRetrieveOptions;
@@ -180,7 +180,10 @@ private:
 /*
  * CVS Log
  * $Log: dcmqrcbg.h,v $
- * Revision 1.3  2005-12-15 08:32:49  joergr
+ * Revision 1.1  2006/03/01 20:16:07  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.3  2005/12/15 08:32:49  joergr
  * Fixed issue with initialization of array member variables, reported by egcs
  * on Solaris. Fixed missing/wrong initialization of member variables.
  *

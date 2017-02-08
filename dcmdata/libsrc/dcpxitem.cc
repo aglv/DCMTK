@@ -21,9 +21,9 @@
  *
  *  Purpose: Implementation of class DcmPixelItem
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:27 $
- *  CVS/RCS Revision: $Revision: 1.29 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,20 +31,20 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 #define INCLUDE_CSTDLIB
 #define INCLUDE_CSTDIO
 #define INCLUDE_CSTRING
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
-#include "dcmtk/ofstd/ofstream.h"
-#include "dcmtk/dcmdata/dcpxitem.h"
-#include "dcmtk/dcmdata/dcswap.h"
-#include "dcmtk/ofstd/ofstring.h"
-#include "dcmtk/ofstd/ofstd.h"
-#include "dcmtk/dcmdata/dcistrma.h"    /* for class DcmInputStream */
-#include "dcmtk/dcmdata/dcostrma.h"    /* for class DcmOutputStream */
+#include "ofstream.h"
+#include "dcpxitem.h"
+#include "dcswap.h"
+#include "ofstring.h"
+#include "ofstd.h"
+#include "dcistrma.h"    /* for class DcmInputStream */
+#include "dcostrma.h"    /* for class DcmOutputStream */
 
 
 // ********************************
@@ -274,7 +274,10 @@ OFCondition DcmPixelItem::writeSignatureFormat(
 /*
 ** CVS/RCS Log:
 ** $Log: dcpxitem.cc,v $
-** Revision 1.29  2005-12-08 15:41:27  meichel
+** Revision 1.1  2006/03/01 20:15:22  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.29  2005/12/08 15:41:27  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.28  2005/11/24 12:50:59  meichel

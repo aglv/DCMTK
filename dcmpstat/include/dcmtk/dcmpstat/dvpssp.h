@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DVPSStoredPrint
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:04:03 $
- *  CVS/RCS Revision: $Revision: 1.38 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:53 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,17 +35,17 @@
 #ifndef DVPSSP_H
 #define DVPSSP_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
-#include "dcmtk/ofstd/ofstream.h"
-#include "dcmtk/ofstd/ofstring.h"
-#include "dcmtk/dcmdata/dctk.h"
-#include "dcmtk/dcmpstat/dvpstyp.h"         /* for enum types */
-#include "dcmtk/dcmpstat/dvpspll.h"         /* for class DVPSPresentationLUT_PList */
-#include "dcmtk/dcmpstat/dvpsibl.h"         /* for class DVPSImageBoxContent_PList */
-#include "dcmtk/dcmpstat/dvpsabl.h"         /* for class DVPSAnnotationContent_PList */
-#include "dcmtk/dcmpstat/dvpstat.h"		 /* for class DVPresentationState */
-#include "dcmtk/dcmpstat/dvpspr.h"			 /* for class DVPrintMessageHandler */
+#include "ofstream.h"
+#include "ofstring.h"
+#include "dctk.h"
+#include "dvpstyp.h"         /* for enum types */
+#include "dvpspll.h"         /* for class DVPSPresentationLUT_PList */
+#include "dvpsibl.h"         /* for class DVPSImageBoxContent_PList */
+#include "dvpsabl.h"         /* for class DVPSAnnotationContent_PList */
+#include "dvpstat.h"		 /* for class DVPresentationState */
+#include "dvpspr.h"			 /* for class DVPrintMessageHandler */
 
 class DicomImage;
 class DVPSPresentationLUT;
@@ -1149,7 +1149,10 @@ class DVPSStoredPrint
 
 /*
  *  $Log: dvpssp.h,v $
- *  Revision 1.38  2005-12-08 16:04:03  meichel
+ *  Revision 1.1  2006/03/01 20:15:53  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.38  2005/12/08 16:04:03  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.37  2004/02/04 15:49:09  joergr

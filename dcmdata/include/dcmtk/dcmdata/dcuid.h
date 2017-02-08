@@ -23,10 +23,10 @@
  *  Definitions of "well known" DICOM Unique Indentifiers,
  *  routines for finding and creating UIDs.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-20 16:24:59 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcuid.h,v $
- *  CVS/RCS Revision: $Revision: 1.72 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcuid.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -36,12 +36,12 @@
 #ifndef DCUID_H
 #define DCUID_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dctypes.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dctypes.h"
 
 #define INCLUDE_CSTDLIB
 #define INCLUDE_UNISTD
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 /*
 ** dcmFindNameOfUID(const char* uid)
@@ -574,7 +574,10 @@ unsigned long dcmGuessModalityBytes(const char *sopClassUID);
 /*
 ** CVS/RCS Log:
 ** $Log: dcuid.h,v $
-** Revision 1.72  2005-12-20 16:24:59  meichel
+** Revision 1.1  2006/03/01 20:15:22  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.72  2005/12/20 16:24:59  meichel
 ** Updated version name and implementation name to reflect release 3.5.4.
 **
 ** Revision 1.71  2005/12/08 16:28:48  meichel

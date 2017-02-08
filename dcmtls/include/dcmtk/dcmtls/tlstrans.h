@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DcmTransportConnection
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:39 $
- *  CVS/RCS Revision: $Revision: 1.6 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:19 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,9 +34,9 @@
 #ifndef TLSTRANS_H
 #define TLSTRANS_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmnet/dcmtrans.h"    /* for DcmTransportConnection */
-#include "dcmtk/ofstd/ofstream.h"    /* for ostream */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dcmtrans.h"    /* for DcmTransportConnection */
+#include "ofstream.h"    /* for ostream */
 
 #ifdef WITH_OPENSSL
 
@@ -168,7 +168,10 @@ private:
 
 /*
  *  $Log: tlstrans.h,v $
- *  Revision 1.6  2005-12-08 16:05:39  meichel
+ *  Revision 1.1  2006/03/01 20:16:19  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.6  2005/12/08 16:05:39  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.5  2003/12/05 10:38:55  joergr

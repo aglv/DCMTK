@@ -21,10 +21,10 @@
  *
  *  Purpose: Classes for caching of the image database (Header/Source)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:03:30 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmpstat/include/dcmtk/dcmpstat/dvcache.h,v $
- *  CVS/RCS Revision: $Revision: 1.16 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:52 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmpstat/dvcache.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,11 +35,11 @@
 #ifndef __DVCACHE_H
 #define __DVCACHE_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/ofstd/oflist.h"
-#include "dcmtk/ofstd/ofstring.h"
-#include "dcmtk/dcmqrdb/dcmqrdbi.h"  /* for DVIFhierarchyStatus */
+#include "oflist.h"
+#include "ofstring.h"
+#include "dcmqrdbi.h"  /* for DVIFhierarchyStatus */
 
 /*--------------------*
  *  type definitions  *
@@ -909,7 +909,10 @@ class DVStudyCache
  *
  * CVS/RCS Log:
  * $Log: dvcache.h,v $
- * Revision 1.16  2005-12-08 16:03:30  meichel
+ * Revision 1.1  2006/03/01 20:15:52  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.16  2005/12/08 16:03:30  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.15  2005/04/04 10:11:57  meichel

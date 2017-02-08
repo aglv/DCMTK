@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DSRTypes
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:30 $
- *  CVS/RCS Revision: $Revision: 1.46 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:11 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,13 +35,13 @@
 #ifndef DSRTYPES_H
 #define DSRTYPES_H
 
-#include "dcmtk/config/osconfig.h"   /* make sure OS specific configuration is included first */
+#include "osconfig.h"   /* make sure OS specific configuration is included first */
 
-#include "dcmtk/dcmdata/dctk.h"
+#include "dctk.h"
 
-#include "dcmtk/ofstd/ofstream.h"
-#include "dcmtk/ofstd/oftypes.h"
-#include "dcmtk/ofstd/ofcond.h"
+#include "ofstream.h"
+#include "oftypes.h"
+#include "ofcond.h"
 
 
 /*---------------------*
@@ -1217,7 +1217,10 @@ class DSRTypes
 /*
  *  CVS/RCS Log:
  *  $Log: dsrtypes.h,v $
- *  Revision 1.46  2005-12-08 16:05:30  meichel
+ *  Revision 1.1  2006/03/01 20:16:11  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.46  2005/12/08 16:05:30  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.45  2005/11/30 12:00:24  joergr

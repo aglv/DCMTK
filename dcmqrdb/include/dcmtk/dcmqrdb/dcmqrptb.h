@@ -21,10 +21,10 @@
  *
  *  Purpose: class DcmQueryRetrieveProcessTable
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:04:26 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmqrdb/include/dcmtk/dcmqrdb/dcmqrptb.h,v $
- *  CVS/RCS Revision: $Revision: 1.2 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmqrdb/dcmqrptb.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,13 +34,13 @@
 #ifndef DCMQRPTB_H
 #define DCMQRPTB_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/ofstd/oftypes.h"
-#include "dcmtk/ofstd/ofstring.h"
-#include "dcmtk/dcmnet/assoc.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "oftypes.h"
+#include "ofstring.h"
+#include "assoc.h"
 
 #define INCLUDE_CTIME
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 BEGIN_EXTERN_C
 #ifdef HAVE_SYS_TIME_H
@@ -110,7 +110,10 @@ private:
 /*
  * CVS Log
  * $Log: dcmqrptb.h,v $
- * Revision 1.2  2005-12-08 16:04:26  meichel
+ * Revision 1.1  2006/03/01 20:16:07  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.2  2005/12/08 16:04:26  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.1  2005/03/30 13:34:50  meichel

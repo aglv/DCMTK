@@ -21,9 +21,9 @@
  *
  *  Purpose: DVPSHelper
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:46:32 $
- *  CVS/RCS Revision: $Revision: 1.14 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:52 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,16 +31,16 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmpstat/dvpshlp.h"
-#include "dcmtk/dcmnet/dcompat.h"     /* compatability routines */
-#include "dcmtk/dcmdata/dcvrda.h"
-#include "dcmtk/dcmdata/dcvrtm.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dvpshlp.h"
+#include "dcompat.h"     /* compatability routines */
+#include "dcvrda.h"
+#include "dcvrtm.h"
 
 #define INCLUDE_CSTDIO
 #define INCLUDE_CERRNO
 #define INCLUDE_CTIME
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 BEGIN_EXTERN_C
 #ifdef HAVE_SYS_TYPES_H
@@ -237,7 +237,10 @@ OFCondition DVPSHelper::addReferencedUIDItem(DcmSequenceOfItems& seq, const char
 /*
  *  CVS/RCS Log:
  *  $Log: dvpshlp.cc,v $
- *  Revision 1.14  2005-12-08 15:46:32  meichel
+ *  Revision 1.1  2006/03/01 20:15:52  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.14  2005/12/08 15:46:32  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.13  2002/11/27 15:48:11  meichel

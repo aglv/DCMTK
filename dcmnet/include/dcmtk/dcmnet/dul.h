@@ -44,9 +44,9 @@
 ** Intent:		This file defines the public structures and constants
 **			and the function prototypes for the DUL (DICOM Upper
 **			Layer) facility.
-** Last Update:		$Author: meichel $, $Date: 2005-12-12 15:15:08 $
+** Last Update:		$Author: lpysher $, $Date: 2006/03/01 20:15:50 $
 ** Source File:		$RCSfile: dul.h,v $
-** Revision:		$Revision: 1.23 $
+** Revision:		$Revision: 1.1 $
 ** Status:		$State: Exp $
 */
 
@@ -54,12 +54,12 @@
 #ifndef DUL_IS_IN
 #define DUL_IS_IN 1
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/ofstd/ofglobal.h"
-#include "dcmtk/ofstd/oftypes.h"
-#include "dcmtk/ofstd/ofcast.h"
-#include "dcmtk/dcmnet/extneg.h"
-#include "dcmtk/dcmnet/dicom.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "ofglobal.h"
+#include "oftypes.h"
+#include "ofcast.h"
+#include "extneg.h"
+#include "dicom.h"
 
 class DcmTransportConnection;
 class DcmTransportLayer;
@@ -483,7 +483,10 @@ void DUL_requestForkOnTransportConnectionReceipt(int argc, char *argv[]);
 /*
 ** CVS Log
 ** $Log: dul.h,v $
-** Revision 1.23  2005-12-12 15:15:08  meichel
+** Revision 1.1  2006/03/01 20:15:50  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.23  2005/12/12 15:15:08  meichel
 ** Added missing include dependency
 **
 ** Revision 1.22  2005/12/09 14:48:35  meichel

@@ -21,9 +21,9 @@
  *
  *  Purpose: class DcmQuantPixelBoxArray
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:32 $
- *  CVS/RCS Revision: $Revision: 1.5 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,9 +31,9 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofcast.h"
-#include "dcmtk/dcmimage/diqtpbox.h"   /* for DcmQuantPixelBoxArray */
+#include "osconfig.h"
+#include "ofcast.h"
+#include "diqtpbox.h"   /* for DcmQuantPixelBoxArray */
 
 
 BEGIN_EXTERN_C
@@ -74,7 +74,10 @@ DcmQuantPixelBoxArray::~DcmQuantPixelBoxArray()
  *
  * CVS/RCS Log:
  * $Log: diqtpbox.cc,v $
- * Revision 1.5  2005-12-08 15:42:32  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.5  2005/12/08 15:42:32  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.4  2003/12/17 16:34:57  joergr

@@ -21,10 +21,10 @@
  *
  *  Purpose: Interface of class DcmElement
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:11 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcelem.h,v $
- *  CVS/RCS Revision: $Revision: 1.29 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:21 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcelem.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,12 +35,12 @@
 #ifndef DCELEM_H
 #define DCELEM_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
-#include "dcmtk/dcmdata/dcerror.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmdata/dcobject.h"
-#include "dcmtk/ofstd/ofstring.h"
+#include "dcerror.h"
+#include "dctypes.h"
+#include "dcobject.h"
+#include "ofstring.h"
 
 // forward declarations
 class DcmInputStreamFactory;
@@ -325,7 +325,10 @@ class DcmElement
 /*
 ** CVS/RCS Log:
 ** $Log: dcelem.h,v $
-** Revision 1.29  2005-12-08 16:28:11  meichel
+** Revision 1.1  2006/03/01 20:15:21  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.29  2005/12/08 16:28:11  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.28  2004/07/01 12:28:25  meichel

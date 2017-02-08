@@ -21,20 +21,20 @@
  *
  *  Purpose: base classes for input streams
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:12 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/libsrc/dcistrma.cc,v $
- *  CVS/RCS Revision: $Revision: 1.2 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:21 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcistrma.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dcistrma.h"
-#include "dcmtk/dcmdata/dcistrmz.h" /* for DcmZLibInputFilter */
-#include "dcmtk/dcmdata/dcerror.h"  /* for EC_IllegalCall */
+#include "osconfig.h"
+#include "dcistrma.h"
+#include "dcistrmz.h" /* for DcmZLibInputFilter */
+#include "dcerror.h"  /* for EC_IllegalCall */
 
 DcmInputStream::DcmInputStream(DcmProducer *initial)
 : current_(initial)
@@ -141,7 +141,10 @@ OFCondition DcmInputStream::installCompressionFilter(E_StreamCompression filterT
 /*
  * CVS/RCS Log:
  * $Log: dcistrma.cc,v $
- * Revision 1.2  2005-12-08 15:41:12  meichel
+ * Revision 1.1  2006/03/01 20:15:21  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.2  2005/12/08 15:41:12  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.1  2002/08/27 16:55:48  meichel

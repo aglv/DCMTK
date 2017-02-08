@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomColorMonochromeTemplate (Header)
  *
- *  Last Update:         $Author: meichel $
- *  Update Date:         $Date: 2005-12-08 16:01:31 $
- *  CVS/RCS Revision:    $Revision: 1.15 $
+ *  Last Update:         $Author: lpysher $
+ *  Update Date:         $Date: 2006/03/01 20:15:34 $
+ *  CVS/RCS Revision:    $Revision: 1.1 $
  *  Status:              $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,10 +34,10 @@
 #ifndef DICOMOT_H
 #define DICOMOT_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/dcmimgle/dimopxt.h"
-#include "dcmtk/dcmimage/dicopx.h"
+#include "dimopxt.h"
+#include "dicopx.h"
 
 
 /*---------------------*
@@ -126,7 +126,10 @@ class DiColorMonoTemplate
  *
  * CVS/RCS Log:
  * $Log: dicomot.h,v $
- * Revision 1.15  2005-12-08 16:01:31  meichel
+ * Revision 1.1  2006/03/01 20:15:34  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.15  2005/12/08 16:01:31  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.14  2004/04/21 10:00:31  meichel

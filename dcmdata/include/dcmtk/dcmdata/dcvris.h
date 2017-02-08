@@ -21,10 +21,10 @@
  *
  *  Purpose: Interface of class DcmIntegerString
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:29:00 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvris.h,v $
- *  CVS/RCS Revision: $Revision: 1.15 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcvris.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,10 +34,10 @@
 #ifndef DCVRIS_H
 #define DCVRIS_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmdata/dcbytstr.h"
+#include "dctypes.h"
+#include "dcbytstr.h"
 
 
 /** a class representing the DICOM value representation 'Integer String' (IS)
@@ -110,7 +110,10 @@ class DcmIntegerString
 /*
 ** CVS/RCS Log:
 ** $Log: dcvris.h,v $
-** Revision 1.15  2005-12-08 16:29:00  meichel
+** Revision 1.1  2006/03/01 20:15:22  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.15  2005/12/08 16:29:00  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.14  2004/07/01 12:28:25  meichel

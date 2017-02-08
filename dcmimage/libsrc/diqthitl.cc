@@ -21,17 +21,17 @@
  *
  *  Purpose: class DcmQuantHistogramItemList
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:31 $
- *  CVS/RCS Revision: $Revision: 1.3 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmimage/diqthitl.h"
+#include "osconfig.h"
+#include "diqthitl.h"
 
 
 DcmQuantHistogramItemList::DcmQuantHistogramItemList()
@@ -68,7 +68,10 @@ void DcmQuantHistogramItemList::moveto(DcmQuantHistogramItemPointer *array, unsi
  *
  * CVS/RCS Log:
  * $Log: diqthitl.cc,v $
- * Revision 1.3  2005-12-08 15:42:31  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.3  2005/12/08 15:42:31  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.2  2003/12/17 16:34:14  joergr

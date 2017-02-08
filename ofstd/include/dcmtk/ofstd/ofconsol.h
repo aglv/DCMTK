@@ -51,9 +51,9 @@
  *  Caveat 2: The direct use of the COUT and CERR macros is unsafe
  *  in multithread applications. Use ofConsole instead.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:52 $
- *  CVS/RCS Revision: $Revision: 1.18 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:55 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -64,12 +64,12 @@
 #ifndef OFCONSOL_H
 #define OFCONSOL_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofstream.h"
-#include "dcmtk/ofstd/ofthread.h"
+#include "osconfig.h"
+#include "ofstream.h"
+#include "ofthread.h"
 
 #define INCLUDE_CSTDLIB
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 /** Singleton class which provides thread-safe access to the standard console
@@ -280,7 +280,10 @@ extern OFOStringStream CERR;
  *
  * CVS/RCS Log:
  * $Log: ofconsol.h,v $
- * Revision 1.18  2005-12-08 16:05:52  meichel
+ * Revision 1.1  2006/03/01 20:17:55  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.18  2005/12/08 16:05:52  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.17  2004/01/21 11:50:10  meichel

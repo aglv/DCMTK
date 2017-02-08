@@ -21,22 +21,22 @@
  *
  *  Purpose: Codec class for decoding JPEG Progressive (lossy, 8/12-bit)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:43:33 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmjpeg/libsrc/djdecpro.cc,v $
- *  CVS/RCS Revision: $Revision: 1.2 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:44 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmjpeg/djdecpro.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmjpeg/djdecpro.h"
-#include "dcmtk/dcmjpeg/djcparam.h"
-#include "dcmtk/dcmjpeg/djrploss.h"
-#include "dcmtk/dcmjpeg/djdijg8.h"
-#include "dcmtk/dcmjpeg/djdijg12.h"
+#include "osconfig.h"
+#include "djdecpro.h"
+#include "djcparam.h"
+#include "djrploss.h"
+#include "djdijg8.h"
+#include "djdijg12.h"
 
 
 DJDecoderProgressive::DJDecoderProgressive()
@@ -70,7 +70,10 @@ DJDecoder *DJDecoderProgressive::createDecoderInstance(
 /*
  * CVS/RCS Log
  * $Log: djdecpro.cc,v $
- * Revision 1.2  2005-12-08 15:43:33  meichel
+ * Revision 1.1  2006/03/01 20:15:44  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.2  2005/12/08 15:43:33  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.1  2001/11/13 15:58:27  meichel

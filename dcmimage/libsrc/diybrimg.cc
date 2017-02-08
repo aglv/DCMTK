@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomYBRImage (Source)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:36 $
- *  CVS/RCS Revision: $Revision: 1.9 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,13 +31,13 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctypes.h"
+#include "osconfig.h"
+#include "dctypes.h"
 
-#include "dcmtk/dcmimage/diybrimg.h"
-#include "dcmtk/dcmimage/diybrpxt.h"
-#include "dcmtk/dcmimgle/diinpx.h"
-#include "dcmtk/dcmimgle/didocu.h"
+#include "diybrimg.h"
+#include "diybrpxt.h"
+#include "diinpx.h"
+#include "didocu.h"
 
 
 /*----------------*
@@ -91,7 +91,10 @@ DiYBRImage::~DiYBRImage()
 **
 ** CVS/RCS Log:
 ** $Log: diybrimg.cc,v $
-** Revision 1.9  2005-12-08 15:42:36  meichel
+** Revision 1.1  2006/03/01 20:15:36  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.9  2005/12/08 15:42:36  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.8  2003/12/17 16:34:57  joergr

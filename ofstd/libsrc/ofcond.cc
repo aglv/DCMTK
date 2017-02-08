@@ -21,18 +21,18 @@
  *
  *  Purpose: class OFCondition and helper classes
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:48:51 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/ofstd/libsrc/ofcond.cc,v $
- *  CVS/RCS Revision: $Revision: 1.4 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:55 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/ofstd/ofcond.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofcond.h"
+#include "osconfig.h"
+#include "ofcond.h"
 
 
 /* ---------- global condition constants ---------- */
@@ -111,7 +111,10 @@ OFBool OFConditionString::deletable() const
  *
  * CVS/RCS Log:
  * $Log: ofcond.cc,v $
- * Revision 1.4  2005-12-08 15:48:51  meichel
+ * Revision 1.1  2006/03/01 20:17:55  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.4  2005/12/08 15:48:51  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.3  2002/07/10 11:52:54  meichel

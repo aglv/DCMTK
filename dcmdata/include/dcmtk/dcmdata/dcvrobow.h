@@ -21,10 +21,10 @@
  *
  *  Purpose: Interface of class DcmOtherByteOtherWord
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:29:03 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrobow.h,v $
- *  CVS/RCS Revision: $Revision: 1.26 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcvrobow.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,8 +35,8 @@
 #ifndef DCVROBOW_H
 #define DCVROBOW_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dcelem.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dcelem.h"
 
 
 /** a class representing the DICOM value representations 'Other Byte String' (OB)
@@ -274,7 +274,10 @@ class DcmOtherByteOtherWord
 /*
 ** CVS/RCS Log:
 ** $Log: dcvrobow.h,v $
-** Revision 1.26  2005-12-08 16:29:03  meichel
+** Revision 1.1  2006/03/01 20:15:22  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.26  2005/12/08 16:29:03  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.25  2004/07/01 12:28:25  meichel

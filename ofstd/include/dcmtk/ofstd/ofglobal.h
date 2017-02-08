@@ -25,9 +25,9 @@
  *           class T must have copy constructor and assignment operator.
  *
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:57 $
- *  CVS/RCS Revision: $Revision: 1.6 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:56 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -38,8 +38,8 @@
 #ifndef OFGLOBAL_H
 #define OFGLOBAL_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofthread.h"  /* for class OFBool */
+#include "osconfig.h"
+#include "ofthread.h"  /* for class OFBool */
 
 /** Template class which allows to declare global objects that are
  *  protected by a Mutex if used in multi-thread applications.
@@ -143,7 +143,10 @@ private:
  *
  * CVS/RCS Log:
  * $Log: ofglobal.h,v $
- * Revision 1.6  2005-12-08 16:05:57  meichel
+ * Revision 1.1  2006/03/01 20:17:56  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.6  2005/12/08 16:05:57  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.5  2003/12/05 10:37:41  joergr

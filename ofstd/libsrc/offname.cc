@@ -22,24 +22,24 @@
  *  Purpose:
  *    classes: OFFilenameCreator
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:48:57 $
- *  CVS/RCS Revision: $Revision: 1.11 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:56 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/ofstd/offname.h"
-#include "dcmtk/ofstd/ofcast.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "offname.h"
+#include "ofcast.h"
 
 #define INCLUDE_CERRNO
 #define INCLUDE_CSTRING
 #define INCLUDE_CTIME
 #define INCLUDE_CSTDLIB
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
                   
 BEGIN_EXTERN_C
 #ifdef HAVE_SYS_TYPES_H
@@ -158,7 +158,10 @@ int OFFilenameCreator::myrand_r(unsigned int *seed)
 
 /*
  *  $Log: offname.cc,v $
- *  Revision 1.11  2005-12-08 15:48:57  meichel
+ *  Revision 1.1  2006/03/01 20:17:56  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.11  2005/12/08 15:48:57  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.10  2003/07/09 13:58:04  meichel

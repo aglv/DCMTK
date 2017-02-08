@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomOverlayPlane (Header) - Multiframe Overlays UNTESTED !
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:48:03 $
- *  CVS/RCS Revision: $Revision: 1.26 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,16 +34,16 @@
 #ifndef DIOVPLN_H
 #define DIOVPLN_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/ofstd/ofstring.h"
-#include "dcmtk/ofstd/ofstream.h"
-#include "dcmtk/ofstd/ofcast.h"
+#include "osconfig.h"
+#include "dctypes.h"
+#include "ofstring.h"
+#include "ofstream.h"
+#include "ofcast.h"
 
-#include "dcmtk/dcmimgle/diutils.h"
+#include "diutils.h"
 
 #define INCLUDE_CSTDDEF
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 /*------------------------*
@@ -561,7 +561,10 @@ inline void DiOverlayPlane::setStart(const Uint16 x,
  *
  * CVS/RCS Log:
  * $Log: diovpln.h,v $
- * Revision 1.26  2005-12-08 16:48:03  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.26  2005/12/08 16:48:03  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.25  2004/01/05 14:52:20  joergr

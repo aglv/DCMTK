@@ -21,9 +21,9 @@
  *
  *  Purpose: Template class for bit manipulations (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:46 $
- *  CVS/RCS Revision: $Revision: 1.16 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:55 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,11 +34,11 @@
 #ifndef OFBMANIP_H
 #define OFBMANIP_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofcast.h"
+#include "osconfig.h"
+#include "ofcast.h"
 
 #define INCLUDE_CSTRING
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 #ifdef HAVE_BZERO
@@ -143,7 +143,10 @@ class OFBitmanipTemplate
  *
  * CVS/RCS Log:
  * $Log: ofbmanip.h,v $
- * Revision 1.16  2005-12-08 16:05:46  meichel
+ * Revision 1.1  2006/03/01 20:17:55  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.16  2005/12/08 16:05:46  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.15  2003/12/05 10:37:41  joergr

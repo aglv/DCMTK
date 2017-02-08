@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomMonochromePixelTemplate (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:47:56 $
- *  CVS/RCS Revision: $Revision: 1.27 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,19 +34,19 @@
 #ifndef DIMOPXT_H
 #define DIMOPXT_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofconsol.h"
-#include "dcmtk/ofstd/ofbmanip.h"
-#include "dcmtk/ofstd/ofcast.h"
+#include "osconfig.h"
+#include "ofconsol.h"
+#include "ofbmanip.h"
+#include "ofcast.h"
 
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmdata/dcdefine.h"
+#include "dctypes.h"
+#include "dcdefine.h"
 
-#include "dcmtk/dcmimgle/dimopx.h"
-#include "dcmtk/dcmimgle/dipxrept.h"
-#include "dcmtk/dcmimgle/dimomod.h"
-#include "dcmtk/dcmimgle/diinpx.h"
-#include "dcmtk/dcmimgle/dimoopx.h"
+#include "dimopx.h"
+#include "dipxrept.h"
+#include "dimomod.h"
+#include "diinpx.h"
+#include "dimoopx.h"
 
 
 /*---------------------*
@@ -439,7 +439,10 @@ class DiMonoPixelTemplate
  *
  * CVS/RCS Log:
  * $Log: dimopxt.h,v $
- * Revision 1.27  2005-12-08 16:47:56  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.27  2005/12/08 16:47:56  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.26  2004/10/19 12:58:24  joergr

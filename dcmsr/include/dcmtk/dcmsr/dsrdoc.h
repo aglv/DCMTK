@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DSRDocument
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:04:59 $
- *  CVS/RCS Revision: $Revision: 1.38 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:11 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,13 +35,13 @@
 #ifndef DSRDOC_H
 #define DSRDOC_H
 
-#include "dcmtk/config/osconfig.h"   /* make sure OS specific configuration is included first */
+#include "osconfig.h"   /* make sure OS specific configuration is included first */
 
-#include "dcmtk/dcmsr/dsrdoctr.h"
-#include "dcmtk/dcmsr/dsrsoprf.h"
-#include "dcmtk/dcmsr/dsrcsidl.h"
+#include "dsrdoctr.h"
+#include "dsrsoprf.h"
+#include "dsrcsidl.h"
 
-#include "dcmtk/ofstd/ofstream.h"
+#include "ofstream.h"
 
 
 /*---------------------*
@@ -1190,7 +1190,10 @@ class DSRDocument
 /*
  *  CVS/RCS Log:
  *  $Log: dsrdoc.h,v $
- *  Revision 1.38  2005-12-08 16:04:59  meichel
+ *  Revision 1.1  2006/03/01 20:16:11  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.38  2005/12/08 16:04:59  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.37  2005/11/30 12:00:24  joergr

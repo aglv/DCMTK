@@ -21,24 +21,24 @@
  *
  *  Purpose: Define general purpose facility for log file output
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:48:59 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/ofstd/libsrc/Attic/oflogfil.cc,v $
- *  CVS/RCS Revision: $Revision: 1.10 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:56 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/ofstd/oflogfil.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/oflogfil.h"
-#include "dcmtk/ofstd/ofstring.h"
-#include "dcmtk/ofstd/ofdatime.h"
-#include "dcmtk/ofstd/ofcast.h"
+#include "osconfig.h"
+#include "oflogfil.h"
+#include "ofstring.h"
+#include "ofdatime.h"
+#include "ofcast.h"
 
 #define INCLUDE_CSTDIO
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 OFLogFile::OFLogFile(const char *filename, int flags)
@@ -107,7 +107,10 @@ void OFLogFile::writeMessage(const char *message, int indent)
  *
  * CVS/RCS Log:
  * $Log: oflogfil.cc,v $
- * Revision 1.10  2005-12-08 15:48:59  meichel
+ * Revision 1.1  2006/03/01 20:17:56  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.10  2005/12/08 15:48:59  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.9  2003/07/09 13:58:04  meichel

@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomOverlayData (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:48:00 $
- *  CVS/RCS Revision: $Revision: 1.5 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,10 +34,10 @@
 #ifndef DIOVDAT_H
 #define DIOVDAT_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctypes.h"
+#include "osconfig.h"
+#include "dctypes.h"
 
-#include "dcmtk/dcmimgle/diobjcou.h"
+#include "diobjcou.h"
 
 
 /*------------------------*
@@ -101,7 +101,10 @@ class DiOverlayData
  *
  * CVS/RCS Log:
  * $Log: diovdat.h,v $
- * Revision 1.5  2005-12-08 16:48:00  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.5  2005/12/08 16:48:00  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.4  2003/12/09 10:05:22  joergr

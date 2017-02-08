@@ -22,19 +22,19 @@
  *  Purpose:
  *    classes: DVPSDisplayedArea_PList
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:46:24 $
- *  CVS/RCS Revision: $Revision: 1.13 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:52 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmpstat/dvpsdal.h"
-#include "dcmtk/dcmpstat/dvpsda.h"      /* for DVPSDisplayedArea */
-#include "dcmtk/dcmpstat/dvpsri.h"      /* for DVPSReferencedImage, needed by MSVC5 with STL */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dvpsdal.h"
+#include "dvpsda.h"      /* for DVPSDisplayedArea */
+#include "dvpsri.h"      /* for DVPSReferencedImage, needed by MSVC5 with STL */
 
 
 DVPSDisplayedArea_PList::DVPSDisplayedArea_PList()
@@ -234,7 +234,10 @@ void DVPSDisplayedArea_PList::setLog(OFConsole *stream, OFBool verbMode, OFBool 
 
 /*
  *  $Log: dvpsdal.cc,v $
- *  Revision 1.13  2005-12-08 15:46:24  meichel
+ *  Revision 1.1  2006/03/01 20:15:52  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.13  2005/12/08 15:46:24  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.12  2004/02/04 15:57:49  joergr

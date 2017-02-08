@@ -22,20 +22,20 @@
  *  Purpose:
  *    classes: DVPSReferencedSeries
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:46:45 $
- *  CVS/RCS Revision: $Revision: 1.13 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:53 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/ofstd/ofstring.h"
-#include "dcmtk/dcmpstat/dvpsrs.h"
-#include "dcmtk/dcmpstat/dvpsdef.h"     /* for constants and macros */
-#include "dcmtk/dcmpstat/dvpsri.h"      /* for DVPSReferencedImage, needed by MSVC5 with STL */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "ofstring.h"
+#include "dvpsrs.h"
+#include "dvpsdef.h"     /* for constants and macros */
+#include "dvpsri.h"      /* for DVPSReferencedImage, needed by MSVC5 with STL */
 
 /* --------------- class DVPSReferencedSeries --------------- */
 
@@ -246,7 +246,10 @@ void DVPSReferencedSeries::setLog(OFConsole *stream, OFBool verbMode, OFBool dbg
 
 /*
  *  $Log: dvpsrs.cc,v $
- *  Revision 1.13  2005-12-08 15:46:45  meichel
+ *  Revision 1.1  2006/03/01 20:15:53  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.13  2005/12/08 15:46:45  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.12  2003/06/04 12:30:28  meichel

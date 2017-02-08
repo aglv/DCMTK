@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DVPSReferencedSeries
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:04:01 $
- *  CVS/RCS Revision: $Revision: 1.9 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:53 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,9 +34,9 @@
 #ifndef __DVPSRS_H__
 #define __DVPSRS_H__
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dctk.h"
-#include "dcmtk/dcmpstat/dvpsril.h"     /* for DVPSReferencedImage_PList */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dctk.h"
+#include "dvpsril.h"     /* for DVPSReferencedImage_PList */
 
 /** an item of the referenced series sequence in a presentation state (internal use only).
  *  This class manages the data structures comprising one item
@@ -224,7 +224,10 @@ private:
 
 /*
  *  $Log: dvpsrs.h,v $
- *  Revision 1.9  2005-12-08 16:04:01  meichel
+ *  Revision 1.1  2006/03/01 20:15:53  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.9  2005/12/08 16:04:01  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.8  2001/09/26 15:36:15  meichel

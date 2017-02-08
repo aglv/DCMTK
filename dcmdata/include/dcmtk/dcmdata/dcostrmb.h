@@ -22,10 +22,10 @@
  *  Purpose: DcmOutputBufferStream and related classes,
  *    implements output to blocks of memory as needed in the dcmnet module.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:25 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcostrmb.h,v $
- *  CVS/RCS Revision: $Revision: 1.2 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcostrmb.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,8 +35,8 @@
 #ifndef DCOSTRMB_H
 #define DCOSTRMB_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dcostrma.h"
+#include "osconfig.h"
+#include "dcostrma.h"
 
 /** consumer class that stores data in a buffer provided by the caller.
  *  Used for DICOM network communication.
@@ -172,7 +172,10 @@ private:
 /*
  * CVS/RCS Log:
  * $Log: dcostrmb.h,v $
- * Revision 1.2  2005-12-08 16:28:25  meichel
+ * Revision 1.1  2006/03/01 20:15:22  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.2  2005/12/08 16:28:25  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.1  2002/08/27 16:55:36  meichel

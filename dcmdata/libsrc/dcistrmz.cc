@@ -21,23 +21,23 @@
  *
  *  Purpose: zlib compression filter for input streams
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:15 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/libsrc/dcistrmz.cc,v $
- *  CVS/RCS Revision: $Revision: 1.6 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:21 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcistrmz.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
 #ifdef WITH_ZLIB
 
-#include "dcmtk/dcmdata/dcistrmz.h"
-#include "dcmtk/dcmdata/dcerror.h"
-#include "dcmtk/ofstd/ofconsol.h"
+#include "dcistrmz.h"
+#include "dcerror.h"
+#include "ofconsol.h"
 
 #define DCMZLIBINPUTFILTER_BUFSIZE 4096
 #define DCMZLIBINPUTFILTER_PUTBACKSIZE 1024
@@ -436,7 +436,10 @@ void dcistrmz_dummy_function()
 /*
  * CVS/RCS Log:
  * $Log: dcistrmz.cc,v $
- * Revision 1.6  2005-12-08 15:41:15  meichel
+ * Revision 1.1  2006/03/01 20:15:21  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.6  2005/12/08 15:41:15  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.5  2004/04/07 12:19:14  joergr

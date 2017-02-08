@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: SiDSA
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:04:36 $
- *  CVS/RCS Revision: $Revision: 1.5 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,12 +34,12 @@
 #ifndef SIDSA_H
 #define SIDSA_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmsign/sialgo.h"
+#include "osconfig.h"
+#include "sialgo.h"
 
 #ifdef WITH_OPENSSL
 
-#include "dcmtk/ofstd/oftypes.h"
+#include "oftypes.h"
 
 class SiPrivateKey;
 struct dsa_st;
@@ -126,7 +126,10 @@ private:
 
 /*
  *  $Log: sidsa.h,v $
- *  Revision 1.5  2005-12-08 16:04:36  meichel
+ *  Revision 1.1  2006/03/01 20:16:07  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.5  2005/12/08 16:04:36  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.4  2003/06/04 14:21:03  meichel

@@ -21,18 +21,18 @@
  *
  *  Purpose: Implementation of class DcmApplicationEntity
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:45 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/libsrc/dcvrae.cc,v $
- *  CVS/RCS Revision: $Revision: 1.14 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcvrae.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dcvrae.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dcvrae.h"
 
 
 // ********************************
@@ -92,7 +92,10 @@ OFCondition DcmApplicationEntity::getOFString(OFString &stringVal,
 /*
 ** CVS/RCS Log:
 ** $Log: dcvrae.cc,v $
-** Revision 1.14  2005-12-08 15:41:45  meichel
+** Revision 1.1  2006/03/01 20:15:22  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.14  2005/12/08 15:41:45  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.13  2002/12/06 13:20:48  joergr

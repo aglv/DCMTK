@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomMonochrome2Image (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:47:47 $
- *  CVS/RCS Revision: $Revision: 1.15 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,10 +34,10 @@
 #ifndef DIMO2IMG_H
 #define DIMO2IMG_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctypes.h"
+#include "osconfig.h"
+#include "dctypes.h"
 
-#include "dcmtk/dcmimgle/dimoimg.h"
+#include "dimoimg.h"
 
 
 /*---------------------*
@@ -301,7 +301,10 @@ class DiMono2Image
  *
  * CVS/RCS Log:
  * $Log: dimo2img.h,v $
- * Revision 1.15  2005-12-08 16:47:47  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.15  2005/12/08 16:47:47  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.14  2004/02/06 11:07:50  joergr

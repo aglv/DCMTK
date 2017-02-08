@@ -22,10 +22,10 @@
  *  Purpose: Provide prototype of command line argument gathering routine
  *  for OS environments which cannot pass arguments on the command line.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:27:58 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/cmdlnarg.h,v $
- *  CVS/RCS Revision: $Revision: 1.7 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:19 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/cmdlnarg.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,7 +35,7 @@
 #ifndef CMDLNARG_H
 #define CMDLNARG_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 /*
 ** prepareCmdLineArgs 
@@ -55,7 +55,10 @@ void prepareCmdLineArgs(int& argc, char** argv,
 /*
 ** CVS/RCS Log:
 ** $Log: cmdlnarg.h,v $
-** Revision 1.7  2005-12-08 16:27:58  meichel
+** Revision 1.1  2006/03/01 20:15:19  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.7  2005/12/08 16:27:58  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.6  2001/06/01 15:48:31  meichel

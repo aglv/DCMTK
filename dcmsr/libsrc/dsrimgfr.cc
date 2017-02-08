@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DSRImageFrameList
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:47:53 $
- *  CVS/RCS Revision: $Revision: 1.14 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:11 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -32,11 +32,11 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmsr/dsrimgfr.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dsrimgfr.h"
 
 #define INCLUDE_CSTDIO
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 /* declared in class DSRListOfItems<T> */
@@ -181,7 +181,10 @@ OFCondition DSRImageFrameList::putString(const char *stringValue)
 /*
  *  CVS/RCS Log:
  *  $Log: dsrimgfr.cc,v $
- *  Revision 1.14  2005-12-08 15:47:53  meichel
+ *  Revision 1.1  2006/03/01 20:16:11  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.14  2005/12/08 15:47:53  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.13  2003/08/07 13:34:35  joergr

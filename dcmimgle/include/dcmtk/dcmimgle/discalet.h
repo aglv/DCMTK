@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomScaleTemplates (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:48:09 $
- *  CVS/RCS Revision: $Revision: 1.25 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,15 +34,15 @@
 #ifndef DISCALET_H
 #define DISCALET_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/ofstd/ofconsol.h"
-#include "dcmtk/ofstd/ofcast.h"
-#include "dcmtk/ofstd/ofstream.h"
+#include "osconfig.h"
+#include "dctypes.h"
+#include "ofconsol.h"
+#include "ofcast.h"
+#include "ofstream.h"
 
-#include "dcmtk/dcmimgle/ditranst.h"
-#include "dcmtk/dcmimgle/dipxrept.h"
-#include "dcmtk/dcmimgle/diutils.h"
+#include "ditranst.h"
+#include "dipxrept.h"
+#include "diutils.h"
 
 
 /*---------------------*
@@ -889,7 +889,10 @@ class DiScaleTemplate
  *
  * CVS/RCS Log:
  * $Log: discalet.h,v $
- * Revision 1.25  2005-12-08 16:48:09  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.25  2005/12/08 16:48:09  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.24  2004/04/21 10:00:36  meichel

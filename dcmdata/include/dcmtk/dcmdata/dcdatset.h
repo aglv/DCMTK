@@ -21,10 +21,10 @@
  *
  *  Purpose: Interface of the class DcmDataset
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:02 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcdatset.h,v $
- *  CVS/RCS Revision: $Revision: 1.25 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:19 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcdatset.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,12 +35,12 @@
 #ifndef DCDATSET_H
 #define DCDATSET_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
-#include "dcmtk/ofstd/ofconsol.h"
-#include "dcmtk/dcmdata/dcerror.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmdata/dcitem.h"
+#include "ofconsol.h"
+#include "dcerror.h"
+#include "dctypes.h"
+#include "dcitem.h"
 
 
 // forward declarations
@@ -268,7 +268,10 @@ class DcmDataset
 /*
 ** CVS/RCS Log:
 ** $Log: dcdatset.h,v $
-** Revision 1.25  2005-12-08 16:28:02  meichel
+** Revision 1.1  2006/03/01 20:15:19  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.25  2005/12/08 16:28:02  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.24  2005/11/11 10:31:57  meichel

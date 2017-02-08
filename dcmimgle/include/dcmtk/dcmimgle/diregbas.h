@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomRegisterBase (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:48:07 $
- *  CVS/RCS Revision: $Revision: 1.7 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,9 +34,9 @@
 #ifndef DIREGBAS_H
 #define DIREGBAS_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/dcmimgle/diutils.h"
+#include "diutils.h"
 
 
 /*------------------------*
@@ -111,7 +111,10 @@ class DiRegisterBase
  *
  * CVS/RCS Log:
  * $Log: diregbas.h,v $
- * Revision 1.7  2005-12-08 16:48:07  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.7  2005/12/08 16:48:07  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.6  2003/12/08 19:28:05  joergr

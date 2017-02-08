@@ -21,9 +21,9 @@
  *
  *  Purpose: Utilities (Source)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:43:07 $
- *  CVS/RCS Revision: $Revision: 1.14 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,16 +31,16 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/ofstd/ofconsol.h"
+#include "osconfig.h"
+#include "dctypes.h"
+#include "ofconsol.h"
 
-#include "dcmtk/dcmimgle/diutils.h"
+#include "diutils.h"
 
-#include "dcmtk/ofstd/ofstream.h"
+#include "ofstream.h"
 
 #define INCLUDE_CMATH
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 /*-------------------*
@@ -146,7 +146,10 @@ EP_Representation DicomImageClass::determineRepresentation(double minvalue,
  *
  * CVS/RCS Log:
  * $Log: diutils.cc,v $
- * Revision 1.14  2005-12-08 15:43:07  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.14  2005/12/08 15:43:07  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.13  2005/03/09 17:30:13  joergr

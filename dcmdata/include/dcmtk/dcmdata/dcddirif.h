@@ -21,9 +21,9 @@
  *
  *  Purpose: Interface class for simplified creation of a DICOMDIR
  *
- *  Last Update:      $Author: joergr $
- *  Update Date:      $Date: 2005-12-15 15:40:48 $
- *  CVS/RCS Revision: $Revision: 1.8 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:19 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,9 +34,9 @@
 #ifndef DCDDIRIF_H
 #define DCDDIRIF_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/dcmdata/dcdicdir.h"
+#include "dcdicdir.h"
 
 
 /*-----------------------------------*
@@ -1304,7 +1304,10 @@ class DicomDirInterface
  *
  * CVS/RCS Log:
  * $Log: dcddirif.h,v $
- * Revision 1.8  2005-12-15 15:40:48  joergr
+ * Revision 1.1  2006/03/01 20:15:19  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.8  2005/12/15 15:40:48  joergr
  * Removed unsused parameter.
  *
  * Revision 1.7  2005/12/08 16:28:03  meichel

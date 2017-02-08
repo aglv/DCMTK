@@ -21,9 +21,9 @@
  *
  *  Purpose: Print debug information
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:04 $
- *  CVS/RCS Revision: $Revision: 1.13 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:19 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -33,9 +33,9 @@
 #ifndef DCDEBUG_H
 #define DCDEBUG_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/ofstd/ofstream.h"
-#include "dcmtk/ofstd/ofglobal.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "ofstream.h"
+#include "ofglobal.h"
 
 extern OFGlobal<int> DcmDebugLevel; /* default 0 */
 
@@ -83,7 +83,10 @@ void DCM_dcmdata_debug_print(const char* text, ... );
 /*
  * CVS/RCS Log:
  * $Log: dcdebug.h,v $
- * Revision 1.13  2005-12-08 16:28:04  meichel
+ * Revision 1.1  2006/03/01 20:15:19  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.13  2005/12/08 16:28:04  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.12  2005/11/28 15:53:16  meichel

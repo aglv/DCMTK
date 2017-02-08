@@ -22,18 +22,18 @@
  *  Purpose:
  *    classes: DVPSOverlayCurveActivationLayer
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:46:18 $
- *  CVS/RCS Revision: $Revision: 1.8 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:52 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmpstat/dvpsal.h"
-#include "dcmtk/dcmpstat/dvpsdef.h"     /* for constants and macros */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dvpsal.h"
+#include "dvpsdef.h"     /* for constants and macros */
 
 
 /* --------------- class DVPSOverlayCurveActivationLayer --------------- */
@@ -130,7 +130,10 @@ void DVPSOverlayCurveActivationLayer::setLog(OFConsole *stream, OFBool verbMode,
 
 /*
  *  $Log: dvpsal.cc,v $
- *  Revision 1.8  2005-12-08 15:46:18  meichel
+ *  Revision 1.1  2006/03/01 20:15:52  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.8  2005/12/08 15:46:18  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.7  2001/09/26 15:36:23  meichel

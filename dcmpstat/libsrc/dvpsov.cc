@@ -22,19 +22,19 @@
  *  Purpose:
  *    classes: DVPSOverlay
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:46:36 $
- *  CVS/RCS Revision: $Revision: 1.16 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:52 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmpstat/dvpsov.h"
-#include "dcmtk/ofstd/ofstring.h"
-#include "dcmtk/dcmpstat/dvpsdef.h"     /* for constants and macros */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dvpsov.h"
+#include "ofstring.h"
+#include "dvpsdef.h"     /* for constants and macros */
 
 
 /* --------------- class DVPSOverlay --------------- */
@@ -331,7 +331,10 @@ void DVPSOverlay::setLog(OFConsole *stream, OFBool verbMode, OFBool dbgMode)
 
 /*
  *  $Log: dvpsov.cc,v $
- *  Revision 1.16  2005-12-08 15:46:36  meichel
+ *  Revision 1.1  2006/03/01 20:15:52  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.16  2005/12/08 15:46:36  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.15  2003/08/27 14:59:42  meichel

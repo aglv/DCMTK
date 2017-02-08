@@ -21,22 +21,22 @@
  *
  *  Purpose: singleton class that registers RLE encoder.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:34 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/libsrc/dcrleerg.cc,v $
- *  CVS/RCS Revision: $Revision: 1.2 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcrleerg.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dcrleerg.h"
+#include "osconfig.h"
+#include "dcrleerg.h"
 
-#include "dcmtk/dcmdata/dccodec.h"  /* for DcmCodecStruct */
-#include "dcmtk/dcmdata/dcrlecce.h" /* for class DcmRLECodecEncoder */
-#include "dcmtk/dcmdata/dcrlecp.h"  /* for class DcmRLECodecParameter */
+#include "dccodec.h"  /* for DcmCodecStruct */
+#include "dcrlecce.h" /* for class DcmRLECodecEncoder */
+#include "dcrlecp.h"  /* for class DcmRLECodecParameter */
 
 // initialization of static members
 OFBool DcmRLEEncoderRegistration::registered                  = OFFalse;
@@ -89,7 +89,10 @@ void DcmRLEEncoderRegistration::cleanup()
 /*
  * CVS/RCS Log
  * $Log: dcrleerg.cc,v $
- * Revision 1.2  2005-12-08 15:41:34  meichel
+ * Revision 1.1  2006/03/01 20:15:22  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.2  2005/12/08 15:41:34  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.1  2002/06/06 14:52:42  meichel

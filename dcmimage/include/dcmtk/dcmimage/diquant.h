@@ -21,9 +21,9 @@
  *
  *  Purpose: class DcmQuantFloydSteinberg
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:01:56 $
- *  CVS/RCS Revision: $Revision: 1.5 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,11 +34,11 @@
 #ifndef DIQUANT_H
 #define DIQUANT_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofcond.h"    /* for OFCondition */
-#include "dcmtk/dcmdata/dctypes.h"   /* for Uint32 etc. */
-#include "dcmtk/dcmimage/diqttype.h"  /* for enums */
-#include "dcmtk/ofstd/ofstring.h"   /* for class OFString */
+#include "osconfig.h"
+#include "ofcond.h"    /* for OFCondition */
+#include "dctypes.h"   /* for Uint32 etc. */
+#include "diqttype.h"  /* for enums */
+#include "ofstring.h"   /* for class OFString */
 
 
 class DicomImage;
@@ -101,7 +101,10 @@ public:
 /*
  * CVS/RCS Log:
  * $Log: diquant.h,v $
- * Revision 1.5  2005-12-08 16:01:56  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.5  2005/12/08 16:01:56  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.4  2004/08/24 14:55:24  meichel

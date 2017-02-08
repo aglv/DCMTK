@@ -22,18 +22,18 @@
  *  Purpose:
  *    classes: DVPSIPCMessage
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:46:35 $
- *  CVS/RCS Revision: $Revision: 1.11 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:52 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
-#include "dcmtk/dcmnet/dcompat.h"
+#include "dcompat.h"
 
 BEGIN_EXTERN_C
 #ifdef HAVE_WINDOWS_H
@@ -42,11 +42,11 @@ BEGIN_EXTERN_C
 #endif
 END_EXTERN_C
 
-#include "dcmtk/dcmpstat/dvpsmsg.h"
-#include "dcmtk/ofstd/ofstring.h"    /* for class OFString */
-#include "dcmtk/ofstd/ofbmanip.h"    /* for OFBitmanipTemplate<> */
-#include "dcmtk/dcmdata/dcswap.h"      /* for swapIfNecessary() */
-#include "dcmtk/dcmnet/dcmtrans.h"    /* for class DcmTransportConnection */
+#include "dvpsmsg.h"
+#include "ofstring.h"    /* for class OFString */
+#include "ofbmanip.h"    /* for OFBitmanipTemplate<> */
+#include "dcswap.h"      /* for swapIfNecessary() */
+#include "dcmtrans.h"    /* for class DcmTransportConnection */
 
 /* --------------- class DVPSIPCMessage --------------- */
 
@@ -426,7 +426,10 @@ void DVPSIPCClient::notifySentDICOMObject(Uint32 status, const char *txt)
 
 /*
  *  $Log: dvpsmsg.cc,v $
- *  Revision 1.11  2005-12-08 15:46:35  meichel
+ *  Revision 1.1  2006/03/01 20:15:52  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.11  2005/12/08 15:46:35  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.10  2001/06/05 10:30:56  joergr

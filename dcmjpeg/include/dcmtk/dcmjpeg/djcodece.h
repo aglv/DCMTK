@@ -21,10 +21,10 @@
  *
  *  Purpose: abstract codec class for JPEG encoders.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:59:12 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmjpeg/include/dcmtk/dcmjpeg/djcodece.h,v $
- *  CVS/RCS Revision: $Revision: 1.7 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:43 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmjpeg/djcodece.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,12 +34,12 @@
 #ifndef DJCODEC_H
 #define DJCODEC_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/oftypes.h"
-#include "dcmtk/dcmdata/dccodec.h"    /* for class DcmCodec */
-#include "dcmtk/dcmjpeg/djutils.h"    /* for enums */
-#include "dcmtk/ofstd/oflist.h"
-#include "dcmtk/ofstd/ofstring.h"   /* for class OFString */
+#include "osconfig.h"
+#include "oftypes.h"
+#include "dccodec.h"    /* for class DcmCodec */
+#include "djutils.h"    /* for enums */
+#include "oflist.h"
+#include "ofstring.h"   /* for class OFString */
 
 class DataInterface;
 class DJEncoder;
@@ -342,7 +342,10 @@ private:
 /*
  * CVS/RCS Log
  * $Log: djcodece.h,v $
- * Revision 1.7  2005-12-08 16:59:12  meichel
+ * Revision 1.1  2006/03/01 20:15:43  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.7  2005/12/08 16:59:12  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.6  2005/12/01 11:13:01  onken

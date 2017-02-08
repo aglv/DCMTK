@@ -21,9 +21,9 @@
  *
  *  Purpose: Template class for command line arguments (Source)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:48:49 $
- *  CVS/RCS Revision: $Revision: 1.36 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:55 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,11 +31,11 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/ofstd/ofcmdln.h"
-#include "dcmtk/ofstd/ofstd.h"
-#include "dcmtk/ofstd/ofcast.h"
+#include "ofcmdln.h"
+#include "ofstd.h"
+#include "ofcast.h"
 
 #ifdef HAVE_WINDOWS_H
 #include <windows.h>
@@ -1462,7 +1462,10 @@ void OFCommandLine::getStatusString(const E_ValueStatus status,
  *
  * CVS/RCS Log:
  * $Log: ofcmdln.cc,v $
- * Revision 1.36  2005-12-08 15:48:49  meichel
+ * Revision 1.1  2006/03/01 20:17:55  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.36  2005/12/08 15:48:49  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.35  2003/12/05 13:58:28  joergr

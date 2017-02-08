@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomDisplayLUT (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:47:36 $
- *  CVS/RCS Revision: $Revision: 1.8 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,9 +34,9 @@
 #ifndef DIDISLUT_H
 #define DIDISLUT_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/dcmimgle/dibaslut.h"
+#include "dibaslut.h"
 
 
 /*---------------------*
@@ -102,7 +102,10 @@ class DiDisplayLUT
  *
  * CVS/RCS Log:
  * $Log: didislut.h,v $
- * Revision 1.8  2005-12-08 16:47:36  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.8  2005/12/08 16:47:36  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.7  2003/12/08 18:17:41  joergr

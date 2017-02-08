@@ -22,22 +22,22 @@
  *  Purpose: DcmInputFileStream and related classes,
  *    implements streamed input from files.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:14 $
- *  CVS/RCS Revision: $Revision: 1.5 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:21 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dcistrmf.h"
-#include "dcmtk/dcmdata/dcerror.h"
+#include "osconfig.h"
+#include "dcistrmf.h"
+#include "dcerror.h"
 
 #define INCLUDE_CSTDIO
 #define INCLUDE_CERRNO
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 DcmFileProducer::DcmFileProducer(const char *filename, Uint32 offset)
@@ -197,7 +197,10 @@ DcmInputStreamFactory *DcmInputFileStream::newFactory() const
 /*
  * CVS/RCS Log:
  * $Log: dcistrmf.cc,v $
- * Revision 1.5  2005-12-08 15:41:14  meichel
+ * Revision 1.1  2006/03/01 20:15:21  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.5  2005/12/08 15:41:14  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.4  2004/02/04 16:34:09  joergr

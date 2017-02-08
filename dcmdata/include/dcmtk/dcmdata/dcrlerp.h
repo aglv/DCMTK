@@ -21,10 +21,10 @@
  *
  *  Purpose: representation parameter for RLE
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:40 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcrlerp.h,v $
- *  CVS/RCS Revision: $Revision: 1.2 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcrlerp.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,8 +34,8 @@
 #ifndef DCRLERP_H
 #define DCRLERP_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dcpixel.h" /* for class DcmRepresentationParameter */
+#include "osconfig.h"
+#include "dcpixel.h" /* for class DcmRepresentationParameter */
 
 /** representation parameter for RLE.
  *  This is actually a dummy class since there are no compression
@@ -79,7 +79,10 @@ public:
 /*
  * CVS/RCS Log
  * $Log: dcrlerp.h,v $
- * Revision 1.2  2005-12-08 16:28:40  meichel
+ * Revision 1.1  2006/03/01 20:15:22  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.2  2005/12/08 16:28:40  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.1  2002/06/06 14:52:38  meichel

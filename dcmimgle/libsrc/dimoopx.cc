@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomMonoOutputPixel (Source)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:43:01 $
- *  CVS/RCS Revision: $Revision: 1.8 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,10 +31,10 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/dcmimgle/dimoopx.h"
-#include "dcmtk/dcmimgle/dimopx.h"
+#include "dimoopx.h"
+#include "dimopx.h"
 
 
 /*----------------*
@@ -91,7 +91,10 @@ int DiMonoOutputPixel::isUnused(const unsigned long value)
  *
  * CVS/RCS Log:
  * $Log: dimoopx.cc,v $
- * Revision 1.8  2005-12-08 15:43:01  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.8  2005/12/08 15:43:01  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.7  2003/12/08 14:55:04  joergr

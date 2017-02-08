@@ -21,31 +21,31 @@
  *
  *  Purpose: class DcmQuantColorTable
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:28 $
- *  CVS/RCS Revision: $Revision: 1.8 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:35 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmimage/diqtctab.h"
+#include "osconfig.h"
+#include "diqtctab.h"
 
-#include "dcmtk/ofstd/ofconsol.h"
-#include "dcmtk/dcmimage/diqtpbox.h"
-#include "dcmtk/dcmdata/dcerror.h"   /* for EC_IllegalCall */
-#include "dcmtk/dcmdata/dcelem.h"    /* for DcmElement */
-#include "dcmtk/dcmdata/dcitem.h"    /* for DcmItem */
-#include "dcmtk/dcmdata/dcvrus.h"    /* for DcmUnsignedShort */
-#include "dcmtk/dcmdata/dcvrobow.h"  /* for DcmOtherByteOtherWord */
-#include "dcmtk/dcmdata/dcswap.h"    /* for swapIfNecessary() */
-#include "dcmtk/dcmdata/dcdeftag.h"  /* for tag constants */
-#include "dcmtk/dcmdata/dcuid.h"     /* for OFFIS_DCMTK_VERSION */
+#include "ofconsol.h"
+#include "diqtpbox.h"
+#include "dcerror.h"   /* for EC_IllegalCall */
+#include "dcelem.h"    /* for DcmElement */
+#include "dcitem.h"    /* for DcmItem */
+#include "dcvrus.h"    /* for DcmUnsignedShort */
+#include "dcvrobow.h"  /* for DcmOtherByteOtherWord */
+#include "dcswap.h"    /* for swapIfNecessary() */
+#include "dcdeftag.h"  /* for tag constants */
+#include "dcuid.h"     /* for OFFIS_DCMTK_VERSION */
 
 #define INCLUDE_CSTDIO
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 /* ------------------------------------------------------------ */
 
@@ -562,7 +562,10 @@ void DcmQuantColorTable::setDescriptionString(OFString& str) const
  *
  * CVS/RCS Log:
  * $Log: diqtctab.cc,v $
- * Revision 1.8  2005-12-08 15:42:28  meichel
+ * Revision 1.1  2006/03/01 20:15:35  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.8  2005/12/08 15:42:28  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.7  2003/12/17 16:34:57  joergr

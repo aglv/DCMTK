@@ -21,10 +21,10 @@
  *
  *  Purpose: singleton class that registers RLE encoder.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:39 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcrleerg.h,v $
- *  CVS/RCS Revision: $Revision: 1.4 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcrleerg.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,9 +34,9 @@
 #ifndef DCRLEERG_H
 #define DCRLEERG_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/oftypes.h"  /* for OFBool */
-#include "dcmtk/dcmdata/dctypes.h"  /* for Uint32 */
+#include "osconfig.h"
+#include "oftypes.h"  /* for OFBool */
+#include "dctypes.h"  /* for Uint32 */
 
 class DcmRLECodecParameter;
 class DcmRLECodecEncoder;
@@ -100,7 +100,10 @@ private:
 /*
  * CVS/RCS Log
  * $Log: dcrleerg.h,v $
- * Revision 1.4  2005-12-08 16:28:39  meichel
+ * Revision 1.1  2006/03/01 20:15:22  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.4  2005/12/08 16:28:39  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.3  2004/01/20 12:57:21  meichel

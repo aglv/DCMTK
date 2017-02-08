@@ -67,10 +67,10 @@
 **	OFFIS/University of Oldenburg, Germany.
 **
 **
-** Last Update:		$Author: meichel $
-** Update Date:		$Date: 2005-12-08 16:02:20 $
-** Source File:		$Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmnet/include/dcmtk/dcmnet/dicom.h,v $
-** CVS/RCS Revision:	$Revision: 1.12 $
+** Last Update:		$Author: lpysher $
+** Update Date:		$Date: 2006/03/01 20:15:49 $
+** Source File:		$Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmnet/dicom.h,v $
+** CVS/RCS Revision:	$Revision: 1.1 $
 ** Status:		$State: Exp $
 **
 ** CVS/RCS Log at end of file
@@ -80,18 +80,18 @@
 #ifndef DICOM_H
 #define DICOM_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 #define INCLUDE_CSTDLIB
 #define INCLUDE_CSTDIO
 #define INCLUDE_LIBC
 #define INCLUDE_UNISTD
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
-#include "dcmtk/dcmnet/cond.h"       /* condition typedefs */
-#include "dcmtk/dcmnet/dcompat.h"	/* compatability routines */
-#include "dcmtk/dcmdata/dctypes.h"	/* dcmdata toolkit basic types */
-#include "dcmtk/dcmdata/dcuid.h"	/* dcmdata UID definitions */
+#include "cond.h"       /* condition typedefs */
+#include "dcompat.h"	/* compatability routines */
+#include "dctypes.h"	/* dcmdata toolkit basic types */
+#include "dcuid.h"	/* dcmdata UID definitions */
 
 /*
  * Useful Types
@@ -168,7 +168,10 @@ typedef char	DIC_NODENAME[DIC_NODENAME_LEN + 1];
 /*
 ** CVS Log
 ** $Log: dicom.h,v $
-** Revision 1.12  2005-12-08 16:02:20  meichel
+** Revision 1.1  2006/03/01 20:15:49  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.12  2005/12/08 16:02:20  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.11  2004/08/03 11:42:43  meichel

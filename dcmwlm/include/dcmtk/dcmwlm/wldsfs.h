@@ -21,10 +21,10 @@
  *
  *  Purpose: Class for connecting to a file-based data source.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:41 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmwlm/include/dcmtk/dcmwlm/wldsfs.h,v $
- *  CVS/RCS Revision: $Revision: 1.15 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:20 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmwlm/wldsfs.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,8 +34,8 @@
 #ifndef WlmDataSourceFileSystem_h
 #define WlmDataSourceFileSystem_h
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmwlm/wlds.h"
+#include "osconfig.h"
+#include "wlds.h"
 
 class WlmFileSystemInteractionManager;
 class DcmDataset;
@@ -204,7 +204,10 @@ class WlmDataSourceFileSystem : public WlmDataSource
 /*
 ** CVS Log
 ** $Log: wldsfs.h,v $
-** Revision 1.15  2005-12-08 16:05:41  meichel
+** Revision 1.1  2006/03/01 20:16:20  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.15  2005/12/08 16:05:41  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.14  2005/05/04 11:33:17  wilkens

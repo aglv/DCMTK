@@ -21,9 +21,9 @@
  *
  *  Purpose: class DcmQuantColorMapping
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:01:44 $
- *  CVS/RCS Revision: $Revision: 1.4 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:35 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,13 +34,13 @@
 #ifndef DIQTCMAP_H
 #define DIQTCMAP_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmimage/diqttype.h"  /* for DcmQuantComponent */
-#include "dcmtk/dcmimgle/dcmimage.h"  /* gcc 3.4 needs this */
-#include "dcmtk/dcmimage/diqtstab.h"  /* gcc 3.4 needs this */
-#include "dcmtk/dcmimage/diqtpix.h"   /* gcc 3.4 needs this */
-#include "dcmtk/dcmimage/diqthash.h"  /* gcc 3.4 needs this */
-#include "dcmtk/dcmimage/diqtctab.h"  /* gcc 3.4 needs this */
+#include "osconfig.h"
+#include "diqttype.h"  /* for DcmQuantComponent */
+#include "dcmimage.h"  /* gcc 3.4 needs this */
+#include "diqtstab.h"  /* gcc 3.4 needs this */
+#include "diqtpix.h"   /* gcc 3.4 needs this */
+#include "diqthash.h"  /* gcc 3.4 needs this */
+#include "diqtctab.h"  /* gcc 3.4 needs this */
 
 class DicomImage;
 class DcmQuantColorHashTable;
@@ -145,7 +145,10 @@ public:
 /*
  * CVS/RCS Log:
  * $Log: diqtcmap.h,v $
- * Revision 1.4  2005-12-08 16:01:44  meichel
+ * Revision 1.1  2006/03/01 20:15:35  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.4  2005/12/08 16:01:44  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.3  2004/04/21 10:00:31  meichel

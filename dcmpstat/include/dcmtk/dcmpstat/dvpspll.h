@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DVPSPresentationLUT_PList
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:03:56 $
- *  CVS/RCS Revision: $Revision: 1.9 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:53 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,11 +34,11 @@
 #ifndef __DVPSPLL_H__
 #define __DVPSPLL_H__
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/ofstd/oflist.h"
-#include "dcmtk/dcmdata/dctk.h"
-#include "dcmtk/dcmpstat/dvpstyp.h"     /* for enum types */
-#include "dcmtk/dcmnet/dimse.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "oflist.h"
+#include "dctk.h"
+#include "dvpstyp.h"     /* for enum types */
+#include "dimse.h"
 
 class DVPSPresentationLUT;
 class DVPSImageBoxContent_PList;
@@ -166,7 +166,10 @@ private:
 
 /*
  *  $Log: dvpspll.h,v $
- *  Revision 1.9  2005-12-08 16:03:56  meichel
+ *  Revision 1.1  2006/03/01 20:15:53  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.9  2005/12/08 16:03:56  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.8  2003/06/04 10:18:06  meichel

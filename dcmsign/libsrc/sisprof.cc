@@ -22,24 +22,24 @@
  *  Purpose:
  *    classes: SiSecurityProfile
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:47:31 $
- *  CVS/RCS Revision: $Revision: 1.7 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
 #ifdef WITH_OPENSSL
 
-#include "dcmtk/dcmsign/sisprof.h"
-#include "dcmtk/dcmdata/dcitem.h"    /* for DcmItem */
-#include "dcmtk/dcmdata/dcvrat.h"    /* for DcmAttributeTag */
-#include "dcmtk/dcmsign/simac.h"     /* for SiMAC */
-#include "dcmtk/dcmsign/sialgo.h"    /* for SiAlgorithm */
+#include "sisprof.h"
+#include "dcitem.h"    /* for DcmItem */
+#include "dcvrat.h"    /* for DcmAttributeTag */
+#include "simac.h"     /* for SiMAC */
+#include "sialgo.h"    /* for SiAlgorithm */
 
 OFBool SiSecurityProfile::isAllowableMAC(const SiMAC& mac) const
 {
@@ -151,7 +151,10 @@ int sisprof_cc_dummy_to_keep_linker_from_moaning = 0;
 
 /*
  *  $Log: sisprof.cc,v $
- *  Revision 1.7  2005-12-08 15:47:31  meichel
+ *  Revision 1.1  2006/03/01 20:16:07  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.7  2005/12/08 15:47:31  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.6  2002/12/16 12:57:53  meichel

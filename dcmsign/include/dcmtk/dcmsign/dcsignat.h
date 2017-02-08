@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DcmSignature
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:04:29 $
- *  CVS/RCS Revision: $Revision: 1.3 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,15 +34,15 @@
 #ifndef DCMSIGN_H
 #define DCMSIGN_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmsign/sitypes.h"
+#include "osconfig.h"
+#include "sitypes.h"
 
 #ifdef WITH_OPENSSL
 
-#include "dcmtk/dcmdata/dcxfer.h"  /* for E_TransferSyntax */
+#include "dcxfer.h"  /* for E_TransferSyntax */
 
 #define INCLUDE_CSTDIO
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 class DcmItem;
 class DcmStack;
@@ -275,7 +275,10 @@ private:
 
 /*
  *  $Log: dcsignat.h,v $
- *  Revision 1.3  2005-12-08 16:04:29  meichel
+ *  Revision 1.1  2006/03/01 20:16:07  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.3  2005/12/08 16:04:29  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.2  2003/06/04 14:21:03  meichel

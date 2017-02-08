@@ -21,10 +21,10 @@
  *
  *  Purpose: Implements JPEG interface for plugable image formats
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:43:25 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmjpeg/libsrc/dipijpeg.cc,v $
- *  CVS/RCS Revision: $Revision: 1.9 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:43 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmjpeg/dipijpeg.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -32,15 +32,15 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofconsol.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmimgle/diimage.h"
-#include "dcmtk/dcmjpeg/dipijpeg.h"
+#include "osconfig.h"
+#include "ofconsol.h"
+#include "dctypes.h"
+#include "diimage.h"
+#include "dipijpeg.h"
 
 #define INCLUDE_CSETJMP
 #define INCLUDE_CSTDIO
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 BEGIN_EXTERN_C
 #define boolean ijg_boolean
@@ -257,7 +257,10 @@ OFString DiJPEGPlugin::getLibraryVersionString()
  *
  * CVS/RCS Log:
  * $Log: dipijpeg.cc,v $
- * Revision 1.9  2005-12-08 15:43:25  meichel
+ * Revision 1.1  2006/03/01 20:15:43  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.9  2005/12/08 15:43:25  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.8  2004/02/06 11:20:59  joergr

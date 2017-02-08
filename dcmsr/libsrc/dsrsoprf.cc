@@ -23,9 +23,9 @@
  *    classes: DSRSOPInstanceReferenceList
  *             - InstanceStruct, SeriesStruct, StudyStruct
  *
- *  Last Update:      $Author: joergr $
- *  Update Date:      $Date: 2005-12-15 16:53:48 $
- *  CVS/RCS Revision: $Revision: 1.10 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:11 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -33,12 +33,12 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
-#include "dcmtk/dcmsr/dsrsoprf.h"
-#include "dcmtk/dcmsr/dsrxmld.h"
+#include "dsrsoprf.h"
+#include "dsrxmld.h"
 
-#include "dcmtk/dcmdata/dcdeftag.h"
+#include "dcdeftag.h"
 
 
 // --- DSRSOPInstanceReferenceList::InstanceStruct ---
@@ -1418,7 +1418,10 @@ OFBool DSRSOPInstanceReferenceList::containsExtendedCharacters()
 /*
  *  CVS/RCS Log:
  *  $Log: dsrsoprf.cc,v $
- *  Revision 1.10  2005-12-15 16:53:48  joergr
+ *  Revision 1.1  2006/03/01 20:16:11  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.10  2005/12/15 16:53:48  joergr
  *  Added explicit type cast, required for Sun CC 2.0.1 on Solaris.
  *
  *  Revision 1.9  2005/12/08 15:48:07  meichel

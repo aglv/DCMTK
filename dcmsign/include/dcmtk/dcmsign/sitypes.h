@@ -22,9 +22,9 @@
  *  Purpose:
  *    consts, typedefs and enums for dcmsign
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:04:47 $
- *  CVS/RCS Revision: $Revision: 1.6 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,12 +34,12 @@
 #ifndef SITYPES_H
 #define SITYPES_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 #ifdef WITH_OPENSSL
 
-#include "dcmtk/ofstd/oftypes.h"
-#include "dcmtk/ofstd/ofcond.h"
+#include "oftypes.h"
+#include "ofcond.h"
 
 // DICOM defined terms for MAC algorithms, certificate and timestamp types
 #define SI_DEFTERMS_RIPEMD160 "RIPEMD160"
@@ -138,7 +138,10 @@ extern const OFCondition SI_EC_VerificationFailed_NoTrust;
 
 /*
  *  $Log: sitypes.h,v $
- *  Revision 1.6  2005-12-08 16:04:47  meichel
+ *  Revision 1.1  2006/03/01 20:16:07  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.6  2005/12/08 16:04:47  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.5  2001/11/16 15:50:51  meichel

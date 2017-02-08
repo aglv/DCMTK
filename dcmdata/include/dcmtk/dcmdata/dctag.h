@@ -21,10 +21,10 @@
  *
  *  Purpose: Definition of the class DcmTag
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:44 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dctag.h,v $
- *  CVS/RCS Revision: $Revision: 1.21 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dctag.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,10 +34,10 @@
 #ifndef DCTAG_H
 #define DCTAG_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/ofstd/ofcond.h"
-#include "dcmtk/dcmdata/dctagkey.h"
-#include "dcmtk/dcmdata/dcvr.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "ofcond.h"
+#include "dctagkey.h"
+#include "dcvr.h"
 
 /// default attribute name for unknown attributes
 #define DcmTag_ERROR_TagName    "Unknown Tag & Data"
@@ -227,7 +227,10 @@ private:
 /*
 ** CVS/RCS Log:
 ** $Log: dctag.h,v $
-** Revision 1.21  2005-12-08 16:28:44  meichel
+** Revision 1.1  2006/03/01 20:15:22  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.21  2005/12/08 16:28:44  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.20  2003/08/14 09:00:56  meichel

@@ -21,10 +21,10 @@
  *
  *  Purpose: 
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:02:09 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmnet/include/dcmtk/dcmnet/dcasccfg.h,v $
- *  CVS/RCS Revision: $Revision: 1.3 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:49 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmnet/dcasccfg.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,14 +34,14 @@
 #ifndef DCASCCFG_H
 #define DCASCCFG_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofcond.h"   /* for class OFCondition */
-#include "dcmtk/dcmnet/assoc.h"    /* for T_ASC_Parameters */
-#include "dcmtk/dcmnet/dccftsmp.h" /* for class DcmTransferSyntaxMap */
-#include "dcmtk/dcmnet/dccfpcmp.h" /* for class DcmPresentationContextMap */
-#include "dcmtk/dcmnet/dccfrsmp.h" /* for class DcmRoleSelectionMap */
-#include "dcmtk/dcmnet/dccfenmp.h" /* for class DcmExtendedNegotiationMap */
-#include "dcmtk/dcmnet/dccfprmp.h" /* for class DcmProfileMap */
+#include "osconfig.h"
+#include "ofcond.h"   /* for class OFCondition */
+#include "assoc.h"    /* for T_ASC_Parameters */
+#include "dccftsmp.h" /* for class DcmTransferSyntaxMap */
+#include "dccfpcmp.h" /* for class DcmPresentationContextMap */
+#include "dccfrsmp.h" /* for class DcmRoleSelectionMap */
+#include "dccfenmp.h" /* for class DcmExtendedNegotiationMap */
+#include "dccfprmp.h" /* for class DcmProfileMap */
 
 
 /** this class maintains a list of association negotiation profiles
@@ -194,7 +194,10 @@ private:
 /*
  * CVS/RCS Log
  * $Log: dcasccfg.h,v $
- * Revision 1.3  2005-12-08 16:02:09  meichel
+ * Revision 1.1  2006/03/01 20:15:49  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.3  2005/12/08 16:02:09  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.2  2003/08/14 10:58:49  meichel

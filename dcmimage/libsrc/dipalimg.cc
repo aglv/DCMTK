@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomPaletteImage (Source)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:25 $
- *  CVS/RCS Revision: $Revision: 1.18 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:35 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,16 +31,16 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmdata/dcdeftag.h"
-#include "dcmtk/dcmdata/dctag.h"
+#include "osconfig.h"
+#include "dctypes.h"
+#include "dcdeftag.h"
+#include "dctag.h"
 
-#include "dcmtk/dcmimgle/didocu.h"
-#include "dcmtk/dcmimage/dipalimg.h"
-#include "dcmtk/dcmimage/dipalpxt.h"
-#include "dcmtk/dcmimgle/diluptab.h"
-#include "dcmtk/dcmimgle/diinpx.h"
+#include "didocu.h"
+#include "dipalimg.h"
+#include "dipalpxt.h"
+#include "diluptab.h"
+#include "diinpx.h"
 
 
 /*----------------*
@@ -172,7 +172,10 @@ DiPaletteImage::~DiPaletteImage()
  *
  * CVS/RCS Log:
  * $Log: dipalimg.cc,v $
- * Revision 1.18  2005-12-08 15:42:25  meichel
+ * Revision 1.1  2006/03/01 20:15:35  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.18  2005/12/08 15:42:25  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.17  2003/12/17 16:21:47  joergr

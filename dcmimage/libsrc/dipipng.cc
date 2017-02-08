@@ -21,9 +21,9 @@
  *
  *  Purpose: Implements PNG interface for plugable image formats
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:26 $
- *  CVS/RCS Revision: $Revision: 1.6 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:35 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,14 +31,14 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
 #ifdef WITH_LIBPNG
 
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmimgle/diimage.h"
-#include "dcmtk/dcmimage/dipipng.h"
-#include "dcmtk/dcmdata/dcuid.h"      /* for dcmtk version */
+#include "dctypes.h"
+#include "diimage.h"
+#include "dipipng.h"
+#include "dcuid.h"      /* for dcmtk version */
 
 BEGIN_EXTERN_C
 #ifdef HAVE_LIBPNG_PNG_H
@@ -232,7 +232,10 @@ int dipipng_cc_dummy_to_keep_linker_from_moaning = 0;
 /*
  * CVS/RCS Log:
  * $Log: dipipng.cc,v $
- * Revision 1.6  2005-12-08 15:42:26  meichel
+ * Revision 1.1  2006/03/01 20:15:35  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.6  2005/12/08 15:42:26  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.5  2004/04/07 12:07:52  joergr

@@ -22,25 +22,25 @@
  *  Purpose:
  *    classes: DVPSOverlayCurveActivationLayer_PList
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:46:19 $
- *  CVS/RCS Revision: $Revision: 1.14 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:52 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/ofstd/ofstring.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "ofstring.h"
 
-#include "dcmtk/dcmpstat/dvpsall.h"
-#include "dcmtk/dcmpstat/dvpsal.h"      /* for DVPSOverlayCurveActivationLayer */
-#include "dcmtk/dcmpstat/dvpsovl.h"     /* for DVPSOverlay_PList */
-#include "dcmtk/dcmpstat/dvpsgll.h"     /* for DVPSGraphicLayer_PList */
-#include "dcmtk/dcmpstat/dvpsdef.h"     /* for constants and macros */
-#include "dcmtk/dcmpstat/dvpsov.h"      /* for DVPSOverlay, needed by MSVC5 with STL */
-#include "dcmtk/dcmpstat/dvpsgl.h"      /* for DVPSGraphicLayer, needed by MSVC5 with STL */
+#include "dvpsall.h"
+#include "dvpsal.h"      /* for DVPSOverlayCurveActivationLayer */
+#include "dvpsovl.h"     /* for DVPSOverlay_PList */
+#include "dvpsgll.h"     /* for DVPSGraphicLayer_PList */
+#include "dvpsdef.h"     /* for constants and macros */
+#include "dvpsov.h"      /* for DVPSOverlay, needed by MSVC5 with STL */
+#include "dvpsgl.h"      /* for DVPSGraphicLayer, needed by MSVC5 with STL */
 
 DVPSOverlayCurveActivationLayer_PList::DVPSOverlayCurveActivationLayer_PList()
 : list_()
@@ -489,7 +489,10 @@ void DVPSOverlayCurveActivationLayer_PList::setLog(OFConsole *stream, OFBool ver
 
 /*
  *  $Log: dvpsall.cc,v $
- *  Revision 1.14  2005-12-08 15:46:19  meichel
+ *  Revision 1.1  2006/03/01 20:15:52  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.14  2005/12/08 15:46:19  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.13  2004/02/04 15:57:49  joergr

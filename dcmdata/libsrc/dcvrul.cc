@@ -21,9 +21,9 @@
  *
  *  Purpose: Implementation of class DcmUnsignedLong
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:07 $
- *  CVS/RCS Revision: $Revision: 1.27 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,14 +31,14 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofstream.h"
-#include "dcmtk/dcmdata/dcvrul.h"
-#include "dcmtk/dcmdata/dcvm.h"
+#include "osconfig.h"
+#include "ofstream.h"
+#include "dcvrul.h"
+#include "dcvm.h"
 
 #define INCLUDE_CSTDIO
 #define INCLUDE_CSTRING
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 // ********************************
@@ -299,7 +299,10 @@ OFCondition DcmUnsignedLong::verify(const OFBool autocorrect)
 /*
 ** CVS/RCS Log:
 ** $Log: dcvrul.cc,v $
-** Revision 1.27  2005-12-08 15:42:07  meichel
+** Revision 1.1  2006/03/01 20:15:22  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.27  2005/12/08 15:42:07  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.26  2004/02/04 16:05:43  joergr

@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomYBRPixelTemplate (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:02:01 $
- *  CVS/RCS Revision: $Revision: 1.17 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,11 +34,11 @@
 #ifndef DIYBRPXT_H
 #define DIYBRPXT_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/dcmimage/dicopxt.h"
-#include "dcmtk/dcmimgle/dipxrept.h"
-#include "dcmtk/dcmimgle/diinpx.h"  /* gcc 3.4 needs this */
+#include "dicopxt.h"
+#include "dipxrept.h"
+#include "diinpx.h"  /* gcc 3.4 needs this */
 
 
 /*---------------------*
@@ -300,7 +300,10 @@ class DiYBRPixelTemplate
  *
  * CVS/RCS Log:
  * $Log: diybrpxt.h,v $
- * Revision 1.17  2005-12-08 16:02:01  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.17  2005/12/08 16:02:01  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.16  2004/04/21 10:00:31  meichel

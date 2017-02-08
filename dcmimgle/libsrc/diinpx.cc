@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomInputPixel (Source)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:52 $
- *  CVS/RCS Revision: $Revision: 1.8 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,9 +31,9 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/dcmimgle/diinpx.h"
+#include "diinpx.h"
 
 
 /*----------------*
@@ -67,7 +67,10 @@ DiInputPixel::~DiInputPixel()
  *
  * CVS/RCS Log:
  * $Log: diinpx.cc,v $
- * Revision 1.8  2005-12-08 15:42:52  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.8  2005/12/08 15:42:52  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.7  2003/12/08 17:43:04  joergr

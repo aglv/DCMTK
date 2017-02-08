@@ -61,10 +61,10 @@
 ** Module Prefix: none 
 ** 
 **
-** Last Update:		$Author: meichel $
-** Update Date:		$Date: 2005-12-08 16:02:19 $
-** Source File:		$Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmnet/include/dcmtk/dcmnet/dcompat.h,v $
-** CVS/RCS Revision:	$Revision: 1.23 $
+** Last Update:		$Author: lpysher $
+** Update Date:		$Date: 2006/03/01 20:15:49 $
+** Source File:		$Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmnet/dcompat.h,v $
+** CVS/RCS Revision:	$Revision: 1.1 $
 ** Status:		$State: Exp $
 **
 ** CVS/RCS Log at end of file
@@ -74,8 +74,8 @@
 #ifndef DCOMPAT_H
 #define DCOMPAT_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/ofstd/ofbmanip.h"    /* for bzero workaround */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "ofbmanip.h"    /* for bzero workaround */
 
 #define INCLUDE_CSTDLIB
 #define INCLUDE_CTIME
@@ -83,7 +83,7 @@
 #define INCLUDE_CERRNO
 #define INCLUDE_LIBC
 #define INCLUDE_UNISTD
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 #ifdef HAVE_GUSI_H
 /* Use the Grand Unified Sockets Interface (GUSI) on Macintosh */
@@ -395,7 +395,10 @@ char *tempnam(char *dir, char *pfx);
 /*
 ** CVS Log
 ** $Log: dcompat.h,v $
-** Revision 1.23  2005-12-08 16:02:19  meichel
+** Revision 1.1  2006/03/01 20:15:49  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.23  2005/12/08 16:02:19  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.22  2004/08/03 11:42:43  meichel

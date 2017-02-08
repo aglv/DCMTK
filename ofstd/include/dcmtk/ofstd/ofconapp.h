@@ -21,9 +21,9 @@
  *
  *  Purpose: Handle console applications (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:49 $
- *  CVS/RCS Revision: $Revision: 1.20 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:55 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,11 +34,11 @@
 #ifndef OFCONAPP_H
 #define OFCONAPP_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/ofstd/oftypes.h"
-#include "dcmtk/ofstd/ofcmdln.h"
-#include "dcmtk/ofstd/ofstring.h" /* for class OFString */
+#include "oftypes.h"
+#include "ofcmdln.h"
+#include "ofstring.h" /* for class OFString */
 
 
 /*---------------------*
@@ -205,7 +205,10 @@ class OFConsoleApplication
  *
  * CVS/RCS Log:
  * $Log: ofconapp.h,v $
- * Revision 1.20  2005-12-08 16:05:49  meichel
+ * Revision 1.1  2006/03/01 20:17:55  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.20  2005/12/08 16:05:49  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.19  2004/01/16 10:30:12  joergr

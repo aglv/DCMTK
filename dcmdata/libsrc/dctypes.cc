@@ -21,10 +21,10 @@
  *
  *  Purpose: global type and constant definitions
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:41 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/libsrc/dctypes.cc,v $
- *  CVS/RCS Revision: $Revision: 1.6 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dctypes.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -32,9 +32,9 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/dcmdata/dctypes.h"
+#include "dctypes.h"
 
 
 /* print flags */
@@ -53,7 +53,10 @@ const size_t DCMTypes::XF_embedDocumentType = 1 << 4;
 /*
  * CVS/RCS Log:
  * $Log: dctypes.cc,v $
- * Revision 1.6  2005-12-08 15:41:41  meichel
+ * Revision 1.1  2006/03/01 20:15:22  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.6  2005/12/08 15:41:41  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.5  2003/04/22 08:19:24  joergr

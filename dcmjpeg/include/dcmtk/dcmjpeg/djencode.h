@@ -21,10 +21,10 @@
  *
  *  Purpose: singleton class that registers encoders for all supported JPEG processes.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:59:32 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmjpeg/include/dcmtk/dcmjpeg/djencode.h,v $
- *  CVS/RCS Revision: $Revision: 1.6 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:44 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmjpeg/djencode.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,10 +34,10 @@
 #ifndef DJENCODE_H
 #define DJENCODE_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/oftypes.h"  /* for OFBool */
-#include "dcmtk/dcmjpeg/djutils.h"
-#include "dcmtk/dcmdata/dctypes.h"  /* for Uint32 */
+#include "osconfig.h"
+#include "oftypes.h"  /* for OFBool */
+#include "djutils.h"
+#include "dctypes.h"  /* for Uint32 */
 
 class DJCodecParameter;
 class DJEncoderBaseline;
@@ -150,7 +150,10 @@ private:
 /*
  * CVS/RCS Log
  * $Log: djencode.h,v $
- * Revision 1.6  2005-12-08 16:59:32  meichel
+ * Revision 1.1  2006/03/01 20:15:44  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.6  2005/12/08 16:59:32  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.5  2005/11/29 15:57:05  onken

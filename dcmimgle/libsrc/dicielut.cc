@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomCIELABLUT (Source)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:45 $
- *  CVS/RCS Revision: $Revision: 1.22 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,13 +31,13 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/ofstd/ofconsol.h"
-#include "dcmtk/dcmimgle/dicielut.h"
+#include "ofconsol.h"
+#include "dicielut.h"
 
 #define INCLUDE_CMATH
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 /*----------------*
@@ -230,7 +230,10 @@ int DiCIELABLUT::createLUT(const Uint16 *ddl_tab,
  *
  * CVS/RCS Log:
  * $Log: dicielut.cc,v $
- * Revision 1.22  2005-12-08 15:42:45  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.22  2005/12/08 15:42:45  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.21  2004/04/14 11:58:29  joergr

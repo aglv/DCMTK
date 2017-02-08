@@ -23,9 +23,9 @@
  *    classes: DSRSOPInstanceReferenceList
  *             - InstanceStruct, SeriesStruct, StudyStruct
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:18 $
- *  CVS/RCS Revision: $Revision: 1.9 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:11 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -36,17 +36,17 @@
 #ifndef DSRSOPRF_H
 #define DSRSOPRF_H
 
-#include "dcmtk/config/osconfig.h"   /* make sure OS specific configuration is included first */
+#include "osconfig.h"   /* make sure OS specific configuration is included first */
 
-#include "dcmtk/ofstd/oflist.h"
-#include "dcmtk/ofstd/ofstring.h"
-#include "dcmtk/ofstd/ofconsol.h"
-#include "dcmtk/ofstd/ofcond.h"
+#include "oflist.h"
+#include "ofstring.h"
+#include "ofconsol.h"
+#include "ofcond.h"
 
-#include "dcmtk/dcmdata/dcitem.h"
-#include "dcmtk/dcmdata/dctagkey.h"
+#include "dcitem.h"
+#include "dctagkey.h"
 
-#include "dcmtk/dcmsr/dsrtypes.h"
+#include "dsrtypes.h"
 
 
 /*---------------------*
@@ -571,7 +571,10 @@ class DSRSOPInstanceReferenceList
 /*
  *  CVS/RCS Log:
  *  $Log: dsrsoprf.h,v $
- *  Revision 1.9  2005-12-08 16:05:18  meichel
+ *  Revision 1.1  2006/03/01 20:16:11  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.9  2005/12/08 16:05:18  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.8  2005/07/27 16:33:39  joergr

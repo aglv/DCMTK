@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomDocument (Source)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:48 $
- *  CVS/RCS Revision: $Revision: 1.16 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,12 +31,12 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctk.h"
-#include "dcmtk/ofstd/ofstring.h"
+#include "osconfig.h"
+#include "dctk.h"
+#include "ofstring.h"
 
-#include "dcmtk/dcmimgle/didocu.h"
-#include "dcmtk/dcmimgle/diutils.h"
+#include "didocu.h"
+#include "diutils.h"
 
 
 /*----------------*
@@ -374,7 +374,10 @@ unsigned long DiDocument::getElemValue(const DcmElement *elem,
  *
  * CVS/RCS Log:
  * $Log: didocu.cc,v $
- * Revision 1.16  2005-12-08 15:42:48  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.16  2005/12/08 15:42:48  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.15  2003/12/08 15:13:18  joergr

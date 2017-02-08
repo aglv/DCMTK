@@ -21,9 +21,9 @@
  *
  *  Purpose: Combined class for date and time functions
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:55 $
- *  CVS/RCS Revision: $Revision: 1.7 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:56 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,11 +34,11 @@
 #ifndef OFDATIME_H
 #define OFDATIME_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/ofstd/ofstring.h"   /* for class OFString */
-#include "dcmtk/ofstd/ofdate.h"     /* for class OFDate */
-#include "dcmtk/ofstd/oftime.h"     /* for class OFTime */
+#include "ofstring.h"   /* for class OFString */
+#include "ofdate.h"     /* for class OFDate */
+#include "oftime.h"     /* for class OFTime */
 
 
 /*---------------------*
@@ -246,7 +246,10 @@ ostream& operator<<(ostream& stream, const OFDateTime &dateTime);
  *
  * CVS/RCS Log:
  * $Log: ofdatime.h,v $
- * Revision 1.7  2005-12-08 16:05:55  meichel
+ * Revision 1.1  2006/03/01 20:17:56  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.7  2005/12/08 16:05:55  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.6  2004/04/16 12:43:26  joergr

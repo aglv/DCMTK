@@ -57,10 +57,10 @@
 ** Module Prefix: DU_
 **
 **
-** Last Update:		$Author: meichel $
-** Update Date:		$Date: 2005-12-08 15:44:47 $
-** Source File:		$Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmnet/libsrc/diutil.cc,v $
-** CVS/RCS Revision:	$Revision: 1.22 $
+** Last Update:		$Author: lpysher $
+** Update Date:		$Date: 2006/03/01 20:15:50 $
+** Source File:		$Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmnet/diutil.cc,v $
+** CVS/RCS Revision:	$Revision: 1.1 $
 ** Status:		$State: Exp $
 **
 ** CVS/RCS Log at end of file
@@ -68,13 +68,13 @@
 
 
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 #define INCLUDE_CSTDLIB
 #define INCLUDE_CSTDIO
 #define INCLUDE_CSTRING
 #define INCLUDE_CCTYPE
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 #ifdef HAVE_UNIX_H
 #if defined(macintosh) && defined (HAVE_WINSOCK_H)
@@ -94,12 +94,12 @@
 #include <stat.h>
 #endif
 
-#include "dcmtk/dcmnet/diutil.h"
-#include "dcmtk/dcmdata/dcdatset.h"
-#include "dcmtk/dcmdata/dcfilefo.h"
-#include "dcmtk/dcmdata/dcmetinf.h"
-#include "dcmtk/dcmdata/dcdeftag.h"
-#include "dcmtk/dcmdata/dcuid.h"
+#include "diutil.h"
+#include "dcdatset.h"
+#include "dcfilefo.h"
+#include "dcmetinf.h"
+#include "dcdeftag.h"
+#include "dcuid.h"
 
 static char staticBuf[256];
 
@@ -440,7 +440,10 @@ DU_cgetStatusString(Uint16 statusCode)
 /*
 ** CVS Log
 ** $Log: diutil.cc,v $
-** Revision 1.22  2005-12-08 15:44:47  meichel
+** Revision 1.1  2006/03/01 20:15:50  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.22  2005/12/08 15:44:47  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.21  2002/11/27 13:04:43  meichel

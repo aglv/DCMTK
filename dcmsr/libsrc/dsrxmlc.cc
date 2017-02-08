@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DSRXMLCursor
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:48:24 $
- *  CVS/RCS Revision: $Revision: 1.2 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:11 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -32,9 +32,9 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
-#include "dcmtk/dcmsr/dsrxmlc.h"
+#include "dsrxmlc.h"
 
 
 DSRXMLCursor::DSRXMLCursor()
@@ -126,7 +126,10 @@ DSRXMLCursor DSRXMLCursor::getChild() const
 /*
  *  CVS/RCS Log:
  *  $Log: dsrxmlc.cc,v $
- *  Revision 1.2  2005-12-08 15:48:24  meichel
+ *  Revision 1.1  2006/03/01 20:16:11  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.2  2005/12/08 15:48:24  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.1  2003/08/07 14:49:36  joergr

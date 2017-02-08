@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DSRReferencedDatetimeList
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:20 $
- *  CVS/RCS Revision: $Revision: 1.8 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:11 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,12 +35,12 @@
 #ifndef DSRTCODT_H
 #define DSRTCODT_H
 
-#include "dcmtk/config/osconfig.h"   /* make sure OS specific configuration is included first */
+#include "osconfig.h"   /* make sure OS specific configuration is included first */
 
-#include "dcmtk/dcmsr/dsrtypes.h"
-#include "dcmtk/dcmsr/dsrtlist.h"
+#include "dsrtypes.h"
+#include "dsrtlist.h"
 
-#include "dcmtk/ofstd/ofstring.h"
+#include "ofstring.h"
 
 
 /*---------------------*
@@ -117,7 +117,10 @@ class DSRReferencedDatetimeList
 /*
  *  CVS/RCS Log:
  *  $Log: dsrtcodt.h,v $
- *  Revision 1.8  2005-12-08 16:05:20  meichel
+ *  Revision 1.1  2006/03/01 20:16:11  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.8  2005/12/08 16:05:20  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.7  2003/08/07 12:51:14  joergr

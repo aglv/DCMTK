@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomColorImage (Header)
  *
- *  Last Update:         $Author: meichel $
- *  Update Date:         $Date: 2005-12-08 16:01:30 $
- *  CVS/RCS Revision:    $Revision: 1.23 $
+ *  Last Update:         $Author: lpysher $
+ *  Update Date:         $Date: 2006/03/01 20:15:33 $
+ *  CVS/RCS Revision:    $Revision: 1.1 $
  *  Status:              $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,12 +34,12 @@
 #ifndef DICOIMG_H
 #define DICOIMG_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctypes.h"
+#include "osconfig.h"
+#include "dctypes.h"
 
-#include "dcmtk/dcmimgle/diimage.h"
-#include "dcmtk/dcmimage/dicopx.h"
-#include "dcmtk/dcmimgle/diutils.h"
+#include "diimage.h"
+#include "dicopx.h"
+#include "diutils.h"
 
 
 /*------------------------*
@@ -457,7 +457,10 @@ class DiColorImage
  *
  * CVS/RCS Log:
  * $Log: dicoimg.h,v $
- * Revision 1.23  2005-12-08 16:01:30  meichel
+ * Revision 1.1  2006/03/01 20:15:33  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.23  2005/12/08 16:01:30  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.22  2005/03/09 17:45:08  joergr

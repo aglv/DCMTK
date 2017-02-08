@@ -21,18 +21,18 @@
  *
  *  Purpose: byte order functions
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:38 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/libsrc/dcswap.cc,v $
- *  CVS/RCS Revision: $Revision: 1.15 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcswap.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dcswap.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dcswap.h"
 
 OFCondition swapIfNecessary(const E_ByteOrder newByteOrder,
 			    const E_ByteOrder oldByteOrder,
@@ -150,7 +150,10 @@ Uint16 swapShort(const Uint16 toSwap)
 /*
  * CVS/RCS Log:
  * $Log: dcswap.cc,v $
- * Revision 1.15  2005-12-08 15:41:38  meichel
+ * Revision 1.1  2006/03/01 20:15:22  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.15  2005/12/08 15:41:38  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.14  2004/02/04 16:45:00  joergr

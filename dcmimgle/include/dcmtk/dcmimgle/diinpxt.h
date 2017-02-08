@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomInputPixelTemplate (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:47:44 $
- *  CVS/RCS Revision: $Revision: 1.30 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,16 +34,16 @@
 #ifndef DIINPXT_H
 #define DIINPXT_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmdata/dcpixel.h"
+#include "osconfig.h"
+#include "dctypes.h"
+#include "dcpixel.h"
 
-#include "dcmtk/ofstd/ofbmanip.h"
-#include "dcmtk/ofstd/ofcast.h"
+#include "ofbmanip.h"
+#include "ofcast.h"
 
-#include "dcmtk/dcmimgle/diinpx.h"
-#include "dcmtk/dcmimgle/dipxrept.h"
-#include "dcmtk/dcmimgle/diutils.h"
+#include "diinpx.h"
+#include "dipxrept.h"
+#include "diutils.h"
 
 
 /*--------------------*
@@ -599,7 +599,10 @@ class DiInputPixelTemplate
  *
  * CVS/RCS Log:
  * $Log: diinpxt.h,v $
- * Revision 1.30  2005-12-08 16:47:44  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.30  2005/12/08 16:47:44  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.29  2004/04/21 10:00:36  meichel

@@ -21,22 +21,22 @@
  *
  *  Purpose: class DcmQueryRetrieveDatabaseStatus
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:47:10 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmqrdb/libsrc/dcmqrdbs.cc,v $
- *  CVS/RCS Revision: $Revision: 1.2 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmqrdb/dcmqrdbs.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmqrdb/dcmqrdbs.h"
-#include "dcmtk/dcmdata/dcdatset.h"    /* for class DcmDataset */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dcmqrdbs.h"
+#include "dcdatset.h"    /* for class DcmDataset */
 
 #define INCLUDE_CSTDDEF
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 DcmQueryRetrieveDatabaseStatus::DcmQueryRetrieveDatabaseStatus(Uint16 status)
@@ -87,7 +87,10 @@ DcmDataset *DcmQueryRetrieveDatabaseStatus::extractStatusDetail()
 /*
  * CVS Log
  * $Log: dcmqrdbs.cc,v $
- * Revision 1.2  2005-12-08 15:47:10  meichel
+ * Revision 1.1  2006/03/01 20:16:07  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.2  2005/12/08 15:47:10  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.1  2005/03/30 13:34:53  meichel

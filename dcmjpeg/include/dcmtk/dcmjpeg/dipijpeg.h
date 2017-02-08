@@ -21,9 +21,9 @@
  *
  *  Purpose: Implements JPEG interface for plugable image formats
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:59:10 $
- *  CVS/RCS Revision: $Revision: 1.4 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:43 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,10 +34,10 @@
 #ifndef DIPIJPEG_H
 #define DIPIJPEG_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/dcmimgle/diplugin.h"
-#include "dcmtk/dcmjpeg/djutils.h"
+#include "diplugin.h"
+#include "djutils.h"
 
 
 /*------------------------*
@@ -119,7 +119,10 @@ class DiJPEGPlugin
  *
  * CVS/RCS Log:
  * $Log: dipijpeg.h,v $
- * Revision 1.4  2005-12-08 16:59:10  meichel
+ * Revision 1.1  2006/03/01 20:15:43  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.4  2005/12/08 16:59:10  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.3  2003/12/05 10:42:54  joergr

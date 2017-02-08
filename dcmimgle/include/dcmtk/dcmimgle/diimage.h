@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomImage (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:47:42 $
- *  CVS/RCS Revision: $Revision: 1.38 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,21 +34,21 @@
 #ifndef DIIMAGE_H
 #define DIIMAGE_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmdata/dcitem.h"
+#include "osconfig.h"
+#include "dctypes.h"
+#include "dcitem.h"
 
 #ifdef SUNCC
-#include "dcmtk/dcmimgle/didocu.h"
+#include "didocu.h"
 #endif
 
-#include "dcmtk/dcmimgle/diovlay.h"
-#include "dcmtk/dcmimgle/diutils.h"
+#include "diovlay.h"
+#include "diutils.h"
 
 #define INCLUDE_CSTDIO
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
-#include "dcmtk/ofstd/ofstream.h"
+#include "ofstream.h"
 
 
 /*------------------------*
@@ -652,7 +652,10 @@ class DiImage
  *
  * CVS/RCS Log:
  * $Log: diimage.h,v $
- * Revision 1.38  2005-12-08 16:47:42  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.38  2005/12/08 16:47:42  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.37  2005/03/09 17:32:35  joergr

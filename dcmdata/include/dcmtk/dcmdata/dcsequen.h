@@ -21,10 +21,10 @@
  *
  *  Purpose: Interface of class DcmSequenceOfItems
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:41 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcsequen.h,v $
- *  CVS/RCS Revision: $Revision: 1.32 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcsequen.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,16 +34,16 @@
 #ifndef DCSEQUEN_H
 #define DCSEQUEN_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
-#include "dcmtk/ofstd/ofconsol.h"
-#include "dcmtk/dcmdata/dcerror.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmdata/dcobject.h"
-#include "dcmtk/dcmdata/dcitem.h"
-#include "dcmtk/dcmdata/dctag.h"
-#include "dcmtk/dcmdata/dclist.h"
-#include "dcmtk/dcmdata/dcstack.h"
+#include "ofconsol.h"
+#include "dcerror.h"
+#include "dctypes.h"
+#include "dcobject.h"
+#include "dcitem.h"
+#include "dctag.h"
+#include "dclist.h"
+#include "dcstack.h"
 
 
 //
@@ -222,7 +222,10 @@ private:
 /*
 ** CVS/RCS Log:
 ** $Log: dcsequen.h,v $
-** Revision 1.32  2005-12-08 16:28:41  meichel
+** Revision 1.1  2006/03/01 20:15:22  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.32  2005/12/08 16:28:41  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.31  2005/05/10 15:27:14  meichel

@@ -21,10 +21,10 @@
  *
  *  Purpose: Portable macros for new-style typecasts
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:47 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/ofstd/include/dcmtk/ofstd/ofcast.h,v $
- *  CVS/RCS Revision: $Revision: 1.2 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:55 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/ofstd/ofcast.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,7 +34,7 @@
 #ifndef OFCAST_H
 #define OFCAST_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
 #ifdef HAVE_CONST_CAST
 #define OFconst_cast(x,y) (const_cast< x >(y))
@@ -65,7 +65,10 @@
 /*
  * CVS/RCS Log:
  * $Log: ofcast.h,v $
- * Revision 1.2  2005-12-08 16:05:47  meichel
+ * Revision 1.1  2006/03/01 20:17:55  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.2  2005/12/08 16:05:47  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.1  2003/07/09 12:26:02  meichel

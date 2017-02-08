@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: SiCertificate
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:04:33 $
- *  CVS/RCS Revision: $Revision: 1.6 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,13 +34,13 @@
 #ifndef SICERT_H
 #define SICERT_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmsign/sitypes.h"
+#include "osconfig.h"
+#include "sitypes.h"
 
 #ifdef WITH_OPENSSL
 
-#include "dcmtk/dcmdata/dcerror.h"
-#include "dcmtk/ofstd/ofstring.h"   /* for class OFString */
+#include "dcerror.h"
+#include "ofstring.h"   /* for class OFString */
 
 class DcmItem;
 class SiAlgorithm;
@@ -157,7 +157,10 @@ private:
 
 /*
  *  $Log: sicert.h,v $
- *  Revision 1.6  2005-12-08 16:04:33  meichel
+ *  Revision 1.1  2006/03/01 20:16:07  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.6  2005/12/08 16:04:33  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.5  2003/07/04 13:28:13  meichel

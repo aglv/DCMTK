@@ -21,9 +21,9 @@
  *
  *  Purpose: Interface class for simplified creation of a DICOMDIR
  *
- *  Last Update:      $Author: joergr $
- *  Update Date:      $Date: 2005-12-15 15:40:18 $
- *  CVS/RCS Revision: $Revision: 1.16 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:19 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,29 +31,29 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 #define INCLUDE_CSTDIO
 #define INCLUDE_CCTYPE
 #define INCLUDE_CERRNO
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
-#include "dcmtk/dcmdata/dcddirif.h"
-#include "dcmtk/dcmdata/dcdeftag.h"
-#include "dcmtk/dcmdata/dcuid.h"
-#include "dcmtk/dcmdata/dccodec.h"
-#include "dcmtk/dcmdata/dcmetinf.h"    /* for class DcmMetaInfo */
-#include "dcmtk/dcmdata/dcpixel.h"     /* for class DcmPixelData */
-#include "dcmtk/dcmdata/dcpxitem.h"    /* for class DcmPixelItem */
-#include "dcmtk/dcmdata/dcpixseq.h"    /* for class DcmPixelSequence */
-#include "dcmtk/dcmdata/dcvrcs.h"      /* for class DcmCodeString */
-#include "dcmtk/dcmdata/dcvrda.h"      /* for class DcmDate */
-#include "dcmtk/dcmdata/dcvrtm.h"      /* for class DcmTime */
+#include "dcddirif.h"
+#include "dcdeftag.h"
+#include "dcuid.h"
+#include "dccodec.h"
+#include "dcmetinf.h"    /* for class DcmMetaInfo */
+#include "dcpixel.h"     /* for class DcmPixelData */
+#include "dcpxitem.h"    /* for class DcmPixelItem */
+#include "dcpixseq.h"    /* for class DcmPixelSequence */
+#include "dcvrcs.h"      /* for class DcmCodeString */
+#include "dcvrda.h"      /* for class DcmDate */
+#include "dcvrtm.h"      /* for class DcmTime */
 
-#include "dcmtk/ofstd/ofstd.h"
-#include "dcmtk/ofstd/ofstream.h"
-#include "dcmtk/ofstd/ofbmanip.h"    /* for class OFBitmanipTemplate */
-#include "dcmtk/ofstd/ofcast.h"
+#include "ofstd.h"
+#include "ofstream.h"
+#include "ofbmanip.h"    /* for class OFBitmanipTemplate */
+#include "ofcast.h"
 
 
 /*------------------------*
@@ -4784,7 +4784,10 @@ void DicomDirInterface::setDefaultValue(DcmDirectoryRecord *record,
 /*
  *  CVS/RCS Log:
  *  $Log: dcddirif.cc,v $
- *  Revision 1.16  2005-12-15 15:40:18  joergr
+ *  Revision 1.1  2006/03/01 20:15:19  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.16  2005/12/15 15:40:18  joergr
  *  Removed unsused parameter.
  *
  *  Revision 1.15  2005/12/08 15:41:00  meichel

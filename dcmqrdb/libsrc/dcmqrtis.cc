@@ -21,25 +21,25 @@
  *
  *  Purpose: class DcmQueryRetrieveOptions
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-16 13:14:28 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmqrdb/libsrc/dcmqrtis.cc,v $
- *  CVS/RCS Revision: $Revision: 1.9 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmqrdb/dcmqrtis.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmqrdb/dcmqrtis.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dcmqrtis.h"
 
-#include "dcmtk/dcmnet/diutil.h"
-#include "dcmtk/dcmdata/dcdeftag.h"
-#include "dcmtk/dcmqrdb/dcmqrdbi.h"
-#include "dcmtk/dcmqrdb/dcmqrdbs.h"
-#include "dcmtk/dcmdata/dcfilefo.h"
-#include "dcmtk/dcmqrdb/dcmqropt.h"
+#include "diutil.h"
+#include "dcdeftag.h"
+#include "dcmqrdbi.h"
+#include "dcmqrdbs.h"
+#include "dcfilefo.h"
+#include "dcmqropt.h"
 
 BEGIN_EXTERN_C
 #ifdef HAVE_SYS_STAT_H
@@ -2235,7 +2235,10 @@ void DcmQueryRetrieveTelnetInitiator::createConfigEntries(
 /*
  * CVS Log
  * $Log: dcmqrtis.cc,v $
- * Revision 1.9  2005-12-16 13:14:28  meichel
+ * Revision 1.1  2006/03/01 20:16:07  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.9  2005/12/16 13:14:28  meichel
  * Simplified overly clever code producing undefined behaviour
  *
  * Revision 1.8  2005/12/15 16:13:38  joergr

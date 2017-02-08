@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomOverlay (Source)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:43:04 $
- *  CVS/RCS Revision: $Revision: 1.25 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,16 +31,16 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctypes.h"
+#include "osconfig.h"
+#include "dctypes.h"
 
-#include "dcmtk/dcmimgle/diovlay.h"
-#include "dcmtk/dcmimgle/diovdat.h"
-#include "dcmtk/dcmimgle/diovpln.h"
-#include "dcmtk/dcmimgle/discalet.h"
-#include "dcmtk/dcmimgle/diflipt.h"
-#include "dcmtk/dcmimgle/dirotat.h"
-#include "dcmtk/dcmimgle/didocu.h"
+#include "diovlay.h"
+#include "diovdat.h"
+#include "diovpln.h"
+#include "discalet.h"
+#include "diflipt.h"
+#include "dirotat.h"
+#include "didocu.h"
 
 
 /*----------------------------*
@@ -609,7 +609,10 @@ unsigned long DiOverlay::create6xxx3000PlaneData(Uint8 *&buffer,
  *
  * CVS/RCS Log:
  * $Log: diovlay.cc,v $
- * Revision 1.25  2005-12-08 15:43:04  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.25  2005/12/08 15:43:04  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.24  2003/12/23 16:03:18  joergr

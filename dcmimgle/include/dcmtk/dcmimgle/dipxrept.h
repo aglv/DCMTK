@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomPixelRepresentationTemplate (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-09 14:48:35 $
- *  CVS/RCS Revision: $Revision: 1.15 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,9 +34,9 @@
 #ifndef DIPXREPT_H
 #define DIPXREPT_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/dcmimgle/diutils.h"
+#include "diutils.h"
 
 #ifdef HAVE_EXPLICIT_TEMPLATE_SPECIALIZATION
 #define EXPLICIT_SPECIALIZATION template<>
@@ -171,7 +171,10 @@ inline int DiPixelRepresentationTemplate<Sint32>::isSigned() const
  *
  * CVS/RCS Log:
  * $Log: dipxrept.h,v $
- * Revision 1.15  2005-12-09 14:48:35  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.15  2005/12/09 14:48:35  meichel
  * Added missing virtual destructors
  *
  * Revision 1.14  2005/12/08 16:48:06  meichel

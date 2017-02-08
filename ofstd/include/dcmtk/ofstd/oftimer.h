@@ -21,9 +21,9 @@
  *
  *  Purpose: Class for measurement of time (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:06:10 $
- *  CVS/RCS Revision: $Revision: 1.11 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:56 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,8 +34,8 @@
 #ifndef OFTIMER_H
 #define OFTIMER_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofcast.h"
+#include "osconfig.h"
+#include "ofcast.h"
 
 #ifdef HAVE_WINDOWS_H
 #include <windows.h>
@@ -121,7 +121,10 @@ class OFTimer
  *
  * CVS/RCS Log:
  * $Log: oftimer.h,v $
- * Revision 1.11  2005-12-08 16:06:10  meichel
+ * Revision 1.1  2006/03/01 20:17:56  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.11  2005/12/08 16:06:10  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.10  2003/12/05 10:37:41  joergr

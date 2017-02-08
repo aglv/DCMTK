@@ -21,9 +21,9 @@
  *
  *  Purpose: DiARGBImage (Source) - UNTESTED !!!
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:19 $
- *  CVS/RCS Revision: $Revision: 1.17 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:32 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,14 +31,14 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmdata/dcdeftag.h"
+#include "osconfig.h"
+#include "dctypes.h"
+#include "dcdeftag.h"
 
-#include "dcmtk/dcmimage/diargimg.h"
-#include "dcmtk/dcmimage/diargpxt.h"
-#include "dcmtk/dcmimgle/diluptab.h"
-#include "dcmtk/dcmimgle/diinpx.h"
+#include "diargimg.h"
+#include "diargpxt.h"
+#include "diluptab.h"
+#include "diinpx.h"
 
 
 /*----------------*
@@ -145,7 +145,10 @@ DiARGBImage::~DiARGBImage()
  *
  * CVS/RCS Log:
  * $Log: diargimg.cc,v $
- * Revision 1.17  2005-12-08 15:42:19  meichel
+ * Revision 1.1  2006/03/01 20:15:32  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.17  2005/12/08 15:42:19  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.16  2003/12/17 17:50:37  joergr

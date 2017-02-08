@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomHSVPixelTemplate (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:01:39 $
- *  CVS/RCS Revision: $Revision: 1.19 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:35 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,11 +34,11 @@
 #ifndef DIHSVPXT_H
 #define DIHSVPXT_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/ofstd/ofconsol.h"    /* for ofConsole */
-#include "dcmtk/dcmimage/dicopxt.h"
-#include "dcmtk/dcmimgle/diinpx.h"  /* gcc 3.4 needs this */
+#include "ofconsol.h"    /* for ofConsole */
+#include "dicopxt.h"
+#include "diinpx.h"  /* gcc 3.4 needs this */
 
 
 /*---------------------*
@@ -230,7 +230,10 @@ class DiHSVPixelTemplate
  *
  * CVS/RCS Log:
  * $Log: dihsvpxt.h,v $
- * Revision 1.19  2005-12-08 16:01:39  meichel
+ * Revision 1.1  2006/03/01 20:15:35  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.19  2005/12/08 16:01:39  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.18  2004/04/21 10:00:31  meichel

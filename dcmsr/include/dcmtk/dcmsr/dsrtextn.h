@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DSRTextTreeNode
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:25 $
- *  CVS/RCS Revision: $Revision: 1.11 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:11 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,10 +35,10 @@
 #ifndef DSRTEXTN_H
 #define DSRTEXTN_H
 
-#include "dcmtk/config/osconfig.h"   /* make sure OS specific configuration is included first */
+#include "osconfig.h"   /* make sure OS specific configuration is included first */
 
-#include "dcmtk/dcmsr/dsrdoctn.h"
-#include "dcmtk/dcmsr/dsrstrvl.h"
+#include "dsrdoctn.h"
+#include "dsrstrvl.h"
 
 
 /*---------------------*
@@ -177,7 +177,10 @@ class DSRTextTreeNode
 /*
  *  CVS/RCS Log:
  *  $Log: dsrtextn.h,v $
- *  Revision 1.11  2005-12-08 16:05:25  meichel
+ *  Revision 1.1  2006/03/01 20:16:11  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.11  2005/12/08 16:05:25  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.10  2004/11/22 16:39:09  meichel

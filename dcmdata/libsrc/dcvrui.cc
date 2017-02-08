@@ -21,10 +21,10 @@
  *
  *  Purpose: Implementation of class DcmUniqueIdentifier
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:06 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/libsrc/dcvrui.cc,v $
- *  CVS/RCS Revision: $Revision: 1.23 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcvrui.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -32,16 +32,16 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofstream.h"
-#include "dcmtk/ofstd/ofstring.h"
-#include "dcmtk/ofstd/ofstd.h"
-#include "dcmtk/dcmdata/dcvrui.h"
-#include "dcmtk/dcmdata/dcuid.h"
+#include "osconfig.h"
+#include "ofstream.h"
+#include "ofstring.h"
+#include "ofstd.h"
+#include "dcvrui.h"
+#include "dcuid.h"
 
 #define INCLUDE_CSTRING
 #define INCLUDE_CCTYPE
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 // ********************************
@@ -175,7 +175,10 @@ OFCondition DcmUniqueIdentifier::makeMachineByteString()
 /*
 ** CVS/RCS Log:
 ** $Log: dcvrui.cc,v $
-** Revision 1.23  2005-12-08 15:42:06  meichel
+** Revision 1.1  2006/03/01 20:15:22  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.23  2005/12/08 15:42:06  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.22  2004/01/16 13:46:03  joergr

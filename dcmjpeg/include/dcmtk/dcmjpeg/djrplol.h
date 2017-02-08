@@ -21,10 +21,10 @@
  *
  *  Purpose: representation parameter for lossless JPEG
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:59:36 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmjpeg/include/dcmtk/dcmjpeg/djrplol.h,v $
- *  CVS/RCS Revision: $Revision: 1.2 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:44 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmjpeg/djrplol.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,8 +34,8 @@
 #ifndef DJRPLOL_H
 #define DJRPLOL_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dcpixel.h" /* for class DcmRepresentationParameter */
+#include "osconfig.h"
+#include "dcpixel.h" /* for class DcmRepresentationParameter */
 
 /** representation parameter for lossless JPEG
  */
@@ -103,7 +103,10 @@ private:
 /*
  * CVS/RCS Log
  * $Log: djrplol.h,v $
- * Revision 1.2  2005-12-08 16:59:36  meichel
+ * Revision 1.1  2006/03/01 20:15:44  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.2  2005/12/08 16:59:36  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.1  2001/11/13 15:56:29  meichel

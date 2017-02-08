@@ -21,9 +21,9 @@
  *
  *  Purpose: Handle command line arguments (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:48 $
- *  CVS/RCS Revision: $Revision: 1.37 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:55 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,14 +34,14 @@
 #ifndef OFCMDLN_H
 #define OFCMDLN_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/oftypes.h"
-#include "dcmtk/ofstd/oflist.h"
-#include "dcmtk/ofstd/ofstring.h"
-#include "dcmtk/ofstd/ofconsol.h"
+#include "osconfig.h"
+#include "oftypes.h"
+#include "oflist.h"
+#include "ofstring.h"
+#include "ofconsol.h"
 
 #define INCLUDE_CSTDIO
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 /*--------------------*
@@ -969,7 +969,10 @@ class OFCommandLine
  *
  * CVS/RCS Log:
  * $Log: ofcmdln.h,v $
- * Revision 1.37  2005-12-08 16:05:48  meichel
+ * Revision 1.1  2006/03/01 20:17:55  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.37  2005/12/08 16:05:48  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.36  2003/12/05 13:59:33  joergr

@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: SiMACConstructor
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:04:38 $
- *  CVS/RCS Revision: $Revision: 1.9 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,17 +34,17 @@
 #ifndef SIMACCON_H
 #define SIMACCON_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmsign/sitypes.h"
+#include "osconfig.h"
+#include "sitypes.h"
 
 #ifdef WITH_OPENSSL
 
-#include "dcmtk/dcmdata/dcostrmb.h"  /* for DcmOutputBufferStream */
-#include "dcmtk/dcmdata/dcxfer.h"    /* for E_TransferSyntax */
-#include "dcmtk/dcmdata/dcdeftag.h"
+#include "dcostrmb.h"  /* for DcmOutputBufferStream */
+#include "dcxfer.h"    /* for E_TransferSyntax */
+#include "dcdeftag.h"
 
 #define INCLUDE_CSTDIO
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 class SiMAC;
 class DcmItem;
@@ -176,7 +176,10 @@ private:
 
 /*
  *  $Log: simaccon.h,v $
- *  Revision 1.9  2005-12-08 16:04:38  meichel
+ *  Revision 1.1  2006/03/01 20:16:07  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.9  2005/12/08 16:04:38  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.8  2003/06/04 14:21:03  meichel

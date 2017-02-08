@@ -22,22 +22,22 @@
  *  Purpose:
  *    classes: DVPresentationState
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:46:26 $
- *  CVS/RCS Revision: $Revision: 1.11 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:52 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmpstat/dvpsga.h"
-#include "dcmtk/dcmpstat/dvpsri.h"
-#include "dcmtk/dcmpstat/dvpstyp.h"
-#include "dcmtk/dcmpstat/dvpsdef.h"     /* for constants and macros */
-#include "dcmtk/dcmpstat/dvpstx.h"      /* for DVPSTextObject, needed by MSVC5 with STL */
-#include "dcmtk/dcmpstat/dvpsgr.h"      /* for DVPSGraphicObject, needed by MSVC5 with STL */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dvpsga.h"
+#include "dvpsri.h"
+#include "dvpstyp.h"
+#include "dvpsdef.h"     /* for constants and macros */
+#include "dvpstx.h"      /* for DVPSTextObject, needed by MSVC5 with STL */
+#include "dvpsgr.h"      /* for DVPSGraphicObject, needed by MSVC5 with STL */
 
 /* --------------- class DVPSGraphicAnnotation --------------- */
 
@@ -236,7 +236,10 @@ void DVPSGraphicAnnotation::setLog(OFConsole *stream, OFBool verbMode, OFBool db
 
 /*
  *  $Log: dvpsga.cc,v $
- *  Revision 1.11  2005-12-08 15:46:26  meichel
+ *  Revision 1.1  2006/03/01 20:15:52  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.11  2005/12/08 15:46:26  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.10  2003/06/04 12:30:28  meichel

@@ -21,9 +21,9 @@
  *
  *  Purpose: class DcmQuantIdent
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:01:51 $
- *  CVS/RCS Revision: $Revision: 1.3 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,7 +35,7 @@
 #define DIQTID_H
 
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
 
 class DcmQuantPixel;
@@ -114,7 +114,10 @@ private:
 /*
  * CVS/RCS Log:
  * $Log: diqtid.h,v $
- * Revision 1.3  2005-12-08 16:01:51  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.3  2005/12/08 16:01:51  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.2  2003/12/23 12:18:41  joergr

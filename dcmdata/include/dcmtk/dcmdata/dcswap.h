@@ -21,10 +21,10 @@
  *
  *  Purpose: byte order functions
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:43 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcswap.h,v $
- *  CVS/RCS Revision: $Revision: 1.15 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcswap.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,13 +34,13 @@
 #ifndef DCSWAP_H
 #define DCSWAP_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmdata/dcerror.h"
-#include "dcmtk/dcmdata/dcxfer.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dctypes.h"
+#include "dcerror.h"
+#include "dcxfer.h"
 
 #define INCLUDE_CSTDLIB
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 // Swap byteLength bytes, if newByteOrder != oldByteOrder. The bytes are
@@ -80,7 +80,10 @@ inline void swap4Bytes(Uint8 * toSwap)
 /*
  * CVS/RCS Log:
  * $Log: dcswap.h,v $
- * Revision 1.15  2005-12-08 16:28:43  meichel
+ * Revision 1.1  2006/03/01 20:15:22  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.15  2005/12/08 16:28:43  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.14  2002/11/27 12:07:23  meichel

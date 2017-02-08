@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: SiTimeStamp
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:04:46 $
- *  CVS/RCS Revision: $Revision: 1.5 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,12 +34,12 @@
 #ifndef SITSTAMP_H
 #define SITSTAMP_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmsign/sitypes.h"
+#include "osconfig.h"
+#include "sitypes.h"
 
 #ifdef WITH_OPENSSL
 
-#include "dcmtk/dcmdata/dcerror.h"
+#include "dcerror.h"
 
 class DcmItem;
  
@@ -80,7 +80,10 @@ public:
 
 /*
  *  $Log: sitstamp.h,v $
- *  Revision 1.5  2005-12-08 16:04:46  meichel
+ *  Revision 1.1  2006/03/01 20:16:07  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.5  2005/12/08 16:04:46  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.4  2003/06/04 14:21:03  meichel

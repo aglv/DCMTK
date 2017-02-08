@@ -24,10 +24,10 @@
  *  between OB and OW (e.g. Tag PixelData, OverlayData). This class shall
  *  not be used directly in applications. No identification exists.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:29:06 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrpobw.h,v $
- *  CVS/RCS Revision: $Revision: 1.13 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcvrpobw.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -37,8 +37,8 @@
 #ifndef DCVRPOBW_H
 #define DCVRPOBW_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dcvrobow.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dcvrobow.h"
 
 class DcmPolymorphOBOW : public DcmOtherByteOtherWord
 {
@@ -121,7 +121,10 @@ public:
 /*
 ** CVS/RCS Log:
 ** $Log: dcvrpobw.h,v $
-** Revision 1.13  2005-12-08 16:29:06  meichel
+** Revision 1.1  2006/03/01 20:15:22  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.13  2005/12/08 16:29:06  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.12  2004/07/01 12:28:25  meichel

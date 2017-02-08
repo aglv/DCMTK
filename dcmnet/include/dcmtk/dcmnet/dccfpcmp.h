@@ -23,10 +23,10 @@
  *    class DcmPresentationContextItem
  *    class DcmPresentationContextMap
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:02:11 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmnet/include/dcmtk/dcmnet/dccfpcmp.h,v $
- *  CVS/RCS Revision: $Revision: 1.3 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:49 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmnet/dccfpcmp.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -36,12 +36,12 @@
 #ifndef DCCFPCMP_H
 #define DCCFPCMP_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/oflist.h"   /* for class OFList<> */
-#include "dcmtk/ofstd/ofstring.h" /* for class OFString */
-#include "dcmtk/ofstd/ofcond.h"   /* for class OFCondition */
-#include "dcmtk/dcmnet/dcmsmap.h"  /* for class DcmSimpleMap<> */
-#include "dcmtk/dcmnet/dccfuidh.h" /* for class DcmUIDHandler */
+#include "osconfig.h"
+#include "oflist.h"   /* for class OFList<> */
+#include "ofstring.h" /* for class OFString */
+#include "ofcond.h"   /* for class OFCondition */
+#include "dcmsmap.h"  /* for class DcmSimpleMap<> */
+#include "dccfuidh.h" /* for class DcmUIDHandler */
 
 
 /** this helper class is a presentation context list entry.
@@ -181,7 +181,10 @@ private:
 /*
  * CVS/RCS Log
  * $Log: dccfpcmp.h,v $
- * Revision 1.3  2005-12-08 16:02:11  meichel
+ * Revision 1.1  2006/03/01 20:15:49  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.3  2005/12/08 16:02:11  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.2  2003/06/18 08:16:16  meichel

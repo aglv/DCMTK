@@ -22,10 +22,10 @@
  *  Purpose: Template class which represents an iterator class for corres-
  *           ponding set data structures in ofstd.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:06:02 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/ofstd/include/dcmtk/ofstd/ofsetit.h,v $
- *  CVS/RCS Revision: $Revision: 1.2 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:56 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/ofstd/ofsetit.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,9 +35,9 @@
 #ifndef OFSetIterator_h
 #define OFSetIterator_h
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/oftypes.h"
-#include "dcmtk/ofstd/ofset.h"
+#include "osconfig.h"
+#include "oftypes.h"
+#include "ofset.h"
 
 /** This template class represents an iterator class for corresponding set data structures in ofstd.
  *  Note the following properties of this class:
@@ -153,7 +153,10 @@ template <class T> class OFSetIterator
 /*
 ** CVS/RCS Log:
 ** $Log: ofsetit.h,v $
-** Revision 1.2  2005-12-08 16:06:02  meichel
+** Revision 1.1  2006/03/01 20:17:56  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.2  2005/12/08 16:06:02  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.1  2003/08/20 14:45:25  wilkens

@@ -21,9 +21,9 @@
  *
  *  Purpose: stack class
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:42 $
- *  CVS/RCS Revision: $Revision: 1.12 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -33,8 +33,8 @@
 #ifndef DCSTACK_H
 #define DCSTACK_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dctypes.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dctypes.h"
 
 class DcmObject;    // forward declaration
 
@@ -165,7 +165,10 @@ private:
 /*
  * CVS/RCS Log:
  * $Log: dcstack.h,v $
- * Revision 1.12  2005-12-08 16:28:42  meichel
+ * Revision 1.1  2006/03/01 20:15:22  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.12  2005/12/08 16:28:42  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.11  2004/04/14 11:50:21  joergr

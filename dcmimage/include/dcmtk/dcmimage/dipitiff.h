@@ -21,9 +21,9 @@
  *
  *  Purpose: Implements TIFF interface for plugable image formats
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:01:43 $
- *  CVS/RCS Revision: $Revision: 1.5 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:35 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,11 +34,11 @@
 #ifndef DIPITIFF_H
 #define DIPITIFF_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
 #ifdef WITH_LIBTIFF
 
-#include "dcmtk/dcmimgle/diplugin.h"
+#include "diplugin.h"
 
 
 /*------------------------*
@@ -157,7 +157,10 @@ class DiTIFFPlugin
  *
  * CVS/RCS Log:
  * $Log: dipitiff.h,v $
- * Revision 1.5  2005-12-08 16:01:43  meichel
+ * Revision 1.1  2006/03/01 20:15:35  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.5  2005/12/08 16:01:43  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.4  2003/12/17 18:18:08  joergr

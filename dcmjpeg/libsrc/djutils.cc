@@ -21,23 +21,23 @@
  *
  *  Purpose: (STATUS: OK)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:43:51 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmjpeg/libsrc/djutils.cc,v $
- *  CVS/RCS Revision: $Revision: 1.4 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:44 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmjpeg/djutils.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmjpeg/djutils.h"
-#include "dcmtk/dcmdata/dcdeftag.h"  /* for tag constants */
-#include "dcmtk/dcmdata/dcitem.h"    /* for class DcmItem */
+#include "osconfig.h"
+#include "djutils.h"
+#include "dcdeftag.h"  /* for tag constants */
+#include "dcitem.h"    /* for class DcmItem */
 
 #define INCLUDE_CCTYPE
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 const OFConditionConst EJC_Suspension(                           OFM_dcmjpeg,  1, OF_error, "IJG codec suspension return"  );
 const OFConditionConst EJC_IJG8_FrameBufferTooSmall(             OFM_dcmjpeg,  2, OF_error, "Buffer for decompressed image (8 bits/sample) too small"  );
@@ -87,7 +87,10 @@ EP_Interpretation DcmJpegHelper::getPhotometricInterpretation(DcmItem *item)
 /*
  * CVS/RCS Log
  * $Log: djutils.cc,v $
- * Revision 1.4  2005-12-08 15:43:51  meichel
+ * Revision 1.1  2006/03/01 20:15:44  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.4  2005/12/08 15:43:51  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.3  2005/11/30 14:13:14  onken

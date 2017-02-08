@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomImage (Source)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:51 $
- *  CVS/RCS Revision: $Revision: 1.32 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,19 +31,19 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmdata/dcdeftag.h"
-#include "dcmtk/dcmdata/dcswap.h"
+#include "osconfig.h"
+#include "dctypes.h"
+#include "dcdeftag.h"
+#include "dcswap.h"
 
-#include "dcmtk/dcmimgle/diimage.h"
-#include "dcmtk/dcmimgle/diinpxt.h"
-#include "dcmtk/dcmimgle/didocu.h"
-#include "dcmtk/dcmimgle/diutils.h"
-#include "dcmtk/ofstd/ofstd.h"
+#include "diimage.h"
+#include "diinpxt.h"
+#include "didocu.h"
+#include "diutils.h"
+#include "ofstd.h"
 
 #define INCLUDE_CSTRING
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 /*----------------*
@@ -868,7 +868,10 @@ int DiImage::writeBMP(FILE *stream,
  *
  * CVS/RCS Log:
  * $Log: diimage.cc,v $
- * Revision 1.32  2005-12-08 15:42:51  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.32  2005/12/08 15:42:51  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.31  2005/12/01 09:52:07  joergr

@@ -22,10 +22,10 @@
  *  Purpose: Template class for administrating an ordered set of elements
  *           of an arbitrary type.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:06:00 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/ofstd/include/dcmtk/ofstd/ofoset.h,v $
- *  CVS/RCS Revision: $Revision: 1.10 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:56 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/ofstd/ofoset.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,9 +35,9 @@
 #ifndef OFOrderedSet_h
 #define OFOrderedSet_h
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/oftypes.h"
-#include "dcmtk/ofstd/ofset.h"
+#include "osconfig.h"
+#include "oftypes.h"
+#include "ofset.h"
 
 /** This template class provides a data structure and operations for administrating an
  *  ordered set of elements of an arbitrary type. Note the following properties of this
@@ -513,7 +513,10 @@ template <class T> class OFOrderedSet : public OFSet<T>
 /*
 ** CVS/RCS Log:
 ** $Log: ofoset.h,v $
-** Revision 1.10  2005-12-08 16:06:00  meichel
+** Revision 1.1  2006/03/01 20:17:56  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.10  2005/12/08 16:06:00  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.9  2004/04/21 10:00:52  meichel

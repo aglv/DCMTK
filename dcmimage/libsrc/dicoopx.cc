@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomColorOutputPixel (Source)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:22 $
- *  CVS/RCS Revision: $Revision: 1.12 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:34 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,10 +31,10 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/dcmimage/dicoopx.h"
-#include "dcmtk/dcmimgle/dipixel.h"
+#include "dicoopx.h"
+#include "dipixel.h"
 
 
 /*----------------*
@@ -70,7 +70,10 @@ DiColorOutputPixel::~DiColorOutputPixel()
  *
  * CVS/RCS Log:
  * $Log: dicoopx.cc,v $
- * Revision 1.12  2005-12-08 15:42:22  meichel
+ * Revision 1.1  2006/03/01 20:15:34  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.12  2005/12/08 15:42:22  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.11  2003/12/23 10:54:28  joergr

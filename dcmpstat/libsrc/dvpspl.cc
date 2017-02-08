@@ -22,20 +22,20 @@
  *  Purpose:
  *    classes: DVPSPresentationLUT
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:46:38 $
- *  CVS/RCS Revision: $Revision: 1.27 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:52 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/ofstd/ofstring.h"
-#include "dcmtk/dcmpstat/dvpspl.h"
-#include "dcmtk/dcmpstat/dvpsdef.h"     /* for constants and macros */
-#include "dcmtk/dcmnet/dimse.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "ofstring.h"
+#include "dvpspl.h"
+#include "dvpsdef.h"     /* for constants and macros */
+#include "dimse.h"
 
 /* --------------- class DVPSPresentationLUT --------------- */
 
@@ -523,7 +523,10 @@ void DVPSPresentationLUT::setLog(OFConsole *stream, OFBool verbMode, OFBool dbgM
 
 /*
  *  $Log: dvpspl.cc,v $
- *  Revision 1.27  2005-12-08 15:46:38  meichel
+ *  Revision 1.1  2006/03/01 20:15:52  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.27  2005/12/08 15:46:38  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.26  2004/02/04 15:57:49  joergr

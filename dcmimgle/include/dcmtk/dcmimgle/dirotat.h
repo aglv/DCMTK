@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomRotateTemplate (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:48:08 $
- *  CVS/RCS Revision: $Revision: 1.16 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,12 +34,12 @@
 #ifndef DIROTAT_H
 #define DIROTAT_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofcast.h"
-#include "dcmtk/dcmdata/dctypes.h"
+#include "osconfig.h"
+#include "ofcast.h"
+#include "dctypes.h"
 
-#include "dcmtk/dcmimgle/dipixel.h"
-#include "dcmtk/dcmimgle/ditranst.h"
+#include "dipixel.h"
+#include "ditranst.h"
 
 
 /*---------------------*
@@ -367,7 +367,10 @@ class DiRotateTemplate
  *
  * CVS/RCS Log:
  * $Log: dirotat.h,v $
- * Revision 1.16  2005-12-08 16:48:08  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.16  2005/12/08 16:48:08  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.15  2005/06/15 08:23:54  joergr

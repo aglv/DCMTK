@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DVPSGraphicAnnotation
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:03:43 $
- *  CVS/RCS Revision: $Revision: 1.8 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:52 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,13 +34,13 @@
 #ifndef __DVPSGA_H__
 #define __DVPSGA_H__
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dctk.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dctk.h"
 
-#include "dcmtk/dcmpstat/dvpstxl.h"     /* for DVPSTextObject_PList */
-#include "dcmtk/dcmpstat/dvpsgrl.h"     /* for DVPSGraphicObject_PList */
-#include "dcmtk/dcmpstat/dvpsril.h"     /* for DVPSReferencedImage_PList */
-#include "dcmtk/dcmpstat/dvpstyp.h"     /* for enum types */
+#include "dvpstxl.h"     /* for DVPSTextObject_PList */
+#include "dvpsgrl.h"     /* for DVPSGraphicObject_PList */
+#include "dvpsril.h"     /* for DVPSReferencedImage_PList */
+#include "dvpstyp.h"     /* for enum types */
 
 /** an item of the graphic annotation sequence in a presentation state (internal use only).
  *  This class manages the data structures comprising one item
@@ -217,7 +217,10 @@ private:
 
 /*
  *  $Log: dvpsga.h,v $
- *  Revision 1.8  2005-12-08 16:03:43  meichel
+ *  Revision 1.1  2006/03/01 20:15:52  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.8  2005/12/08 16:03:43  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.7  2001/09/26 15:36:10  meichel

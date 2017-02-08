@@ -21,9 +21,9 @@
  *
  *  Purpose: class DcmQuantHistogramItem
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:01:50 $
- *  CVS/RCS Revision: $Revision: 1.3 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,9 +35,9 @@
 #define DIQTHITM_H
 
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/oftypes.h"   /* for OFBool */
-#include "dcmtk/dcmimage/diqtpix.h"   /* for DcmQuantPixel */
+#include "osconfig.h"
+#include "oftypes.h"   /* for OFBool */
+#include "diqtpix.h"   /* for DcmQuantPixel */
 
 
 /** this class extends DcmQuantPixel by an integer value
@@ -123,7 +123,10 @@ typedef DcmQuantHistogramItem *DcmQuantHistogramItemPointer;
 /*
  * CVS/RCS Log:
  * $Log: diqthitm.h,v $
- * Revision 1.3  2005-12-08 16:01:50  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.3  2005/12/08 16:01:50  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.2  2003/12/23 12:18:05  joergr

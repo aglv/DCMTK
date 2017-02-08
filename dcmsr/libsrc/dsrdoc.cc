@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DSRDocument
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:47:48 $
- *  CVS/RCS Revision: $Revision: 1.55 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:11 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -32,14 +32,14 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
-#include "dcmtk/dcmsr/dsrdoc.h"
-#include "dcmtk/dcmsr/dsrxmld.h"
-#include "dcmtk/dcmsr/dsrpnmtn.h"
-#include "dcmtk/dcmsr/dsrdattn.h"
-#include "dcmtk/dcmsr/dsrdtitn.h"
-#include "dcmtk/dcmsr/dsrtimtn.h"
+#include "dsrdoc.h"
+#include "dsrxmld.h"
+#include "dsrpnmtn.h"
+#include "dsrdattn.h"
+#include "dsrdtitn.h"
+#include "dsrtimtn.h"
 
 
 DSRDocument::DSRDocument(const E_DocumentType documentType)
@@ -2309,7 +2309,10 @@ OFBool DSRDocument::containsExtendedCharacters()
 /*
  *  CVS/RCS Log:
  *  $Log: dsrdoc.cc,v $
- *  Revision 1.55  2005-12-08 15:47:48  meichel
+ *  Revision 1.1  2006/03/01 20:16:11  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.55  2005/12/08 15:47:48  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.54  2004/11/29 17:15:29  joergr

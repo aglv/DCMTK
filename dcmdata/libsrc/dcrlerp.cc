@@ -21,18 +21,18 @@
  *
  *  Purpose: representation parameter for RLE
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:35 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/libsrc/dcrlerp.cc,v $
- *  CVS/RCS Revision: $Revision: 1.2 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcrlerp.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dcrlerp.h"
+#include "osconfig.h"
+#include "dcrlerp.h"
 
 
 DcmRLERepresentationParameter::DcmRLERepresentationParameter()
@@ -74,7 +74,10 @@ OFBool DcmRLERepresentationParameter::operator==(const DcmRepresentationParamete
 /*
  * CVS/RCS Log
  * $Log: dcrlerp.cc,v $
- * Revision 1.2  2005-12-08 15:41:35  meichel
+ * Revision 1.1  2006/03/01 20:15:22  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.2  2005/12/08 15:41:35  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.1  2002/06/06 14:52:43  meichel

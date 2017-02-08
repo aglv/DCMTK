@@ -22,17 +22,17 @@
  *  Purpose:
  *	    Implementation of supplementary methods for a template list class 
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:48:58 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/ofstd/libsrc/oflist.cc,v $
- *  CVS/RCS Revision: $Revision: 1.8 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:56 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/ofstd/oflist.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 #if defined(HAVE_STL) || defined (HAVE_STL_LIST) 
 // We do not need to make this library
@@ -41,7 +41,7 @@ void OF__DUMMY()    // to make the linker happy!
 }
 #else
 
-#include "dcmtk/ofstd/oflist.h"
+#include "oflist.h"
 
 OFListBase::OFListBase()
 : afterLast(NULL)
@@ -129,7 +129,10 @@ void OFListBase::base_recalcListSize()
 /*
 ** CVS/RCS Log:
 ** $Log: oflist.cc,v $
-** Revision 1.8  2005-12-08 15:48:58  meichel
+** Revision 1.1  2006/03/01 20:17:56  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.8  2005/12/08 15:48:58  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.7  2001/06/01 15:51:39  meichel

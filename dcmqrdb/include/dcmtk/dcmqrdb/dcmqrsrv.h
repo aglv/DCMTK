@@ -21,9 +21,9 @@
  *
  *  Purpose: class DcmQueryRetrieveSCP
  *
- *  Last Update:      $Author: joergr $
- *  Update Date:      $Date: 2005-12-16 12:42:50 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmqrdb/include/dcmtk/dcmqrdb/dcmqrsrv.h,v $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmqrdb/dcmqrsrv.h,v $
  *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
@@ -34,11 +34,11 @@
 #ifndef DCMQRSRV_H
 #define DCMQRSRV_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/ofstd/oftypes.h"
-#include "dcmtk/dcmnet/assoc.h"
-#include "dcmtk/dcmnet/dimse.h"
-#include "dcmtk/dcmqrdb/dcmqrptb.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "oftypes.h"
+#include "assoc.h"
+#include "dimse.h"
+#include "dcmqrptb.h"
 
 class DcmQueryRetrieveConfig;
 class DcmQueryRetrieveOptions;
@@ -183,7 +183,10 @@ private:
 /*
  * CVS Log
  * $Log: dcmqrsrv.h,v $
- * Revision 1.1  2005-12-16 12:42:50  joergr
+ * Revision 1.1  2006/03/01 20:16:07  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.1  2005/12/16 12:42:50  joergr
  * Renamed file to avoid naming conflicts when linking on SunOS 5.5.1 with
  * Sun CC 2.0.1.
  *

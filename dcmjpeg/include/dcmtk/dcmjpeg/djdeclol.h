@@ -21,10 +21,10 @@
  *
  *  Purpose: Codec class for decoding JPEG Lossless (8/12/16-bit)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:59:17 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmjpeg/include/dcmtk/dcmjpeg/djdeclol.h,v $
- *  CVS/RCS Revision: $Revision: 1.2 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:44 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmjpeg/djdeclol.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,8 +34,8 @@
 #ifndef DJDECLOL_H
 #define DJDECLOL_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmjpeg/djcodecd.h" /* for class DJCodecDecoder */
+#include "osconfig.h"
+#include "djcodecd.h" /* for class DJCodecDecoder */
 
 
 /** Decoder class for JPEG Lossless (8/12/16-bit)
@@ -78,7 +78,10 @@ private:
 /*
  * CVS/RCS Log
  * $Log: djdeclol.h,v $
- * Revision 1.2  2005-12-08 16:59:17  meichel
+ * Revision 1.1  2006/03/01 20:15:44  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.2  2005/12/08 16:59:17  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.1  2001/11/13 15:56:19  meichel

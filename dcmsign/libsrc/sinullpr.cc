@@ -22,20 +22,20 @@
  *  Purpose:
  *    classes: SiNullProfile
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:47:26 $
- *  CVS/RCS Revision: $Revision: 1.5 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
 #ifdef WITH_OPENSSL
 
-#include "dcmtk/dcmsign/sinullpr.h"
+#include "sinullpr.h"
 
 OFBool SiNullProfile::isAllowableMACType(E_MACType /* macType */) const
 {
@@ -72,7 +72,10 @@ int sinullpr_cc_dummy_to_keep_linker_from_moaning = 0;
 
 /*
  *  $Log: sinullpr.cc,v $
- *  Revision 1.5  2005-12-08 15:47:26  meichel
+ *  Revision 1.1  2006/03/01 20:16:07  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.5  2005/12/08 15:47:26  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.4  2002/12/16 12:57:52  meichel

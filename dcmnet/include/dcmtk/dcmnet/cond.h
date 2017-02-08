@@ -21,10 +21,10 @@
  *
  *  Purpose: network conditions and helper class
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:02:07 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmnet/include/dcmtk/dcmnet/cond.h,v $
- *  CVS/RCS Revision: $Revision: 1.10 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:49 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmnet/cond.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,9 +34,9 @@
 #ifndef COND_H
 #define COND_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofconsol.h"
-#include "dcmtk/dcmdata/dcerror.h"
+#include "osconfig.h"
+#include "ofconsol.h"
+#include "dcerror.h"
 
 /* NOTES ON THE CONVERSION OF THE DCMNET MODULE FROM CONDITION TO OFCONDITION
  *
@@ -271,7 +271,10 @@ typedef OFCondition CONDITION;
 /*
  * CVS Log
  * $Log: cond.h,v $
- * Revision 1.10  2005-12-08 16:02:07  meichel
+ * Revision 1.1  2006/03/01 20:15:49  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.10  2005/12/08 16:02:07  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.9  2005/11/25 11:31:11  meichel

@@ -22,18 +22,18 @@
  *  Purpose:
  *    classes: DVPSTextObject_PList
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:46:54 $
- *  CVS/RCS Revision: $Revision: 1.11 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:53 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmpstat/dvpstxl.h"
-#include "dcmtk/dcmpstat/dvpstx.h"      /* for DVPSTextObject */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dvpstxl.h"
+#include "dvpstx.h"      /* for DVPSTextObject */
 
 
 DVPSTextObject_PList::DVPSTextObject_PList()
@@ -191,7 +191,10 @@ void DVPSTextObject_PList::setLog(OFConsole *stream, OFBool verbMode, OFBool dbg
 
 /*
  *  $Log: dvpstxl.cc,v $
- *  Revision 1.11  2005-12-08 15:46:54  meichel
+ *  Revision 1.1  2006/03/01 20:15:53  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.11  2005/12/08 15:46:54  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.10  2004/02/04 15:57:49  joergr

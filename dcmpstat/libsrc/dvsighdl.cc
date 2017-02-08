@@ -22,30 +22,30 @@
  *  Purpose:
  *    classes: DVSignatureHandler
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:46:59 $
- *  CVS/RCS Revision: $Revision: 1.14 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:53 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmpstat/dvsighdl.h"
-#include "dcmtk/dcmdata/dcdeftag.h"
-#include "dcmtk/dcmsign/dcsignat.h"
-#include "dcmtk/dcmdata/dcobject.h"
-#include "dcmtk/dcmdata/dcsequen.h"
-#include "dcmtk/dcmdata/dcvrat.h"
-#include "dcmtk/dcmpstat/dvpscf.h"
-#include "dcmtk/dcmsign/sicert.h"
-#include "dcmtk/dcmsign/sitypes.h"
-#include "dcmtk/dcmsign/sinullpr.h"
-#include "dcmtk/dcmsign/siprivat.h"
-#include "dcmtk/dcmsign/siripemd.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dvsighdl.h"
+#include "dcdeftag.h"
+#include "dcsignat.h"
+#include "dcobject.h"
+#include "dcsequen.h"
+#include "dcvrat.h"
+#include "dvpscf.h"
+#include "sicert.h"
+#include "sitypes.h"
+#include "sinullpr.h"
+#include "siprivat.h"
+#include "siripemd.h"
 
-#include "dcmtk/ofstd/ofstream.h"
+#include "ofstream.h"
 
 #ifdef WITH_OPENSSL
 BEGIN_EXTERN_C
@@ -877,7 +877,10 @@ OFCondition DVSignatureHandler::createSignature(
 
 /*
  *  $Log: dvsighdl.cc,v $
- *  Revision 1.14  2005-12-08 15:46:59  meichel
+ *  Revision 1.1  2006/03/01 20:15:53  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.14  2005/12/08 15:46:59  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.13  2004/02/04 15:57:49  joergr

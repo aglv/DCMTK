@@ -21,9 +21,9 @@
  *
  *  Purpose: class OFCondition and helper classes
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:50 $
- *  CVS/RCS Revision: $Revision: 1.9 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:55 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,13 +34,13 @@
 #ifndef OFCOND_H
 #define OFCOND_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/oftypes.h"   /* for class OFBool */
-#include "dcmtk/ofstd/ofstring.h"  /* for class OFString */
-#include "dcmtk/ofstd/ofcast.h"
+#include "osconfig.h"
+#include "oftypes.h"   /* for class OFBool */
+#include "ofstring.h"  /* for class OFString */
+#include "ofcast.h"
 
 #define INCLUDE_CASSERT
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 /** this enumeration describes the return status of an operation.
  */
@@ -474,7 +474,10 @@ extern const OFCondition EC_MemoryExhausted;
 /*
  * CVS/RCS Log:
  * $Log: ofcond.h,v $
- * Revision 1.9  2005-12-08 16:05:50  meichel
+ * Revision 1.1  2006/03/01 20:17:55  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.9  2005/12/08 16:05:50  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.8  2003/12/05 10:37:41  joergr

@@ -21,10 +21,10 @@
  *
  *  Purpose: Implementation of class DcmCharString
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:40:57 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/libsrc/dcchrstr.cc,v $
- *  CVS/RCS Revision: $Revision: 1.9 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:19 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcchrstr.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -32,7 +32,7 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 //
 // This implementation does not support 16 bit character sets. Since 8 bit
@@ -49,7 +49,7 @@
 //
 
 
-#include "dcmtk/dcmdata/dcchrstr.h"
+#include "dcchrstr.h"
 
 
 DcmCharString::DcmCharString(const DcmTag &tag, const Uint32 len)
@@ -77,7 +77,10 @@ DcmCharString &DcmCharString::operator=(const DcmCharString &obj)
 /*
  * CVS/RCS Log:
  * $Log: dcchrstr.cc,v $
- * Revision 1.9  2005-12-08 15:40:57  meichel
+ * Revision 1.1  2006/03/01 20:15:19  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.9  2005/12/08 15:40:57  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.8  2002/12/06 13:08:18  joergr

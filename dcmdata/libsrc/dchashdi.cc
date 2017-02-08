@@ -21,26 +21,26 @@
  *
  *  Purpose: Hash table interface for DICOM data dictionary
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:11 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/libsrc/dchashdi.cc,v $
- *  CVS/RCS Revision: $Revision: 1.20 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:21 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dchashdi.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dchashdi.h"
-#include "dcmtk/dcmdata/dcdicent.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dchashdi.h"
+#include "dcdicent.h"
 
 #define INCLUDE_CSTDIO
 #define INCLUDE_CASSERT
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 #ifdef PRINT_REPLACED_DICTIONARY_ENTRIES
-#include "dcmtk/ofstd/ofconsol.h"   /* for ofConsole */
+#include "ofconsol.h"   /* for ofConsole */
 #endif
 
 /*
@@ -537,7 +537,10 @@ DcmHashDict::loadSummary(ostream& out)
 /*
 ** CVS/RCS Log:
 ** $Log: dchashdi.cc,v $
-** Revision 1.20  2005-12-08 15:41:11  meichel
+** Revision 1.1  2006/03/01 20:15:21  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.20  2005/12/08 15:41:11  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.19  2004/02/04 16:33:02  joergr

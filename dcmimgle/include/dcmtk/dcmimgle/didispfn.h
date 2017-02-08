@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomDisplayFunction (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:47:37 $
- *  CVS/RCS Revision: $Revision: 1.23 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,9 +34,9 @@
 #ifndef DIDISPFN_H
 #define DIDISPFN_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/dcmimgle/didislut.h"
+#include "didislut.h"
 
 
 /*---------------------*
@@ -494,7 +494,10 @@ class DiDisplayFunction
  *
  * CVS/RCS Log:
  * $Log: didispfn.h,v $
- * Revision 1.23  2005-12-08 16:47:37  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.23  2005/12/08 16:47:37  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.22  2003/12/08 18:18:35  joergr

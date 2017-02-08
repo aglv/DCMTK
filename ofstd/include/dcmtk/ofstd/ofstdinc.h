@@ -21,10 +21,10 @@
  *
  *  Purpose: encapsulation of old style vs. ISO C++ standard includes
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:06:05 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/ofstd/include/dcmtk/ofstd/ofstdinc.h,v $
- *  CVS/RCS Revision: $Revision: 1.11 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:56 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/ofstd/ofstdinc.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -33,7 +33,7 @@
 
 // this file is not and should not be protected against multiple inclusion
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
 #ifdef HAVE_STD_NAMESPACE
 namespace std { }
@@ -46,7 +46,7 @@ using namespace std;
 
 // define INCLUDE_ALGORITHM to include "ofalgo.h"
 #ifdef INCLUDE_ALGORITHM
-#include "dcmtk/ofstd/ofalgo.h"
+#include "ofalgo.h"
 #endif
 
 // we don't yet support <bitset>, <complex>, <deque>, <exception>, <functional>
@@ -55,14 +55,14 @@ using namespace std;
 #if defined(INCLUDE_IOSFWD) || defined(INCLUDE_IOSTREAM) || defined(INCLUDE_ISTREAM) || \
     defined(INCLUDE_OSTREAM) || defined(INCLUDE_IOMANIP) || defined(INCLUDE_IOS) || \
     defined(INCLUDE_FSTREAM) || defined(INCLUDE_SSTREAM)
-#include "dcmtk/ofstd/ofstream.h"
+#include "ofstream.h"
 #endif
 
 // we don't yet support <iterator>, <limits>
 
 // define INCLUDE_LIST to include "oflist.h"
 #ifdef INCLUDE_LIST
-#include "dcmtk/ofstd/oflist.h"
+#include "oflist.h"
 #endif
 
 // we don't yet support <locale>, <map>, <memory>, <numeric>, <queue>, <set>
@@ -78,7 +78,7 @@ using namespace std;
 
 // define INCLUDE_STACK to include "ofstack.h"
 #ifdef INCLUDE_STACK
-#include "dcmtk/ofstd/ofstack.h"
+#include "ofstack.h"
 #endif
 
 // we don't yet support <stdexcept>
@@ -94,7 +94,7 @@ using namespace std;
 
 // define INCLUDE_STRING to include "ofstring.h"
 #ifdef INCLUDE_STRING
-#include "dcmtk/ofstd/ofstring.h"
+#include "ofstring.h"
 #endif
 
 // we don't yet support <typeinfo>, <valarray>, <vector>
@@ -339,7 +339,10 @@ END_EXTERN_C
 /*
  * CVS/RCS Log:
  * $Log: ofstdinc.h,v $
- * Revision 1.11  2005-12-08 16:06:05  meichel
+ * Revision 1.1  2006/03/01 20:17:56  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.11  2005/12/08 16:06:05  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.10  2004/08/03 11:45:09  meichel

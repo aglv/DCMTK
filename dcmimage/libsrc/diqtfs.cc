@@ -21,9 +21,9 @@
  *
  *  Purpose: class DcmQuantFloydSteinberg
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:29 $
- *  CVS/RCS Revision: $Revision: 1.4 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:35 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,12 +31,12 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmimage/diqtfs.h"
-#include "dcmtk/ofstd/offname.h"    /* for OFFilenameCreator::myrand_r */
+#include "osconfig.h"
+#include "diqtfs.h"
+#include "offname.h"    /* for OFFilenameCreator::myrand_r */
 
 #define INCLUDE_CTIME
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 BEGIN_EXTERN_C
 #include <sys/types.h> // needed for time()
@@ -116,7 +116,10 @@ OFCondition DcmQuantFloydSteinberg::initialize(unsigned long cols)
  *
  * CVS/RCS Log:
  * $Log: diqtfs.cc,v $
- * Revision 1.4  2005-12-08 15:42:29  meichel
+ * Revision 1.1  2006/03/01 20:15:35  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.4  2005/12/08 15:42:29  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.3  2003/12/17 16:34:57  joergr

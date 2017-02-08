@@ -21,9 +21,9 @@
  *
  *  Purpose: class DcmFileFormat
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:10 $
- *  CVS/RCS Revision: $Revision: 1.42 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:21 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,33 +31,33 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 #define INCLUDE_CSTDLIB
 #define INCLUDE_CSTDIO
 #define INCLUDE_CTIME
 #define INCLUDE_UNISTD
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
-#include "dcmtk/ofstd/ofstream.h"
-#include "dcmtk/dcmdata/dcfilefo.h"
-#include "dcmtk/dcmdata/dcitem.h"
-#include "dcmtk/dcmdata/dcxfer.h"
-#include "dcmtk/dcmdata/dcvrobow.h"
-#include "dcmtk/dcmdata/dcvrui.h"
-#include "dcmtk/dcmdata/dcvrul.h"
-#include "dcmtk/dcmdata/dcvrus.h"
-#include "dcmtk/dcmdata/dcvrae.h"
-#include "dcmtk/dcmdata/dcvrsh.h"
-#include "dcmtk/dcmdata/dcmetinf.h"
-#include "dcmtk/dcmdata/dcdebug.h"
+#include "ofstream.h"
+#include "dcfilefo.h"
+#include "dcitem.h"
+#include "dcxfer.h"
+#include "dcvrobow.h"
+#include "dcvrui.h"
+#include "dcvrul.h"
+#include "dcvrus.h"
+#include "dcvrae.h"
+#include "dcvrsh.h"
+#include "dcmetinf.h"
+#include "dcdebug.h"
 
-#include "dcmtk/dcmdata/dcdeftag.h"
-#include "dcmtk/dcmdata/dcuid.h"
-#include "dcmtk/dcmdata/dcostrma.h"    /* for class DcmOutputStream */
-#include "dcmtk/dcmdata/dcostrmf.h"    /* for class DcmOutputFileStream */
-#include "dcmtk/dcmdata/dcistrma.h"    /* for class DcmInputStream */
-#include "dcmtk/dcmdata/dcistrmf.h"    /* for class DcmInputFileStream */
+#include "dcdeftag.h"
+#include "dcuid.h"
+#include "dcostrma.h"    /* for class DcmOutputStream */
+#include "dcostrmf.h"    /* for class DcmOutputFileStream */
+#include "dcistrma.h"    /* for class DcmInputStream */
+#include "dcistrmf.h"    /* for class DcmInputFileStream */
 
 
 // ********************************
@@ -876,7 +876,10 @@ DcmDataset *DcmFileFormat::getAndRemoveDataset()
 /*
 ** CVS/RCS Log:
 ** $Log: dcfilefo.cc,v $
-** Revision 1.42  2005-12-08 15:41:10  meichel
+** Revision 1.1  2006/03/01 20:15:21  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.42  2005/12/08 15:41:10  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.41  2005/12/02 11:57:44  joergr

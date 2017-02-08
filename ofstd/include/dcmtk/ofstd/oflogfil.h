@@ -21,9 +21,9 @@
  *
  *  Purpose: Define general purpose facility for log file output
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:59 $
- *  CVS/RCS Revision: $Revision: 1.13 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:56 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,12 +34,12 @@
 #ifndef OFLOGFIL_H
 #define OFLOGFIL_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofthread.h"
-#include "dcmtk/ofstd/ofstream.h"
+#include "osconfig.h"
+#include "ofthread.h"
+#include "ofstream.h"
 
 #define INCLUDE_CSTDLIB
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 /** Class that provides a general purpose facility for writing log files.
@@ -196,7 +196,10 @@ class OFLogFile
  *
  * CVS/RCS Log:
  * $Log: oflogfil.h,v $
- * Revision 1.13  2005-12-08 16:05:59  meichel
+ * Revision 1.1  2006/03/01 20:17:56  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.13  2005/12/08 16:05:59  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.12  2004/01/16 10:30:12  joergr

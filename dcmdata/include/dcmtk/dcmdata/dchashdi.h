@@ -21,10 +21,10 @@
  *
  *  Purpose: Hash table interface for DICOM data dictionary
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:14 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dchashdi.h,v $
- *  CVS/RCS Revision: $Revision: 1.17 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:21 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dchashdi.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,9 +34,9 @@
 #ifndef DCHASHDI_H
 #define DCHASHDI_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/ofstd/oflist.h"
-#include "dcmtk/ofstd/ofstream.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "oflist.h"
+#include "ofstream.h"
 
 class DcmDictEntry;
 class DcmTagKey;
@@ -320,7 +320,10 @@ private:
 /*
 ** CVS/RCS Log:
 ** $Log: dchashdi.h,v $
-** Revision 1.17  2005-12-08 16:28:14  meichel
+** Revision 1.1  2006/03/01 20:15:21  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.17  2005/12/08 16:28:14  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.16  2003/07/03 15:38:10  meichel

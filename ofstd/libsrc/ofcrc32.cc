@@ -22,10 +22,10 @@
  *  Purpose: general purpose 32-bit CRC in C++
  *           Code is based on the CRC32 implementation (C)1986 Gary S. Brown
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:48:54 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/ofstd/libsrc/ofcrc32.cc,v $
- *  CVS/RCS Revision: $Revision: 1.3 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:56 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/ofstd/ofcrc32.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -33,10 +33,10 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
-#include "dcmtk/ofstd/ofcrc32.h"
-#include "dcmtk/ofstd/ofcast.h"
+#include "ofcrc32.h"
+#include "ofcast.h"
 
 void OFCRC32::addBlock(const void *ptr, unsigned long size)
 {
@@ -114,7 +114,10 @@ const unsigned int OFCRC32::crctab[256] =
 /*
  * CVS/RCS Log:
  * $Log: ofcrc32.cc,v $
- * Revision 1.3  2005-12-08 15:48:54  meichel
+ * Revision 1.1  2006/03/01 20:17:56  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.3  2005/12/08 15:48:54  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.2  2003/07/09 13:58:04  meichel

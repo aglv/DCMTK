@@ -21,9 +21,9 @@
  *
  *  Purpose: Class for time functions
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:06:09 $
- *  CVS/RCS Revision: $Revision: 1.8 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:56 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,7 +34,7 @@
 #ifndef OFTIME_H
 #define OFTIME_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
 BEGIN_EXTERN_C
 #ifdef HAVE_SYS_TYPES_H
@@ -42,7 +42,7 @@ BEGIN_EXTERN_C
 #endif
 END_EXTERN_C
 
-#include "dcmtk/ofstd/ofstring.h"      /* for class OFString */
+#include "ofstring.h"      /* for class OFString */
 
 
 /*---------------------*
@@ -439,7 +439,10 @@ ostream& operator<<(ostream& stream, const OFTime &timeVal);
  *
  * CVS/RCS Log:
  * $Log: oftime.h,v $
- * Revision 1.8  2005-12-08 16:06:09  meichel
+ * Revision 1.1  2006/03/01 20:17:56  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.8  2005/12/08 16:06:09  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.7  2004/01/16 10:30:39  joergr

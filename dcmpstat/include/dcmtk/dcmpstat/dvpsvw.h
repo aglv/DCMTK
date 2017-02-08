@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DVPSVOIWindow
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:04:13 $
- *  CVS/RCS Revision: $Revision: 1.6 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:53 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,9 +34,9 @@
 #ifndef __DVPSVW_H__
 #define __DVPSVW_H__
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/ofstd/ofstring.h"
-#include "dcmtk/dcmdata/dcerror.h"     /* for OFCondition */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "ofstring.h"
+#include "dcerror.h"     /* for OFCondition */
 
 class DcmDecimalString;
 class DcmLongString;
@@ -131,7 +131,10 @@ private:
 
 /*
  *  $Log: dvpsvw.h,v $
- *  Revision 1.6  2005-12-08 16:04:13  meichel
+ *  Revision 1.1  2006/03/01 20:15:53  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.6  2005/12/08 16:04:13  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.5  2001/09/26 15:36:19  meichel

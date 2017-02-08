@@ -24,9 +24,9 @@
  *           DVPSPresentationLUTType, DVPSRotationType, 
  *           DVPSShutterType
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:04:10 $
- *  CVS/RCS Revision: $Revision: 1.18 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:53 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -36,10 +36,10 @@
 #ifndef __DVPSTYP_H__
 #define __DVPSTYP_H__
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 #define INCLUDE_CSTDIO
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 /** describes how to handle overlays when creating a default presentation state
  *  for an image. 
@@ -557,7 +557,10 @@ enum DVPSVerifyAndSignMode
 
 /*
  *  $Log: dvpstyp.h,v $
- *  Revision 1.18  2005-12-08 16:04:10  meichel
+ *  Revision 1.1  2006/03/01 20:15:53  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.18  2005/12/08 16:04:10  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.17  2002/11/27 15:48:01  meichel

@@ -21,10 +21,10 @@
  *
  *  Purpose: decompression routines of the IJG JPEG library configured for 16 bits/sample.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:59:23 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmjpeg/include/dcmtk/dcmjpeg/djdijg16.h,v $
- *  CVS/RCS Revision: $Revision: 1.4 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:44 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmjpeg/djdijg16.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,8 +34,8 @@
 #ifndef DJDIJG16_H
 #define DJDIJG16_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmjpeg/djdecabs.h" /* for class DJDecoder */
+#include "osconfig.h"
+#include "djdecabs.h" /* for class DJDecoder */
 
 extern "C"
 {
@@ -141,7 +141,10 @@ private:
 /*
  * CVS/RCS Log
  * $Log: djdijg16.h,v $
- * Revision 1.4  2005-12-08 16:59:23  meichel
+ * Revision 1.1  2006/03/01 20:15:44  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.4  2005/12/08 16:59:23  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.3  2005/11/30 14:08:57  onken

@@ -21,10 +21,10 @@
  *
  *  Purpose: encoder codec class for RLE
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:34 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcrlecce.h,v $
- *  CVS/RCS Revision: $Revision: 1.3 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcrlecce.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,8 +34,8 @@
 #ifndef DCRLECCE_H
 #define DCRLECCE_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dccodec.h"  /* for class DcmCodec */
+#include "osconfig.h"
+#include "dccodec.h"  /* for class DcmCodec */
 
 class DcmItem;
 
@@ -151,7 +151,10 @@ private:
 /*
  * CVS/RCS Log
  * $Log: dcrlecce.h,v $
- * Revision 1.3  2005-12-08 16:28:34  meichel
+ * Revision 1.1  2006/03/01 20:15:22  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.3  2005/12/08 16:28:34  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.2  2003/03/21 13:06:46  meichel

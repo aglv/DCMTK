@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomYBRPart422PixelTemplate (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:02:05 $
- *  CVS/RCS Revision: $Revision: 1.17 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,11 +34,11 @@
 #ifndef DIYP2PXT_H
 #define DIYP2PXT_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/ofstd/ofconsol.h"    /* for ofConsole */
-#include "dcmtk/dcmimage/dicopxt.h"
-#include "dcmtk/dcmimgle/diinpx.h"  /* gcc 3.4 needs this */
+#include "ofconsol.h"    /* for ofConsole */
+#include "dicopxt.h"
+#include "diinpx.h"  /* gcc 3.4 needs this */
 
 
 /*---------------------*
@@ -157,7 +157,10 @@ class DiYBRPart422PixelTemplate
  *
  * CVS/RCS Log:
  * $Log: diyp2pxt.h,v $
- * Revision 1.17  2005-12-08 16:02:05  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.17  2005/12/08 16:02:05  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.16  2004/04/21 10:00:31  meichel

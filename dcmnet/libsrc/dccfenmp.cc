@@ -23,21 +23,21 @@
  *    class DcmExtendedNegotiationItem
  *    class DcmExtendedNegotiationMap
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:44:28 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmnet/libsrc/dccfenmp.cc,v $
- *  CVS/RCS Revision: $Revision: 1.6 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:49 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmnet/dccfenmp.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmnet/dccfenmp.h" /* for class DcmExtendedNegotiationMap */
-#include "dcmtk/dcmnet/dccfpcmp.h" /* for class DcmPresentationContextMap */
-#include "dcmtk/dcmdata/dcerror.h"  /* for EC_IllegalCall */
-#include "dcmtk/dcmdata/dcdefine.h" /* for memcmp() */
+#include "osconfig.h"
+#include "dccfenmp.h" /* for class DcmExtendedNegotiationMap */
+#include "dccfpcmp.h" /* for class DcmPresentationContextMap */
+#include "dcerror.h"  /* for EC_IllegalCall */
+#include "dcdefine.h" /* for memcmp() */
 
 DcmExtendedNegotiationItem::DcmExtendedNegotiationItem(
   const DcmUIDHandler& abstractSyntax,
@@ -212,7 +212,10 @@ const DcmExtendedNegotiationList *DcmExtendedNegotiationMap::getExtendedNegotiat
 /*
  * CVS/RCS Log
  * $Log: dccfenmp.cc,v $
- * Revision 1.6  2005-12-08 15:44:28  meichel
+ * Revision 1.1  2006/03/01 20:15:49  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.6  2005/12/08 15:44:28  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.5  2004/05/06 16:36:30  joergr

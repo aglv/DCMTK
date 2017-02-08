@@ -23,10 +23,10 @@
  *    class DcmProfileEntry
  *    class DcmProfileMap
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:02:12 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmnet/include/dcmtk/dcmnet/dccfprmp.h,v $
- *  CVS/RCS Revision: $Revision: 1.3 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:49 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmnet/dccfprmp.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -36,10 +36,10 @@
 #ifndef DCCFPRMP_H
 #define DCCFPRMP_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofstring.h" /* for class OFString */
-#include "dcmtk/ofstd/ofcond.h"   /* for class OFCondition */
-#include "dcmtk/dcmnet/dcmsmap.h"  /* for class DcmSimpleMap<> */
+#include "osconfig.h"
+#include "ofstring.h" /* for class OFString */
+#include "ofcond.h"   /* for class OFCondition */
+#include "dcmsmap.h"  /* for class DcmSimpleMap<> */
 
 
 /** this helper class is a profile list entry.
@@ -173,7 +173,10 @@ private:
 /*
  * CVS/RCS Log
  * $Log: dccfprmp.h,v $
- * Revision 1.3  2005-12-08 16:02:12  meichel
+ * Revision 1.1  2006/03/01 20:15:49  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.3  2005/12/08 16:02:12  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.2  2003/06/18 08:16:16  meichel

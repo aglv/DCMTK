@@ -21,9 +21,9 @@
  *
  *  Purpose: C++ header to handle standard and old stream libraries.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:06:06 $
- *  CVS/RCS Revision: $Revision: 1.7 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:56 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,7 +34,7 @@
 #ifndef OFSTREAM_H
 #define OFSTREAM_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
 #ifdef USE_STD_CXX_INCLUDES
 
@@ -125,7 +125,10 @@ typedef istrstream OFIStringStream;
 /*
  * CVS/RCS Log:
  * $Log: ofstream.h,v $
- * Revision 1.7  2005-12-08 16:06:06  meichel
+ * Revision 1.1  2006/03/01 20:17:56  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.7  2005/12/08 16:06:06  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.6  2004/05/07 10:46:32  meichel

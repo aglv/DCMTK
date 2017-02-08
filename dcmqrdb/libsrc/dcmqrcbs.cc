@@ -21,26 +21,26 @@
  *
  *  Purpose: class DcmQueryRetrieveStoreContext
  *
- *  Last Update:      $Author: joergr $
- *  Update Date:      $Date: 2005-12-15 12:38:06 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmqrdb/libsrc/dcmqrcbs.cc,v $
- *  CVS/RCS Revision: $Revision: 1.3 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmqrdb/dcmqrcbs.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmqrdb/dcmqrcbs.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dcmqrcbs.h"
 
-#include "dcmtk/dcmqrdb/dcmqrcnf.h"
-#include "dcmtk/dcmdata/dcdeftag.h"
-#include "dcmtk/dcmqrdb/dcmqropt.h"
-#include "dcmtk/dcmnet/diutil.h"
-#include "dcmtk/dcmdata/dcfilefo.h"
-#include "dcmtk/dcmqrdb/dcmqrdbs.h"
-#include "dcmtk/dcmqrdb/dcmqrdbi.h"
+#include "dcmqrcnf.h"
+#include "dcdeftag.h"
+#include "dcmqropt.h"
+#include "diutil.h"
+#include "dcfilefo.h"
+#include "dcmqrdbs.h"
+#include "dcmqrdbi.h"
 
 
 void DcmQueryRetrieveStoreContext::updateDisplay(T_DIMSE_StoreProgress * progress)
@@ -194,7 +194,10 @@ void DcmQueryRetrieveStoreContext::callbackHandler(
 /*
  * CVS Log
  * $Log: dcmqrcbs.cc,v $
- * Revision 1.3  2005-12-15 12:38:06  joergr
+ * Revision 1.1  2006/03/01 20:16:07  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.3  2005/12/15 12:38:06  joergr
  * Removed naming conflicts.
  *
  * Revision 1.2  2005/12/08 15:47:07  meichel

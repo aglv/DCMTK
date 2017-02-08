@@ -67,10 +67,10 @@
 **	Module Prefix: ASC_
 **
 **
-** Last Update:		$Author: meichel $
-** Update Date:		$Date: 2005-12-08 16:02:06 $
-** Source File:		$Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmnet/include/dcmtk/dcmnet/assoc.h,v $
-** CVS/RCS Revision:	$Revision: 1.24 $
+** Last Update:		$Author: lpysher $
+** Update Date:		$Date: 2006/03/01 20:15:49 $
+** Source File:		$Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmnet/assoc.h,v $
+** CVS/RCS Revision:	$Revision: 1.1 $
 ** Status:		$State: Exp $
 **
 ** CVS/RCS Log at end of file
@@ -80,14 +80,14 @@
 #ifndef ASSOCIATION_H
 #define ASSOCIATION_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 /*
 ** Required Include Files
 */
-#include "dcmtk/dcmnet/dicom.h"
-#include "dcmtk/dcmnet/lst.h"
-#include "dcmtk/dcmnet/dul.h"
+#include "dicom.h"
+#include "lst.h"
+#include "dul.h"
 
 /*
 ** Constant Definitions
@@ -501,7 +501,10 @@ ASC_destroyAssociation(T_ASC_Association ** association);
 /*
 ** CVS Log
 ** $Log: assoc.h,v $
-** Revision 1.24  2005-12-08 16:02:06  meichel
+** Revision 1.1  2006/03/01 20:15:49  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.24  2005/12/08 16:02:06  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.23  2004/07/15 08:10:45  meichel

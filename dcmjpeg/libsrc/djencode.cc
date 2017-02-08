@@ -21,27 +21,27 @@
  *
  *  Purpose: singleton class that registers encoders for all supported JPEG processes.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:43:45 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmjpeg/libsrc/djencode.cc,v $
- *  CVS/RCS Revision: $Revision: 1.7 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:44 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmjpeg/djencode.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmjpeg/djencode.h"
+#include "osconfig.h"
+#include "djencode.h"
 
-#include "dcmtk/dcmdata/dccodec.h"  /* for DcmCodecStruct */
-#include "dcmtk/dcmjpeg/djencbas.h"
-#include "dcmtk/dcmjpeg/djencext.h"
-#include "dcmtk/dcmjpeg/djencsps.h"
-#include "dcmtk/dcmjpeg/djencpro.h"
-#include "dcmtk/dcmjpeg/djencsv1.h"
-#include "dcmtk/dcmjpeg/djenclol.h"
-#include "dcmtk/dcmjpeg/djcparam.h"
+#include "dccodec.h"  /* for DcmCodecStruct */
+#include "djencbas.h"
+#include "djencext.h"
+#include "djencsps.h"
+#include "djencpro.h"
+#include "djencsv1.h"
+#include "djenclol.h"
+#include "djcparam.h"
 
 // initialization of static members
 OFBool DJEncoderRegistration::registered                  = OFFalse;
@@ -175,7 +175,10 @@ void DJEncoderRegistration::cleanup()
 /*
  * CVS/RCS Log
  * $Log: djencode.cc,v $
- * Revision 1.7  2005-12-08 15:43:45  meichel
+ * Revision 1.1  2006/03/01 20:15:44  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.7  2005/12/08 15:43:45  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.6  2005/11/29 15:56:55  onken

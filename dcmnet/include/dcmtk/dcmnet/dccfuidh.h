@@ -22,10 +22,10 @@
  *  Purpose: 
  *    class DcmUIDHandler
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:02:15 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmnet/include/dcmtk/dcmnet/dccfuidh.h,v $
- *  CVS/RCS Revision: $Revision: 1.2 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:49 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmnet/dccfuidh.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,8 +35,8 @@
 #ifndef DCCFUIDH_H
 #define DCCFUIDH_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofstring.h" /* for class OFString */
+#include "osconfig.h"
+#include "ofstring.h" /* for class OFString */
 
 /** helper class that manages a single DICOM UID.
  *  Unlike class DcmUniqueIdentifier, this class does not manage an 
@@ -128,7 +128,10 @@ private:
 /*
  * CVS/RCS Log
  * $Log: dccfuidh.h,v $
- * Revision 1.2  2005-12-08 16:02:15  meichel
+ * Revision 1.1  2006/03/01 20:15:49  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.2  2005/12/08 16:02:15  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.1  2003/06/10 14:27:33  meichel

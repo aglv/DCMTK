@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomCIELABFunction (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:47:33 $
- *  CVS/RCS Revision: $Revision: 1.12 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,10 +34,10 @@
 #ifndef DICIEFN_H
 #define DICIEFN_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/dcmimgle/didispfn.h"
-#include "dcmtk/dcmimgle/dicielut.h"
+#include "didispfn.h"
+#include "dicielut.h"
 
 
 /*---------------------*
@@ -160,7 +160,10 @@ class DiCIELABFunction
  *
  * CVS/RCS Log:
  * $Log: diciefn.h,v $
- * Revision 1.12  2005-12-08 16:47:33  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.12  2005/12/08 16:47:33  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.11  2003/12/08 18:15:58  joergr

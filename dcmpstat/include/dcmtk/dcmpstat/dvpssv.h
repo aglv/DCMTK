@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DVPSSoftcopyVOI
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:04:05 $
- *  CVS/RCS Revision: $Revision: 1.6 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:53 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,11 +34,11 @@
 #ifndef __DVPSSV_H__
 #define __DVPSSV_H__
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/ofstd/ofstring.h"
-#include "dcmtk/dcmdata/dctk.h"
-#include "dcmtk/dcmpstat/dvpsril.h"     /* for DVPSReferencedImage_PList */
-#include "dcmtk/dcmpstat/dvpstyp.h"     /* for enum types */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "ofstring.h"
+#include "dctk.h"
+#include "dvpsril.h"     /* for DVPSReferencedImage_PList */
+#include "dvpstyp.h"     /* for enum types */
 
 class DVPSReferencedSeries_PList;
 
@@ -252,7 +252,10 @@ private:
 
 /*
  *  $Log: dvpssv.h,v $
- *  Revision 1.6  2005-12-08 16:04:05  meichel
+ *  Revision 1.1  2006/03/01 20:15:53  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.6  2005/12/08 16:04:05  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.5  2001/09/26 15:36:16  meichel

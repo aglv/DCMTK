@@ -5,17 +5,17 @@
 **   User: meichel
 **   Host: caesar
 **   Date: 2005-11-0410:50:17
-**   Prog: /home/meichel/dicom/dcmtk/dcmdata/libsrc/mkdeftag
+**   Prog: /home/meichel/dicom/libsrc/mkdeftag
 **
-** From: /home/meichel/dicom/dcmtk/dcmdata/libsrc/dicom.dic
-**       /home/meichel/dicom/dcmtk/dcmdata/libsrc/private.dic
+** From: /home/meichel/dicom/libsrc/dicom.dic
+**       /home/meichel/dicom/libsrc/private.dic
 **
 */
 
 #ifndef DCDEFTAG_H
 #define DCDEFTAG_H
 
-#include "dcmtk/dcmdata/dctagkey.h"
+#include "dctagkey.h"
 
 #define DCM_DICT_DEFTAG_BUILD_DATE "2005-11-0410:50:17"
 

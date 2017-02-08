@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomDisplayFunction (Source)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:47 $
- *  CVS/RCS Revision: $Revision: 1.44 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,17 +31,17 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofconsol.h"
-#include "dcmtk/ofstd/ofbmanip.h"
-#include "dcmtk/dcmimgle/didispfn.h"
-#include "dcmtk/dcmimgle/displint.h"
-#include "dcmtk/dcmimgle/dicrvfit.h"
-#include "dcmtk/ofstd/ofstream.h"
+#include "osconfig.h"
+#include "ofconsol.h"
+#include "ofbmanip.h"
+#include "didispfn.h"
+#include "displint.h"
+#include "dicrvfit.h"
+#include "ofstream.h"
 
 #define INCLUDE_CCTYPE
 #define INCLUDE_CMATH
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 /*----------------------------*
@@ -762,7 +762,10 @@ double DiDisplayFunction::convertODtoLum(const double value,
  *
  * CVS/RCS Log:
  * $Log: didispfn.cc,v $
- * Revision 1.44  2005-12-08 15:42:47  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.44  2005/12/08 15:42:47  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.43  2005/06/24 10:02:16  joergr

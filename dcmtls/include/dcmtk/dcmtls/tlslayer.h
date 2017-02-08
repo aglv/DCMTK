@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DcmTLSTransportLayer
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:38 $
- *  CVS/RCS Revision: $Revision: 1.6 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:19 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,9 +34,9 @@
 #ifndef TLSLAYER_H
 #define TLSLAYER_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmnet/dcmlayer.h"    /* for DcmTransportLayer */
-#include "dcmtk/ofstd/ofstream.h"    /* for ostream */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dcmlayer.h"    /* for DcmTransportLayer */
+#include "ofstream.h"    /* for ostream */
 
 #ifdef WITH_OPENSSL
 BEGIN_EXTERN_C
@@ -251,7 +251,10 @@ private:
 
 /*
  *  $Log: tlslayer.h,v $
- *  Revision 1.6  2005-12-08 16:05:38  meichel
+ *  Revision 1.1  2006/03/01 20:16:19  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.6  2005/12/08 16:05:38  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.5  2003/12/05 10:38:55  joergr

@@ -22,19 +22,19 @@
  *  Purpose:
  *    classes: DVPSImageBoxContent_PList
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:46:34 $
- *  CVS/RCS Revision: $Revision: 1.28 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:52 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmpstat/dvpsibl.h"
-#include "dcmtk/dcmpstat/dvpsib.h"      /* for DVPSImageBoxContent */
-#include "dcmtk/dcmpstat/dvpshlp.h"     /* for class DVPSHelper */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dvpsibl.h"
+#include "dvpsib.h"      /* for DVPSImageBoxContent */
+#include "dvpshlp.h"     /* for class DVPSHelper */
 
 /* --------------- class DVPSImageBoxContent_PList --------------- */
 
@@ -618,7 +618,10 @@ OFBool DVPSImageBoxContent_PList::emptyPageWarning()
 
 /*
  *  $Log: dvpsibl.cc,v $
- *  Revision 1.28  2005-12-08 15:46:34  meichel
+ *  Revision 1.1  2006/03/01 20:15:52  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.28  2005/12/08 15:46:34  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.27  2004/02/04 15:57:49  joergr

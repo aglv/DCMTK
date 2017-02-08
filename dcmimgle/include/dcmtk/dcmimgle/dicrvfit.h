@@ -21,9 +21,9 @@
  *
  *  Purpose: DiCurveFitting (header/implementation)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:47:35 $
- *  CVS/RCS Revision: $Revision: 1.17 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,11 +34,11 @@
 #ifndef DICRVFIT_H
 #define DICRVFIT_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofcast.h"
+#include "osconfig.h"
+#include "ofcast.h"
 
 #define INCLUDE_CMATH
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 /*---------------------*
@@ -338,7 +338,10 @@ class DiCurveFitting
  *
  * CVS/RCS Log:
  * $Log: dicrvfit.h,v $
- * Revision 1.17  2005-12-08 16:47:35  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.17  2005/12/08 16:47:35  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.16  2003/12/23 15:53:22  joergr

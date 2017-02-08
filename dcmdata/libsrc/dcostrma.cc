@@ -21,20 +21,20 @@
  *
  *  Purpose: base classes for output streams
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:20 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/libsrc/dcostrma.cc,v $
- *  CVS/RCS Revision: $Revision: 1.2 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcostrma.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dcostrma.h"
-#include "dcmtk/dcmdata/dcostrmz.h" /* for DcmZLibOutputFilter */
-#include "dcmtk/dcmdata/dcerror.h"  /* for EC_IllegalCall */
+#include "osconfig.h"
+#include "dcostrma.h"
+#include "dcostrmz.h" /* for DcmZLibOutputFilter */
+#include "dcerror.h"  /* for EC_IllegalCall */
 
 DcmOutputStream::DcmOutputStream(DcmConsumer *initial)
 : current_(initial)
@@ -118,7 +118,10 @@ Uint32 DcmOutputStream::tell() const
 /*
  * CVS/RCS Log:
  * $Log: dcostrma.cc,v $
- * Revision 1.2  2005-12-08 15:41:20  meichel
+ * Revision 1.1  2006/03/01 20:15:22  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.2  2005/12/08 15:41:20  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.1  2002/08/27 16:55:52  meichel

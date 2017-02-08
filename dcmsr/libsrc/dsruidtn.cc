@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DSRUIDRefTreeNode
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:48:20 $
- *  CVS/RCS Revision: $Revision: 1.18 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:11 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -32,11 +32,11 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
-#include "dcmtk/dcmsr/dsrtypes.h"
-#include "dcmtk/dcmsr/dsruidtn.h"
-#include "dcmtk/dcmsr/dsrxmld.h"
+#include "dsrtypes.h"
+#include "dsruidtn.h"
+#include "dsrxmld.h"
 
 
 DSRUIDRefTreeNode::DSRUIDRefTreeNode(const E_RelationshipType relationshipType)
@@ -145,7 +145,10 @@ OFCondition DSRUIDRefTreeNode::renderHTMLContentItem(ostream &docStream,
 /*
  *  CVS/RCS Log:
  *  $Log: dsruidtn.cc,v $
- *  Revision 1.18  2005-12-08 15:48:20  meichel
+ *  Revision 1.1  2006/03/01 20:16:11  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.18  2005/12/08 15:48:20  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.17  2003/09/15 14:13:42  joergr

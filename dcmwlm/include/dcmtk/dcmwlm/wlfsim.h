@@ -21,10 +21,10 @@
 *
 *  Purpose: Class for managing file system interaction.
 *
-*  Last Update:      $Author: meichel $
-*  Update Date:      $Date: 2005-12-08 16:05:42 $
-*  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmwlm/include/dcmtk/dcmwlm/wlfsim.h,v $
-*  CVS/RCS Revision: $Revision: 1.11 $
+*  Last Update:      $Author: lpysher $
+*  Update Date:      $Date: 2006/03/01 20:16:20 $
+*  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmwlm/wlfsim.h,v $
+*  CVS/RCS Revision: $Revision: 1.1 $
 *  Status:           $State: Exp $
 *
 *  CVS/RCS Log at end of file
@@ -34,7 +34,7 @@
 #ifndef WlmFileSystemInteractionManager_h
 #define WlmFileSystemInteractionManager_h
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
 template <class T> class OFOrderedSet;
 class DcmTagKey;
@@ -479,7 +479,10 @@ class WlmFileSystemInteractionManager
 /*
 ** CVS Log
 ** $Log: wlfsim.h,v $
-** Revision 1.11  2005-12-08 16:05:42  meichel
+** Revision 1.1  2006/03/01 20:16:20  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.11  2005/12/08 16:05:42  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.10  2005/09/23 12:56:40  wilkens

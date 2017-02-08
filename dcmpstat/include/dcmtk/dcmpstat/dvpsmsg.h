@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DVPSIPCMessage
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:03:52 $
- *  CVS/RCS Revision: $Revision: 1.5 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:52 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,9 +34,9 @@
 #ifndef __DVPSMSG_H__
 #define __DVPSMSG_H__
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dctypes.h"     /* for Uint32 */
-#include "dcmtk/ofstd/ofstring.h"   /* for class OFString */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dctypes.h"     /* for Uint32 */
+#include "ofstring.h"   /* for class OFString */
 
 class DcmTransportConnection;
 
@@ -284,7 +284,10 @@ private:
 
 /*
  *  $Log: dvpsmsg.h,v $
- *  Revision 1.5  2005-12-08 16:03:52  meichel
+ *  Revision 1.1  2006/03/01 20:15:52  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.5  2005/12/08 16:03:52  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.4  2003/07/04 13:27:38  meichel

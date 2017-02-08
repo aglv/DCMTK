@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomMonochromeModality (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:47:52 $
- *  CVS/RCS Revision: $Revision: 1.14 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,13 +34,13 @@
 #ifndef DIMOMOD_H
 #define DIMOMOD_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/ofstd/ofcast.h"
+#include "osconfig.h"
+#include "dctypes.h"
+#include "ofcast.h"
 
-#include "dcmtk/dcmimgle/diluptab.h"
-#include "dcmtk/dcmimgle/diobjcou.h"
-#include "dcmtk/dcmimgle/diutils.h"
+#include "diluptab.h"
+#include "diobjcou.h"
+#include "diutils.h"
 
 
 /*------------------------*
@@ -281,7 +281,10 @@ class DiMonoModality
  *
  * CVS/RCS Log:
  * $Log: dimomod.h,v $
- * Revision 1.14  2005-12-08 16:47:52  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.14  2005/12/08 16:47:52  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.13  2003/12/08 18:28:56  joergr

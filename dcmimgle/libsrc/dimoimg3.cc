@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomMonochromeImage (Source, getData 8 bit)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:57 $
- *  CVS/RCS Revision: $Revision: 1.5 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,12 +31,12 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/dcmimgle/dimoimg.h"
-#include "dcmtk/dcmimgle/dimoipxt.h"
-#include "dcmtk/dcmimgle/dimoopxt.h"
-#include "dcmtk/dcmimgle/diutils.h"
+#include "dimoimg.h"
+#include "dimoipxt.h"
+#include "dimoopxt.h"
+#include "diutils.h"
 
 
 void DiMonoImage::getDataUint8(void *buffer,
@@ -99,7 +99,10 @@ void DiMonoImage::getDataSint8(void *buffer,
  *
  * CVS/RCS Log:
  * $Log: dimoimg3.cc,v $
- * Revision 1.5  2005-12-08 15:42:57  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.5  2005/12/08 15:42:57  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.4  2003/12/08 17:43:04  joergr

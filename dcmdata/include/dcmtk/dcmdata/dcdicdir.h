@@ -21,10 +21,10 @@
  *
  *  Purpose: Interface of class DcmDicomDir
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:07 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcdicdir.h,v $
- *  CVS/RCS Revision: $Revision: 1.19 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:19 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcdicdir.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,15 +34,15 @@
 #ifndef DCDICDIR_H
 #define DCDICDIR_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
-#include "dcmtk/ofstd/ofconsol.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmdata/dcitem.h"
-#include "dcmtk/dcmdata/dcfilefo.h"
-#include "dcmtk/dcmdata/dcsequen.h"
-#include "dcmtk/dcmdata/dcdirrec.h"
-#include "dcmtk/dcmdata/dcvrulup.h"
+#include "ofconsol.h"
+#include "dctypes.h"
+#include "dcitem.h"
+#include "dcfilefo.h"
+#include "dcsequen.h"
+#include "dcdirrec.h"
+#include "dcvrulup.h"
 
 
 #define DEFAULT_DICOMDIR_NAME  "DICOMDIR"
@@ -167,7 +167,10 @@ public:
 /*
 ** CVS/RCS Log:
 ** $Log: dcdicdir.h,v $
-** Revision 1.19  2005-12-08 16:28:07  meichel
+** Revision 1.1  2006/03/01 20:15:19  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.19  2005/12/08 16:28:07  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.18  2005/11/07 16:59:24  meichel

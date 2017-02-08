@@ -22,10 +22,10 @@
  *  Purpose:
  *      Defines a template stack class with interfaces similar to the C++ Standard
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:06:03 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/ofstd/include/dcmtk/ofstd/ofstack.h,v $
- *  CVS/RCS Revision: $Revision: 1.17 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:56 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/ofstd/ofstack.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -36,9 +36,9 @@
 #ifndef OFSTACK_H
 #define OFSTACK_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/ofstd/oftypes.h"
-#include "dcmtk/ofstd/ofcast.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "oftypes.h"
+#include "ofcast.h"
 
 #if defined(HAVE_STL) || defined(HAVE_STL_STACK)
 // It is possible to use the standard template library list class since the 
@@ -51,7 +51,7 @@
 
 #define INCLUDE_CASSERT
 #define INCLUDE_CSTDDEF
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 #ifndef HAVE_CLASS_TEMPLATE
 #error Your C++ compiler cannot handle class templates:
@@ -285,7 +285,10 @@ private:
 /*
 ** CVS/RCS Log:
 ** $Log: ofstack.h,v $
-** Revision 1.17  2005-12-08 16:06:03  meichel
+** Revision 1.1  2006/03/01 20:17:56  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.17  2005/12/08 16:06:03  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.16  2003/08/14 14:41:39  meichel

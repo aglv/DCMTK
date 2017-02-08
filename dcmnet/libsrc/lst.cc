@@ -21,18 +21,18 @@
  *
  *  Purpose: List class with procedural API compatible to MIR CTN
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:44:55 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmnet/libsrc/lst.cc,v $
- *  CVS/RCS Revision: $Revision: 1.6 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:50 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmnet/lst.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmnet/lst.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "lst.h"
 
 LST_HEAD::LST_HEAD()
 : theList()
@@ -164,7 +164,10 @@ void *LST_Position(LST_HEAD ** lst, void *node)
 /*
  * CVS Log
  * $Log: lst.cc,v $
- * Revision 1.6  2005-12-08 15:44:55  meichel
+ * Revision 1.1  2006/03/01 20:15:50  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.6  2005/12/08 15:44:55  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.5  2003/06/02 16:44:11  meichel

@@ -21,10 +21,10 @@
  *
  *  Purpose: Implementation of class DcmPersonName
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:59 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/libsrc/dcvrpn.cc,v $
- *  CVS/RCS Revision: $Revision: 1.18 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcvrpn.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -32,7 +32,7 @@
  */
 
 
-#include "dcmtk/dcmdata/dcvrpn.h"
+#include "dcvrpn.h"
 
 
 // ********************************
@@ -315,7 +315,10 @@ OFCondition DcmPersonName::putNameComponents(const OFString &lastName,
 /*
 ** CVS/RCS Log:
 ** $Log: dcvrpn.cc,v $
-** Revision 1.18  2005-12-08 15:41:59  meichel
+** Revision 1.1  2006/03/01 20:15:22  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.18  2005/12/08 15:41:59  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.17  2003/05/20 09:15:14  joergr

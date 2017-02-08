@@ -21,10 +21,10 @@
  *
  *  Purpose: Implementation of class DcmElement
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:08 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/libsrc/dcelem.cc,v $
- *  CVS/RCS Revision: $Revision: 1.51 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:21 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcelem.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -32,21 +32,21 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 #define INCLUDE_NEW
 #define INCLUDE_CSTDLIB
 #define INCLUDE_CSTRING
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
-#include "dcmtk/ofstd/ofstd.h"
-#include "dcmtk/dcmdata/dcelem.h"
-#include "dcmtk/dcmdata/dcobject.h"
-#include "dcmtk/dcmdata/dcdefine.h"
-#include "dcmtk/dcmdata/dcswap.h"
-#include "dcmtk/dcmdata/dcdebug.h"
-#include "dcmtk/dcmdata/dcistrma.h"    /* for class DcmInputStream */
-#include "dcmtk/dcmdata/dcostrma.h"    /* for class DcmOutputStream */
+#include "ofstd.h"
+#include "dcelem.h"
+#include "dcobject.h"
+#include "dcdefine.h"
+#include "dcswap.h"
+#include "dcdebug.h"
+#include "dcistrma.h"    /* for class DcmInputStream */
+#include "dcostrma.h"    /* for class DcmOutputStream */
 
 
 //
@@ -1069,7 +1069,10 @@ OFCondition DcmElement::writeXML(ostream &out,
 /*
 ** CVS/RCS Log:
 ** $Log: dcelem.cc,v $
-** Revision 1.51  2005-12-08 15:41:08  meichel
+** Revision 1.1  2006/03/01 20:15:21  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.51  2005/12/08 15:41:08  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.50  2005/07/27 09:31:45  joergr

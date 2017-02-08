@@ -21,46 +21,46 @@
  *
  *  Purpose: abstract codec class for JPEG encoders.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-16 13:04:30 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmjpeg/libsrc/djcodece.cc,v $
- *  CVS/RCS Revision: $Revision: 1.22 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:43 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmjpeg/djcodece.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmjpeg/djcodece.h"
+#include "osconfig.h"
+#include "djcodece.h"
 
 // ofstd includes
-#include "dcmtk/ofstd/oflist.h"
-#include "dcmtk/ofstd/ofstd.h"
+#include "oflist.h"
+#include "ofstd.h"
 
 // dcmdata includes
-#include "dcmtk/dcmdata/dcdatset.h"  /* for class DcmDataset */
-#include "dcmtk/dcmdata/dcdeftag.h"  /* for tag constants */
-#include "dcmtk/dcmdata/dcovlay.h"   /* for class DcmOverlayData */
-#include "dcmtk/dcmdata/dcpixseq.h"  /* for class DcmPixelSequence */
-#include "dcmtk/dcmdata/dcpxitem.h"  /* for class DcmPixelItem */
-#include "dcmtk/dcmdata/dcuid.h"     /* for dcmGenerateUniqueIdentifer()*/
-#include "dcmtk/dcmdata/dcvrcs.h"    /* for class DcmCodeString */
-#include "dcmtk/dcmdata/dcvrds.h"    /* for class DcmDecimalString */
-#include "dcmtk/dcmdata/dcvrlt.h"    /* for class DcmLongText */
-#include "dcmtk/dcmdata/dcvrst.h"    /* for class DcmShortText */
-#include "dcmtk/dcmdata/dcvrus.h"    /* for class DcmUnsignedShort */
-#include "dcmtk/dcmdata/dcswap.h"    /* for swapIfNecessary */
+#include "dcdatset.h"  /* for class DcmDataset */
+#include "dcdeftag.h"  /* for tag constants */
+#include "dcovlay.h"   /* for class DcmOverlayData */
+#include "dcpixseq.h"  /* for class DcmPixelSequence */
+#include "dcpxitem.h"  /* for class DcmPixelItem */
+#include "dcuid.h"     /* for dcmGenerateUniqueIdentifer()*/
+#include "dcvrcs.h"    /* for class DcmCodeString */
+#include "dcvrds.h"    /* for class DcmDecimalString */
+#include "dcvrlt.h"    /* for class DcmLongText */
+#include "dcvrst.h"    /* for class DcmShortText */
+#include "dcvrus.h"    /* for class DcmUnsignedShort */
+#include "dcswap.h"    /* for swapIfNecessary */
 
 // dcmjpeg includes
-#include "dcmtk/dcmjpeg/djcparam.h"  /* for class DJCodecParameter */
-#include "dcmtk/dcmjpeg/djencabs.h"  /* for class DJEncoder */
+#include "djcparam.h"  /* for class DJCodecParameter */
+#include "djencabs.h"  /* for class DJEncoder */
 
 // dcmimgle includes
-#include "dcmtk/dcmimgle/dcmimage.h"  /* for class DicomImage */
+#include "dcmimage.h"  /* for class DicomImage */
 
 #define INCLUDE_CMATH
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 DJCodecEncoder::DJCodecEncoder()
@@ -1440,7 +1440,10 @@ OFCondition DJCodecEncoder::updatePlanarConfiguration(
 /*
  * CVS/RCS Log
  * $Log: djcodece.cc,v $
- * Revision 1.22  2005-12-16 13:04:30  meichel
+ * Revision 1.1  2006/03/01 20:15:43  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.22  2005/12/16 13:04:30  meichel
  * Added typecasts to avoid warnings on VS2005
  *
  * Revision 1.21  2005/12/15 17:47:26  joergr

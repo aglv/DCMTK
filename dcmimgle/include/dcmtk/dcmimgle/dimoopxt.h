@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomMonoOutputPixelTemplate (Header)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:47:54 $
- *  CVS/RCS Revision: $Revision: 1.46 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,25 +34,25 @@
 #ifndef DIMOOPXT_H
 #define DIMOOPXT_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofconsol.h"
-#include "dcmtk/ofstd/ofcast.h"
-#include "dcmtk/dcmdata/dctypes.h"
+#include "osconfig.h"
+#include "ofconsol.h"
+#include "ofcast.h"
+#include "dctypes.h"
 
-#include "dcmtk/dcmimgle/dimoopx.h"
-#include "dcmtk/dcmimgle/diluptab.h"
-#include "dcmtk/dcmimgle/diovlay.h"
-#include "dcmtk/dcmimgle/dipxrept.h"
-#include "dcmtk/dcmimgle/diutils.h"
-#include "dcmtk/dcmimgle/didispfn.h"
-#include "dcmtk/dcmimgle/didislut.h"
+#include "dimoopx.h"
+#include "diluptab.h"
+#include "diovlay.h"
+#include "dipxrept.h"
+#include "diutils.h"
+#include "didispfn.h"
+#include "didislut.h"
 
 #ifdef PASTEL_COLOR_OUTPUT
 #include "dimcopxt.h"
 #endif
 
 #define INCLUDE_CMATH
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 /*---------------------*
@@ -1176,7 +1176,10 @@ class DiMonoOutputPixelTemplate
  *
  * CVS/RCS Log:
  * $Log: dimoopxt.h,v $
- * Revision 1.46  2005-12-08 16:47:54  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.46  2005/12/08 16:47:54  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.45  2005/03/09 17:30:42  joergr

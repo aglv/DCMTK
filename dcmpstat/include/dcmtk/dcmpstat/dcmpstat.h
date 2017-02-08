@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DcmPresentationState
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:03:29 $
- *  CVS/RCS Revision: $Revision: 1.2 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:52 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,22 +34,22 @@
 #ifndef DCMPSTAT_H__
 #define DCMPSTAT_H__
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dctk.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dctk.h"
 
-#include "dcmtk/ofstd/ofstring.h"    /* for class OFString */
-#include "dcmtk/dcmpstat/dvpstyp.h"     /* for enum types */
-#include "dcmtk/dcmpstat/dvpsovl.h"     /* for DVPSOverlay_PList */
-#include "dcmtk/dcmpstat/dvpsgll.h"     /* for DVPSGraphicLayer_PList */
-#include "dcmtk/dcmpstat/dvpsrsl.h"     /* for DVPSReferencedSeries_PList */
-#include "dcmtk/dcmpstat/dvpsall.h"     /* for DVPSOverlayCurveActivationLayer_PList */
-#include "dcmtk/dcmpstat/dvpsgal.h"     /* for DVPSGraphicObject_PList */
-#include "dcmtk/dcmpstat/dvpscul.h"     /* for DVPSCurve_PList */
-#include "dcmtk/dcmpstat/dvpsvll.h"     /* for DVPSVOILUT_PList */
-#include "dcmtk/dcmpstat/dvpsvwl.h"     /* for DVPSVOIWindow_PList */
-#include "dcmtk/dcmpstat/dvpsdal.h"     /* for DVPSDisplayedArea_PList */
-#include "dcmtk/dcmpstat/dvpssvl.h"     /* for DVPSSoftcopyVOI_PList */
-#include "dcmtk/dcmpstat/dvpspl.h"      /* for DVPSPresentationLUT */
+#include "ofstring.h"    /* for class OFString */
+#include "dvpstyp.h"     /* for enum types */
+#include "dvpsovl.h"     /* for DVPSOverlay_PList */
+#include "dvpsgll.h"     /* for DVPSGraphicLayer_PList */
+#include "dvpsrsl.h"     /* for DVPSReferencedSeries_PList */
+#include "dvpsall.h"     /* for DVPSOverlayCurveActivationLayer_PList */
+#include "dvpsgal.h"     /* for DVPSGraphicObject_PList */
+#include "dvpscul.h"     /* for DVPSCurve_PList */
+#include "dvpsvll.h"     /* for DVPSVOILUT_PList */
+#include "dvpsvwl.h"     /* for DVPSVOIWindow_PList */
+#include "dvpsdal.h"     /* for DVPSDisplayedArea_PList */
+#include "dvpssvl.h"     /* for DVPSSoftcopyVOI_PList */
+#include "dvpspl.h"      /* for DVPSPresentationLUT */
 
 class DVPSTextObject;
 class DVPSGraphicObject;
@@ -1007,7 +1007,10 @@ protected:
 
 /*
  *  $Log: dcmpstat.h,v $
- *  Revision 1.2  2005-12-08 16:03:29  meichel
+ *  Revision 1.1  2006/03/01 20:15:52  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.2  2005/12/08 16:03:29  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.1  2003/08/27 14:57:19  meichel

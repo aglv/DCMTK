@@ -22,19 +22,19 @@
  *  Purpose: DcmInputBufferStream and related classes,
  *    implements input to blocks of memory as needed in the dcmnet module.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:13 $
- *  CVS/RCS Revision: $Revision: 1.4 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:21 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dcistrmb.h"
-#include "dcmtk/ofstd/ofconsol.h"
-#include "dcmtk/dcmdata/dcerror.h"
+#include "osconfig.h"
+#include "dcistrmb.h"
+#include "ofconsol.h"
+#include "dcerror.h"
 
 #define DCMBUFFERPRODUCER_BUFSIZE 1024
 
@@ -342,7 +342,10 @@ void DcmInputBufferStream::setEos()
 /*
  * CVS/RCS Log:
  * $Log: dcistrmb.cc,v $
- * Revision 1.4  2005-12-08 15:41:13  meichel
+ * Revision 1.1  2006/03/01 20:15:21  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.4  2005/12/08 15:41:13  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.3  2004/02/04 16:33:40  joergr

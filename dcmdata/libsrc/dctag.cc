@@ -21,24 +21,24 @@
  *
  *  Purpose: class DcmTag
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:39 $
- *  CVS/RCS Revision: $Revision: 1.21 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dctag.h"
-#include "dcmtk/dcmdata/dcerror.h"     /* for dcmdata error constants */
-#include "dcmtk/dcmdata/dcdict.h"
-#include "dcmtk/dcmdata/dcdicent.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dctag.h"
+#include "dcerror.h"     /* for dcmdata error constants */
+#include "dcdict.h"
+#include "dcdicent.h"
 
 #define INCLUDE_CSTDIO
 #define INCLUDE_CSTRING
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 DcmTag::DcmTag()
@@ -265,7 +265,10 @@ void DcmTag::updatePrivateCreator(const char *c)
 /*
 ** CVS/RCS Log:
 ** $Log: dctag.cc,v $
-** Revision 1.21  2005-12-08 15:41:39  meichel
+** Revision 1.1  2006/03/01 20:15:22  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.21  2005/12/08 15:41:39  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.20  2004/02/04 16:45:38  joergr

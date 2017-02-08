@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: SiCreatorProfile
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:04:35 $
- *  CVS/RCS Revision: $Revision: 1.5 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,8 +34,8 @@
 #ifndef SICREAPR_H
 #define SICREAPR_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmsign/sibrsapr.h"   /* for SiBaseRSAProfile */
+#include "osconfig.h"
+#include "sibrsapr.h"   /* for SiBaseRSAProfile */
 
 #ifdef WITH_OPENSSL
 
@@ -65,7 +65,10 @@ public:
 
 /*
  *  $Log: sicreapr.h,v $
- *  Revision 1.5  2005-12-08 16:04:35  meichel
+ *  Revision 1.1  2006/03/01 20:16:07  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.5  2005/12/08 16:04:35  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.4  2003/06/04 14:21:03  meichel

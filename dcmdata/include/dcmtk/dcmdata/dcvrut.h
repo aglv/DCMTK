@@ -22,10 +22,10 @@
  *  Purpose: Interface of class DcmUnlimitedText
  *           Value Representation UT is defined in Correction Proposal 101
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:29:16 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrut.h,v $
- *  CVS/RCS Revision: $Revision: 1.9 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcvrut.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -36,10 +36,10 @@
 #ifndef DCVRUT_H
 #define DCVRUT_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmdata/dcchrstr.h"
+#include "dctypes.h"
+#include "dcchrstr.h"
 
 
 /** a class representing the DICOM value representation 'Unlimited Text' (UT)
@@ -102,7 +102,10 @@ class DcmUnlimitedText
 /*
 ** CVS/RCS Log:
 ** $Log: dcvrut.h,v $
-** Revision 1.9  2005-12-08 16:29:16  meichel
+** Revision 1.1  2006/03/01 20:15:22  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.9  2005/12/08 16:29:16  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.8  2004/07/01 12:28:25  meichel

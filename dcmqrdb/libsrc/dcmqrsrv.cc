@@ -21,9 +21,9 @@
  *
  *  Purpose: class DcmQueryRetrieveSCP
  *
- *  Last Update:      $Author: joergr $
- *  Update Date:      $Date: 2005-12-16 12:41:35 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmqrdb/libsrc/dcmqrsrv.cc,v $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmqrdb/dcmqrsrv.cc,v $
  *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
@@ -31,15 +31,15 @@
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmqrdb/dcmqrsrv.h"
-#include "dcmtk/dcmqrdb/dcmqropt.h"
-#include "dcmtk/dcmdata/dcfilefo.h"
-#include "dcmtk/dcmqrdb/dcmqrdba.h"
-#include "dcmtk/dcmqrdb/dcmqrcbf.h"    /* for class DcmQueryRetrieveFindContext */
-#include "dcmtk/dcmqrdb/dcmqrcbm.h"    /* for class DcmQueryRetrieveMoveContext */
-#include "dcmtk/dcmqrdb/dcmqrcbg.h"    /* for class DcmQueryRetrieveGetContext */
-#include "dcmtk/dcmqrdb/dcmqrcbs.h"    /* for class DcmQueryRetrieveStoreContext */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dcmqrsrv.h"
+#include "dcmqropt.h"
+#include "dcfilefo.h"
+#include "dcmqrdba.h"
+#include "dcmqrcbf.h"    /* for class DcmQueryRetrieveFindContext */
+#include "dcmqrcbm.h"    /* for class DcmQueryRetrieveMoveContext */
+#include "dcmqrcbg.h"    /* for class DcmQueryRetrieveGetContext */
+#include "dcmqrcbs.h"    /* for class DcmQueryRetrieveStoreContext */
 
 
 static void findCallback(
@@ -1116,7 +1116,10 @@ void DcmQueryRetrieveSCP::setDatabaseFlags(
 /*
  * CVS Log
  * $Log: dcmqrsrv.cc,v $
- * Revision 1.1  2005-12-16 12:41:35  joergr
+ * Revision 1.1  2006/03/01 20:16:07  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.1  2005/12/16 12:41:35  joergr
  * Renamed file to avoid naming conflicts when linking on SunOS 5.5.1 with
  * Sun CC 2.0.1.
  *

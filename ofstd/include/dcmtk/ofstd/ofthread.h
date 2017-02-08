@@ -25,9 +25,9 @@
  *           of these classes supports the Solaris, POSIX and Win32
  *           multi-thread APIs.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:06:08 $
- *  CVS/RCS Revision: $Revision: 1.9 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:56 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -38,9 +38,9 @@
 #ifndef OFTHREAD_H
 #define OFTHREAD_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/oftypes.h"  /* for class OFBool */
-#include "dcmtk/ofstd/ofstring.h" /* for class OFString */
+#include "osconfig.h"
+#include "oftypes.h"  /* for class OFBool */
+#include "ofstring.h" /* for class OFString */
 
 /** Stub function with extern "C" linkage that is passed as a function pointer
  *  to the system function that creates the thread.
@@ -507,7 +507,10 @@ private:
  *
  * CVS/RCS Log:
  * $Log: ofthread.h,v $
- * Revision 1.9  2005-12-08 16:06:08  meichel
+ * Revision 1.1  2006/03/01 20:17:56  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.9  2005/12/08 16:06:08  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.8  2004/08/03 16:44:16  meichel

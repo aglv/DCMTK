@@ -22,19 +22,19 @@
  *  Purpose:
  *    classes: DVPSCurve
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:46:21 $
- *  CVS/RCS Revision: $Revision: 1.6 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:52 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmpstat/dvpscu.h"
-#include "dcmtk/dcmdata/dctk.h"
-#include "dcmtk/ofstd/ofbmanip.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dvpscu.h"
+#include "dctk.h"
+#include "ofbmanip.h"
 
 DVPSCurve::DVPSCurve()
 : curveGroup(0)
@@ -370,7 +370,10 @@ void DVPSCurve::setLog(OFConsole *stream, OFBool verbMode, OFBool dbgMode)
 
 /*
  *  $Log: dvpscu.cc,v $
- *  Revision 1.6  2005-12-08 15:46:21  meichel
+ *  Revision 1.1  2006/03/01 20:15:52  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.6  2005/12/08 15:46:21  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.5  2001/09/26 15:36:23  meichel

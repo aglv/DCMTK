@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DSRWaveformReferenceValue
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:34 $
- *  CVS/RCS Revision: $Revision: 1.13 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:11 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,11 +35,11 @@
 #ifndef DSRWAVVL_H
 #define DSRWAVVL_H
 
-#include "dcmtk/config/osconfig.h"   /* make sure OS specific configuration is included first */
+#include "osconfig.h"   /* make sure OS specific configuration is included first */
 
-#include "dcmtk/dcmsr/dsrtypes.h"
-#include "dcmtk/dcmsr/dsrcomvl.h"
-#include "dcmtk/dcmsr/dsrwavch.h"
+#include "dsrtypes.h"
+#include "dsrcomvl.h"
+#include "dsrwavch.h"
 
 
 /*---------------------*
@@ -230,7 +230,10 @@ class DSRWaveformReferenceValue
 /*
  *  CVS/RCS Log:
  *  $Log: dsrwavvl.h,v $
- *  Revision 1.13  2005-12-08 16:05:34  meichel
+ *  Revision 1.1  2006/03/01 20:16:11  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.13  2005/12/08 16:05:34  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.12  2003/08/07 18:01:42  joergr

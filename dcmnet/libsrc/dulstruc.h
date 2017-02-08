@@ -50,14 +50,14 @@
 **  get the public definitions and function prototypes.  I have omitted
 **  the public definitions and prototypes on purpose so that they
 **  exist in only one location.
-** Last Update:		$Author: meichel $, $Date: 2005-12-08 15:48:09 $
+** Last Update:		$Author: lpysher $, $Date: 2006/03/01 20:15:50 $
 ** Source File:		$RCSfile: dulstruc.h,v $
-** Revision:		$Revision: 1.9 $
+** Revision:		$Revision: 1.1 $
 ** Status:		$State: Exp $
 */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmnet/extneg.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "extneg.h"
 
 class DcmTransportConnection;
 class DcmTransportLayer;
@@ -310,7 +310,10 @@ typedef struct dul_datapdu {
 /*
 ** CVS Log
 ** $Log: dulstruc.h,v $
-** Revision 1.9  2005-12-08 15:48:09  meichel
+** Revision 1.1  2006/03/01 20:15:50  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.9  2005/12/08 15:48:09  meichel
 ** Updated Makefiles to correctly install header files
 **
 ** Revision 1.8  2004/02/25 12:31:17  meichel

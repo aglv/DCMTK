@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DVPSOverlayCurveActivationLayer
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:03:34 $
- *  CVS/RCS Revision: $Revision: 1.6 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:52 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,8 +34,8 @@
 #ifndef __DVPSAL_H__
 #define __DVPSAL_H__
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dctk.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dctk.h"
 
 /** a curve or overlay activation layer in a presentation state (internal use only).
  *  This class manages the data structures comprising a single curve
@@ -142,7 +142,10 @@ private:
 
 /*
  *  $Log: dvpsal.h,v $
- *  Revision 1.6  2005-12-08 16:03:34  meichel
+ *  Revision 1.1  2006/03/01 20:15:52  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.6  2005/12/08 16:03:34  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.5  2001/09/26 15:36:08  meichel

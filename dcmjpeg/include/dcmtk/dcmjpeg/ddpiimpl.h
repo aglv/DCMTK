@@ -21,10 +21,10 @@
  *
  *  Purpose: Implementation of DICOMDIR image support (plugin)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:59:09 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmjpeg/include/dcmtk/dcmjpeg/ddpiimpl.h,v $
- *  CVS/RCS Revision: $Revision: 1.2 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:43 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmjpeg/ddpiimpl.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,9 +35,9 @@
 #ifndef DDPIIMPL_H
 #define DDPIIMPL_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/dcmdata/dcddirif.h"
+#include "dcddirif.h"
 
 
 /*---------------------*
@@ -103,7 +103,10 @@ class DicomDirImageImplementation
  *
  * CVS/RCS Log:
  * $Log: ddpiimpl.h,v $
- * Revision 1.2  2005-12-08 16:59:09  meichel
+ * Revision 1.1  2006/03/01 20:15:43  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.2  2005/12/08 16:59:09  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.1  2003/08/12 13:15:27  joergr

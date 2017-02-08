@@ -21,10 +21,10 @@
  *
  *  Purpose: Implementation of class DcmShortString
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:01 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/libsrc/dcvrsh.cc,v $
- *  CVS/RCS Revision: $Revision: 1.14 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcvrsh.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -32,7 +32,7 @@
  */
 
 
-#include "dcmtk/dcmdata/dcvrsh.h"
+#include "dcvrsh.h"
 
 
 // ********************************
@@ -90,7 +90,10 @@ OFCondition DcmShortString::getOFString(OFString &stringVal,
 /*
 ** CVS/RCS Log:
 ** $Log: dcvrsh.cc,v $
-** Revision 1.14  2005-12-08 15:42:01  meichel
+** Revision 1.1  2006/03/01 20:15:22  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.14  2005/12/08 15:42:01  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.13  2002/12/06 13:20:51  joergr

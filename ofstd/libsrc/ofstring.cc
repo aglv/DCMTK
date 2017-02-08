@@ -21,10 +21,10 @@
  *
  *  Purpose: A simple string class
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:49:01 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/ofstd/libsrc/ofstring.cc,v $
- *  CVS/RCS Revision: $Revision: 1.21 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:56 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/ofstd/ofstring.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -40,15 +40,15 @@
 ** - it is known to be slow but is it reliable
 */
 
-#include "dcmtk/config/osconfig.h"     /* include OS specific configuration first */
+#include "osconfig.h"     /* include OS specific configuration first */
 
 #ifndef HAVE_STD_STRING
 
-#include "dcmtk/ofstd/ofstring.h"
-#include "dcmtk/ofstd/ofcast.h"
+#include "ofstring.h"
+#include "ofcast.h"
 
 #define INCLUDE_CCTYPE
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 /*
 ** Constructors
@@ -1031,7 +1031,10 @@ int ofstring_cc_dummy_to_keep_linker_from_moaning = 0;
 /*
 ** CVS/RCS Log:
 ** $Log: ofstring.cc,v $
-** Revision 1.21  2005-12-08 15:49:01  meichel
+** Revision 1.1  2006/03/01 20:17:56  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.21  2005/12/08 15:49:01  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.20  2003/07/09 13:58:04  meichel

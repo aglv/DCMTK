@@ -21,10 +21,10 @@
  *
  *  Purpose: Type definitions and macros for dcmwlm project.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:44 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmwlm/include/dcmtk/dcmwlm/wltypdef.h,v $
- *  CVS/RCS Revision: $Revision: 1.11 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:20 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmwlm/wltypdef.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,8 +34,8 @@
 #ifndef WlmTypeDefinitions_h
 #define WlmTypeDefinitions_h
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctagkey.h"
+#include "osconfig.h"
+#include "dctagkey.h"
 
   /// Data source status types
 enum WlmDataSourceStatusType
@@ -155,7 +155,10 @@ struct WlmSuperiorSequenceInfoType
 /*
 ** CVS Log
 ** $Log: wltypdef.h,v $
-** Revision 1.11  2005-12-08 16:05:44  meichel
+** Revision 1.1  2006/03/01 20:16:20  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.11  2005/12/08 16:05:44  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.10  2005/09/23 12:56:40  wilkens

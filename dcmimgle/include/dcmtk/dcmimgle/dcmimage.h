@@ -21,9 +21,9 @@
  *
  *  Purpose: Provides main interface to the "DICOM image toolkit"
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:47:31 $
- *  CVS/RCS Revision: $Revision: 1.54 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,13 +34,13 @@
 #ifndef DCMIMAGE_H
 #define DCMIMAGE_H
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/ofstd/ofcast.h"
+#include "ofcast.h"
 
-#include "dcmtk/dcmimgle/dimoimg.h"
-#include "dcmtk/dcmimgle/didispfn.h"
-#include "dcmtk/dcmimgle/diutils.h"
+#include "dimoimg.h"
+#include "didispfn.h"
+#include "diutils.h"
 
 
 /*------------------------*
@@ -1824,7 +1824,10 @@ class DicomImage
  *
  * CVS/RCS Log:
  * $Log: dcmimage.h,v $
- * Revision 1.54  2005-12-08 16:47:31  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.54  2005/12/08 16:47:31  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.53  2005/03/09 17:33:40  joergr

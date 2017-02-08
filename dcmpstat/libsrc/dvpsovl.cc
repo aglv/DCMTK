@@ -22,18 +22,18 @@
  *  Purpose:
  *    classes: DVPSOverlay_PList
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:46:37 $
- *  CVS/RCS Revision: $Revision: 1.12 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:52 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmpstat/dvpsovl.h"
-#include "dcmtk/dcmpstat/dvpsov.h"      /* for DVPSOverlay */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dvpsovl.h"
+#include "dvpsov.h"      /* for DVPSOverlay */
 
 
 DVPSOverlay_PList::DVPSOverlay_PList()
@@ -220,7 +220,10 @@ void DVPSOverlay_PList::setLog(OFConsole *stream, OFBool verbMode, OFBool dbgMod
 
 /*
  *  $Log: dvpsovl.cc,v $
- *  Revision 1.12  2005-12-08 15:46:37  meichel
+ *  Revision 1.1  2006/03/01 20:15:52  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.12  2005/12/08 15:46:37  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.11  2004/02/04 15:57:49  joergr

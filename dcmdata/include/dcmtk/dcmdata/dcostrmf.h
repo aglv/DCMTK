@@ -22,10 +22,10 @@
  *  Purpose: DcmOutputFileStream and related classes,
  *    implements streamed output to files.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:26 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcostrmf.h,v $
- *  CVS/RCS Revision: $Revision: 1.4 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcostrmf.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,11 +35,11 @@
 #ifndef DCOSTRMF_H
 #define DCOSTRMF_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dcostrma.h"
+#include "osconfig.h"
+#include "dcostrma.h"
 
 #define INCLUDE_CSTDIO
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 /** consumer class that stores data in a plain file.
@@ -155,7 +155,10 @@ private:
 /*
  * CVS/RCS Log:
  * $Log: dcostrmf.h,v $
- * Revision 1.4  2005-12-08 16:28:26  meichel
+ * Revision 1.1  2006/03/01 20:15:22  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.4  2005/12/08 16:28:26  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.3  2003/11/07 13:49:08  meichel

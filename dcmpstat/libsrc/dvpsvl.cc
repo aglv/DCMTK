@@ -22,20 +22,20 @@
  *  Purpose:
  *    classes: DVPSVOILUT
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:46:55 $
- *  CVS/RCS Revision: $Revision: 1.9 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:53 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmpstat/dvpsvl.h"
-#include "dcmtk/dcmpstat/dvpssv.h"      /* for DVPSSoftcopyVOI */
-#include "dcmtk/dcmpstat/dvpsdef.h"     /* for constants and macros */
-#include "dcmtk/dcmpstat/dvpsri.h"      /* for DVPSReferencedImage, needed by MSVC5 with STL */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dvpsvl.h"
+#include "dvpssv.h"      /* for DVPSSoftcopyVOI */
+#include "dvpsdef.h"     /* for constants and macros */
+#include "dvpsri.h"      /* for DVPSReferencedImage, needed by MSVC5 with STL */
 
 
 /* --------------- class DVPSVOILUT --------------- */
@@ -118,7 +118,10 @@ void DVPSVOILUT::setLog(OFConsole *stream, OFBool verbMode, OFBool dbgMode)
 
 /*
  *  $Log: dvpsvl.cc,v $
- *  Revision 1.9  2005-12-08 15:46:55  meichel
+ *  Revision 1.1  2006/03/01 20:15:53  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.9  2005/12/08 15:46:55  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.8  2003/06/04 12:30:29  meichel

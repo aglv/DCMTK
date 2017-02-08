@@ -21,19 +21,19 @@
  *
  *  Purpose: class DcmPixelData
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:25 $
- *  CVS/RCS Revision: $Revision: 1.37 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dcpixel.h"
-#include "dcmtk/dcmdata/dccodec.h"
-#include "dcmtk/dcmdata/dcpixseq.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dcpixel.h"
+#include "dccodec.h"
+#include "dcpixseq.h"
 
 //
 // class DcmRepresentationEntry
@@ -1037,7 +1037,10 @@ void DcmPixelData::setNonEncapsulationFlag(OFBool flag)
 /*
 ** CVS/RCS Log:
 ** $Log: dcpixel.cc,v $
-** Revision 1.37  2005-12-08 15:41:25  meichel
+** Revision 1.1  2006/03/01 20:15:22  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.37  2005/12/08 15:41:25  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.36  2005/05/26 09:06:55  meichel

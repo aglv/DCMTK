@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: SiSecurityProfile
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:04:45 $
- *  CVS/RCS Revision: $Revision: 1.6 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,12 +34,12 @@
 #ifndef SISPROF_H
 #define SISPROF_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmsign/sitypes.h"  /* for E_KeyType */
+#include "osconfig.h"
+#include "sitypes.h"  /* for E_KeyType */
 
 #ifdef WITH_OPENSSL
 
-#include "dcmtk/dcmdata/dcxfer.h"   /* for E_TransferSyntax */
+#include "dcxfer.h"   /* for E_TransferSyntax */
 
 class SiAlgorithm;
 class DcmItem;
@@ -142,7 +142,10 @@ private:
 
 /*
  *  $Log: sisprof.h,v $
- *  Revision 1.6  2005-12-08 16:04:45  meichel
+ *  Revision 1.1  2006/03/01 20:16:07  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.6  2005/12/08 16:04:45  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.5  2003/06/04 14:21:03  meichel

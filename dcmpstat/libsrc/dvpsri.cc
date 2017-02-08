@@ -22,22 +22,22 @@
  *  Purpose:
  *    classes: DVPSReferencedImage
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:46:43 $
- *  CVS/RCS Revision: $Revision: 1.16 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:53 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/ofstd/ofstring.h"
-#include "dcmtk/dcmpstat/dvpsri.h"
-#include "dcmtk/dcmpstat/dvpsdef.h"     /* for constants and macros */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "ofstring.h"
+#include "dvpsri.h"
+#include "dvpsdef.h"     /* for constants and macros */
 
 #define INCLUDE_CSTDIO
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 /* --------------- class DVPSReferencedImage --------------- */
@@ -303,7 +303,10 @@ void DVPSReferencedImage::setLog(OFConsole *stream, OFBool verbMode, OFBool dbgM
 
 /*
  *  $Log: dvpsri.cc,v $
- *  Revision 1.16  2005-12-08 15:46:43  meichel
+ *  Revision 1.1  2006/03/01 20:15:53  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.16  2005/12/08 15:46:43  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.15  2003/10/15 16:57:14  meichel

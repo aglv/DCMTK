@@ -21,10 +21,10 @@
  *
  *  Purpose: Interface of class DcmCharString
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:00 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcchrstr.h,v $
- *  CVS/RCS Revision: $Revision: 1.10 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:19 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcchrstr.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,7 +35,7 @@
 #ifndef DCCHRSTR_H
 #define DCCHRSTR_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 //
 // This implementation does not support 16 bit character sets. Since 8 bit
@@ -50,7 +50,7 @@
 // different value widths that cannot be derived from the value representation.
 //
 
-#include "dcmtk/dcmdata/dcbytstr.h"
+#include "dcbytstr.h"
 
 
 /** base class for DICOM elements with value representation LO, LT, PN, SH, ST, UT
@@ -101,7 +101,10 @@ class DcmCharString
 /*
  * CVS/RCS Log:
  * $Log: dcchrstr.h,v $
- * Revision 1.10  2005-12-08 16:28:00  meichel
+ * Revision 1.1  2006/03/01 20:15:19  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.10  2005/12/08 16:28:00  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.9  2004/07/01 12:28:25  meichel

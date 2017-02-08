@@ -53,23 +53,23 @@
 ** Purpose: 
 **      Supplementary DUL functions.
 **
-** Last Update:         $Author: meichel $
-** Update Date:         $Date: 2005-12-08 15:44:50 $
-** Source File:         $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmnet/libsrc/dulextra.cc,v $
-** CVS/RCS Revision:    $Revision: 1.15 $
+** Last Update:         $Author: lpysher $
+** Update Date:         $Date: 2006/03/01 20:15:50 $
+** Source File:         $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmnet/dulextra.cc,v $
+** CVS/RCS Revision:    $Revision: 1.1 $
 ** Status:              $State: Exp $
 **
 ** CVS/RCS Log at end of file
 **
 */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 #define INCLUDE_CSTDLIB
 #define INCLUDE_CSTDIO
 #define INCLUDE_CSTRING
 #define INCLUDE_CERRNO
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 #ifdef HAVE_SYS_TIME_H
 #include <sys/time.h>
@@ -81,13 +81,13 @@
 #include <sys/select.h>
 #endif
 
-#include "dcmtk/dcmnet/dicom.h"
-#include "dcmtk/dcmnet/lst.h"
-#include "dcmtk/dcmnet/cond.h"
-#include "dcmtk/dcmnet/dul.h"
+#include "dicom.h"
+#include "lst.h"
+#include "cond.h"
+#include "dul.h"
 #include "dulstruc.h"
 #include "dulpriv.h"
-#include "dcmtk/dcmnet/dcmtrans.h"
+#include "dcmtrans.h"
 
 OFBool 
 DUL_dataWaiting(DUL_ASSOCIATIONKEY * callerAssociation, int timeout)
@@ -158,7 +158,10 @@ DUL_associationWaiting(DUL_NETWORKKEY * callerNet, int timeout)
 /*
 ** CVS Log
 ** $Log: dulextra.cc,v $
-** Revision 1.15  2005-12-08 15:44:50  meichel
+** Revision 1.1  2006/03/01 20:15:50  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.15  2005/12/08 15:44:50  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.14  2003/07/03 14:21:10  meichel

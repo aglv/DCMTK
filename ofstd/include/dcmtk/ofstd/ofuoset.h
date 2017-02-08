@@ -22,10 +22,10 @@
  *  Purpose: Template class for administrating an unordered set of elements
  *           of an arbitrary type.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-12 09:24:27 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/ofstd/include/dcmtk/ofstd/ofuoset.h,v $
- *  CVS/RCS Revision: $Revision: 1.6 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:17:56 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/ofstd/ofuoset.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,9 +35,9 @@
 #ifndef OFUnorderedSet_h
 #define OFUnorderedSet_h
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/oftypes.h"
-#include "dcmtk/ofstd/ofset.h"
+#include "osconfig.h"
+#include "oftypes.h"
+#include "ofset.h"
 
 /** This template class provides a data structure and operations for administrating an
  *  unordered set of elements of an arbitrary type. Note the following properties of this
@@ -451,7 +451,10 @@ template <class T> class OFUnorderedSet : public OFSet<T>
 /*
 ** CVS/RCS Log:
 ** $Log: ofuoset.h,v $
-** Revision 1.6  2005-12-12 09:24:27  meichel
+** Revision 1.1  2006/03/01 20:17:56  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.6  2005/12/12 09:24:27  meichel
 ** Added explicit references to parent template class, needed for
 **   gcc 3.4.2 (MinGW port)
 **

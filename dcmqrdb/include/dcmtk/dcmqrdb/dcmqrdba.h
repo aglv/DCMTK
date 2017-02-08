@@ -21,10 +21,10 @@
  *
  *  Purpose: class DcmQueryRetrieveDatabaseHandle
  *
- *  Last Update:      $Author: onken $
- *  Update Date:      $Date: 2005-12-16 09:12:33 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmqrdb/include/dcmtk/dcmqrdb/dcmqrdba.h,v $
- *  CVS/RCS Revision: $Revision: 1.4 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmqrdb/dcmqrdba.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,13 +34,13 @@
 #ifndef DCMQRDBA_H
 #define DCMQRDBA_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 #define INCLUDE_CSTDLIB
 #define INCLUDE_CSTDIO
 #define INCLUDE_UNISTD
-#include "dcmtk/ofstd/ofstdinc.h"
-#include "dcmtk/ofstd/ofcond.h"
+#include "ofstdinc.h"
+#include "ofcond.h"
 
 class DcmDataset;
 class DcmQueryRetrieveDatabaseStatus;
@@ -241,7 +241,10 @@ public:
 /*
  * CVS Log
  * $Log: dcmqrdba.h,v $
- * Revision 1.4  2005-12-16 09:12:33  onken
+ * Revision 1.1  2006/03/01 20:16:07  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.4  2005/12/16 09:12:33  onken
  * - Added virtual (dummy) destructor to avoid compiler warnings
  *
  * Revision 1.3  2005/12/08 16:04:21  meichel

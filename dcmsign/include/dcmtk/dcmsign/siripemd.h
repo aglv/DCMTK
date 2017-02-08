@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: SiRIPEMD160
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:04:42 $
- *  CVS/RCS Revision: $Revision: 1.5 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:07 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,9 +34,9 @@
 #ifndef SIRIPEMD_H
 #define SIRIPEMD_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmsign/simac.h"
-#include "dcmtk/dcmsign/sitypes.h"
+#include "osconfig.h"
+#include "simac.h"
+#include "sitypes.h"
 
 #ifdef WITH_OPENSSL
 
@@ -108,7 +108,10 @@ private:
 
 /*
  *  $Log: siripemd.h,v $
- *  Revision 1.5  2005-12-08 16:04:42  meichel
+ *  Revision 1.1  2006/03/01 20:16:07  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.5  2005/12/08 16:04:42  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.4  2003/06/04 14:21:03  meichel

@@ -21,9 +21,9 @@
  *
  *  Purpose: class DcmQuantScaleTable
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:01:54 $
- *  CVS/RCS Revision: $Revision: 1.4 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,13 +35,13 @@
 #define DIQTSTAB_H
 
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/ofstd/ofcast.h"
-#include "dcmtk/dcmimage/diqttype.h"  /* for DcmQuantComponent */
+#include "osconfig.h"
+#include "ofcast.h"
+#include "diqttype.h"  /* for DcmQuantComponent */
 
 #define INCLUDE_CSTDLIB
 #define INCLUDE_CASSERT
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 
 /** this is a helper class used for temporarily reducing the image bit depth
@@ -129,7 +129,10 @@ private:
 /*
  * CVS/RCS Log:
  * $Log: diqtstab.h,v $
- * Revision 1.4  2005-12-08 16:01:54  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.4  2005/12/08 16:01:54  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.3  2003/12/23 12:20:44  joergr

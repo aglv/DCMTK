@@ -57,10 +57,10 @@
 **	Module Prefix: DIMSE_
 **
 **
-** Last Update:		$Author: meichel $
-** Update Date:		$Date: 2005-12-08 15:44:37 $
-** Source File:		$Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmnet/libsrc/dimcancl.cc,v $
-** CVS/RCS Revision:	$Revision: 1.7 $
+** Last Update:		$Author: lpysher $
+** Update Date:		$Date: 2006/03/01 20:15:49 $
+** Source File:		$Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmnet/dimcancl.cc,v $
+** CVS/RCS Revision:	$Revision: 1.1 $
 ** Status:		$State: Exp $
 **
 ** CVS/RCS Log at end of file
@@ -70,21 +70,21 @@
 ** Include Files
 */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 #define INCLUDE_CSTDLIB
 #define INCLUDE_CSTDIO
 #define INCLUDE_CSTRING
 #define INCLUDE_CSTDARG
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 #ifdef HAVE_FCNTL_H
 #include <fcntl.h>
 #endif
 
-#include "dcmtk/dcmnet/diutil.h"
-#include "dcmtk/dcmnet/dimse.h"		/* always include the module header */
-#include "dcmtk/dcmnet/cond.h"
+#include "diutil.h"
+#include "dimse.h"		/* always include the module header */
+#include "cond.h"
 
 OFCondition
 DIMSE_sendCancelRequest(T_ASC_Association * assoc, 
@@ -134,7 +134,10 @@ DIMSE_checkForCancelRQ(T_ASC_Association * assoc,
 /*
 ** CVS Log
 ** $Log: dimcancl.cc,v $
-** Revision 1.7  2005-12-08 15:44:37  meichel
+** Revision 1.1  2006/03/01 20:15:49  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.7  2005/12/08 15:44:37  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.6  2002/11/27 13:04:38  meichel

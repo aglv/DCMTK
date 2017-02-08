@@ -21,19 +21,19 @@
  *
  *  Purpose: 
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:44:27 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmnet/libsrc/dcasccfg.cc,v $
- *  CVS/RCS Revision: $Revision: 1.4 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:49 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmnet/dcasccfg.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmnet/dcasccfg.h"
-#include "dcmtk/dcmdata/dcerror.h"  /* for EC_IllegalCall */
+#include "osconfig.h"
+#include "dcasccfg.h"
+#include "dcerror.h"  /* for EC_IllegalCall */
 
 DcmAssociationConfiguration::DcmAssociationConfiguration()
 : xferSyntaxes_()
@@ -546,7 +546,10 @@ OFCondition DcmAssociationConfiguration::evaluateAssociationParameters(
 /*
  * CVS/RCS Log
  * $Log: dcasccfg.cc,v $
- * Revision 1.4  2005-12-08 15:44:27  meichel
+ * Revision 1.1  2006/03/01 20:15:49  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.4  2005/12/08 15:44:27  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.3  2003/08/14 10:58:49  meichel

@@ -21,9 +21,9 @@
  *
  *  Purpose: Interface for loadable DICOM data dictionary
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:09 $
- *  CVS/RCS Revision: $Revision: 1.20 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:21 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -33,9 +33,9 @@
 #ifndef DCMDICT_H
 #define DCMDICT_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dchashdi.h"
-#include "dcmtk/ofstd/ofthread.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dchashdi.h"
+#include "ofthread.h"
 
 /// maximum length of a line in the loadable DICOM dictionary
 #define DCM_MAXDICTLINESIZE     2048
@@ -296,7 +296,10 @@ extern GlobalDcmDataDictionary dcmDataDict;
 /*
 ** CVS/RCS Log:
 ** $Log: dcdict.h,v $
-** Revision 1.20  2005-12-08 16:28:09  meichel
+** Revision 1.1  2006/03/01 20:15:21  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.20  2005/12/08 16:28:09  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.19  2004/01/16 14:07:27  joergr

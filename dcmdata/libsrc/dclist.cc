@@ -21,20 +21,20 @@
  *
  *  Purpose: generic list class
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:41:17 $
- *  CVS/RCS Revision: $Revision: 1.14 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:21 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
  *
  */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
-#include "dcmtk/ofstd/ofstream.h"
-#include "dcmtk/dcmdata/dclist.h"
-#include "dcmtk/dcmdata/dcdebug.h"
+#include "ofstream.h"
+#include "dclist.h"
+#include "dcdebug.h"
 
 
 // *****************************************
@@ -277,7 +277,10 @@ DcmObject *DcmList::seek_to(unsigned long absolute_position)
 /*
  * CVS/RCS Log:
  * $Log: dclist.cc,v $
- * Revision 1.14  2005-12-08 15:41:17  meichel
+ * Revision 1.1  2006/03/01 20:15:21  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.14  2005/12/08 15:41:17  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.13  2004/01/16 13:50:22  joergr

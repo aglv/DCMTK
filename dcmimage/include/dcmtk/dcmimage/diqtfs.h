@@ -21,9 +21,9 @@
  *
  *  Purpose: class DcmQuantFloydSteinberg
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:01:46 $
- *  CVS/RCS Revision: $Revision: 1.4 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:35 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,9 +35,9 @@
 #define DIQTFS_H
 
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmimage/diqtpix.h"   /* for DcmQuantPixel */
-#include "dcmtk/ofstd/ofcond.h"    /* for OFCondition */
+#include "osconfig.h"
+#include "diqtpix.h"   /* for DcmQuantPixel */
+#include "ofcond.h"    /* for OFCondition */
 
 
 /** Floyd-Steinberg error vectors are stored internally as integer numbers
@@ -234,7 +234,10 @@ private:
 /*
  * CVS/RCS Log:
  * $Log: diqtfs.h,v $
- * Revision 1.4  2005-12-08 16:01:46  meichel
+ * Revision 1.1  2006/03/01 20:15:35  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.4  2005/12/08 16:01:46  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.3  2003/12/23 12:16:59  joergr

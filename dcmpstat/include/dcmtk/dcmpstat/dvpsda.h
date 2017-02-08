@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DVPSDisplayedArea
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:03:39 $
- *  CVS/RCS Revision: $Revision: 1.7 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:52 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,10 +34,10 @@
 #ifndef __DVPSDA_H__
 #define __DVPSDA_H__
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/dcmdata/dctk.h"
-#include "dcmtk/dcmpstat/dvpsril.h"     /* for DVPSReferencedImage_PList */
-#include "dcmtk/dcmpstat/dvpstyp.h"     /* for enum types */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "dctk.h"
+#include "dvpsril.h"     /* for DVPSReferencedImage_PList */
+#include "dvpstyp.h"     /* for enum types */
 
 class DVPSReferencedSeries_PList;
 
@@ -299,7 +299,10 @@ private:
 
 /*
  *  $Log: dvpsda.h,v $
- *  Revision 1.7  2005-12-08 16:03:39  meichel
+ *  Revision 1.1  2006/03/01 20:15:52  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.7  2005/12/08 16:03:39  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.6  2003/09/05 14:30:06  meichel

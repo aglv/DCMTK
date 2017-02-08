@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomMonochromePixel (Source)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:43:02 $
- *  CVS/RCS Revision: $Revision: 1.12 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,12 +31,12 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
+#include "osconfig.h"
 
-#include "dcmtk/dcmimgle/dimopx.h"
-#include "dcmtk/dcmimgle/dimomod.h"
-#include "dcmtk/dcmimgle/diinpx.h"
-#include "dcmtk/dcmimgle/dimoopx.h"
+#include "dimopx.h"
+#include "dimomod.h"
+#include "diinpx.h"
+#include "dimoopx.h"
 
 
 /*----------------*
@@ -100,7 +100,10 @@ DiMonoPixel::~DiMonoPixel()
  *
  * CVS/RCS Log:
  * $Log: dimopx.cc,v $
- * Revision 1.12  2005-12-08 15:43:02  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.12  2005/12/08 15:43:02  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.11  2004/02/06 11:10:39  joergr

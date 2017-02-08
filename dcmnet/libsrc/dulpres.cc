@@ -43,14 +43,14 @@
 ** Author, Date:	Stephen M. Moore, 15-Apr-93
 ** Intent:		This module contains routines for the user to
 **			build and manipulate the public DUL structures.
-** Last Update:		$Author: meichel $, $Date: 2005-12-08 15:44:53 $
+** Last Update:		$Author: lpysher $, $Date: 2006/03/01 20:15:50 $
 ** Source File:		$RCSfile: dulpres.cc,v $
-** Revision:		$Revision: 1.12 $
+** Revision:		$Revision: 1.1 $
 ** Status:		$State: Exp $
 */
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
-#include "dcmtk/ofstd/ofcond.h"
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
+#include "ofcond.h"
 
 #define INCLUDE_CSTDLIB
 #define INCLUDE_CSTDIO
@@ -58,12 +58,12 @@
 #define INCLUDE_CERRNO
 #define INCLUDE_CSIGNAL
 #define INCLUDE_CSTDARG
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
-#include "dcmtk/dcmnet/dicom.h"
-#include "dcmtk/dcmnet/cond.h"
-#include "dcmtk/dcmnet/lst.h"
-#include "dcmtk/dcmnet/dul.h"
+#include "dicom.h"
+#include "cond.h"
+#include "lst.h"
+#include "dul.h"
 #include "dulstruc.h"
 #include "dulpriv.h"
 #include "dulfsm.h"
@@ -146,7 +146,10 @@ DUL_MakePresentationCtx(DUL_PRESENTATIONCONTEXT ** ctx,
 /*
 ** CVS Log
 ** $Log: dulpres.cc,v $
-** Revision 1.12  2005-12-08 15:44:53  meichel
+** Revision 1.1  2006/03/01 20:15:50  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.12  2005/12/08 15:44:53  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.11  2002/11/27 13:04:46  meichel

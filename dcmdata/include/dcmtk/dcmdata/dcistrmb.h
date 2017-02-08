@@ -22,10 +22,10 @@
  *  Purpose: DcmInputBufferStream and related classes,
  *    implements input to blocks of memory as needed in the dcmnet module.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:16 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcistrmb.h,v $
- *  CVS/RCS Revision: $Revision: 1.3 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:21 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcistrmb.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,8 +35,8 @@
 #ifndef DCISTRMB_H
 #define DCISTRMB_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dcistrma.h"
+#include "osconfig.h"
+#include "dcistrma.h"
 
 
 /** producer class that reads data from a buffer provided by the caller.
@@ -218,7 +218,10 @@ private:
 /*
  * CVS/RCS Log:
  * $Log: dcistrmb.h,v $
- * Revision 1.3  2005-12-08 16:28:16  meichel
+ * Revision 1.1  2006/03/01 20:15:21  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.3  2005/12/08 16:28:16  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.2  2003/06/12 13:34:36  joergr

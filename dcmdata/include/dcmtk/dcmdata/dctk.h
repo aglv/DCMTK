@@ -21,10 +21,10 @@
  *
  *  Purpose: include most dcmdata files that are usually required
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:46 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dctk.h,v $
- *  CVS/RCS Revision: $Revision: 1.15 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dctk.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,86 +34,89 @@
 #ifndef DCTK_H
 #define DCTK_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 // various headers
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmdata/dcswap.h"
-#include "dcmtk/dcmdata/dcistrma.h"
-#include "dcmtk/dcmdata/dcostrma.h"
-#include "dcmtk/dcmdata/dcvr.h"
-#include "dcmtk/dcmdata/dcxfer.h"
-#include "dcmtk/dcmdata/dcuid.h"
-#include "dcmtk/dcmdata/dcvm.h"
-#include "dcmtk/dcmdata/dcdefine.h"
+#include "dctypes.h"
+#include "dcswap.h"
+#include "dcistrma.h"
+#include "dcostrma.h"
+#include "dcvr.h"
+#include "dcxfer.h"
+#include "dcuid.h"
+#include "dcvm.h"
+#include "dcdefine.h"
 
 // tags and dictionary
-#include "dcmtk/dcmdata/dctagkey.h"
-#include "dcmtk/dcmdata/dctag.h"
-#include "dcmtk/dcmdata/dcdicent.h"
-#include "dcmtk/dcmdata/dchashdi.h"
-#include "dcmtk/dcmdata/dcdict.h"
-#include "dcmtk/dcmdata/dcdeftag.h"
+#include "dctagkey.h"
+#include "dctag.h"
+#include "dcdicent.h"
+#include "dchashdi.h"
+#include "dcdict.h"
+#include "dcdeftag.h"
 
 // basis classes
-#include "dcmtk/dcmdata/dcobject.h"
-#include "dcmtk/dcmdata/dcelem.h"
+#include "dcobject.h"
+#include "dcelem.h"
 
 // classes for management of sequences and other lists
-#include "dcmtk/dcmdata/dcitem.h"
-#include "dcmtk/dcmdata/dcmetinf.h"
-#include "dcmtk/dcmdata/dcdatset.h"
-#include "dcmtk/dcmdata/dcsequen.h"
-#include "dcmtk/dcmdata/dcfilefo.h"
-#include "dcmtk/dcmdata/dcdicdir.h"
-#include "dcmtk/dcmdata/dcpixseq.h"
+#include "dcitem.h"
+#include "dcmetinf.h"
+#include "dcdatset.h"
+#include "dcsequen.h"
+#include "dcfilefo.h"
+#include "dcdicdir.h"
+#include "dcpixseq.h"
 
 // element classes for string management (8-bit)
-#include "dcmtk/dcmdata/dcbytstr.h"
-#include "dcmtk/dcmdata/dcvrae.h"
-#include "dcmtk/dcmdata/dcvras.h"
-#include "dcmtk/dcmdata/dcvrcs.h"
-#include "dcmtk/dcmdata/dcvrda.h"
-#include "dcmtk/dcmdata/dcvrds.h"
-#include "dcmtk/dcmdata/dcvrdt.h"
-#include "dcmtk/dcmdata/dcvris.h"
-#include "dcmtk/dcmdata/dcvrtm.h"
-#include "dcmtk/dcmdata/dcvrui.h"
+#include "dcbytstr.h"
+#include "dcvrae.h"
+#include "dcvras.h"
+#include "dcvrcs.h"
+#include "dcvrda.h"
+#include "dcvrds.h"
+#include "dcvrdt.h"
+#include "dcvris.h"
+#include "dcvrtm.h"
+#include "dcvrui.h"
 
 // element classes for string management (8-bit and/or 16-bit in later extensions)
-#include "dcmtk/dcmdata/dcchrstr.h"
-#include "dcmtk/dcmdata/dcvrlo.h"
-#include "dcmtk/dcmdata/dcvrlt.h"
-#include "dcmtk/dcmdata/dcvrpn.h"
-#include "dcmtk/dcmdata/dcvrsh.h"
-#include "dcmtk/dcmdata/dcvrst.h"
-#include "dcmtk/dcmdata/dcvrut.h"
+#include "dcchrstr.h"
+#include "dcvrlo.h"
+#include "dcvrlt.h"
+#include "dcvrpn.h"
+#include "dcvrsh.h"
+#include "dcvrst.h"
+#include "dcvrut.h"
 
 // element class for byte and word value representations
-#include "dcmtk/dcmdata/dcvrobow.h"
-#include "dcmtk/dcmdata/dcpixel.h"
-#include "dcmtk/dcmdata/dcovlay.h"
+#include "dcvrobow.h"
+#include "dcpixel.h"
+#include "dcovlay.h"
 
 // element classes for binary value fields
-#include "dcmtk/dcmdata/dcvrat.h"
-#include "dcmtk/dcmdata/dcvrss.h"
-#include "dcmtk/dcmdata/dcvrus.h"
-#include "dcmtk/dcmdata/dcvrsl.h"
-#include "dcmtk/dcmdata/dcvrul.h"
-#include "dcmtk/dcmdata/dcvrulup.h"
-#include "dcmtk/dcmdata/dcvrfl.h"
-#include "dcmtk/dcmdata/dcvrfd.h"
-#include "dcmtk/dcmdata/dcvrof.h"
+#include "dcvrat.h"
+#include "dcvrss.h"
+#include "dcvrus.h"
+#include "dcvrsl.h"
+#include "dcvrul.h"
+#include "dcvrulup.h"
+#include "dcvrfl.h"
+#include "dcvrfd.h"
+#include "dcvrof.h"
 
 // misc supporting tools
-#include "dcmtk/dcmdata/cmdlnarg.h"
+#include "cmdlnarg.h"
 
 #endif /* DCTK_H */
 
 /*
  * CVS/RCS Log:
  * $Log: dctk.h,v $
- * Revision 1.15  2005-12-08 16:28:46  meichel
+ * Revision 1.1  2006/03/01 20:15:22  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.15  2005/12/08 16:28:46  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.14  2005/11/28 15:28:56  meichel

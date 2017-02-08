@@ -23,9 +23,9 @@
  *  This file contains the interface to routines which provide
  *  DICOM object encoding/decoding, search and lookup facilities.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:22 $
- *  CVS/RCS Revision: $Revision: 1.41 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -36,16 +36,16 @@
 #ifndef DCOBJECT_H
 #define DCOBJECT_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
-#include "dcmtk/ofstd/ofconsol.h"
-#include "dcmtk/ofstd/ofglobal.h"
-#include "dcmtk/dcmdata/dcerror.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmdata/dcxfer.h"
-#include "dcmtk/dcmdata/dctag.h"
-#include "dcmtk/dcmdata/dclist.h"
-#include "dcmtk/dcmdata/dcstack.h"
+#include "ofconsol.h"
+#include "ofglobal.h"
+#include "dcerror.h"
+#include "dctypes.h"
+#include "dcxfer.h"
+#include "dctag.h"
+#include "dclist.h"
+#include "dcstack.h"
 
 
 // forward declarations
@@ -248,6 +248,7 @@ class DcmObject
     virtual OFBool containsUnknownVR() const;
 
     virtual OFCondition clear() = 0;
+	
     virtual OFCondition verify(const OFBool autocorrect = OFFalse) = 0;
 
     virtual DcmObject *nextInContainer(const DcmObject *obj);
@@ -351,7 +352,10 @@ class DcmObject
 /*
  * CVS/RCS Log:
  * $Log: dcobject.h,v $
- * Revision 1.41  2005-12-08 16:28:22  meichel
+ * Revision 1.1  2006/03/01 20:15:22  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.41  2005/12/08 16:28:22  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.40  2005/12/02 08:49:17  joergr

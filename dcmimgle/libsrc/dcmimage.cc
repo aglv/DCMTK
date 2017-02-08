@@ -21,9 +21,9 @@
  *
  *  Purpose: DicomImage-Interface (Source)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:42 $
- *  CVS/RCS Revision: $Revision: 1.26 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:36 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -31,24 +31,24 @@
  */
 
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dctypes.h"
-#include "dcmtk/dcmdata/dcdeftag.h"
-#include "dcmtk/dcmdata/dcobject.h"
-#include "dcmtk/dcmdata/dcuid.h"
-#include "dcmtk/dcmdata/dcdict.h"
+#include "osconfig.h"
+#include "dctypes.h"
+#include "dcdeftag.h"
+#include "dcobject.h"
+#include "dcuid.h"
+#include "dcdict.h"
 
-#include "dcmtk/dcmimgle/dcmimage.h"
-#include "dcmtk/dcmimgle/diovlimg.h"
-#include "dcmtk/dcmimgle/dimo1img.h"
-#include "dcmtk/dcmimgle/dimo2img.h"
-#include "dcmtk/dcmimgle/didocu.h"
-#include "dcmtk/dcmimgle/diregbas.h"
-#include "dcmtk/dcmimgle/diplugin.h"
-#include "dcmtk/dcmdata/dcdicent.h"  /* needed by MSVC5 */
+#include "dcmimage.h"
+#include "diovlimg.h"
+#include "dimo1img.h"
+#include "dimo2img.h"
+#include "didocu.h"
+#include "diregbas.h"
+#include "diplugin.h"
+#include "dcdicent.h"  /* needed by MSVC5 */
 
 #define INCLUDE_CCTYPE
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 #ifndef FILENAME_MAX
 #define FILENAME_MAX 255
@@ -820,7 +820,10 @@ int DicomImage::writePluginFormat(const DiPluginFormat *plugin,
  *
  * CVS/RCS Log:
  * $Log: dcmimage.cc,v $
- * Revision 1.26  2005-12-08 15:42:42  meichel
+ * Revision 1.1  2006/03/01 20:15:36  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.26  2005/12/08 15:42:42  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.25  2003/12/23 16:03:18  joergr

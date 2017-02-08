@@ -22,9 +22,9 @@
  *  Purpose:
  *    classes: DSRXMLCursor
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:05:35 $
- *  CVS/RCS Revision: $Revision: 1.6 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:16:11 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -35,13 +35,13 @@
 #ifndef DSRXMLC_H
 #define DSRXMLC_H
 
-#include "dcmtk/config/osconfig.h"   /* make sure OS specific configuration is included first */
+#include "osconfig.h"   /* make sure OS specific configuration is included first */
 
-#include "dcmtk/ofstd/oftypes.h"    /* for definition of OFBool */
+#include "oftypes.h"    /* for definition of OFBool */
 
 #define INCLUDE_CSTDLIB
 #define INCLUDE_CSTDDEF
-#include "dcmtk/ofstd/ofstdinc.h"
+#include "ofstdinc.h"
 
 #ifdef WITH_LIBXML
 #include <libxml/parser.h>
@@ -149,7 +149,10 @@ class DSRXMLCursor
 /*
  *  CVS/RCS Log:
  *  $Log: dsrxmlc.h,v $
- *  Revision 1.6  2005-12-08 16:05:35  meichel
+ *  Revision 1.1  2006/03/01 20:16:11  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.6  2005/12/08 16:05:35  meichel
  *  Changed include path schema for all DCMTK header files
  *
  *  Revision 1.5  2003/10/06 09:51:43  joergr

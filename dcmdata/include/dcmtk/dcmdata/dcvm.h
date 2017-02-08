@@ -21,10 +21,10 @@
  *
  *  Purpose: functions to derive VM from string
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:49 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvm.h,v $
- *  CVS/RCS Revision: $Revision: 1.6 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcvm.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,7 +34,7 @@
 #ifndef DCVM_H
 #define DCVM_H
 
-#include "dcmtk/config/osconfig.h"    /* make sure OS specific configuration is included first */
+#include "osconfig.h"    /* make sure OS specific configuration is included first */
 
 // get the number of values stored in string
 unsigned long getVMFromString(const char * val);
@@ -49,7 +49,10 @@ char * getFirstValueFromString(const char * & s);
 /*
 ** CVS/RCS Log:
 ** $Log: dcvm.h,v $
-** Revision 1.6  2005-12-08 16:28:49  meichel
+** Revision 1.1  2006/03/01 20:15:22  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.6  2005/12/08 16:28:49  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.5  2001/06/01 15:48:47  meichel

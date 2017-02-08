@@ -21,10 +21,10 @@
  *
  *  Purpose: RLE decompressor
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 16:28:36 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/include/dcmtk/dcmdata/dcrledec.h,v $
- *  CVS/RCS Revision: $Revision: 1.4 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:15:22 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/dcmdata/dcrledec.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -34,8 +34,8 @@
 #ifndef DCRLEDEC_H
 #define DCRLEDEC_H
 
-#include "dcmtk/config/osconfig.h"
-#include "dcmtk/dcmdata/dcerror.h"
+#include "osconfig.h"
+#include "dcerror.h"
 
 /** this class implements an RLE decompressor conforming to the DICOM standard.
  *  The class is loosely based on an implementation by Phil Norman <forrey@eh.org>
@@ -278,7 +278,10 @@ private:
 /*
  * CVS/RCS Log
  * $Log: dcrledec.h,v $
- * Revision 1.4  2005-12-08 16:28:36  meichel
+ * Revision 1.1  2006/03/01 20:15:22  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.4  2005/12/08 16:28:36  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.3  2003/08/14 09:00:56  meichel
