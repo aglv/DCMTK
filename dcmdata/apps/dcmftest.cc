@@ -21,10 +21,10 @@
  *
  *  Purpose: Test if a file uses DICOM Part 10 format.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:40:47 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/apps/dcmftest.cc,v $
- *  CVS/RCS Revision: $Revision: 1.18 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:02 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/sample\040apps/dcmdump/dcmftest.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -102,7 +102,10 @@ int main(int argc, char *argv[])
 /*
 ** CVS/RCS Log:
 ** $Log: dcmftest.cc,v $
-** Revision 1.18  2005-12-08 15:40:47  meichel
+** Revision 1.1  2006/03/01 20:18:02  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.18  2005/12/08 15:40:47  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.17  2004/08/03 11:41:04  meichel

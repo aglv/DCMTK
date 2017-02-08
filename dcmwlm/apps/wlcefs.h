@@ -22,10 +22,10 @@
  *  Purpose: Class representing a console engine for basic worklist
  *           management service class providers based on the file system.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:46:50 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmwlm/apps/wlcefs.h,v $
- *  CVS/RCS Revision: $Revision: 1.7 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:11 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/sample\040apps/dcmwlm/wlcefs.h,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file

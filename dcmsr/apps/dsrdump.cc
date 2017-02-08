@@ -21,9 +21,9 @@
  *
  *  Purpose: List the contents of a dicom structured reporting file
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:47:35 $
- *  CVS/RCS Revision: $Revision: 1.23 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:11 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -300,7 +300,10 @@ int main(int argc, char *argv[])
 /*
  * CVS/RCS Log:
  * $Log: dsrdump.cc,v $
- * Revision 1.23  2005-12-08 15:47:35  meichel
+ * Revision 1.1  2006/03/01 20:18:11  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.23  2005/12/08 15:47:35  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.22  2005/12/02 10:37:30  joergr

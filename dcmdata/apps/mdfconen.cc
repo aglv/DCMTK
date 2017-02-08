@@ -21,9 +21,9 @@
  *
  *  Purpose: Class for modifying DICOM files from comandline
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-16 13:04:01 $
- *  CVS/RCS Revision: $Revision: 1.16 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:03 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -710,7 +710,10 @@ MdfConsoleEngine::~MdfConsoleEngine()
 /*
 ** CVS/RCS Log:
 ** $Log: mdfconen.cc,v $
-** Revision 1.16  2005-12-16 13:04:01  meichel
+** Revision 1.1  2006/03/01 20:18:03  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.16  2005/12/16 13:04:01  meichel
 ** Changed type to size_t to make code safe on 64bit platforms
 **
 ** Revision 1.15  2005/12/08 15:40:51  meichel

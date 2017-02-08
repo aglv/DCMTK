@@ -23,9 +23,9 @@
  *    VR and IOD checker for Presentation States
  *
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-14 17:43:42 $
- *  CVS/RCS Revision: $Revision: 1.22 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:04 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -1095,7 +1095,10 @@ int main(int argc, char *argv[])
 /*
  * CVS/RCS Log:
  * $Log: dcmpschk.cc,v $
- * Revision 1.22  2005-12-14 17:43:42  meichel
+ * Revision 1.1  2006/03/01 20:18:04  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.22  2005/12/14 17:43:42  meichel
  * Adapted code for compilation with TCP wrappers to NetBSD
  *
  * Revision 1.21  2005/12/12 15:14:34  meichel

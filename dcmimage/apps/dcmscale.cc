@@ -21,9 +21,9 @@
  *
  *  Purpose: Scale DICOM images
  *
- *  Last Update:      $Author: joergr $
- *  Update Date:      $Date: 2005-12-15 17:42:10 $
- *  CVS/RCS Revision: $Revision: 1.14 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:04 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -657,7 +657,10 @@ int main(int argc, char *argv[])
 /*
  * CVS/RCS Log:
  * $Log: dcmscale.cc,v $
- * Revision 1.14  2005-12-15 17:42:10  joergr
+ * Revision 1.1  2006/03/01 20:18:04  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.14  2005/12/15 17:42:10  joergr
  * Changed type of local variable, reported by Sun CC 2.0.1 on Solaris.
  *
  * Revision 1.13  2005/12/08 15:42:18  meichel

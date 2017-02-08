@@ -21,9 +21,9 @@
  *
  *  Purpose: Class for modifying DICOM files
  *
- *  Last Update:      $Author: onken $
- *  Update Date:      $Date: 2005-12-16 09:08:33 $
- *  CVS/RCS Revision: $Revision: 1.20 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:03 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -973,7 +973,10 @@ MdfDatasetManager::~MdfDatasetManager()
 /*
 ** CVS/RCS Log:
 ** $Log: mdfdsman.cc,v $
-** Revision 1.20  2005-12-16 09:08:33  onken
+** Revision 1.1  2006/03/01 20:18:03  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.20  2005/12/16 09:08:33  onken
 ** - Added variable initialization to avoid compiler warning
 **
 ** Revision 1.19  2005/12/15 10:23:41  joergr

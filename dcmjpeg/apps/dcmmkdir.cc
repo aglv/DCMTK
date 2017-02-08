@@ -36,9 +36,9 @@
  *  - 12-lead ECG Interchange on Diskette (STD-WVFM-ECG-FD)
  *  - Hemodynamic Waveform Interchange on Diskette (STD-WVFM-HD-FD)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:43:23 $
- *  CVS/RCS Revision: $Revision: 1.3 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:04 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -56,7 +56,10 @@
 /*
  * CVS/RCS Log:
  * $Log: dcmmkdir.cc,v $
- * Revision 1.3  2005-12-08 15:43:23  meichel
+ * Revision 1.1  2006/03/01 20:18:04  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.3  2005/12/08 15:43:23  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.2  2004/01/16 14:28:01  joergr

@@ -21,10 +21,10 @@
  *
  *  Purpose: Image Server Central Test Node (ctn) Main Program
  *
- *  Last Update:      $Author: joergr $
- *  Update Date:      $Date: 2005-12-16 12:39:13 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmqrdb/apps/dcmqrscp.cc,v $
- *  CVS/RCS Revision: $Revision: 1.7 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:11 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/sample\040apps/dcmqrdb/dcmqrscp.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -671,7 +671,10 @@ main(int argc, char *argv[])
 /*
  * CVS Log
  * $Log: dcmqrscp.cc,v $
- * Revision 1.7  2005-12-16 12:39:13  joergr
+ * Revision 1.1  2006/03/01 20:18:11  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.7  2005/12/16 12:39:13  joergr
  * Renamed file to avoid naming conflicts when linking on SunOS 5.5.1 with
  * Sun CC 2.0.1.
  *

@@ -21,9 +21,9 @@
  *
  *  Purpose: Convert dicom file encoding
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:40:43 $
- *  CVS/RCS Revision: $Revision: 1.48 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:02 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -437,7 +437,10 @@ int main(int argc, char *argv[])
 /*
 ** CVS/RCS Log:
 ** $Log: dcmconv.cc,v $
-** Revision 1.48  2005-12-08 15:40:43  meichel
+** Revision 1.1  2006/03/01 20:18:02  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.48  2005/12/08 15:40:43  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.47  2005/12/02 09:00:37  joergr

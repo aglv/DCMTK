@@ -21,10 +21,10 @@
  *
  *  Purpose: This test program registers image files in the image database.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-14 17:43:42 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmqrdb/apps/dcmqridx.cc,v $
- *  CVS/RCS Revision: $Revision: 1.4 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:11 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/sample\040apps/dcmqrdb/dcmqridx.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -203,7 +203,10 @@ int main (int argc, char *argv[])
 /*
  * CVS Log
  * $Log: dcmqridx.cc,v $
- * Revision 1.4  2005-12-14 17:43:42  meichel
+ * Revision 1.1  2006/03/01 20:18:11  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.4  2005/12/14 17:43:42  meichel
  * Adapted code for compilation with TCP wrappers to NetBSD
  *
  * Revision 1.3  2005/12/14 13:01:01  meichel

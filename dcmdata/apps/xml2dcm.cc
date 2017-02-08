@@ -21,9 +21,9 @@
  *
  *  Purpose: Convert XML document to DICOM file or data set
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-16 15:46:41 $
- *  CVS/RCS Revision: $Revision: 1.16 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:03 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -878,7 +878,10 @@ int main(int, char *[])
 /*
  * CVS/RCS Log:
  * $Log: xml2dcm.cc,v $
- * Revision 1.16  2005-12-16 15:46:41  meichel
+ * Revision 1.1  2006/03/01 20:18:03  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.16  2005/12/16 15:46:41  meichel
  * Declared libxml2 callback functions as extern "C"
  *
  * Revision 1.15  2005/12/09 12:38:51  meichel

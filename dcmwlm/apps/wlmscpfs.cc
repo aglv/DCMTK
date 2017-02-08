@@ -22,10 +22,10 @@
  *  Purpose: Basic work list management service class provider based on a
  *           set of files as data source.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:48:31 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmwlm/apps/wlmscpfs.cc,v $
- *  CVS/RCS Revision: $Revision: 1.5 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:11 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/sample\040apps/dcmwlm/wlmscpfs.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -63,7 +63,10 @@ int main( int argc, char *argv[] )
 /*
 ** CVS Log
 ** $Log: wlmscpfs.cc,v $
-** Revision 1.5  2005-12-08 15:48:31  meichel
+** Revision 1.1  2006/03/01 20:18:11  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.5  2005/12/08 15:48:31  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.4  2002/08/05 09:09:29  wilkens

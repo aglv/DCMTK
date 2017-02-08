@@ -21,9 +21,9 @@
  *
  *  Purpose: convert VeriLUM CCx_xx.dat files to DCMTK display files
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:42:41 $
- *  CVS/RCS Revision: $Revision: 1.20 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:04 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -124,7 +124,10 @@ int main(int argc, char *argv[])
 /*
  * CVS/RCS Log:
  * $Log: dconvlum.cc,v $
- * Revision 1.20  2005-12-08 15:42:41  meichel
+ * Revision 1.1  2006/03/01 20:18:04  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.20  2005/12/08 15:42:41  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.19  2004/01/05 14:49:53  joergr

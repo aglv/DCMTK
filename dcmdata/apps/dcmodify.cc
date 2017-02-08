@@ -21,10 +21,10 @@
  *
  *  Purpose: Commandline-Application to modify tags in DICOM-Files
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:40:49 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmdata/apps/dcmodify.cc,v $
- *  CVS/RCS Revision: $Revision: 1.6 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:02 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/sample\040apps/dcmdump/dcmodify.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -49,7 +49,10 @@ int main(int argc, char *argv[])
 /*
 ** CVS/RCS Log:
 ** $Log: dcmodify.cc,v $
-** Revision 1.6  2005-12-08 15:40:49  meichel
+** Revision 1.1  2006/03/01 20:18:02  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.6  2005/12/08 15:40:49  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.5  2004/10/22 16:53:26  onken

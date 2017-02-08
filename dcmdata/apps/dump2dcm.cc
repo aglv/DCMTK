@@ -21,9 +21,9 @@
  *
  *  Purpose: create a Dicom FileFormat or DataSet from an ASCII-dump
  *
- *  Last Update:      $Author: onken $
- *  Update Date:      $Date: 2005-12-16 09:07:03 $
- *  CVS/RCS Revision: $Revision: 1.51 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:03 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -955,7 +955,10 @@ int main(int argc, char *argv[])
 /*
 ** CVS/RCS Log:
 ** $Log: dump2dcm.cc,v $
-** Revision 1.51  2005-12-16 09:07:03  onken
+** Revision 1.1  2006/03/01 20:18:03  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.51  2005/12/16 09:07:03  onken
 ** - Added variable initialization to avoid compiler warning
 **
 ** Revision 1.50  2005/12/08 15:40:50  meichel

@@ -22,10 +22,10 @@
  *  Purpose: Termination Service Class User (negotiates the private shutdown
  *           SOP class in order to shutdown server applications)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:44:23 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmnet/apps/termscu.cc,v $
- *  CVS/RCS Revision: $Revision: 1.4 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:04 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/sample\040apps/dcmnet/termscu.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -343,7 +343,10 @@ int main( int argc, char *argv[] )
 /*
 ** CVS Log
 ** $Log: termscu.cc,v $
-** Revision 1.4  2005-12-08 15:44:23  meichel
+** Revision 1.1  2006/03/01 20:18:04  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.4  2005/12/08 15:44:23  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.3  2005/11/16 14:58:07  meichel

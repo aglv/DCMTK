@@ -21,10 +21,10 @@
  *
  *  Purpose: Storage Service Class Provider (C-STORE operation)
  *
- *  Last Update:      $Author: joergr $
- *  Update Date:      $Date: 2005-12-19 10:31:12 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmnet/apps/storescp.cc,v $
- *  CVS/RCS Revision: $Revision: 1.89 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:04 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/sample\040apps/dcmnet/storescp.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -2552,7 +2552,10 @@ static int makeTempFile()
 /*
 ** CVS Log
 ** $Log: storescp.cc,v $
-** Revision 1.89  2005-12-19 10:31:12  joergr
+** Revision 1.1  2006/03/01 20:18:04  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.89  2005/12/19 10:31:12  joergr
 ** Changed printf() type for return value of getpid() to "%ld" and added
 ** explicit typecast, needed for Solaris.
 **

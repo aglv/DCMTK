@@ -21,9 +21,9 @@
  *
  *  Purpose: Create and Verify DICOM Digital Signatures
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-16 13:16:37 $
- *  CVS/RCS Revision: $Revision: 1.23 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:11 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -1165,7 +1165,10 @@ int main(int, char *[])
 
 /*
  *  $Log: dcmsign.cc,v $
- *  Revision 1.23  2005-12-16 13:16:37  meichel
+ *  Revision 1.1  2006/03/01 20:18:11  lpysher
+ *  Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ *  Revision 1.23  2005/12/16 13:16:37  meichel
  *  Simplified code to avoid warning on Fedora Core 4
  *
  *  Revision 1.22  2005/12/16 09:19:17  onken

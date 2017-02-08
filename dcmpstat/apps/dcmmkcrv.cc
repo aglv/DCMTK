@@ -21,10 +21,10 @@
  *
  *  Purpose: This application reads a DICOM image, adds a Curve and writes it back.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:46:02 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmpstat/apps/dcmmkcrv.cc,v $
- *  CVS/RCS Revision: $Revision: 1.19 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:04 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/sample\040apps/dcmpstat/dcmmkcrv.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -421,7 +421,10 @@ int main(int argc, char *argv[])
 /*
 ** CVS/RCS Log:
 ** $Log: dcmmkcrv.cc,v $
-** Revision 1.19  2005-12-08 15:46:02  meichel
+** Revision 1.1  2006/03/01 20:18:04  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.19  2005/12/08 15:46:02  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.18  2005/11/28 15:29:05  meichel

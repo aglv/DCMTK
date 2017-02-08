@@ -21,10 +21,10 @@
  *
  *  Purpose: Query/Retrieve Service Class User (C-MOVE operation)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:44:20 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmnet/apps/movescu.cc,v $
- *  CVS/RCS Revision: $Revision: 1.59 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:04 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/sample\040apps/dcmnet/movescu.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -1407,7 +1407,10 @@ cmove(T_ASC_Association * assoc, const char *fname)
 ** CVS Log
 **
 ** $Log: movescu.cc,v $
-** Revision 1.59  2005-12-08 15:44:20  meichel
+** Revision 1.1  2006/03/01 20:18:04  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.59  2005/12/08 15:44:20  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.58  2005/11/22 16:44:35  meichel

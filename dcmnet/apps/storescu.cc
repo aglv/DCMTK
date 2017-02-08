@@ -21,10 +21,10 @@
  *
  *  Purpose: Storage Service Class User (C-STORE operation)
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:44:22 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmnet/apps/storescu.cc,v $
- *  CVS/RCS Revision: $Revision: 1.64 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:04 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/sample\040apps/dcmnet/storescu.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -1512,7 +1512,10 @@ cstore(T_ASC_Association * assoc, const OFString& fname)
 /*
 ** CVS Log
 ** $Log: storescu.cc,v $
-** Revision 1.64  2005-12-08 15:44:22  meichel
+** Revision 1.1  2006/03/01 20:18:04  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.64  2005/12/08 15:44:22  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.63  2005/11/23 16:10:23  meichel

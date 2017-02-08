@@ -21,9 +21,9 @@
  *
  *  Purpose: Compress DICOM file
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:43:20 $
- *  CVS/RCS Revision: $Revision: 1.15 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:04 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -723,7 +723,10 @@ int main(int argc, char *argv[])
 /*
  * CVS/RCS Log:
  * $Log: dcmcjpeg.cc,v $
- * Revision 1.15  2005-12-08 15:43:20  meichel
+ * Revision 1.1  2006/03/01 20:18:04  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.15  2005/12/08 15:43:20  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.14  2005/12/02 09:40:59  joergr

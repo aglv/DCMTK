@@ -22,10 +22,10 @@
  *  Purpose: Convert the contents of an XML document to a DICOM structured
  *            reporting file
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:47:36 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmsr/apps/xml2dsr.cc,v $
- *  CVS/RCS Revision: $Revision: 1.5 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:11 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/sample\040apps/dcmsr/xml2dsr.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -336,7 +336,10 @@ int main(int, char *[])
 /*
  * CVS/RCS Log:
  * $Log: xml2dsr.cc,v $
- * Revision 1.5  2005-12-08 15:47:36  meichel
+ * Revision 1.1  2006/03/01 20:18:11  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.5  2005/12/08 15:47:36  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.4  2005/03/22 13:56:14  joergr

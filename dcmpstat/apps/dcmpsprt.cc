@@ -25,10 +25,10 @@
  *    stored print and hardcopy grayscale images.
  *    Non-grayscale transformations in the presentation state are ignored.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:46:09 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmpstat/apps/dcmpsprt.cc,v $
- *  CVS/RCS Revision: $Revision: 1.36 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:04 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/sample\040apps/dcmpstat/dcmpsprt.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -706,7 +706,10 @@ int main(int argc, char *argv[])
 /*
  * CVS/RCS Log:
  * $Log: dcmpsprt.cc,v $
- * Revision 1.36  2005-12-08 15:46:09  meichel
+ * Revision 1.1  2006/03/01 20:18:04  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.36  2005/12/08 15:46:09  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.35  2005/11/28 15:29:05  meichel

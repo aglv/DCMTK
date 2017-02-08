@@ -21,10 +21,10 @@
  *
  *  Purpose: Telnet Initiator (ti) Main Program
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:47:03 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmqrdb/apps/dcmqrti.cc,v $
- *  CVS/RCS Revision: $Revision: 1.5 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:11 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/sample\040apps/dcmqrdb/dcmqrti.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -412,7 +412,10 @@ int main( int argc, char *argv[] )
 /*
  * CVS Log
  * $Log: dcmqrti.cc,v $
- * Revision 1.5  2005-12-08 15:47:03  meichel
+ * Revision 1.1  2006/03/01 20:18:11  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.5  2005/12/08 15:47:03  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.4  2005/11/17 13:44:59  meichel

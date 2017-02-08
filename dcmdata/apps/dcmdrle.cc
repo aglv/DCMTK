@@ -21,9 +21,9 @@
  *
  *  Purpose: Decompress RLE-compressed DICOM file
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:40:45 $
- *  CVS/RCS Revision: $Revision: 1.12 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:02 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -342,7 +342,10 @@ int main(int argc, char *argv[])
 /*
  * CVS/RCS Log:
  * $Log: dcmdrle.cc,v $
- * Revision 1.12  2005-12-08 15:40:45  meichel
+ * Revision 1.1  2006/03/01 20:18:02  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.12  2005/12/08 15:40:45  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.11  2005/12/02 09:03:52  joergr

@@ -22,10 +22,10 @@
  *  Purpose: Class representing a console engine for basic worklist
  *           management service class providers based on the file system.
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:48:30 $
- *  Source File:      $Source: /export/gitmirror/dcmtk-git/../dcmtk-cvs/dcmtk/dcmwlm/apps/wlcefs.cc,v $
- *  CVS/RCS Revision: $Revision: 1.10 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:11 $
+ *  Source File:      $Source: /cvsroot/osirix/osirix/Binaries/dcmtk-source/sample\040apps/dcmwlm/wlcefs.cc,v $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -398,7 +398,10 @@ void WlmConsoleEngineFileSystem::DumpMessage( const char *message )
 /*
 ** CVS Log
 ** $Log: wlcefs.cc,v $
-** Revision 1.10  2005-12-08 15:48:30  meichel
+** Revision 1.1  2006/03/01 20:18:11  lpysher
+** Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+**
+** Revision 1.10  2005/12/08 15:48:30  meichel
 ** Changed include path schema for all DCMTK header files
 **
 ** Revision 1.9  2005/11/17 13:45:34  meichel

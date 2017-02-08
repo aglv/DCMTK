@@ -21,9 +21,9 @@
  *
  *  Purpose: Convert the contents of a DICOM file to XML format
  *
- *  Last Update:      $Author: meichel $
- *  Update Date:      $Date: 2005-12-08 15:40:42 $
- *  CVS/RCS Revision: $Revision: 1.22 $
+ *  Last Update:      $Author: lpysher $
+ *  Update Date:      $Date: 2006/03/01 20:18:02 $
+ *  CVS/RCS Revision: $Revision: 1.1 $
  *  Status:           $State: Exp $
  *
  *  CVS/RCS Log at end of file
@@ -459,7 +459,10 @@ int main(int argc, char *argv[])
 /*
  * CVS/RCS Log:
  * $Log: dcm2xml.cc,v $
- * Revision 1.22  2005-12-08 15:40:42  meichel
+ * Revision 1.1  2006/03/01 20:18:02  lpysher
+ * Added dcmtkt ocvs not in xcode  and fixed bug with multiple monitors
+ *
+ * Revision 1.22  2005/12/08 15:40:42  meichel
  * Changed include path schema for all DCMTK header files
  *
  * Revision 1.21  2005/12/07 16:42:49  onken
