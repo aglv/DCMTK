@@ -1,4 +1,4 @@
-Here follows the git log of the commits done to the DCMTK source in the OsiriX repository. Commits that have already been merged are ~~deleted~~. Also refer to the [original history](https://github.com/aglv/Horos/commits/83026738b2e18b106441597ecc06907293288d7f/Binaries/dcmtk-source). Notice that original SVN commit IDs and author information were removed.
+Here follows the git log of the commits done to the DCMTK source in the OsiriX repository. Commits that have already been merged are ~~deleted~~. Also refer to the [original history](https://github.com/aglv/Horos/commits/83026738b2e18b106441597ecc06907293288d7f/Binaries/dcmtk-source) and the [merged history](https://github.com/aglv/DCMTK/commits/66911c1d3f25b21b0a694c7a7656c7f8126d6266). Notice that original SVN commit IDs and author information were removed here.
 
 The final purpose is to have a standalone version of DCMTK that includes all the features that were introduced in the OsiriX fork.
 
