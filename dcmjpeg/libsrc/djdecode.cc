@@ -29,6 +29,7 @@
 #include "dcmtk/dcmjpeg/djdecpro.h"
 #include "dcmtk/dcmjpeg/djdecsv1.h"
 #include "dcmtk/dcmjpeg/djdeclol.h"
+#include "dcmtk/dcmjpeg/djdec2k.h"
 #include "dcmtk/dcmjpeg/djcparam.h"
 
 // initialization of static members
@@ -40,6 +41,8 @@ DJDecoderSpectralSelection *DJDecoderRegistration::decsps = NULL;
 DJDecoderProgressive *DJDecoderRegistration::decpro       = NULL;
 DJDecoderP14SV1 *DJDecoderRegistration::decsv1            = NULL;
 DJDecoderLossless *DJDecoderRegistration::declol          = NULL;
+DJDecoder2K *DJDecoderRegistration::dec2k                 = NULL;
+DJDecoder2KLossless *DJDecoderRegistration::dec2klol      = NULL;
 
 void DJDecoderRegistration::registerCodecs(
     E_DecompressionColorSpaceConversion pDecompressionCSConversion,
@@ -86,6 +89,12 @@ void DJDecoderRegistration::registerCodecs(
       declol = new DJDecoderLossless();
       if (declol) DcmCodecList::registerCodec(declol, NULL, cp);
 
+      dec2k = new DJDecoder2K();
+      if (dec2k) DcmCodecList::registerCodec(dec2k, NULL, cp);
+        
+      dec2klol = new DJDecoder2KLossless();
+      if (dec2klol) DcmCodecList::registerCodec(dec2klol, NULL, cp);
+        
       registered = OFTrue;
     }
   }

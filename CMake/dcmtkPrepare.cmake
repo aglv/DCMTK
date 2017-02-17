@@ -88,6 +88,7 @@ OPTION(DCMTK_WITH_DOXYGEN "Build API documentation with DOXYGEN." ON)
 OPTION(DCMTK_GENERATE_DOXYGEN_TAGFILE "Generate a tag file with DOXYGEN." OFF)
 OPTION(DCMTK_WIDE_CHAR_FILE_IO_FUNCTIONS "Build with wide char file I/O functions." OFF)
 OPTION(DCMTK_WIDE_CHAR_MAIN_FUNCTION "Build command line tools with wide char main function." OFF)
+OPTION(DCMTK_KEEP_UIDS "Don't regenerate UIDs when encoding/decoding images." OFF)
 
 # Built-in (compiled-in) dictionary enabled on Windows per default, otherwise
 # disabled. Loading of external dictionary via run-time is, per default,
@@ -385,6 +386,24 @@ ENDIF(WIN32)
 # add definition of "DEBUG" to debug mode (since CMake does not do this automatically)
 SET(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -DDEBUG")
 SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG")
+
+# add definition of "DCMTK_INTEGRATION_CLASS", default to DcmIntegration
+IF(NOT DCMTK_INTEGRATION_CLASS)
+  SET(DCMTK_INTEGRATION_CLASS DcmIntegrationDefault)
+  SET(DCMTK_DEFAULT_INTEGRATION_CLASS 1)
+  ADD_DEFINITIONS(-DDCMTK_DEFAULT_INTEGRATION_CLASS=${DCMTK_DEFAULT_INTEGRATION_CLASS})
+ENDIF(NOT DCMTK_INTEGRATION_CLASS)
+
+ADD_DEFINITIONS(-DDCMTK_INTEGRATION_CLASS=${DCMTK_INTEGRATION_CLASS})
+#ADD_DEFINITIONS(-DDCMTK_INTEGRATION_INSTANCE=${DCMTK_INTEGRATION_CLASS}::instance\(\))
+
+IF(IJG_INTEGRATION_INIT)
+  ADD_DEFINITIONS(-DIJG_INTEGRATION_INIT=${IJG_INTEGRATION_INIT})
+ENDIF(IJG_INTEGRATION_INIT)
+
+IF(DCMTK_KEEP_UIDS)
+  ADD_DEFINITIONS(-DDCMTK_KEEP_UIDS=1)
+ENDIF(DCMTK_KEEP_UIDS)
 
 #-----------------------------------------------------------------------------
 # Third party libraries

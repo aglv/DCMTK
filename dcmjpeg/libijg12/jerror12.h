@@ -38,6 +38,8 @@ typedef enum {
 
 JMESSAGE(JMSG_NOMESSAGE, "Bogus message code %d") /* Must be first entry! */
 
+JMESSAGE(JERR_NULL_MEM, "Null mem")
+    
 /* For maintenance convenience, list is alphabetical by message code name */
 JMESSAGE(JERR_ARITH_NOTIMPL,
 	 "Sorry, there are legal restrictions on arithmetic coding")

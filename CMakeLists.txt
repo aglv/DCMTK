@@ -13,7 +13,7 @@ INCLUDE(CMake/dcmtkPrepare.cmake NO_POLICY_SCOPE)
 
 # Modules to be built
 
-SET(DCMTK_MODULES ofstd oflog dcmdata dcmimgle
+SET(DCMTK_MODULES config ofstd oflog dcmdata dcmimgle
   dcmimage dcmjpeg dcmjpls dcmtls dcmnet dcmsr
   dcmsign dcmwlm dcmqrdb dcmpstat dcmrt dcmiod dcmfg dcmseg dcmtract dcmpmap
   CACHE STRING "List of modules that should be built.")
@@ -48,7 +48,7 @@ INSPECT_FUNDAMENTAL_ARITHMETIC_TYPES()
 #-----------------------------------------------------------------------------
 
 # Recurse into subdirectories
-FOREACH(module config doxygen ${DCMTK_MODULES})
+FOREACH(module doxygen ${DCMTK_MODULES})
   ADD_SUBDIRECTORY(${module})
 ENDFOREACH(module)
 INCLUDE(CMake/dcmtkAfterModules.cmake NO_POLICY_SCOPE)

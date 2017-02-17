@@ -406,9 +406,11 @@ OFCondition DJCompressIJG8Bit::encode(
       jpeg_simple_progression(&cinfo);
       break;
     case EJM_lossless:
-     // always disables any kind of color space conversion
-     jpeg_simple_lossless(&cinfo,psv,pt);
-     break;
+      // always disables any kind of color space conversion
+      jpeg_simple_lossless(&cinfo,psv,pt);
+      break;
+    default:
+      return EC_IllegalCall;
   }
   
   cinfo.smoothing_factor = cparam->getSmoothingFactor();

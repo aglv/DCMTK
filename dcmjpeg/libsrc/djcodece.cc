@@ -325,6 +325,9 @@ OFCondition DJCodecEncoder::encodeColorImage(
     if (compressedBits == 0)
     {
       result = OFreinterpret_cast(DcmItem*, dataset)->findAndGetUint16(DCM_BitsStored, compressedBits);
+      
+      if (samplesPerPixel != 1 || !strcmp(photometricInterpretation, "RGB"))
+        compressedBits = 8;
     }
   }
 
@@ -547,13 +550,15 @@ OFCondition DJCodecEncoder::encodeTrueLossless(
           result = togglePlanarConfiguration8(OFreinterpret_cast(Uint8*, OFconst_cast(Uint16*, pixelData)), length, samplesPerPixel, OFstatic_cast(Uint16, 1) /* switch to "by pixel"*/);
         else
           result = togglePlanarConfiguration16(OFconst_cast(Uint16*, pixelData), length/2 /*16 bit*/, samplesPerPixel, OFstatic_cast(Uint16, 1) /* switch to "by pixel"*/);
-        planConfSwitched = OFTrue;
+
+          if (result.bad())
+          {
+            DCMJPEG_ERROR("True lossless encoder: Unable to change Planar Configuration from 'by plane' to 'by pixel' for encoding");
+            return result;
+          }
+
+          planConfSwitched = OFTrue;
       }
-    }
-    if (result.bad())
-    {
-        DCMJPEG_ERROR("True lossless encoder: Unable to change Planar Configuration from 'by plane' to 'by pixel' for encoding");
-        return result;
     }
 
     // check whether enough raw data is available for encoding
@@ -1138,31 +1143,48 @@ OFCondition DJCodecEncoder::encodeMonochromeImage(
       // compute original image size in bytes, ignoring any padding bits.
       Uint16 samplesPerPixel = 0;
       if ((dataset->findAndGetUint16(DCM_SamplesPerPixel, samplesPerPixel)).bad()) samplesPerPixel = 1;
-      uncompressedSize = OFstatic_cast(double, columns * rows * pixelDepth * frameCount * samplesPerPixel) / 8.0;
-      for (size_t i=0; (i<frameCount) && (result.good()); i++)
+        
+      OFString str;
+      if (dataset->findAndGetOFString(DcmTagKey(0x0029, 0x0010), str).good() && !str.compare("GEIIS"))
+      { // from OsiriX: GE Icon pixel data are already and always compressed in JPEG -> dont touch lesion!
+        DcmElement *e;
+        if ((result = dataset->findAndGetElement(DCM_PixelData, e)).good()) {
+          Uint16 *pixelData;
+          if ((result = e->getUint16Array(pixelData)).good()) {
+            Uint32 length = e->getLength();
+            result = pixelSequence->storeCompressedFrame(offsetList, (Uint8 *)pixelData, length, cp->getFragmentSize());
+            compressedSize += length;
+          }
+        }
+      }
+      else
       {
-        frame = dimage.getOutputData(bitsPerSample, i, 0);
-        if (frame == NULL) result = EC_MemoryExhausted;
-        else
+        uncompressedSize = OFstatic_cast(double, columns * rows * pixelDepth * frameCount * samplesPerPixel) / 8.0;
+        for (size_t i=0; (i<frameCount) && (result.good()); i++)
         {
-          // compress frame
-          jpegData = NULL;
-          if (bytesPerSample == 1)
+          frame = dimage.getOutputData(bitsPerSample, i, 0);
+          if (frame == NULL) result = EC_MemoryExhausted;
+          else
           {
-            result = jpeg->encode(columns, rows, EPI_Monochrome2, 1, OFreinterpret_cast(Uint8*, OFconst_cast(void*, frame)), jpegData, jpegLen);
-          } else {
-            result = jpeg->encode(columns, rows, EPI_Monochrome2, 1, OFreinterpret_cast(Uint16*, OFconst_cast(void*, frame)), jpegData, jpegLen);
-          }
+            // compress frame
+            jpegData = NULL;
+            if (bytesPerSample == 1)
+            {
+              result = jpeg->encode(columns, rows, EPI_Monochrome2, 1, OFreinterpret_cast(Uint8*, OFconst_cast(void*, frame)), jpegData, jpegLen);
+            } else {
+              result = jpeg->encode(columns, rows, EPI_Monochrome2, 1, OFreinterpret_cast(Uint16*, OFconst_cast(void*, frame)), jpegData, jpegLen);
+            }
 
-          // store frame
-          if (result.good())
-          {
-            result = pixelSequence->storeCompressedFrame(offsetList, jpegData, jpegLen, cp->getFragmentSize());
-          }
+            // store frame
+            if (result.good())
+            {
+              result = pixelSequence->storeCompressedFrame(offsetList, jpegData, jpegLen, cp->getFragmentSize());
+            }
 
-          // delete block of JPEG data
-          delete[] jpegData;
-          compressedSize += jpegLen;
+            // delete block of JPEG data
+            delete[] jpegData;
+            compressedSize += jpegLen;
+          }
         }
       }
       delete jpeg;
@@ -1229,7 +1251,6 @@ OFCondition DJCodecEncoder::encodeMonochromeImage(
     delete dataset->remove(DCM_ModalityLUTSequence);
     delete dataset->remove(DCM_RescaleIntercept);
     delete dataset->remove(DCM_RescaleSlope);
-    delete dataset->remove(DCM_RescaleType);
 
     // update Modality LUT Module and Pixel Intensity Relationship
     if (windowType == 0)
@@ -1249,11 +1270,11 @@ OFCondition DJCodecEncoder::encodeMonochromeImage(
         if (result.good()) result = dataset->putAndInsertString(DCM_RescaleIntercept, buf);
         OFStandard::ftoa(buf, sizeof(buf), rescaleSlope, OFStandard::ftoa_uppercase, 0, 6);
         if (result.good()) result = dataset->putAndInsertString(DCM_RescaleSlope, buf);
-        if (result.good())
-        {
-          if (mode_CT) result = dataset->putAndInsertString(DCM_RescaleType, "HU"); // Hounsfield units
-          else result =         dataset->putAndInsertString(DCM_RescaleType, "US"); // unspecified
-        }
+//        if (result.good())
+//        {
+//          if (mode_CT) result = dataset->putAndInsertString(DCM_RescaleType, "HU"); // Hounsfield units
+//          else result =         dataset->putAndInsertString(DCM_RescaleType, "US"); // unspecified
+//        }
       }
     }
     else
@@ -1263,7 +1284,11 @@ OFCondition DJCodecEncoder::encodeMonochromeImage(
       {
         if (result.good()) result = dataset->putAndInsertString(DCM_RescaleIntercept, "0");
         if (result.good()) result = dataset->putAndInsertString(DCM_RescaleSlope, "1");
-        if (result.good()) result = dataset->putAndInsertString(DCM_RescaleType, "US"); // unspecified
+        if (result.good())
+        {
+          delete dataset->remove(DCM_RescaleType);
+          result = dataset->putAndInsertString(DCM_RescaleType, "US"); // unspecified
+        }
       }
 
       // Adjust Pixel Intensity Relationship (needed for XA). If present, set value to "DISP".

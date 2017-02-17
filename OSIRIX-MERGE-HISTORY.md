@@ -1,20 +1,22 @@
 Here follows the git log of the commits done to the DCMTK source in the OsiriX repository. Commits that have already been merged are ~~deleted~~. Also refer to the [original history](https://github.com/aglv/Horos/commits/83026738b2e18b106441597ecc06907293288d7f/Binaries/dcmtk-source) and [merged history](https://github.com/aglv/DCMTK/commits/66911c1d3f25b21b0a694c7a7656c7f8126d6266). Notice that original SVN commit IDs and author information were removed here.
 
-The final purpose is to have a standalone version of a more recent DCMTK, that includes all the features that were introduced in the OsiriX fork.
+The final purpose is to have a standalone version of a more recent DCMTK, that includes all the features that were introduced in the OsiriX fork. 
+
+Already done: we focused on the _dcmjpeg_ module. Commits are commented with _JPEG!_ when they only affected _dcmtk-source/dcmjpeg_, _JPEG+_ when they also affected OsiriX classes (outside DCMTK), and _JPEG++_ when they also affect other parts of DCMTK, to denote the fact that those parts still have to be merged. Generally, commits _JPEG!_ and _JPEG+_ are already ~~deleted~~.
 
 ##### ~~commit [02ad09228e81b0a3bda62755c24711cbbe8e0590](https://github.com/aglv/Horos/commit/02ad09228e81b0a3bda62755c24711cbbe8e0590)~~
 Date:   Thu Mar 2 09:04:46 2006 +0000
 
 First Import
 
-> Comments, includes. Skipped.
+> JPEG++ Skipped. Comments, includes.
 
 ##### ~~commit [251578f1cfb238c6f812367ba54bd1427658b9a6](https://github.com/aglv/Horos/commit/251578f1cfb238c6f812367ba54bd1427658b9a6)~~
 Date:   Sat Mar 18 00:02:08 2006 +0000
 
 Added dcmqrcnf.mm
 
-> Comments, initConfigStruct() applicationTitle_ change from "CTN" to "OSIRIX". skipped.
+> Skipped. Comments, initConfigStruct() applicationTitle_ change from "CTN" to "OSIRIX".
 
 ##### commit [9034e45d2aa8910b6be8be3fca42fae051abf211](https://github.com/aglv/Horos/commit/9034e45d2aa8910b6be8be3fca42fae051abf211)
 Date:   Sat Mar 18 00:11:31 2006 +0000
@@ -335,11 +337,12 @@ Date:   Tue Jul 18 22:44:13 2006 +0000
 More work to support encapsulated Syntaxes during moves
 
 
-##### commit [aebc5903c41d727c7ddcfae7d0a7313c77df88d7](https://github.com/aglv/Horos/commit/aebc5903c41d727c7ddcfae7d0a7313c77df88d7)
+##### ~~commit [aebc5903c41d727c7ddcfae7d0a7313c77df88d7](https://github.com/aglv/Horos/commit/aebc5903c41d727c7ddcfae7d0a7313c77df88d7)~~
 Date:   Tue Jul 25 13:38:53 2006 +0000
 
 Papy jpeg (doesnt support multi-fragments)
 
+> JPEG+ Skipped. Warning: maybe there was a good reason for this?
 
 ##### commit [a68659c169b1cc000c9ad20241d2de015a8da655](https://github.com/aglv/Horos/commit/a68659c169b1cc000c9ad20241d2de015a8da655)
 Date:   Mon Aug 21 22:29:32 2006 +0000
@@ -389,11 +392,12 @@ Date:   Wed Oct 18 22:53:28 2006 +0000
 Added dcmtk category for ViewerController.  Will allow ROIs to be unarchived from DICOM.  Added private ROI data to SR annotation
 
 
-##### commit [a77e7c54030203cb68fa2dcfa47df0597718f9e7](https://github.com/aglv/Horos/commit/a77e7c54030203cb68fa2dcfa47df0597718f9e7)
+##### ~~commit [a77e7c54030203cb68fa2dcfa47df0597718f9e7](https://github.com/aglv/Horos/commit/a77e7c54030203cb68fa2dcfa47df0597718f9e7)~~
 Date:   Thu Nov 9 22:12:10 2006 +0000
 
 jpeg bug
 
+> JPEG+ Skipped. Just a printf.
 
 ##### commit [cdf989065d6433c48a45d4f5ff71d535869174d2](https://github.com/aglv/Horos/commit/cdf989065d6433c48a45d4f5ff71d535869174d2)
 Date:   Sat Dec 16 21:14:24 2006 +0000
@@ -575,11 +579,12 @@ Date:   Sun Nov 18 20:45:58 2007 +0000
 tests, T1 T2
 
 
-##### commit [456060b8f06f619f228cbc420f8c54e3806df40a](https://github.com/aglv/Horos/commit/456060b8f06f619f228cbc420f8c54e3806df40a)
+##### ~~commit [456060b8f06f619f228cbc420f8c54e3806df40a](https://github.com/aglv/Horos/commit/456060b8f06f619f228cbc420f8c54e3806df40a)~~
 Date:   Mon Dec 10 09:51:28 2007 +0000
 
 unsigned long -> unsigned int
 
+> JPEG++ Skipped. Longs are ok.
 
 ##### commit [132a0e22390d539ca0ecf949790983e5092ede79](https://github.com/aglv/Horos/commit/132a0e22390d539ca0ecf949790983e5092ede79)
 Date:   Mon Dec 10 10:25:47 2007 +0000
@@ -833,11 +838,12 @@ Date:   Sun Sep 21 22:12:45 2008 +0000
 UN SQ
 
 
-##### commit [0cf09e50ad231c3121dcb193ab6701d6ab249939](https://github.com/aglv/Horos/commit/0cf09e50ad231c3121dcb193ab6701d6ab249939)
+##### ~~commit [0cf09e50ad231c3121dcb193ab6701d6ab249939](https://github.com/aglv/Horos/commit/0cf09e50ad231c3121dcb193ab6701d6ab249939)~~
 Date:   Thu Sep 25 07:01:40 2008 +0000
 
 compression bug
 
+> JPEG+ Skipped. Just commented-out stuff.
 
 ##### commit [4f6b7f1ddb85be38c565c5e4563cf39df8eafa93](https://github.com/aglv/Horos/commit/4f6b7f1ddb85be38c565c5e4563cf39df8eafa93)
 Date:   Mon Oct 20 09:24:51 2008 +0000
@@ -851,11 +857,12 @@ Date:   Thu Nov 6 21:43:56 2008 +0000
 lu li ld
 
 
-##### commit [02814aafc27abd8578f8537980084329a3f75051](https://github.com/aglv/Horos/commit/02814aafc27abd8578f8537980084329a3f75051)
+##### ~~commit [02814aafc27abd8578f8537980084329a3f75051](https://github.com/aglv/Horos/commit/02814aafc27abd8578f8537980084329a3f75051)~~
 Date:   Fri Nov 7 10:52:16 2008 +0000
 
 warnings
 
+> JPEG++ Skipped. Mostly formatting stuff we don't need.
 
 ##### commit [1f7344f5ff8095264c4eaa13547330fc37bb8f6c](https://github.com/aglv/Horos/commit/1f7344f5ff8095264c4eaa13547330fc37bb8f6c)
 Date:   Sat Nov 8 15:52:13 2008 +0000
@@ -900,11 +907,12 @@ Date:   Mon Feb 2 10:22:10 2009 +0000
 Q&R
 
 
-##### commit [c040c6743bcd3b022dc4bae1e0de29af06d6603e](https://github.com/aglv/Horos/commit/c040c6743bcd3b022dc4bae1e0de29af06d6603e)
+##### ~~commit [c040c6743bcd3b022dc4bae1e0de29af06d6603e](https://github.com/aglv/Horos/commit/c040c6743bcd3b022dc4bae1e0de29af06d6603e)~~
 Date:   Mon Feb 16 07:43:17 2009 +0000
 
 decompress: DETERMINE_OUTPUT_COLOR_SPACE_FROM_IJG_GUESS
 
+> JPEG+ Skipped. Replace with DJCodecParameter.pDecompressionCSConversion set to EDC_always.
 
 ##### commit [0e9c609095f7de8c71c09ca0ab9d3aa96be1b45e](https://github.com/aglv/Horos/commit/0e9c609095f7de8c71c09ca0ab9d3aa96be1b45e)
 Date:   Mon Feb 16 15:41:33 2009 +0000
@@ -1170,23 +1178,26 @@ Date:   Thu Sep 3 09:51:45 2009 +0000
 better exceptions handling
 
 
-##### commit [3afbff742db16344293858a0bd3ed354ce0b6e8c](https://github.com/aglv/Horos/commit/3afbff742db16344293858a0bd3ed354ce0b6e8c)
+##### ~~commit [3afbff742db16344293858a0bd3ed354ce0b6e8c](https://github.com/aglv/Horos/commit/3afbff742db16344293858a0bd3ed354ce0b6e8c)~~
 Date:   Sat Sep 19 06:29:02 2009 +0000
 
 corrupted files, tests
 
+> JPEG+ Removed exit() from IJG error handler.
 
-##### commit [3e02e8d6efcea2a48bb3b342b2d88f3efb94d837](https://github.com/aglv/Horos/commit/3e02e8d6efcea2a48bb3b342b2d88f3efb94d837)
+##### ~~commit [3e02e8d6efcea2a48bb3b342b2d88f3efb94d837](https://github.com/aglv/Horos/commit/3e02e8d6efcea2a48bb3b342b2d88f3efb94d837)~~
 Date:   Sat Sep 19 15:16:15 2009 +0000
 
 better resistance against corrupted files
 
+> JPEG+ Exit if cinfo->mem is NULL.
 
-##### commit [c8145f49760362e5ab48de41eb58eddc16e7e589](https://github.com/aglv/Horos/commit/c8145f49760362e5ab48de41eb58eddc16e7e589)
+##### ~~commit [c8145f49760362e5ab48de41eb58eddc16e7e589](https://github.com/aglv/Horos/commit/c8145f49760362e5ab48de41eb58eddc16e7e589)~~
 Date:   Sat Sep 19 15:53:18 2009 +0000
 
 better resistance against corrupted files
 
+> JPEG+ Replacing the commented-out exit() with exitOsiriX(), which raises an Obj-C exception.
 
 ##### commit [d57e0f04daf477f1c108974fb23a64c9721cc66e](https://github.com/aglv/Horos/commit/d57e0f04daf477f1c108974fb23a64c9721cc66e)
 Date:   Thu Sep 24 11:00:12 2009 +0000
@@ -1566,29 +1577,33 @@ Date:   Thu Nov 4 13:02:21 2010 +0000
 misc
 
 
-##### commit [1999e8e779827c803fe3cb21cd0282c40d831d0b](https://github.com/aglv/Horos/commit/1999e8e779827c803fe3cb21cd0282c40d831d0b)
+##### ~~commit [1999e8e779827c803fe3cb21cd0282c40d831d0b](https://github.com/aglv/Horos/commit/1999e8e779827c803fe3cb21cd0282c40d831d0b)~~
 Date:   Sun Nov 7 14:41:51 2010 +0000
 
 JP2K support in dcmtk
 
+> JPEG+ isJ2K(), precision from DICOM BitsAllocated tag.
 
-##### commit [45aafc42491462b13c06df21292897d2a20705ff](https://github.com/aglv/Horos/commit/45aafc42491462b13c06df21292897d2a20705ff)
+##### ~~commit [45aafc42491462b13c06df21292897d2a20705ff](https://github.com/aglv/Horos/commit/45aafc42491462b13c06df21292897d2a20705ff)~~
 Date:   Sun Nov 7 16:17:46 2010 +0000
 
 JP2K encoding for dcmtk
 
+> JPEG+ DCMTK integration lossy/lossless.
 
-##### commit [eab564773535f52c7811c9edbef789360351ae8c](https://github.com/aglv/Horos/commit/eab564773535f52c7811c9edbef789360351ae8c)
+##### ~~commit [eab564773535f52c7811c9edbef789360351ae8c](https://github.com/aglv/Horos/commit/eab564773535f52c7811c9edbef789360351ae8c)~~
 Date:   Sun Nov 7 16:18:46 2010 +0000
 
 JP2K encoding for dcmtk
 
+> JPEG! OpenJPEG in DCMTK.
 
 ##### commit [b53e56f9e534a40e14d791186d0ff2dfb12d6249](https://github.com/aglv/Horos/commit/b53e56f9e534a40e14d791186d0ff2dfb12d6249)
 Date:   Sun Nov 7 21:17:55 2010 +0000
 
 encode decode JP2K in dcmtk
 
+> JPEG++ More OpenJPEG.
 
 ##### commit [80c842cc78da71f47b6710d296985f9a5f03bd83](https://github.com/aglv/Horos/commit/80c842cc78da71f47b6710d296985f9a5f03bd83)
 Date:   Mon Nov 8 07:32:58 2010 +0000
@@ -1596,29 +1611,33 @@ Date:   Mon Nov 8 07:32:58 2010 +0000
 useDCMTKForJP2K
 
 
-##### commit [2be562f1263d57a5b5a2a8ee12e11b3fb253ff67](https://github.com/aglv/Horos/commit/2be562f1263d57a5b5a2a8ee12e11b3fb253ff67)
+##### ~~commit [2be562f1263d57a5b5a2a8ee12e11b3fb253ff67](https://github.com/aglv/Horos/commit/2be562f1263d57a5b5a2a8ee12e11b3fb253ff67)~~
 Date:   Mon Nov 8 10:28:42 2010 +0000
 
 useDCMTK for JPEG 2000
 
+> JPEG+ Lossless encode description string.
 
-##### commit [e72af6adcabfdd09530a396631ad6837ab5cdbec](https://github.com/aglv/Horos/commit/e72af6adcabfdd09530a396631ad6837ab5cdbec)
+##### ~~commit [e72af6adcabfdd09530a396631ad6837ab5cdbec](https://github.com/aglv/Horos/commit/e72af6adcabfdd09530a396631ad6837ab5cdbec)~~
 Date:   Tue Nov 9 16:50:45 2010 +0000
 
 better support for JP2K in DCMTK, support for bugged GE files with GEIIS
 
+> JPEG++ GEIIS
 
-##### commit [f219f0d357198b830984dc9c85f7e5f5ef9029f7](https://github.com/aglv/Horos/commit/f219f0d357198b830984dc9c85f7e5f5ef9029f7)
+##### ~~commit [f219f0d357198b830984dc9c85f7e5f5ef9029f7](https://github.com/aglv/Horos/commit/f219f0d357198b830984dc9c85f7e5f5ef9029f7)~~
 Date:   Tue Nov 16 15:48:12 2010 +0000
 
 minor optimizations for checkIncomingThread
 
+> JPEG+ Skipped.
 
 ##### commit [3ca489d8c1de5313eb166c94578f84cfe923208d](https://github.com/aglv/Horos/commit/3ca489d8c1de5313eb166c94578f84cfe923208d)
 Date:   Wed Nov 17 14:33:31 2010 +0000
 
 dont regenerate uid when compressing the images
 
+> JPEG++ added definition for DCMTK_KEEP_UIDS to DCMTK CMake
 
 ##### commit [8ba17bdb50db1fad91d993daab866dadbc6d1954](https://github.com/aglv/Horos/commit/8ba17bdb50db1fad91d993daab866dadbc6d1954)
 Date:   Wed Nov 17 15:38:18 2010 +0000
@@ -1632,11 +1651,12 @@ Date:   Thu Nov 18 13:02:32 2010 +0000
 misc
 
 
-##### commit [1a840ceb842c52f16b59681ebcb6105541e46f09](https://github.com/aglv/Horos/commit/1a840ceb842c52f16b59681ebcb6105541e46f09)
+##### ~~commit [1a840ceb842c52f16b59681ebcb6105541e46f09](https://github.com/aglv/Horos/commit/1a840ceb842c52f16b59681ebcb6105541e46f09)~~
 Date:   Thu Nov 25 09:58:29 2010 +0000
 
 Kakadu JPEG 2K tests
 
+> JPEG+ KDU related
 
 ##### commit [e70863b6fb4500b974254a6c81cb24c8a63f14bd](https://github.com/aglv/Horos/commit/e70863b6fb4500b974254a6c81cb24c8a63f14bd)
 Date:   Fri Nov 26 12:08:37 2010 +0000
@@ -1650,23 +1670,26 @@ Date:   Thu Dec 9 15:40:55 2010 +0000
 reduce lock/unlock for DICOM Services SCP
 
 
-##### commit [4c90b2be70bf07656a59f171301f3b9351ff7553](https://github.com/aglv/Horos/commit/4c90b2be70bf07656a59f171301f3b9351ff7553)
+##### ~~commit [4c90b2be70bf07656a59f171301f3b9351ff7553](https://github.com/aglv/Horos/commit/4c90b2be70bf07656a59f171301f3b9351ff7553)~~
 Date:   Thu Dec 16 20:36:11 2010 +0000
 
 support color model in JP2K support for dcmtk
 
+> JPEG+ Color model
 
-##### commit [266b0d8117ec1767eb2b5015bbe2f47d74188aeb](https://github.com/aglv/Horos/commit/266b0d8117ec1767eb2b5015bbe2f47d74188aeb)
+##### ~~commit [266b0d8117ec1767eb2b5015bbe2f47d74188aeb](https://github.com/aglv/Horos/commit/266b0d8117ec1767eb2b5015bbe2f47d74188aeb)~~
 Date:   Sun Dec 19 10:54:53 2010 +0000
 
 KDU tests
 
+> JPEG+ logging
 
-##### commit [8b9954748780bc24fed756f93df1e9ab18253cec](https://github.com/aglv/Horos/commit/8b9954748780bc24fed756f93df1e9ab18253cec)
+##### ~~commit [8b9954748780bc24fed756f93df1e9ab18253cec](https://github.com/aglv/Horos/commit/8b9954748780bc24fed756f93df1e9ab18253cec)~~
 Date:   Sun Dec 19 16:11:44 2010 +0000
 
 jpeg2klossless <-> jpeg2k : fast switch for dcmtk
 
+> JPEG++
 
 ##### commit [531d4b0c04b9b000cc4db69e92328f3f07697ba9](https://github.com/aglv/Horos/commit/531d4b0c04b9b000cc4db69e92328f3f07697ba9)
 Date:   Fri Dec 24 10:43:34 2010 +0000
@@ -1704,35 +1727,40 @@ Date:   Wed Dec 29 10:12:25 2010 +0000
 waitUnlockPID on a separate thread: avoid blocking, decompress/compress dcmtk bug corrected
 
 
-##### commit [8851ecb8072651f71a03c5eeb61a9fb387777a36](https://github.com/aglv/Horos/commit/8851ecb8072651f71a03c5eeb61a9fb387777a36)
+##### ~~commit [8851ecb8072651f71a03c5eeb61a9fb387777a36](https://github.com/aglv/Horos/commit/8851ecb8072651f71a03c5eeb61a9fb387777a36)~~
 Date:   Sat Jan 1 09:38:54 2011 +0000
 
 jp2k slope intercept bug founded
 
+> JPEG+ ok
 
-##### commit [2d291b01573340721360f592ade9532f36491cb9](https://github.com/aglv/Horos/commit/2d291b01573340721360f592ade9532f36491cb9)
+##### ~~commit [2d291b01573340721360f592ade9532f36491cb9](https://github.com/aglv/Horos/commit/2d291b01573340721360f592ade9532f36491cb9)~~
 Date:   Sat Jan 1 16:57:00 2011 +0000
 
 jp2k bug: min/max and YcBr/RGB bug corrected
 
+> JPEG+ ok
 
-##### commit [b66ea6b68fc9b72e5e1829eedea9adb0c9352fc4](https://github.com/aglv/Horos/commit/b66ea6b68fc9b72e5e1829eedea9adb0c9352fc4)
+##### ~~commit [b66ea6b68fc9b72e5e1829eedea9adb0c9352fc4](https://github.com/aglv/Horos/commit/b66ea6b68fc9b72e5e1829eedea9adb0c9352fc4)~~
 Date:   Sun Jan 2 08:22:02 2011 +0000
 
 dicomExport planarConfiguration bug corrected
 
+> JPEG+ applied
 
-##### commit [55cf43b34c3bae6fbdc08af9772866d4a6b58bd0](https://github.com/aglv/Horos/commit/55cf43b34c3bae6fbdc08af9772866d4a6b58bd0)
+##### ~~commit [55cf43b34c3bae6fbdc08af9772866d4a6b58bd0](https://github.com/aglv/Horos/commit/55cf43b34c3bae6fbdc08af9772866d4a6b58bd0)~~
 Date:   Sun Jan 23 21:34:04 2011 +0000
 
 monchrome 1 support when decompressing jp2k
 
+> JPEG+ ok
 
-##### commit [b53c9ed7817acb3c2ffc38fcf1ce2090cd03ab81](https://github.com/aglv/Horos/commit/b53c9ed7817acb3c2ffc38fcf1ce2090cd03ab81)
+##### ~~commit [b53c9ed7817acb3c2ffc38fcf1ce2090cd03ab81](https://github.com/aglv/Horos/commit/b53c9ed7817acb3c2ffc38fcf1ce2090cd03ab81)~~
 Date:   Tue Feb 1 08:37:35 2011 +0000
 
 KDU SDK
 
+> JPEG+ ok
 
 ##### commit [d5a41f8ac34f07dbee2c5aca1aeecdac550588c2](https://github.com/aglv/Horos/commit/d5a41f8ac34f07dbee2c5aca1aeecdac550588c2)
 Date:   Sun Mar 6 22:55:04 2011 +0000
@@ -1746,11 +1774,12 @@ Date:   Thu Mar 17 21:18:46 2011 +0000
 Quicklook plugin
 
 
-##### commit [b1a2527a42560104f68c7a033597f63ee50d4756](https://github.com/aglv/Horos/commit/b1a2527a42560104f68c7a033597f63ee50d4756)
+##### ~~commit [b1a2527a42560104f68c7a033597f63ee50d4756](https://github.com/aglv/Horos/commit/b1a2527a42560104f68c7a033597f63ee50d4756)~~
 Date:   Fri Mar 18 09:08:37 2011 +0000
 
 minor leaks
 
+> JPEG+
 
 ##### commit [6e8afec2f5457db7f5a3673f854e4ae1d8dbf174](https://github.com/aglv/Horos/commit/6e8afec2f5457db7f5a3673f854e4ae1d8dbf174)
 Date:   Fri Mar 18 09:50:28 2011 +0000
@@ -1843,11 +1872,12 @@ Date:   Wed Aug 3 09:36:04 2011 +0000
 builds ok svn merge -r8736:8738 ../osirix-trunk/ .
 
 
-##### commit [bb159a15ea778f8ecb752eb06a1db7518a908cb3](https://github.com/aglv/Horos/commit/bb159a15ea778f8ecb752eb06a1db7518a908cb3)
+##### ~~commit [bb159a15ea778f8ecb752eb06a1db7518a908cb3](https://github.com/aglv/Horos/commit/bb159a15ea778f8ecb752eb06a1db7518a908cb3)~~
 Date:   Thu Aug 4 12:43:58 2011 +0000
 
 svn merge -r8738:8742 ../osirix-trunk/ .
 
+> JPEG++ ok
 
 ##### commit [28a85ec5fddf556738c6e7043218002e05724c5a](https://github.com/aglv/Horos/commit/28a85ec5fddf556738c6e7043218002e05724c5a)
 Date:   Mon Aug 8 09:23:04 2011 +0000
@@ -1902,18 +1932,21 @@ Date:   Thu Oct 20 16:03:59 2011 +0000
 
 svn merge -r8948:9045 ../osirix-trunk . untested, still needs some checking with BrowserController -> DicomDatabase methods
 
+> JPEG++ commented out openjpeg
 
-##### commit [66924c1444504240fb466a85f59504cf5f23c048](https://github.com/aglv/Horos/commit/66924c1444504240fb466a85f59504cf5f23c048)
+##### ~~commit [66924c1444504240fb466a85f59504cf5f23c048](https://github.com/aglv/Horos/commit/66924c1444504240fb466a85f59504cf5f23c048)~~
 Date:   Tue Nov 1 10:54:37 2011 +0000
 
 merge -r9045:9080 ../osirix-trunk .
 
+> JPEG+ ok
 
 ##### commit [7c7cf0ebd6cd5a881055031060295751d0d2a352](https://github.com/aglv/Horos/commit/7c7cf0ebd6cd5a881055031060295751d0d2a352)
 Date:   Mon Jan 23 11:16:47 2012 +0000
 
 merge -r9107:9286 ../osirix-trunk . (untested)
 
+> JPEG++
 
 ##### commit [be5c10ac2449d56aa3dcad7887f3842d13d1695b](https://github.com/aglv/Horos/commit/be5c10ac2449d56aa3dcad7887f3842d13d1695b)
 Date:   Wed Feb 1 17:02:57 2012 +0000
@@ -2005,11 +2038,12 @@ Date:   Wed Mar 21 16:33:02 2012 +0000
 Memory leak with NSPersistentStoreCoordinator creating unlimited number of opened db files
 
 
-##### commit [c615ebd566ee2120afc355cfbdbb88b817ed17fa](https://github.com/aglv/Horos/commit/c615ebd566ee2120afc355cfbdbb88b817ed17fa)
+##### ~~commit [c615ebd566ee2120afc355cfbdbb88b817ed17fa](https://github.com/aglv/Horos/commit/c615ebd566ee2120afc355cfbdbb88b817ed17fa)~~
 Date:   Mon Apr 2 09:18:25 2012 +0000
 
 misc 64-bit compiling warnings removed
 
+> JPEG+
 
 ##### commit [10f00804ce4128073bd758594bcc8a3e07003e21](https://github.com/aglv/Horos/commit/10f00804ce4128073bd758594bcc8a3e07003e21)
 Date:   Wed May 2 09:39:43 2012 +0000
@@ -2029,17 +2063,19 @@ Date:   Fri May 11 08:14:06 2012 +0000
 todo
 
 
-##### commit [b14fea9f6b406d254b5d2000cdf7ef5d107f1f8a](https://github.com/aglv/Horos/commit/b14fea9f6b406d254b5d2000cdf7ef5d107f1f8a)
+##### ~~commit [b14fea9f6b406d254b5d2000cdf7ef5d107f1f8a](https://github.com/aglv/Horos/commit/b14fea9f6b406d254b5d2000cdf7ef5d107f1f8a)~~
 Date:   Fri Jun 22 15:27:38 2012 +0000
 
 KDU Signing bug corrected
 
+> JPEG+
 
-##### commit [d94f8e4a2ddd7c509990af7b53d7b29e7e6250d6](https://github.com/aglv/Horos/commit/d94f8e4a2ddd7c509990af7b53d7b29e7e6250d6)
+##### ~~commit [d94f8e4a2ddd7c509990af7b53d7b29e7e6250d6](https://github.com/aglv/Horos/commit/d94f8e4a2ddd7c509990af7b53d7b29e7e6250d6)~~
 Date:   Sun Jul 1 07:37:59 2012 +0000
 
 MPProcessors removed
 
+> JPEG+
 
 ##### commit [f1f678303b2ffe6e2c361ab103cdb8181bfb3f3e](https://github.com/aglv/Horos/commit/f1f678303b2ffe6e2c361ab103cdb8181bfb3f3e)
 Date:   Wed Jul 25 15:07:00 2012 +0000
@@ -2270,12 +2306,14 @@ Date:   Wed Mar 20 08:56:38 2013 +0100
 
 MD-203
 
-##### commit [e12b8689730cc0afd7ebeb0ccf91339eda0b9d68](https://github.com/aglv/Horos/commit/e12b8689730cc0afd7ebeb0ccf91339eda0b9d68)
+##### ~~commit [e12b8689730cc0afd7ebeb0ccf91339eda0b9d68](https://github.com/aglv/Horos/commit/e12b8689730cc0afd7ebeb0ccf91339eda0b9d68)~~
 Date:   Wed Apr 10 09:44:29 2013 +0200
 
 MD-259
 
 And limits number of processors for JP2K compression
+
+> JPEG+
 
 ##### commit [dc1e6c3476dc0ef14ad9fcaa401600b6b2bc2081](https://github.com/aglv/Horos/commit/dc1e6c3476dc0ef14ad9fcaa401600b6b2bc2081)
 Date:   Thu Apr 11 11:26:51 2013 +0200
@@ -2287,30 +2325,40 @@ Date:   Thu Apr 11 14:06:31 2013 +0200
 
 MD-233
 
-##### commit [3aaa98ac603cbc5f51b9e34af4950aa100420672](https://github.com/aglv/Horos/commit/3aaa98ac603cbc5f51b9e34af4950aa100420672)
+##### ~~commit [3aaa98ac603cbc5f51b9e34af4950aa100420672](https://github.com/aglv/Horos/commit/3aaa98ac603cbc5f51b9e34af4950aa100420672)~~
 Date:   Sat May 18 18:20:01 2013 +0200
 
 MD-349
 
-##### commit [cb5fe7f1fca82b482c5fec02ea8c3b450556df87](https://github.com/aglv/Horos/commit/cb5fe7f1fca82b482c5fec02ea8c3b450556df87)
+> JPEG!
+
+##### ~~commit [cb5fe7f1fca82b482c5fec02ea8c3b450556df87](https://github.com/aglv/Horos/commit/cb5fe7f1fca82b482c5fec02ea8c3b450556df87)~~
 Date:   Sat May 18 18:56:19 2013 +0200
 
 MD-349
 
-##### commit [c6f133f9d16b2d86c7282f3ccea061e2b5f23c8f](https://github.com/aglv/Horos/commit/c6f133f9d16b2d86c7282f3ccea061e2b5f23c8f)
+> JPEG!
+
+##### ~~commit [c6f133f9d16b2d86c7282f3ccea061e2b5f23c8f](https://github.com/aglv/Horos/commit/c6f133f9d16b2d86c7282f3ccea061e2b5f23c8f)~~
 Date:   Sat May 18 19:05:07 2013 +0200
 
 MD-349
 
-##### commit [94f257ebd7b5d71258b652b836f5847053975d9e](https://github.com/aglv/Horos/commit/94f257ebd7b5d71258b652b836f5847053975d9e)
+> JPEG!
+
+##### ~~commit [94f257ebd7b5d71258b652b836f5847053975d9e](https://github.com/aglv/Horos/commit/94f257ebd7b5d71258b652b836f5847053975d9e)~~
 Date:   Sat May 18 19:34:21 2013 +0200
 
 MD-349
 
-##### commit [f8e0c98618fb0f4e253ce0bcae2ef8fdaa8e54a1](https://github.com/aglv/Horos/commit/f8e0c98618fb0f4e253ce0bcae2ef8fdaa8e54a1)
+> JPEG!
+
+##### ~~commit [f8e0c98618fb0f4e253ce0bcae2ef8fdaa8e54a1](https://github.com/aglv/Horos/commit/f8e0c98618fb0f4e253ce0bcae2ef8fdaa8e54a1)~~
 Date:   Sun May 19 00:33:30 2013 +0200
 
 MD-349
+
+> JPEG!
 
 ##### commit [feadd323631aaf4314d72bcf5300c293d075f571](https://github.com/aglv/Horos/commit/feadd323631aaf4314d72bcf5300c293d075f571)
 Date:   Mon May 20 17:31:25 2013 +0200
@@ -2327,15 +2375,19 @@ Date:   Fri Jun 21 18:03:19 2013 +0200
 
 MD-438
 
-##### commit [87acd613bd8b749d3fe041aca4b985e67b9e5f62](https://github.com/aglv/Horos/commit/87acd613bd8b749d3fe041aca4b985e67b9e5f62)
+##### ~~commit [87acd613bd8b749d3fe041aca4b985e67b9e5f62](https://github.com/aglv/Horos/commit/87acd613bd8b749d3fe041aca4b985e67b9e5f62)~~
 Date:   Sat Aug 3 11:54:21 2013 +0200
 
 JP2K compression: avoid int overflow
 
-##### commit [537931decfc8577c6d6958873983a6a25253f867](https://github.com/aglv/Horos/commit/537931decfc8577c6d6958873983a6a25253f867)
+> JPEG+
+
+##### ~~commit [537931decfc8577c6d6958873983a6a25253f867](https://github.com/aglv/Horos/commit/537931decfc8577c6d6958873983a6a25253f867)~~
 Date:   Sat Aug 3 15:50:23 2013 +0200
 
 JP2K compression: avoid int overflow
+
+> JPEG+
 
 ##### commit [7f5dc9303f2c54d99aec1c9753ee6b034edad4eb](https://github.com/aglv/Horos/commit/7f5dc9303f2c54d99aec1c9753ee6b034edad4eb)
 Date:   Thu Aug 8 13:53:47 2013 +0200
@@ -2362,10 +2414,12 @@ Date:   Thu Jan 16 17:36:24 2014 +0100
 
 MD-888
 
-##### commit [96d0d2d91d5cc323d3e7716bcdb76ea63bf51c62](https://github.com/aglv/Horos/commit/96d0d2d91d5cc323d3e7716bcdb76ea63bf51c62)
+##### ~~commit [96d0d2d91d5cc323d3e7716bcdb76ea63bf51c62](https://github.com/aglv/Horos/commit/96d0d2d91d5cc323d3e7716bcdb76ea63bf51c62)~~
 Date:   Mon Feb 3 15:41:56 2014 +0100
 
 Force 8 bits for samplesPerPixel > 1 (from PALETTE 16 bits)
+
+> JPEG!
 
 ##### commit [1afbaf8c1f266431db527379239c7ed8d0d26a13](https://github.com/aglv/Horos/commit/1afbaf8c1f266431db527379239c7ed8d0d26a13)
 Date:   Mon Feb 10 17:26:52 2014 +0100
