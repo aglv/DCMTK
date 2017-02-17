@@ -1,6 +1,6 @@
 /*
  *
- *  Copyright (C) 2011-2013, OFFIS e.V.
+ *  Copyright (C) 2011-2017, OFFIS e.V.
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  This software and supporting documentation were developed by
@@ -145,6 +145,9 @@ main(int argc, char *argv[])
       cmd.addOption("--prefer-mpeg2-high",   "+xh",     "prefer MPEG2 Main Profile @ High Level TS");
       cmd.addOption("--prefer-mpeg4",        "+xn",     "prefer MPEG4 AVC/H.264 HP / Level 4.1 TS");
       cmd.addOption("--prefer-mpeg4-bd",     "+xl",     "prefer MPEG4 AVC/H.264 BD-compatible TS");
+      cmd.addOption("--prefer-mpeg4-2-2d",   "+x2",     "prefer MPEG4 AVC/H.264 HP / Level 4.2 TS (2D)");
+      cmd.addOption("--prefer-mpeg4-2-3d",   "+x3",     "prefer MPEG4 AVC/H.264 HP / Level 4.2 TS (3D)");
+      cmd.addOption("--prefer-mpeg4-2-st",   "+xo",     "prefer MPEG4 AVC/H.264 Stereo HP / Level 4.2 TS");
       cmd.addOption("--prefer-rle",          "+xr",     "prefer RLE lossless TS");
 #ifdef WITH_ZLIB
       cmd.addOption("--prefer-deflated",     "+xd",     "prefer deflated explicit VR little endian TS");
@@ -248,6 +251,9 @@ main(int argc, char *argv[])
     if (cmd.findOption("--prefer-mpeg2-high")) opt_store_networkTransferSyntax = EXS_MPEG2MainProfileAtHighLevel;
     if (cmd.findOption("--prefer-mpeg4")) opt_store_networkTransferSyntax = EXS_MPEG4HighProfileLevel4_1;
     if (cmd.findOption("--prefer-mpeg4-bd")) opt_store_networkTransferSyntax = EXS_MPEG4BDcompatibleHighProfileLevel4_1;
+    if (cmd.findOption("--prefer-mpeg4-2-2d")) opt_store_networkTransferSyntax = EXS_MPEG4HighProfileLevel4_2_For2DVideo;
+    if (cmd.findOption("--prefer-mpeg4-2-3d")) opt_store_networkTransferSyntax = EXS_MPEG4HighProfileLevel4_2_For3DVideo;
+    if (cmd.findOption("--prefer-mpeg4-2-st")) opt_store_networkTransferSyntax = EXS_MPEG4StereoHighProfileLevel4_2;
     if (cmd.findOption("--prefer-rle")) opt_store_networkTransferSyntax = EXS_RLELossless;
 #ifdef WITH_ZLIB
     if (cmd.findOption("--prefer-deflated")) opt_store_networkTransferSyntax = EXS_DeflatedLittleEndianExplicit;
@@ -420,7 +426,7 @@ main(int argc, char *argv[])
   /* do the real work, i.e. send C-GET requests and receive objects */
   for (Uint16 repeat = 0; repeat < opt_repeatCount; repeat++)
   {
-    Uint16 numRuns = 1;
+    size_t numRuns = 1;
     DcmFileFormat dcmff;
     DcmDataset *dset = dcmff.getDataset();
     OFListConstIterator(OFString) it;

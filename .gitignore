@@ -33,6 +33,7 @@ doxygen/dcmtk.tag
 */tests/tests
 config/arith
 config/lzwtest.tif
+dcmdata/apps/dcm2json
 dcmdata/apps/dcm2pdf
 dcmdata/apps/dcm2xml
 dcmdata/apps/dcmconv
@@ -94,7 +95,3 @@ dcmsr/apps/xml2dsr
 dcmsr/tests/mkreport
 dcmwlm/apps/wlmscpfs
 dcmwlm/tests/wltest
-dcmwlm/wwwapps/preplock
-dcmwlm/wwwapps/readoviw
-dcmwlm/wwwapps/readwlst
-dcmwlm/wwwapps/writwlst

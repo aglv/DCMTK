@@ -1,6 +1,6 @@
 /*
  *
- *  Copyright (C) 1997-2010, OFFIS e.V.
+ *  Copyright (C) 1997-2016, OFFIS e.V.
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  This software and supporting documentation were developed by
@@ -23,12 +23,13 @@
 #include "dcmtk/dcmjpeg/djdecode.h"
 
 #include "dcmtk/dcmdata/dccodec.h"  /* for DcmCodecStruct */
-#include "dcmtk/dcmjpeg/djdecbas.h" 
+#include "dcmtk/dcmjpeg/djdecbas.h"
 #include "dcmtk/dcmjpeg/djdecext.h"
 #include "dcmtk/dcmjpeg/djdecsps.h"
 #include "dcmtk/dcmjpeg/djdecpro.h"
 #include "dcmtk/dcmjpeg/djdecsv1.h"
 #include "dcmtk/dcmjpeg/djdeclol.h"
+#include "dcmtk/dcmjpeg/djdec2k.h"
 #include "dcmtk/dcmjpeg/djcparam.h"
 
 // initialization of static members
@@ -40,21 +41,28 @@ DJDecoderSpectralSelection *DJDecoderRegistration::decsps = NULL;
 DJDecoderProgressive *DJDecoderRegistration::decpro       = NULL;
 DJDecoderP14SV1 *DJDecoderRegistration::decsv1            = NULL;
 DJDecoderLossless *DJDecoderRegistration::declol          = NULL;
+DJDecoder2K *DJDecoderRegistration::dec2k                 = NULL;
+DJDecoder2KLossless *DJDecoderRegistration::dec2klol      = NULL;
 
 void DJDecoderRegistration::registerCodecs(
     E_DecompressionColorSpaceConversion pDecompressionCSConversion,
     E_UIDCreation pCreateSOPInstanceUID,
     E_PlanarConfiguration pPlanarConfiguration,
-    OFBool predictor6WorkaroundEnable)
+    OFBool predictor6WorkaroundEnable,
+    OFBool pIgnoreDecoderErrors,
+    OFBool pForceSingleFragmentPerFrame)
 {
   if (! registered)
   {
     cp = new DJCodecParameter(
       ECC_lossyYCbCr, // ignored, compression only
-      pDecompressionCSConversion, 
-      pCreateSOPInstanceUID, 
+      pDecompressionCSConversion,
+      pCreateSOPInstanceUID,
       pPlanarConfiguration,
-      predictor6WorkaroundEnable);
+      predictor6WorkaroundEnable,
+      pIgnoreDecoderErrors,
+      pForceSingleFragmentPerFrame);
+
     if (cp)
     {
       // baseline JPEG
@@ -81,6 +89,12 @@ void DJDecoderRegistration::registerCodecs(
       declol = new DJDecoderLossless();
       if (declol) DcmCodecList::registerCodec(declol, NULL, cp);
 
+      dec2k = new DJDecoder2K();
+      if (dec2k) DcmCodecList::registerCodec(dec2k, NULL, cp);
+        
+      dec2klol = new DJDecoder2KLossless();
+      if (dec2klol) DcmCodecList::registerCodec(dec2klol, NULL, cp);
+        
       registered = OFTrue;
     }
   }

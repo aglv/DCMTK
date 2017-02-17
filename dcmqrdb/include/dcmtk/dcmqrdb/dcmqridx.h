@@ -1,6 +1,6 @@
 /*
  *
- *  Copyright (C) 1993-2011, OFFIS e.V.
+ *  Copyright (C) 1993-2017, OFFIS e.V.
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  This software and supporting documentation were developed by
@@ -123,6 +123,34 @@ enum DB_KEY_CLASS
 #define SIZEOF_IDXRECORD        (sizeof (IdxRecord))
 #define SIZEOF_STUDYDESC        (sizeof (StudyDescRecord) * MAX_MAX_STUDIES)
 
+/* ENSURE THAT DBVERSION IS INCREMENTED WHENEVER ONE OF THESE STRUCTS IS MODIFIED */
+
+struct DCMTK_DCMQRDB_EXPORT DB_SerializedTagKey
+{
+    inline DB_SerializedTagKey() {}
+    inline DB_SerializedTagKey(const DcmTagKey& rhs) { *this = rhs; }
+    inline DB_SerializedTagKey& operator=(const DcmTagKey& tk) { key[0] = tk.getGroup(); key[1] = tk.getElement(); return *this; }
+    inline operator DcmTagKey() const { return DcmTagKey( key[0], key[1] ); }
+    inline bool operator==(const DB_SerializedTagKey& rhs) const { return key[0] == rhs.key[0] && key[1] == rhs.key[1]; }
+    Uint16 key[2];
+};
+
+/* ENSURE THAT DBVERSION IS INCREMENTED WHENEVER ONE OF THESE STRUCTS IS MODIFIED */
+
+struct DCMTK_DCMQRDB_EXPORT DB_SerializedCharPtr
+{
+    inline DB_SerializedCharPtr(char* p) { ptr.p = p; }
+    inline DB_SerializedCharPtr& operator=(char* p) { ptr.p = p; return *this; }
+    inline operator char*() const { return ptr.p; }
+    union
+    {
+        char* p;
+        Uint64 placeholder;
+    } ptr ;
+};
+
+/* ENSURE THAT DBVERSION IS INCREMENTED WHENEVER ONE OF THESE STRUCTS IS MODIFIED */
+
 /** this class provides a primitive interface for handling a flat DICOM element,
  *  similar to DcmElement, but only for use within the database module
  */
@@ -133,13 +161,13 @@ public:
     DB_SmallDcmElmt();
 
     /// pointer to the value field
-    char* PValueField ;
+    DB_SerializedCharPtr PValueField ;
 
     /// value length in bytes
     Uint32 ValueLength ;
 
     /// attribute tag
-    DcmTagKey XTag ;
+    DB_SerializedTagKey XTag ;
 
 private:
     /// private undefined copy constructor
@@ -147,6 +175,8 @@ private:
     /// private undefined copy assignment operator
     DB_SmallDcmElmt& operator=(const DB_SmallDcmElmt& copy);
 };
+
+/* ENSURE THAT DBVERSION IS INCREMENTED WHENEVER ONE OF THESE STRUCTS IS MODIFIED */
 
 /** this class provides a primitive interface for handling a list of flat DICOM elements,
  *  similar to DcmItem, but only for use within the database module
@@ -169,6 +199,8 @@ private:
     DB_ElementList& operator=(const DB_ElementList& copy);
 };
 
+/* ENSURE THAT DBVERSION IS INCREMENTED WHENEVER ONE OF THESE STRUCTS IS MODIFIED */
+
 struct DCMTK_DCMQRDB_EXPORT DB_UidList
 {
     char *patient ;
@@ -178,11 +210,15 @@ struct DCMTK_DCMQRDB_EXPORT DB_UidList
     struct DB_UidList *next ;
 };
 
+/* ENSURE THAT DBVERSION IS INCREMENTED WHENEVER ONE OF THESE STRUCTS IS MODIFIED */
+
 struct DCMTK_DCMQRDB_EXPORT DB_CounterList
 {
     int idxCounter ;
     struct DB_CounterList *next ;
 };
+
+/* ENSURE THAT DBVERSION IS INCREMENTED WHENEVER ONE OF THESE STRUCTS IS MODIFIED */
 
 struct DCMTK_DCMQRDB_EXPORT DB_FindAttr
 {
@@ -195,6 +231,8 @@ struct DCMTK_DCMQRDB_EXPORT DB_FindAttr
     DB_FindAttr(const DcmTagKey& t, DB_LEVEL l, DB_KEY_TYPE kt, DB_KEY_CLASS kc)
         : tag(t), level(l), keyAttr(kt), keyClass(kc) { }
 };
+
+/* ENSURE THAT DBVERSION IS INCREMENTED WHENEVER ONE OF THESE STRUCTS IS MODIFIED */
 
 struct DCMTK_DCMQRDB_EXPORT DB_Private_Handle
 {
@@ -230,6 +268,8 @@ struct DCMTK_DCMQRDB_EXPORT DB_Private_Handle
     }
 };
 
+/* ENSURE THAT DBVERSION IS INCREMENTED WHENEVER ONE OF THESE STRUCTS IS MODIFIED */
+
 /** this struct defines the structure of each "Study Record" in the index.dat
  *  file maintained by this module. A Study Record is a direct binary copy
  *  of an instance of this struct.
@@ -240,20 +280,22 @@ struct DCMTK_DCMQRDB_EXPORT StudyDescRecord
     char StudyInstanceUID [UI_MAX_LENGTH+1] ;
 
     /// combined size (in bytes) of all images of this study in the database
-    long StudySize ;
+    Uint32 StudySize ;
 
     /// timestamp for last update of this study. Format: output of time(2) converted to double.
     double LastRecordedDate ;
 
     /// number of images of this study in the database
-    int NumberofRegistratedImages ;
+    Uint32 NumberofRegistratedImages ;
 };
+
+/* ENSURE THAT DBVERSION IS INCREMENTED WHENEVER ONE OF THESE STRUCTS IS MODIFIED */
 
 struct DCMTK_DCMQRDB_EXPORT ImagesofStudyArray
 {
-    int idxCounter ;
+    Uint32 idxCounter ;
     double RecordedDate ;
-    long ImageSize ;
+    Uint32 ImageSize ;
 };
 
 
@@ -308,9 +350,11 @@ struct DCMTK_DCMQRDB_EXPORT ImagesofStudyArray
 #define RECORDIDX_OperatorsName                  38
 #define RECORDIDX_PerformingPhysicianName        39
 #define RECORDIDX_PresentationLabel              40
+#define RECORDIDX_SpecificCharacterSet           41
 
-#define NBPARAMETERS                             41
+#define NBPARAMETERS                             42
 
+/* ENSURE THAT DBVERSION IS INCREMENTED WHENEVER ONE OF THESE STRUCTS IS MODIFIED */
 
 /** this class manages an instance entry of the index file.
  *  Each instance/image record within the index.dat file is
@@ -324,7 +368,7 @@ struct DCMTK_DCMQRDB_EXPORT IdxRecord
     char    filename                        [DBC_MAXSTRING+1] ;
     char    SOPClassUID                     [UI_MAX_LENGTH+1] ;
     double  RecordedDate ;
-    int     ImageSize ;
+    Uint32  ImageSize ;
 
     DB_SmallDcmElmt param                   [NBPARAMETERS] ;
 
@@ -375,10 +419,14 @@ struct DCMTK_DCMQRDB_EXPORT IdxRecord
     char    PerformingPhysicianName         [PN_MAX_LENGTH+1] ;
     char    PresentationLabel               [CS_LABEL_MAX_LENGTH+1] ;
 
-    DVIFhierarchyStatus hstat;
+    char    hstat;
 
     // Not related to any particular DICOM attribute !
     char    InstanceDescription             [DESCRIPTION_MAX_LENGTH+1] ;
+
+    // Specific Character Set, support for VM ~ 8 (depending on the
+    // actual length of the used DTs)
+    char    SpecificCharacterSet            [CS_MAX_LENGTH*8+1] ;
 
 private:
     /* undefined */ IdxRecord(const IdxRecord& copy);

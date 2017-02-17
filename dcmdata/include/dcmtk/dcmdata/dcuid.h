@@ -1,6 +1,6 @@
 /*
  *
- *  Copyright (C) 1994-2016, OFFIS e.V.
+ *  Copyright (C) 1994-2017, OFFIS e.V.
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  This software and supporting documentation were developed by
@@ -57,7 +57,7 @@ DCMTK_DCMDATA_EXPORT const char* dcmFindUIDFromName(const char* name);
 /** an array of const strings containing all known Storage SOP Classes
  *  that fit into the conventional PATIENT-STUDY-SERIES-INSTANCE information
  *  model, i.e. everything a Storage SCP might want to store in a PACS.
- *  Special cases such as hanging protocol storage or the Storage SOP Class
+ *  Special cases such as Hanging Protocol or Color Palette Storage SOP Class
  *  are not included in this list.
  *  WARNING: This list contains more than 64 entries, i.e. it is not possible
  *  to use this list to configure the association negotiation behavior of
@@ -93,6 +93,9 @@ extern DCMTK_DCMDATA_EXPORT const int numberOfDcmShortSCUStorageSOPClassUIDs;
 
 /** returns true if the uid is one of the Storage SOP Classes.
  *  Performs a table lookup in the dcmAllStorageSOPClassUIDs table.
+ *  Please note that this function only covers those Storage SOP Classes
+ *  that fit into the conventional PATIENT-STUDY-SERIES-INSTANCE information
+ *  model, i.e. non-patient DICOM objects are missing.
  *  @param uid UID string
  *  @return true if UID is a known Storage SOP Class, false otherwise
  */
@@ -329,9 +332,9 @@ DCMTK_DCMDATA_EXPORT unsigned long dcmGuessModalityBytes(const char *sopClassUID
 #define UID_JPIPReferencedTransferSyntax        "1.2.840.10008.1.2.4.94"
 /// JPIP Referenced Deflate
 #define UID_JPIPReferencedDeflateTransferSyntax "1.2.840.10008.1.2.4.95"
-/// MPEG2 Main Profile @ Main Level
+/// MPEG2 Main Profile @ Main Level (changed with DICOM 2016e to: MPEG2 Main Profile / Main Level)
 #define UID_MPEG2MainProfileAtMainLevelTransferSyntax "1.2.840.10008.1.2.4.100"
-/// MPEG2 Main Profile @ High Level
+/// MPEG2 Main Profile @ High Level (changed with DICOM 2016e to: MPEG2 Main Profile / High Level)
 #define UID_MPEG2MainProfileAtHighLevelTransferSyntax "1.2.840.10008.1.2.4.101"
 /// MPEG-4 AVC/H.264 High Profile / Level 4.1
 #define UID_MPEG4HighProfileLevel4_1TransferSyntax "1.2.840.10008.1.2.4.102"
@@ -343,6 +346,10 @@ DCMTK_DCMDATA_EXPORT unsigned long dcmGuessModalityBytes(const char *sopClassUID
 #define UID_MPEG4HighProfileLevel4_2_For3DVideoTransferSyntax "1.2.840.10008.1.2.4.105"
 /// MPEG-4 AVC/H.264 Stereo High Profile / Level 4.2
 #define UID_MPEG4StereoHighProfileLevel4_2TransferSyntax "1.2.840.10008.1.2.4.106"
+/// HEVC/H.265 Main Profile / Level 5.1
+#define UID_HEVCMainProfileLevel5_1TransferSyntax "1.2.840.10008.1.2.4.107"
+/// HEVC/H.265 Main 10 Profile / Level 5.1
+#define UID_HEVCMain10ProfileLevel5_1TransferSyntax "1.2.840.10008.1.2.4.108"
 /// RLE Lossless
 #define UID_RLELosslessTransferSyntax           "1.2.840.10008.1.2.5"
 
@@ -479,6 +486,7 @@ DCMTK_DCMDATA_EXPORT unsigned long dcmGuessModalityBytes(const char *sopClassUID
 #define UID_ColonCADSRStorage                                      "1.2.840.10008.5.1.4.1.1.88.69"
 #define UID_ImplantationPlanSRDocumentStorage                      "1.2.840.10008.5.1.4.1.1.88.70"
 #define UID_AcquisitionContextSRStorage                            "1.2.840.10008.5.1.4.1.1.88.71"
+#define UID_SimplifiedAdultEchoSRStorage                           "1.2.840.10008.5.1.4.1.1.88.72"
 #define UID_ContentAssessmentResultsStorage                        "1.2.840.10008.5.1.4.1.1.90.1"
 #define UID_EncapsulatedPDFStorage                                 "1.2.840.10008.5.1.4.1.1.104.1"
 #define UID_EncapsulatedCDAStorage                                 "1.2.840.10008.5.1.4.1.1.104.2"
@@ -748,6 +756,10 @@ DCMTK_DCMDATA_EXPORT unsigned long dcmGuessModalityBytes(const char *sopClassUID
 #define UID_PETColorPaletteSOPInstance                             "1.2.840.10008.1.5.2"
 #define UID_HotMetalBlueColorPaletteSOPInstance                    "1.2.840.10008.1.5.3"
 #define UID_PET20StepColorPaletteSOPInstance                       "1.2.840.10008.1.5.4"
+#define UID_SpringColorPaletteSOPInstance                          "1.2.840.10008.1.5.5"
+#define UID_SummerColorPaletteSOPInstance                          "1.2.840.10008.1.5.6"
+#define UID_FallColorPaletteSOPInstance                            "1.2.840.10008.1.5.7"
+#define UID_WinterColorPaletteSOPInstance                          "1.2.840.10008.1.5.8"
 
 /*
 ** Private DCMTK UIDs

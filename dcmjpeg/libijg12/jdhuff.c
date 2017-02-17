@@ -47,10 +47,13 @@ jpeg_make_d_derived_tbl (j_decompress_ptr cinfo, boolean isDC, int tblno,
     ERREXIT1(cinfo, JERR_NO_HUFF_TABLE, tblno);
 
   /* Allocate a workspace if we haven't already done so. */
-  if (*pdtbl == NULL)
+  if (*pdtbl == NULL) {
+    if (!cinfo->mem)
+        ERREXIT(cinfo, JERR_NULL_MEM);
     *pdtbl = (d_derived_tbl *)
       (*cinfo->mem->alloc_small) ((j_common_ptr) cinfo, JPOOL_IMAGE,
                   SIZEOF(d_derived_tbl));
+  }
   dtbl = *pdtbl;
   dtbl->pub = htbl;     /* fill in back link */
 

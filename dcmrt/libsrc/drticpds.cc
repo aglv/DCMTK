@@ -1,13 +1,13 @@
 /*
  *
  *  Copyright (C) 2008-2012, OFFIS e.V. and ICSMED AG, Oldenburg, Germany
- *  Copyright (C) 2013-2016, J. Riesmeier, Oldenburg, Germany
+ *  Copyright (C) 2013-2017, J. Riesmeier, Oldenburg, Germany
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  Source file for class DRTIonControlPointDeliverySequence
  *
- *  Generated automatically from DICOM PS 3.3-2016d
- *  File created on 2016-10-12 13:44:31
+ *  Generated automatically from DICOM PS 3.3-2016e
+ *  File created on 2017-01-25 17:55:32
  *
  */
 
@@ -50,6 +50,7 @@ DRTIonControlPointDeliverySequence::Item::Item(const OFBool emptyDefaultItem)
     ScanSpotPositionMap(DCM_ScanSpotPositionMap),
     ScanSpotPrescribedIndices(DCM_ScanSpotPrescribedIndices),
     ScanSpotReordered(DCM_ScanSpotReordered),
+    ScanSpotTimeOffset(DCM_ScanSpotTimeOffset),
     ScanSpotTuneID(DCM_ScanSpotTuneID),
     ScanningSpotSize(DCM_ScanningSpotSize),
     SnoutPosition(DCM_SnoutPosition),
@@ -98,6 +99,7 @@ DRTIonControlPointDeliverySequence::Item::Item(const Item &copy)
     ScanSpotPositionMap(copy.ScanSpotPositionMap),
     ScanSpotPrescribedIndices(copy.ScanSpotPrescribedIndices),
     ScanSpotReordered(copy.ScanSpotReordered),
+    ScanSpotTimeOffset(copy.ScanSpotTimeOffset),
     ScanSpotTuneID(copy.ScanSpotTuneID),
     ScanningSpotSize(copy.ScanningSpotSize),
     SnoutPosition(copy.SnoutPosition),
@@ -154,6 +156,7 @@ DRTIonControlPointDeliverySequence::Item &DRTIonControlPointDeliverySequence::It
         ScanSpotPositionMap = copy.ScanSpotPositionMap;
         ScanSpotPrescribedIndices = copy.ScanSpotPrescribedIndices;
         ScanSpotReordered = copy.ScanSpotReordered;
+        ScanSpotTimeOffset = copy.ScanSpotTimeOffset;
         ScanSpotTuneID = copy.ScanSpotTuneID;
         ScanningSpotSize = copy.ScanningSpotSize;
         SnoutPosition = copy.SnoutPosition;
@@ -201,6 +204,7 @@ void DRTIonControlPointDeliverySequence::Item::clear()
         NumberOfScanSpotPositions.clear();
         ScanSpotPositionMap.clear();
         ScanSpotMetersetsDelivered.clear();
+        ScanSpotTimeOffset.clear();
         ScanningSpotSize.clear();
         NumberOfPaintings.clear();
         ScanSpotReordered.clear();
@@ -249,6 +253,7 @@ OFBool DRTIonControlPointDeliverySequence::Item::isEmpty()
            NumberOfScanSpotPositions.isEmpty() &&
            ScanSpotPositionMap.isEmpty() &&
            ScanSpotMetersetsDelivered.isEmpty() &&
+           ScanSpotTimeOffset.isEmpty() &&
            ScanningSpotSize.isEmpty() &&
            NumberOfPaintings.isEmpty() &&
            ScanSpotReordered.isEmpty() &&
@@ -307,6 +312,7 @@ OFCondition DRTIonControlPointDeliverySequence::Item::read(DcmItem &item)
         getAndCheckElementFromDataset(item, NumberOfScanSpotPositions, "1", "1C", "IonControlPointDeliverySequence");
         getAndCheckElementFromDataset(item, ScanSpotPositionMap, "1-n", "1C", "IonControlPointDeliverySequence");
         getAndCheckElementFromDataset(item, ScanSpotMetersetsDelivered, "1-n", "1C", "IonControlPointDeliverySequence");
+        getAndCheckElementFromDataset(item, ScanSpotTimeOffset, "1-n", "3", "IonControlPointDeliverySequence");
         getAndCheckElementFromDataset(item, ScanningSpotSize, "2", "3", "IonControlPointDeliverySequence");
         getAndCheckElementFromDataset(item, NumberOfPaintings, "1", "1C", "IonControlPointDeliverySequence");
         getAndCheckElementFromDataset(item, ScanSpotReordered, "1", "3", "IonControlPointDeliverySequence");
@@ -361,6 +367,7 @@ OFCondition DRTIonControlPointDeliverySequence::Item::write(DcmItem &item)
         addElementToDataset(result, item, new DcmIntegerString(NumberOfScanSpotPositions), "1", "1C", "IonControlPointDeliverySequence");
         addElementToDataset(result, item, new DcmFloatingPointSingle(ScanSpotPositionMap), "1-n", "1C", "IonControlPointDeliverySequence");
         addElementToDataset(result, item, new DcmFloatingPointSingle(ScanSpotMetersetsDelivered), "1-n", "1C", "IonControlPointDeliverySequence");
+        addElementToDataset(result, item, new DcmFloatingPointSingle(ScanSpotTimeOffset), "1-n", "3", "IonControlPointDeliverySequence");
         addElementToDataset(result, item, new DcmFloatingPointSingle(ScanningSpotSize), "2", "3", "IonControlPointDeliverySequence");
         addElementToDataset(result, item, new DcmIntegerString(NumberOfPaintings), "1", "1C", "IonControlPointDeliverySequence");
         addElementToDataset(result, item, new DcmCodeString(ScanSpotReordered), "1", "3", "IonControlPointDeliverySequence");
@@ -678,6 +685,15 @@ OFCondition DRTIonControlPointDeliverySequence::Item::getScanSpotReordered(OFStr
         return EC_IllegalCall;
     else
         return getStringValueFromElement(ScanSpotReordered, value, pos);
+}
+
+
+OFCondition DRTIonControlPointDeliverySequence::Item::getScanSpotTimeOffset(Float32 &value, const unsigned long pos) const
+{
+    if (EmptyDefaultItem)
+        return EC_IllegalCall;
+    else
+        return OFconst_cast(DcmFloatingPointSingle &, ScanSpotTimeOffset).getFloat32(value, pos);
 }
 
 
@@ -1096,6 +1112,15 @@ OFCondition DRTIonControlPointDeliverySequence::Item::setScanSpotReordered(const
 }
 
 
+OFCondition DRTIonControlPointDeliverySequence::Item::setScanSpotTimeOffset(const Float32 value, const unsigned long pos)
+{
+    if (EmptyDefaultItem)
+        return EC_IllegalCall;
+    else
+        return ScanSpotTimeOffset.putFloat32(value, pos);
+}
+
+
 OFCondition DRTIonControlPointDeliverySequence::Item::setScanSpotTuneID(const OFString &value, const OFBool check)
 {
     OFCondition result = EC_IllegalCall;
@@ -1352,7 +1377,7 @@ OFBool DRTIonControlPointDeliverySequence::isValid() const
 }
 
 
-unsigned long DRTIonControlPointDeliverySequence::getNumberOfItems() const
+size_t DRTIonControlPointDeliverySequence::getNumberOfItems() const
 {
     return SequenceOfItems.size();
 }
@@ -1382,12 +1407,12 @@ OFCondition DRTIonControlPointDeliverySequence::gotoNextItem()
 }
 
 
-OFCondition DRTIonControlPointDeliverySequence::gotoItem(const unsigned long num, OFListIterator(Item *) &iterator)
+OFCondition DRTIonControlPointDeliverySequence::gotoItem(const size_t num, OFListIterator(Item *) &iterator)
 {
     OFCondition result = EC_IllegalCall;
     if (!SequenceOfItems.empty())
     {
-        unsigned long idx = num + 1;
+        size_t idx = num + 1;
         iterator = SequenceOfItems.begin();
         const OFListConstIterator(Item *) last = SequenceOfItems.end();
         while ((--idx > 0) && (iterator != last))
@@ -1402,12 +1427,12 @@ OFCondition DRTIonControlPointDeliverySequence::gotoItem(const unsigned long num
 }
 
 
-OFCondition DRTIonControlPointDeliverySequence::gotoItem(const unsigned long num, OFListConstIterator(Item *) &iterator) const
+OFCondition DRTIonControlPointDeliverySequence::gotoItem(const size_t num, OFListConstIterator(Item *) &iterator) const
 {
     OFCondition result = EC_IllegalCall;
     if (!SequenceOfItems.empty())
     {
-        unsigned long idx = num + 1;
+        size_t idx = num + 1;
         iterator = SequenceOfItems.begin();
         const OFListConstIterator(Item *) last = SequenceOfItems.end();
         while ((--idx > 0) && (iterator != last))
@@ -1422,7 +1447,7 @@ OFCondition DRTIonControlPointDeliverySequence::gotoItem(const unsigned long num
 }
 
 
-OFCondition DRTIonControlPointDeliverySequence::gotoItem(const unsigned long num)
+OFCondition DRTIonControlPointDeliverySequence::gotoItem(const size_t num)
 {
     return gotoItem(num, CurrentItem);
 }
@@ -1458,7 +1483,7 @@ const DRTIonControlPointDeliverySequence::Item &DRTIonControlPointDeliverySequen
 }
 
 
-OFCondition DRTIonControlPointDeliverySequence::getItem(const unsigned long num, Item *&item)
+OFCondition DRTIonControlPointDeliverySequence::getItem(const size_t num, Item *&item)
 {
     OFListIterator(Item *) iterator;
     OFCondition result = gotoItem(num, iterator);
@@ -1468,7 +1493,7 @@ OFCondition DRTIonControlPointDeliverySequence::getItem(const unsigned long num,
 }
 
 
-DRTIonControlPointDeliverySequence::Item &DRTIonControlPointDeliverySequence::getItem(const unsigned long num)
+DRTIonControlPointDeliverySequence::Item &DRTIonControlPointDeliverySequence::getItem(const size_t num)
 {
     OFListIterator(Item *) iterator;
     if (gotoItem(num, iterator).good())
@@ -1478,7 +1503,7 @@ DRTIonControlPointDeliverySequence::Item &DRTIonControlPointDeliverySequence::ge
 }
 
 
-const DRTIonControlPointDeliverySequence::Item &DRTIonControlPointDeliverySequence::getItem(const unsigned long num) const
+const DRTIonControlPointDeliverySequence::Item &DRTIonControlPointDeliverySequence::getItem(const size_t num) const
 {
     OFListConstIterator(Item *) iterator;
     if (gotoItem(num, iterator).good())
@@ -1488,13 +1513,13 @@ const DRTIonControlPointDeliverySequence::Item &DRTIonControlPointDeliverySequen
 }
 
 
-DRTIonControlPointDeliverySequence::Item &DRTIonControlPointDeliverySequence::operator[](const unsigned long num)
+DRTIonControlPointDeliverySequence::Item &DRTIonControlPointDeliverySequence::operator[](const size_t num)
 {
     return getItem(num);
 }
 
 
-const DRTIonControlPointDeliverySequence::Item &DRTIonControlPointDeliverySequence::operator[](const unsigned long num) const
+const DRTIonControlPointDeliverySequence::Item &DRTIonControlPointDeliverySequence::operator[](const size_t num) const
 {
     return getItem(num);
 }
@@ -1517,7 +1542,7 @@ OFCondition DRTIonControlPointDeliverySequence::addItem(Item *&item)
 }
 
 
-OFCondition DRTIonControlPointDeliverySequence::insertItem(const unsigned long pos, Item *&item)
+OFCondition DRTIonControlPointDeliverySequence::insertItem(const size_t pos, Item *&item)
 {
     OFCondition result = EC_IllegalCall;
     if (!EmptyDefaultSequence)
@@ -1540,7 +1565,7 @@ OFCondition DRTIonControlPointDeliverySequence::insertItem(const unsigned long p
 }
 
 
-OFCondition DRTIonControlPointDeliverySequence::removeItem(const unsigned long pos)
+OFCondition DRTIonControlPointDeliverySequence::removeItem(const size_t pos)
 {
     OFCondition result = EC_IllegalCall;
     if (!EmptyDefaultSequence)

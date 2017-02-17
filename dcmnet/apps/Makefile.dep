@@ -675,7 +675,8 @@ storescp.o: storescp.cc ../../config/include/dcmtk/config/osconfig.h \
  ../../dcmdata/include/dcmtk/dcmdata/dcstack.h \
  ../../dcmdata/include/dcmtk/dcmdata/dclist.h \
  ../../dcmdata/include/dcmtk/dcmdata/dcpcache.h \
- ../include/dcmtk/dcmnet/diutil.h ../include/dcmtk/dcmnet/dcasccfg.h \
+ ../include/dcmtk/dcmnet/diutil.h ../include/dcmtk/dcmnet/dcmtrans.h \
+ ../include/dcmtk/dcmnet/dcmlayer.h ../include/dcmtk/dcmnet/dcasccfg.h \
  ../include/dcmtk/dcmnet/dccftsmp.h \
  ../../ofstd/include/dcmtk/ofstd/ofmap.h \
  ../../ofstd/include/dcmtk/ofstd/ofutil.h \
@@ -694,7 +695,6 @@ storescp.o: storescp.cc ../../config/include/dcmtk/config/osconfig.h \
  ../../dcmdata/include/dcmtk/dcmdata/dcostrmz.h \
  ../../dcmdata/include/dcmtk/dcmdata/dcostrma.h \
  ../../dcmtls/include/dcmtk/dcmtls/tlstrans.h \
- ../include/dcmtk/dcmnet/dcmtrans.h ../include/dcmtk/dcmnet/dcmlayer.h \
  ../../dcmtls/include/dcmtk/dcmtls/tlsdefin.h \
  ../../dcmtls/include/dcmtk/dcmtls/tlslayer.h
 storescu.o: storescu.cc ../../config/include/dcmtk/config/osconfig.h \
@@ -759,7 +759,8 @@ storescu.o: storescu.cc ../../config/include/dcmtk/config/osconfig.h \
  ../../dcmdata/include/dcmtk/dcmdata/dcstack.h \
  ../../dcmdata/include/dcmtk/dcmdata/dclist.h \
  ../../dcmdata/include/dcmtk/dcmdata/dcpcache.h \
- ../include/dcmtk/dcmnet/diutil.h ../include/dcmtk/dcmnet/dcasccfg.h \
+ ../include/dcmtk/dcmnet/diutil.h ../include/dcmtk/dcmnet/dcmtrans.h \
+ ../include/dcmtk/dcmnet/dcmlayer.h ../include/dcmtk/dcmnet/dcasccfg.h \
  ../include/dcmtk/dcmnet/dccftsmp.h \
  ../../ofstd/include/dcmtk/ofstd/ofmap.h \
  ../../ofstd/include/dcmtk/ofstd/ofutil.h \
@@ -778,7 +779,6 @@ storescu.o: storescu.cc ../../config/include/dcmtk/config/osconfig.h \
  ../../dcmdata/include/dcmtk/dcmdata/dcostrmz.h \
  ../../dcmdata/include/dcmtk/dcmdata/dcostrma.h \
  ../../dcmtls/include/dcmtk/dcmtls/tlstrans.h \
- ../include/dcmtk/dcmnet/dcmtrans.h ../include/dcmtk/dcmnet/dcmlayer.h \
  ../../dcmtls/include/dcmtk/dcmtls/tlsdefin.h \
  ../../dcmtls/include/dcmtk/dcmtls/tlslayer.h
 termscu.o: termscu.cc ../../config/include/dcmtk/config/osconfig.h \

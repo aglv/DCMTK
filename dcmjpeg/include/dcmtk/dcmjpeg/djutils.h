@@ -70,7 +70,13 @@ enum EJ_Mode
   EJM_progressive,
 
   /// JPEG lossless
-  EJM_lossless
+  EJM_lossless,
+    
+  /// JPEG 2K
+  EJM_2k_lossy,
+
+  /// JPEG 2K lossless
+  EJM_2k_lossless
 };
 
 /** describes the different types of component sub-sampling

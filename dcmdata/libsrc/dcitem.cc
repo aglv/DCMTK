@@ -1,6 +1,6 @@
 /*
  *
- *  Copyright (C) 1994-2016, OFFIS e.V.
+ *  Copyright (C) 1994-2017, OFFIS e.V.
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  This software and supporting documentation were developed by
@@ -70,12 +70,12 @@
 #include "dcmtk/dcmdata/dcvrut.h"
 #include "dcmtk/dcmdata/dcxfer.h"
 #include "dcmtk/dcmdata/dcspchrs.h"   /* for class DcmSpecificCharacterSet */
+#include "dcmtk/dcmdata/dcjson.h"
 
 #include "dcmtk/ofstd/ofstream.h"
 #include "dcmtk/ofstd/ofstring.h"
 #include "dcmtk/ofstd/ofcast.h"
 #include "dcmtk/ofstd/ofstd.h"
-
 
 // ********************************
 
@@ -529,6 +529,34 @@ OFCondition DcmItem::writeXML(STD_NAMESPACE ostream &out,
     return l_error;
 }
 
+
+// ********************************
+
+
+OFCondition DcmItem::writeJson(STD_NAMESPACE ostream &out,
+                               DcmJsonFormat &format)
+{
+    if (!elementList->empty())
+    {
+        // write content of all children
+        out << "{" << format.newline();
+        elementList->seek(ELP_first);
+        OFCondition status = EC_Normal;
+        status = elementList->get()->writeJson(out, format);
+        while (status.good() && elementList->seek(ELP_next))
+        {
+            out << "," << format.newline();
+            status = elementList->get()->writeJson(out, format);
+        }
+        out << format.newline() << format.indent() << "}";
+        return status;
+    }
+    else
+    {
+        out << "{}" << format.newline();
+    }
+    return EC_Normal;
+}
 
 // ********************************
 
@@ -1094,6 +1122,7 @@ OFCondition DcmItem::readTagAndLength(DcmInputStream &inStream,
         DCMDATA_WARN("DcmItem: Length of element " << newTag << " is odd");
     }
 
+
     /* if desired, handle private attributes with maximum length as VR SQ */
     if (isPrivate && dcmReadImplPrivAttribMaxLengthAsSQ.get() && (valueLength == DCM_UndefinedLength))
     {
@@ -1195,6 +1224,14 @@ OFCondition DcmItem::readSubElement(DcmInputStream &inStream,
         /* without setting the Mark twice. */
         inStream.putback();
         DCMDATA_WARN("DcmItem: Parse error while parsing element " << newTag);
+    }
+    else if (l_error == EC_UndefinedLengthOBOW)
+    {
+        // do nothing
+    }
+    else if (l_error == EC_VOI_LUT_OBOW)
+    {
+        // do nothing
     }
     else if (l_error != EC_ItemEnd)
     {
@@ -2364,13 +2401,59 @@ OFCondition newDicomElement(DcmElement *&newElement,
                 newElement = new DcmPixelData(tag, length);
             else if (tag.getBaseTag() == DCM_OverlayData)
                 newElement = new DcmOverlayData(tag, length);
+            else if ((tag == DCM_VOILUTSequence) && (length != DCM_UndefinedLength))
+            {
+                // this is an incorrectly encoded VOI LUT Sequence.
+                // Real-world examples of this issue have been reported in 2016.
+                if (dcmConvertVOILUTSequenceOWtoSQ.get())
+                {
+                  // Silently fix the error by interpreting as a sequence.
+                  DcmTag newTag(tag);
+                  newTag.setVR(DcmVR(EVR_SQ)); // on writing we will handle this element as SQ, not OB/OW
+                  newElement = new DcmSequenceOfItems(newTag, length);
+                } else {
+
+                    if (dcmIgnoreParsingErrors.get())
+                    {
+                        // ignore parse error, keep VR unchanged
+                        DCMDATA_WARN("DcmItem: VOI LUT Sequence with VR=OW and explicit length encountered.");
+                        newElement = new DcmOtherByteOtherWord(tag, length);
+                    }
+                    else
+                    {
+                        // bail out with an error
+                        DCMDATA_ERROR("DcmItem: VOI LUT Sequence with VR=OW and explicit length encountered.");
+                        l_error = EC_VOI_LUT_OBOW;
+                    }
+                }
+            }
             else
                 if (length == DCM_UndefinedLength)
                 {
                     // The attribute is OB or OW but is encoded with undefined
-                    // length.  Assume it is really a sequence so that we can
-                    // catch the sequence delimitation item.
-                    newElement = new DcmSequenceOfItems(tag, length);
+                    // length, and it is not Pixel Data. This is illegal.
+                    if (dcmConvertUndefinedLengthOBOWtoSQ.get())
+                    {
+                        // Assume that this is in fact a sequence so that we can
+                        // catch the sequence delimitation item.
+                        DcmTag newTag(tag);
+                        newTag.setVR(DcmVR(EVR_SQ)); // on writing we will handle this element as SQ, not OB/OW
+                        newElement = new DcmSequenceOfItems(newTag, length);
+                    } else {
+                        if (dcmIgnoreParsingErrors.get())
+                        {
+                            // ignore parse error, keep VR unchanged
+                            OFCondition tempcond = EC_UndefinedLengthOBOW;
+                            DCMDATA_WARN("DcmItem: Parse error in " << tag << ": " << tempcond.text());
+                            newElement = new DcmSequenceOfItems(tag, length);
+                        }
+                        else
+                        {
+                            // bail out with an error
+                            l_error = EC_UndefinedLengthOBOW;
+                            DCMDATA_ERROR("DcmItem: Parse error in " << tag << ": " << l_error.text());
+                        }
+                    }
                 } else {
                     newElement = new DcmOtherByteOtherWord(tag, length);
                 }
@@ -4319,9 +4402,8 @@ void DcmItem::updateSpecificCharacterSet(OFCondition &status,
 
 OFCondition DcmItem::convertCharacterSet(const OFString &fromCharset,
                                          const OFString &toCharset,
-                                         const OFBool transliterate,
-                                         const OFBool updateCharset,
-                                         const OFBool discardIllegal)
+                                         const size_t flags,
+                                         const OFBool updateCharset)
 {
     OFCondition status = EC_Normal;
     // if the item is empty, there is nothing to do
@@ -4333,15 +4415,26 @@ OFCondition DcmItem::convertCharacterSet(const OFString &fromCharset,
             << fromCharset << "'" << (fromCharset.empty() ? " (ASCII)" : "") << " to '"
             << toCharset << "'" << (toCharset.empty() ? " (ASCII)" : ""));
         // select source and destination character set
-        status = converter.selectCharacterSet(fromCharset, toCharset, transliterate, discardIllegal);
+        status = converter.selectCharacterSet(fromCharset, toCharset);
         if (status.good())
         {
-            // convert all affected element values in the item
-            status = convertCharacterSet(converter);
-            if (updateCharset)
+            unsigned cflags = 0;
+            /* pass flags to underlying implementation */
+            if (flags & DCMTypes::CF_discardIllegal)
+                cflags |= OFCharacterEncoding::DiscardIllegalSequences;
+            if (flags & DCMTypes::CF_transliterate)
+                cflags |= OFCharacterEncoding::TransliterateIllegalSequences;
+            if (cflags > 0)
+                status = converter.setConversionFlags(cflags);
+            if (status.good())
             {
-                // update the Specific Character Set (0008,0005) element
-                updateSpecificCharacterSet(status, converter);
+                // convert all affected element values in the item
+                status = convertCharacterSet(converter);
+                if (updateCharset)
+                {
+                    // update the Specific Character Set (0008,0005) element
+                    updateSpecificCharacterSet(status, converter);
+                }
             }
         }
     }
@@ -4350,9 +4443,8 @@ OFCondition DcmItem::convertCharacterSet(const OFString &fromCharset,
 
 
 OFCondition DcmItem::convertCharacterSet(const OFString &toCharset,
-                                         const OFBool transliterate,
-                                         const OFBool ignoreCharset,
-                                         const OFBool discardIllegal)
+                                         const size_t flags,
+                                         const OFBool ignoreCharset)
 {
     OFString fromCharset;
     // check whether this item can contain the attribute SpecificCharacterSet (0008,0005)
@@ -4362,7 +4454,7 @@ OFCondition DcmItem::convertCharacterSet(const OFString &toCharset,
         findAndGetOFStringArray(DCM_SpecificCharacterSet, fromCharset, OFFalse /*searchIntoSub*/);
     }
     // do the real work, if Specific Character Set is missing or empty use the default (ASCII)
-    return convertCharacterSet(fromCharset, toCharset, transliterate, !ignoreCharset /*updateCharset*/, discardIllegal);
+    return convertCharacterSet(fromCharset, toCharset, flags, !ignoreCharset /*updateCharset*/);
 }
 
 
@@ -4385,5 +4477,6 @@ OFCondition DcmItem::convertCharacterSet(DcmSpecificCharacterSet &converter)
 OFCondition DcmItem::convertToUTF8()
 {
     // the DICOM defined term "ISO_IR 192" is used for "UTF-8"
-    return convertCharacterSet("ISO_IR 192", OFFalse /*transliterate*/);
+    return convertCharacterSet("ISO_IR 192", 0 /*flags*/);
 }
+

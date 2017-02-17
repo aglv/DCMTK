@@ -1,6 +1,6 @@
 /*
  *
- *  Copyright (C) 1994-2016, OFFIS e.V.
+ *  Copyright (C) 1994-2017, OFFIS e.V.
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  This software and supporting documentation were developed by
@@ -31,6 +31,7 @@
 #include "dcmtk/ofstd/ofstack.h"
 #include "dcmtk/ofstd/ofstd.h"
 
+#include "dcmtk/dcmdata/dcjson.h"
 #include "dcmtk/dcmdata/dcdatset.h"
 #include "dcmtk/dcmdata/dcxfer.h"
 #include "dcmtk/dcmdata/dcvrus.h"
@@ -240,6 +241,8 @@ Uint32 DcmDataset::calcElementLength(const E_TransferSyntax xfer,
 OFBool DcmDataset::canWriteXfer(const E_TransferSyntax newXfer,
                                 const E_TransferSyntax oldXfer)
 {
+    delete remove(DcmTagKey(0x0009, 0x1110)); // "GEIIS" The problematic private group, containing a *always* JPEG compressed PixelData
+    
     if (newXfer == EXS_Unknown)
         return OFFalse;
 
@@ -339,6 +342,30 @@ OFCondition DcmDataset::writeXML(STD_NAMESPACE ostream &out,
 // ********************************
 
 
+OFCondition DcmDataset::writeJson(STD_NAMESPACE ostream &out,
+                                  DcmJsonFormat &format)
+{
+    // write dataset content
+    if (!elementList->empty())
+    {
+        elementList->seek(ELP_first);
+        OFCondition status = EC_Normal;
+        // write content of all children
+        status = elementList->get()->writeJson(out, format);
+        while (status.good() && elementList->seek(ELP_next))
+        {
+            out << "," << format.newline();
+            status = elementList->get()->writeJson(out, format);
+        }
+        return status;
+    }
+    return EC_Normal;
+}
+
+
+// ********************************
+
+
 OFCondition DcmDataset::read(DcmInputStream &inStream,
                              const E_TransferSyntax xfer,
                              const E_GrpLenEncoding glenc,
@@ -418,6 +445,7 @@ OFCondition DcmDataset::read(DcmInputStream &inStream,
         /* pass processing the task to class DcmItem */
         if (errorFlag.good())
             errorFlag = DcmItem::read(inStream, OriginalXfer, glenc, maxReadLength);
+
     }
 
     /* if the error flag shows ok or that the end of the stream was encountered, */
@@ -425,15 +453,21 @@ OFCondition DcmDataset::read(DcmInputStream &inStream,
     /* case, we need to do something for the current dataset object */
     if (errorFlag.good() || errorFlag == EC_EndOfStream)
     {
-        /* set the error flag to ok */
-        errorFlag = EC_Normal;
+        /* perform some final checks on dataset level */
+        errorFlag = doPostReadChecks();
 
-        /* take care of group length (according to what is specified */
-        /* in glenc) and padding elements (don't change anything) */
-        computeGroupLengthAndPadding(glenc, EPD_noChange, OriginalXfer);
+        if (errorFlag.good())
+        {
+            /* set the error flag to ok */
+            errorFlag = EC_Normal;
 
-        /* and set the transfer state to ERW_ready to indicate that the data set is complete */
-        setTransferState(ERW_ready);
+            /* take care of group length (according to what is specified */
+            /* in glenc) and padding elements (don't change anything) */
+            computeGroupLengthAndPadding(glenc, EPD_noChange, OriginalXfer);
+
+            /* and set the transfer state to ERW_ready to indicate that the data set is complete */
+            setTransferState(ERW_ready);
+        }
     }
 
     /* dump information if required */
@@ -670,6 +704,8 @@ OFCondition DcmDataset::saveFile(const OFFilename &fileName,
 OFCondition DcmDataset::chooseRepresentation(const E_TransferSyntax repType,
                                              const DcmRepresentationParameter *repParam)
 {
+    delete remove(DcmTagKey(0x0009, 0x1110)); // "GEIIS" The problematic private group, containing a *always* JPEG compressed PixelData
+    
     OFCondition l_error = EC_Normal;
     OFStack<DcmStack> pixelStack;
 
@@ -761,4 +797,47 @@ void DcmDataset::removeAllButOriginalRepresentations()
             pixelData->removeAllButOriginalRepresentations();
         }
     }
+}
+
+
+// ********************************
+
+
+OFCondition DcmDataset::doPostReadChecks()
+{
+  DcmElement* pixData = NULL;
+  DcmXfer xf(OriginalXfer);
+  OFCondition result = EC_Normal;
+  if (findAndGetElement(DCM_PixelData, pixData).good())
+  {
+      Uint32 valueLength = pixData->getLengthField();
+      if (xf.isEncapsulated())
+      {
+          if (valueLength != DCM_UndefinedLength)
+          {
+              if (dcmUseExplLengthPixDataForEncTS.get() == OFFalse /* default case */)
+              {
+                  /* length of top level dataset's Pixel Data is explicitly */
+                  /* defined but we have a transfer syntax requiring */
+                  /* encapsulated pixel data (always encoded with undefined */
+                  /* length). Print and return an error. */
+                  DCMDATA_ERROR("Found explicit length Pixel Data in top level "
+                  << "dataset with transfer syntax " << xf.getXferName()
+                  << ": Only undefined length permitted");
+                  result = EC_PixelDataExplLengthIllegal;
+              }
+              else
+              {
+                  /* Only print warning if requested by related OFGlobal, */
+                  /* and behave like as we have the same case as for an */
+                  /* icon image, which is always uncompressed (see above). */
+                  DCMDATA_WARN("Found explicit length Pixel Data in top level "
+                  << "dataset with transfer syntax " << xf.getXferName()
+                  << ": Only undefined length permitted (ignored on explicit request)");
+              }
+          }
+      }
+  }
+
+  return result;
 }

@@ -227,6 +227,10 @@ reset_error_mgr (j_common_ptr cinfo)
  * after which the application may override some of the methods.
  */
 
+#ifdef IJG_INTEGRATION_INIT
+extern void IJG_INTEGRATION_INIT(struct jpeg_error_mgr * err);
+#endif
+
 GLOBAL(struct jpeg_error_mgr *)
 jpeg_std_error (struct jpeg_error_mgr * err)
 {
@@ -247,6 +251,10 @@ jpeg_std_error (struct jpeg_error_mgr * err)
   err->addon_message_table = NULL;
   err->first_addon_message = 0;	/* for safety */
   err->last_addon_message = 0;
+
+#ifdef IJG_INTEGRATION_INIT
+    IJG_INTEGRATION_INIT(err);
+#endif
 
   return err;
 }

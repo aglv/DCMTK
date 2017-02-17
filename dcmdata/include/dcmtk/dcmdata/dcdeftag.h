@@ -4,7 +4,7 @@
 **
 **   User: joergr
 **   Host: thinkpad
-**   Date: 2016-10-04 12:15:57
+**   Date: 2017-01-31 14:11:01
 **   Prog: /home/joergr/Source/dcmtk-full/public/dcmdata/libsrc/mkdeftag
 **
 **   From: ../data/dicom.dic
@@ -17,12 +17,12 @@
 
 #include "dcmtk/dcmdata/dctagkey.h"
 
-#define DCM_DICT_DEFTAG_BUILD_DATE "2016-10-04 12:15:57"
+#define DCM_DICT_DEFTAG_BUILD_DATE "2017-01-31 14:11:01"
 
 
 /*
 ** Fixed Tags in ascending (gggg,eeee) order.
-** Number of entries: 4166
+** Number of entries: 4176
 ** Tags with a repeating component (repeating tags) are listed later.
 */
 #define DCM_CommandGroupLength                   DcmTagKey(0x0000, 0x0000)
@@ -338,6 +338,10 @@
 #define DCM_StrainSource                         DcmTagKey(0x0010, 0x0217)
 #define DCM_StrainAdditionalInformation          DcmTagKey(0x0010, 0x0218)
 #define DCM_StrainCodeSequence                   DcmTagKey(0x0010, 0x0219)
+#define DCM_GeneticModificationsSequence         DcmTagKey(0x0010, 0x0221)
+#define DCM_GeneticModificationsDescription      DcmTagKey(0x0010, 0x0222)
+#define DCM_GeneticModificationsNomenclature     DcmTagKey(0x0010, 0x0223)
+#define DCM_GeneticModificationsCodeSequence     DcmTagKey(0x0010, 0x0229)
 #define DCM_OtherPatientIDs                      DcmTagKey(0x0010, 0x1000)
 #define DCM_OtherPatientNames                    DcmTagKey(0x0010, 0x1001)
 #define DCM_OtherPatientIDsSequence              DcmTagKey(0x0010, 0x1002)
@@ -1886,6 +1890,9 @@
 #define DCM_SegmentedGreenPaletteColorLookupTableData DcmTagKey(0x0028, 0x1222)
 #define DCM_SegmentedBluePaletteColorLookupTableData DcmTagKey(0x0028, 0x1223)
 #define DCM_SegmentedAlphaPaletteColorLookupTableData DcmTagKey(0x0028, 0x1224)
+#define DCM_StoredValueColorRangeSequence        DcmTagKey(0x0028, 0x1230)
+#define DCM_MinimumStoredValueMapped             DcmTagKey(0x0028, 0x1231)
+#define DCM_MaximumStoredValueMapped             DcmTagKey(0x0028, 0x1232)
 #define DCM_BreastImplantPresent                 DcmTagKey(0x0028, 0x1300)
 #define DCM_PartialView                          DcmTagKey(0x0028, 0x1350)
 #define DCM_PartialViewDescription               DcmTagKey(0x0028, 0x1351)
@@ -2685,6 +2692,7 @@
 #define DCM_SegmentNumber                        DcmTagKey(0x0062, 0x0004)
 #define DCM_SegmentLabel                         DcmTagKey(0x0062, 0x0005)
 #define DCM_SegmentDescription                   DcmTagKey(0x0062, 0x0006)
+#define DCM_SegmentationAlgorithmIdentificationSequence DcmTagKey(0x0062, 0x0007)
 #define DCM_SegmentAlgorithmType                 DcmTagKey(0x0062, 0x0008)
 #define DCM_SegmentAlgorithmName                 DcmTagKey(0x0062, 0x0009)
 #define DCM_SegmentIdentificationSequence        DcmTagKey(0x0062, 0x000a)
@@ -3567,6 +3575,7 @@
 #define DCM_MeasuredDoseReferenceNumber          DcmTagKey(0x3008, 0x0064)
 #define DCM_ParameterPointer                     DcmTagKey(0x3008, 0x0065)
 #define DCM_OverrideReason                       DcmTagKey(0x3008, 0x0066)
+#define DCM_ParameterValueNumber                 DcmTagKey(0x3008, 0x0067)
 #define DCM_CorrectedParameterSequence           DcmTagKey(0x3008, 0x0068)
 #define DCM_CorrectionValue                      DcmTagKey(0x3008, 0x006a)
 #define DCM_CalculatedDoseReferenceSequence      DcmTagKey(0x3008, 0x0070)
@@ -3962,6 +3971,7 @@
 #define DCM_RangeModulatorGatingStartWaterEquivalentThickness DcmTagKey(0x300a, 0x0386)
 #define DCM_RangeModulatorGatingStopWaterEquivalentThickness DcmTagKey(0x300a, 0x0388)
 #define DCM_IsocenterToRangeModulatorDistance    DcmTagKey(0x300a, 0x038a)
+#define DCM_ScanSpotTimeOffset                   DcmTagKey(0x300a, 0x038f)
 #define DCM_ScanSpotTuneID                       DcmTagKey(0x300a, 0x0390)
 #define DCM_ScanSpotPrescribedIndices            DcmTagKey(0x300a, 0x0391)
 #define DCM_NumberOfScanSpotPositions            DcmTagKey(0x300a, 0x0392)

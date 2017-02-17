@@ -4,7 +4,7 @@
 **
 **   User: joergr
 **   Host: thinkpad
-**   Date: 2016-10-04 12:15:57
+**   Date: 2017-01-31 14:11:02
 **   Prog: /home/joergr/Source/dcmtk-full/public/dcmdata/libsrc/mkdictbi
 **
 **   From: ../data/dicom.dic
@@ -2120,6 +2120,22 @@ static const DBI_SimpleEntry simpleBuiltinDict[] = {
       NULL }
   , { 0x0010, 0x0219, 0x0010, 0x0219,
       EVR_SQ, "StrainCodeSequence", 1, 1, "DICOM",
+      DcmDictRange_Unspecified, DcmDictRange_Unspecified,
+      NULL }
+  , { 0x0010, 0x0221, 0x0010, 0x0221,
+      EVR_SQ, "GeneticModificationsSequence", 1, 1, "DICOM/CP_1619",
+      DcmDictRange_Unspecified, DcmDictRange_Unspecified,
+      NULL }
+  , { 0x0010, 0x0222, 0x0010, 0x0222,
+      EVR_UC, "GeneticModificationsDescription", 1, 1, "DICOM/CP_1619",
+      DcmDictRange_Unspecified, DcmDictRange_Unspecified,
+      NULL }
+  , { 0x0010, 0x0223, 0x0010, 0x0223,
+      EVR_LO, "GeneticModificationsNomenclature", 1, 1, "DICOM/CP_1619",
+      DcmDictRange_Unspecified, DcmDictRange_Unspecified,
+      NULL }
+  , { 0x0010, 0x0229, 0x0010, 0x0229,
+      EVR_SQ, "GeneticModificationsCodeSequence", 1, 1, "DICOM/CP_1619",
       DcmDictRange_Unspecified, DcmDictRange_Unspecified,
       NULL }
   , { 0x0010, 0x1000, 0x0010, 0x1000,
@@ -15232,6 +15248,18 @@ static const DBI_SimpleEntry simpleBuiltinDict[] = {
       EVR_OW, "SegmentedAlphaPaletteColorLookupTableData", 1, 1, "DICOM",
       DcmDictRange_Unspecified, DcmDictRange_Unspecified,
       NULL }
+  , { 0x0028, 0x1230, 0x0028, 0x1230,
+      EVR_SQ, "StoredValueColorRangeSequence", 1, 1, "DICOM",
+      DcmDictRange_Unspecified, DcmDictRange_Unspecified,
+      NULL }
+  , { 0x0028, 0x1231, 0x0028, 0x1231,
+      EVR_FD, "MinimumStoredValueMapped", 1, 1, "DICOM",
+      DcmDictRange_Unspecified, DcmDictRange_Unspecified,
+      NULL }
+  , { 0x0028, 0x1232, 0x0028, 0x1232,
+      EVR_FD, "MaximumStoredValueMapped", 1, 1, "DICOM",
+      DcmDictRange_Unspecified, DcmDictRange_Unspecified,
+      NULL }
   , { 0x0028, 0x1300, 0x0028, 0x1300,
       EVR_CS, "BreastImplantPresent", 1, 1, "DICOM",
       DcmDictRange_Unspecified, DcmDictRange_Unspecified,
@@ -21062,6 +21090,10 @@ static const DBI_SimpleEntry simpleBuiltinDict[] = {
       EVR_ST, "SegmentDescription", 1, 1, "DICOM",
       DcmDictRange_Unspecified, DcmDictRange_Unspecified,
       NULL }
+  , { 0x0062, 0x0007, 0x0062, 0x0007,
+      EVR_SQ, "SegmentationAlgorithmIdentificationSequence", 1, 1, "DICOM",
+      DcmDictRange_Unspecified, DcmDictRange_Unspecified,
+      NULL }
   , { 0x0062, 0x0008, 0x0062, 0x0008,
       EVR_CS, "SegmentAlgorithmType", 1, 1, "DICOM",
       DcmDictRange_Unspecified, DcmDictRange_Unspecified,
@@ -25260,6 +25292,10 @@ static const DBI_SimpleEntry simpleBuiltinDict[] = {
       EVR_ST, "OverrideReason", 1, 1, "DICOM",
       DcmDictRange_Unspecified, DcmDictRange_Unspecified,
       NULL }
+  , { 0x3008, 0x0067, 0x3008, 0x0067,
+      EVR_US, "ParameterValueNumber", 1, 1, "DICOM",
+      DcmDictRange_Unspecified, DcmDictRange_Unspecified,
+      NULL }
   , { 0x3008, 0x0068, 0x3008, 0x0068,
       EVR_SQ, "CorrectedParameterSequence", 1, 1, "DICOM",
       DcmDictRange_Unspecified, DcmDictRange_Unspecified,
@@ -26838,6 +26874,10 @@ static const DBI_SimpleEntry simpleBuiltinDict[] = {
       NULL }
   , { 0x300a, 0x038a, 0x300a, 0x038a,
       EVR_FL, "IsocenterToRangeModulatorDistance", 1, 1, "DICOM",
+      DcmDictRange_Unspecified, DcmDictRange_Unspecified,
+      NULL }
+  , { 0x300a, 0x038f, 0x300a, 0x038f,
+      EVR_FL, "ScanSpotTimeOffset", 1, -1, "DICOM",
       DcmDictRange_Unspecified, DcmDictRange_Unspecified,
       NULL }
   , { 0x300a, 0x0390, 0x300a, 0x0390,

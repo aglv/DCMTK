@@ -1,6 +1,6 @@
 /*
  *
- *  Copyright (C) 1994-2012, OFFIS e.V.
+ *  Copyright (C) 1994-2017, OFFIS e.V.
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  This software and supporting documentation were developed by
@@ -26,6 +26,7 @@
 
 #include "dcmtk/ofstd/ofstd.h"
 #include "dcmtk/ofstd/ofstream.h"
+#include "dcmtk/dcmdata/dcjson.h"
 #include "dcmtk/dcmdata/dcobject.h"
 #include "dcmtk/dcmdata/dcdeftag.h"
 #include "dcmtk/dcmdata/dcvr.h"
@@ -55,7 +56,9 @@ OFGlobal<DcmTagKey> dcmStopParsingAfterElement(DCM_UndefinedTagKey); // (0xffff,
 OFGlobal<OFBool>    dcmWriteOversizedSeqsAndItemsUndefined(OFTrue);
 OFGlobal<OFBool>    dcmIgnoreFileMetaInformationGroupLength(OFFalse);
 OFGlobal<OFBool>    dcmReplaceWrongDelimitationItem(OFFalse);
-
+OFGlobal<OFBool>    dcmConvertUndefinedLengthOBOWtoSQ(OFFalse);
+OFGlobal<OFBool>    dcmConvertVOILUTSequenceOWtoSQ(OFFalse);
+OFGlobal<OFBool>    dcmUseExplLengthPixDataForEncTS(OFFalse);
 
 // ****** public methods **********************************
 
@@ -241,6 +244,17 @@ OFCondition DcmObject::writeXML(STD_NAMESPACE ostream& /*out*/,
 {
     return EC_IllegalCall;
 }
+
+
+// ********************************
+
+
+OFCondition DcmObject::writeJson(STD_NAMESPACE ostream& /*out*/,
+                                 DcmJsonFormat& /*format*/)
+{
+    return EC_IllegalCall;
+}
+
 
 // ***********************************************************
 // ****** protected methods **********************************

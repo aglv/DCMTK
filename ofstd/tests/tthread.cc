@@ -28,6 +28,7 @@
 #include "dcmtk/ofstd/ofthread.h"
 #include "dcmtk/ofstd/ofstring.h"
 #include "dcmtk/ofstd/ofstd.h"
+#include "dcmtk/ofstd/ofdiag.h"
 
 #define BAILOUT(msg) do { \
     OFCHECK_FAIL(msg); \
@@ -121,11 +122,6 @@ static void mutex_test()
   delete mutex;
 }
 
-/* Currently OFSemaphore is not working and disabled on Mac OS X. Thus,
- * it is not tested on Mac OS X.
- */
-#ifndef _DARWIN_C_SOURCE
-
 static OFSemaphore *semaphore=NULL;
 static int sem_cond1=0;
 static int sem_cond2=0;
@@ -216,8 +212,6 @@ static void semaphore_test()
   delete semaphore;
 }
 
-#endif //_DARWIN_C_SOURCE
-
 static OFReadWriteLock *rwlock=NULL;
 static OFMutex *mutex2=NULL;
 static int rw_cond1=0;
@@ -253,7 +247,10 @@ class RWLockT1: public OFThread
 private:
   RWLockT2 &t2;
 public:
+#include DCMTK_DIAGNOSTIC_PUSH
+#include DCMTK_DIAGNOSTIC_IGNORE_SHADOW
   RWLockT1(RWLockT2 &t2) : OFThread(), t2(t2) {}
+#include DCMTK_DIAGNOSTIC_POP
   ~RWLockT1() {}
 
   virtual void run()
@@ -360,7 +357,10 @@ class RWLockerT1: public OFThread
 private:
   RWLockerT2 &t2;
 public:
+#include DCMTK_DIAGNOSTIC_PUSH
+#include DCMTK_DIAGNOSTIC_IGNORE_SHADOW
   RWLockerT1(RWLockerT2 &t2): OFThread(), t2(t2) {}
+#include DCMTK_DIAGNOSTIC_POP
   ~RWLockerT1() {}
 
   virtual void run()
@@ -576,9 +576,7 @@ OFTEST(ofstd_thread)
 {
   // This makes sure tests are executed in the expected order
   mutex_test();
-#ifndef _DARWIN_C_SOURCE
   semaphore_test(); // may assume that mutexes work correctly
-#endif
   rwlock_test();    // may assume that mutexes and semaphores work correctly
   rwlocker_test();  // may assume that mutexes, semaphores and read/write locks work correctly
   tsdata_test();

@@ -9,9 +9,9 @@ SET(DCMTK_CONFIGURATION_DONE true)
 
 # Minimum CMake version required
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
-IF(CMAKE_BACKWARDS_COMPATIBILITY GREATER 3.5.2)
-  SET(CMAKE_BACKWARDS_COMPATIBILITY 3.5.2 CACHE STRING "Latest version of CMake when this project was released." FORCE)
-ENDIF(CMAKE_BACKWARDS_COMPATIBILITY GREATER 3.5.2)
+IF(CMAKE_BACKWARDS_COMPATIBILITY GREATER 3.7.2)
+  SET(CMAKE_BACKWARDS_COMPATIBILITY 3.7.2 CACHE STRING "Latest version of CMake when this project was released." FORCE)
+ENDIF(CMAKE_BACKWARDS_COMPATIBILITY GREATER 3.7.2)
 
 # CMAKE_BUILD_TYPE is set to value "Release" if none is specified by the
 # selected build file generator. For those generators that support multiple
@@ -42,7 +42,7 @@ SET(DCMTK_MINOR_VERSION 6)
 SET(DCMTK_BUILD_VERSION 1)
 # The ABI is not guaranteed to be stable between different snapshots/releases,
 # so this particular version number is increased for each snapshot or release.
-SET(DCMTK_ABI_VERSION 9)
+SET(DCMTK_ABI_VERSION 10)
 
 # Package "release" settings (some are currently unused and, therefore, disabled)
 SET(DCMTK_PACKAGE_NAME "dcmtk")
@@ -78,6 +78,7 @@ OPTION(DCMTK_WITH_ZLIB "Configure DCMTK with support for ZLIB." ON)
 OPTION(DCMTK_WITH_OPENSSL "Configure DCMTK with support for OPENSSL." ON)
 OPTION(DCMTK_WITH_SNDFILE "Configure DCMTK with support for SNDFILE." ON)
 OPTION(DCMTK_WITH_ICONV "Configure DCMTK with support for ICONV." ON)
+OPTION(DCMTK_WITH_ICU "Configure DCMTK with support for ICU." ON)
 IF(NOT WIN32)
   OPTION(DCMTK_WITH_WRAP "Configure DCMTK with support for WRAP." ON)
 ENDIF(NOT WIN32)
@@ -87,17 +88,18 @@ OPTION(DCMTK_WITH_DOXYGEN "Build API documentation with DOXYGEN." ON)
 OPTION(DCMTK_GENERATE_DOXYGEN_TAGFILE "Generate a tag file with DOXYGEN." OFF)
 OPTION(DCMTK_WIDE_CHAR_FILE_IO_FUNCTIONS "Build with wide char file I/O functions." OFF)
 OPTION(DCMTK_WIDE_CHAR_MAIN_FUNCTION "Build command line tools with wide char main function." OFF)
+OPTION(DCMTK_KEEP_UIDS "Don't regenerate UIDs when encoding/decoding images." OFF)
 
 # Built-in (compiled-in) dictionary enabled on Windows per default, otherwise
 # disabled. Loading of external dictionary via run-time is, per default,
 # configured the the opposite way since most users won't be interested in using
 # the external default dictionary if it is already compiled in.
 IF(WIN32 OR MINGW)
-  OPTION(DCMTK_ENABLE_BUILTIN_DICTIONARY "Configure DCMTK with compiled-in data dictionary" ON)
-  OPTION(DCMTK_ENABLE_EXTERNAL_DICTIONARY "Configure DCMTK to load external dictionary from default path on startup" OFF)
+  OPTION(DCMTK_ENABLE_BUILTIN_DICTIONARY "Configure DCMTK with compiled-in data dictionary." ON)
+  OPTION(DCMTK_ENABLE_EXTERNAL_DICTIONARY "Configure DCMTK to load external dictionary from default path on startup." OFF)
 ELSE(WIN32 or MINGW) # built-in dictionary turned off on Unix per default
-  OPTION(DCMTK_ENABLE_BUILTIN_DICTIONARY "Configure DCMTK with compiled-in data dictionary" OFF)
-  OPTION(DCMTK_ENABLE_EXTERNAL_DICTIONARY "Configure DCMTK to load external dictionary from default path on startup" ON)
+  OPTION(DCMTK_ENABLE_BUILTIN_DICTIONARY "Configure DCMTK with compiled-in data dictionary." OFF)
+  OPTION(DCMTK_ENABLE_EXTERNAL_DICTIONARY "Configure DCMTK to load external dictionary from default path on startup." ON)
 ENDIF(WIN32 OR MINGW)
 if (NOT DCMTK_ENABLE_EXTERNAL_DICTIONARY AND NOT DCMTK_ENABLE_BUILTIN_DICTIONARY)
   MESSAGE(WARNING "Either external or built-in dictionary should be enabled, otherwise dictionary must be loaded manually on startup!")
@@ -384,6 +386,24 @@ ENDIF(WIN32)
 # add definition of "DEBUG" to debug mode (since CMake does not do this automatically)
 SET(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -DDEBUG")
 SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG")
+
+# add definition of "DCMTK_INTEGRATION_CLASS", default to DcmIntegration
+IF(NOT DCMTK_INTEGRATION_CLASS)
+  SET(DCMTK_INTEGRATION_CLASS DcmIntegrationDefault)
+  SET(DCMTK_DEFAULT_INTEGRATION_CLASS 1)
+  ADD_DEFINITIONS(-DDCMTK_DEFAULT_INTEGRATION_CLASS=${DCMTK_DEFAULT_INTEGRATION_CLASS})
+ENDIF(NOT DCMTK_INTEGRATION_CLASS)
+
+ADD_DEFINITIONS(-DDCMTK_INTEGRATION_CLASS=${DCMTK_INTEGRATION_CLASS})
+#ADD_DEFINITIONS(-DDCMTK_INTEGRATION_INSTANCE=${DCMTK_INTEGRATION_CLASS}::instance\(\))
+
+IF(IJG_INTEGRATION_INIT)
+  ADD_DEFINITIONS(-DIJG_INTEGRATION_INIT=${IJG_INTEGRATION_INIT})
+ENDIF(IJG_INTEGRATION_INIT)
+
+IF(DCMTK_KEEP_UIDS)
+  ADD_DEFINITIONS(-DDCMTK_KEEP_UIDS=1)
+ENDIF(DCMTK_KEEP_UIDS)
 
 #-----------------------------------------------------------------------------
 # Third party libraries

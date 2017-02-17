@@ -1,6 +1,6 @@
 /*
  *
- *  Copyright (C) 1994-2016, OFFIS e.V.
+ *  Copyright (C) 1994-2017, OFFIS e.V.
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  This software and supporting documentation were developed by
@@ -31,6 +31,7 @@
 
 #include "dcmtk/ofstd/ofstd.h"
 #include "dcmtk/ofstd/ofstream.h"
+#include "dcmtk/dcmdata/dcjson.h"
 #include "dcmtk/dcmdata/dcelem.h"
 #include "dcmtk/dcmdata/dcobject.h"
 #include "dcmtk/dcmdata/dcswap.h"
@@ -845,12 +846,18 @@ OFCondition DcmElement::changeValue(const void *value,
             }
         }
     } else {
-        // swap to local byte order
-        swapIfNecessary(gLocalByteOrder, fByteOrder, fValue,
-                        getLengthField(), getTag().getVR().getValueWidth());
-        // copy value at given position
-        memcpy(&fValue[position], OFstatic_cast(const Uint8 *, value), size_t(num));
-        fByteOrder = gLocalByteOrder;
+        // load value (if not loaded yet)
+        if (!fValue)
+            errorFlag = loadValue();
+        if (errorFlag.good())
+        {
+            // swap to local byte order
+            swapIfNecessary(gLocalByteOrder, fByteOrder, fValue,
+                            getLengthField(), getTag().getVR().getValueWidth());
+            // copy value at given position
+            memcpy(&fValue[position], OFstatic_cast(const Uint8 *, value), size_t(num));
+            fByteOrder = gLocalByteOrder;
+        }
     }
     return errorFlag;
 }
@@ -1559,6 +1566,81 @@ OFCondition DcmElement::writeXML(STD_NAMESPACE ostream &out,
         /* write XML end tag  */
         writeXMLEndTag(out, flags);
     }
+    /* always report success */
+    return EC_Normal;
+}
+
+
+// ********************************
+
+
+void DcmElement::writeJsonOpener(STD_NAMESPACE ostream &out,
+                                 DcmJsonFormat &format)
+{
+    DcmVR vr(getTag().getVR());
+    DcmTag tag = getTag();
+    /* increase indention level */
+    /* write attribute tag */
+    out << ++format.indent() << "\""
+        << STD_NAMESPACE hex << STD_NAMESPACE setfill('0')
+        << STD_NAMESPACE setw(4) << tag.getGTag();
+    /* write "ggggeeee" (no comma, upper case!) */
+    /* for private element numbers, zero out 2 first element digits */
+    /* or output full element number "eeee" */
+    out << STD_NAMESPACE setw(4) << STD_NAMESPACE uppercase << tag.getETag() << "\":"
+        << format.space() << "{" << STD_NAMESPACE dec << STD_NAMESPACE setfill(' ');
+    out << STD_NAMESPACE nouppercase;
+    /* increase indention level */
+    /* value representation = VR */
+    out << format.newline() << ++format.indent() << "\"vr\":" << format.space() << "\""
+        << vr.getValidVRName() << "\"";
+}
+
+
+void DcmElement::writeJsonCloser(STD_NAMESPACE ostream &out,
+                                 DcmJsonFormat &format)
+{
+    /* output JSON ending and decrease indention level */
+    out << format.newline() << --format.indent() << "}";
+    --format.indent();
+}
+
+
+OFCondition DcmElement::writeJson(STD_NAMESPACE ostream &out,
+                                  DcmJsonFormat &format)
+{
+    /* always write JSON Opener */
+    writeJsonOpener(out, format);
+    /* write element value (if non-empty) */
+    if (!isEmpty())
+    {
+        OFString value;
+        if (format.asBulkDataURI(getTag(), value))
+        {
+            format.printBulkDataURIPrefix(out);
+            DcmJsonFormat::printString(out, value);
+        }
+        else
+        {
+            OFCondition status = getOFString(value, 0L);
+            if (status.bad())
+                return status;
+            format.printValuePrefix(out);
+            DcmJsonFormat::printNumberDecimal(out, value);
+            const unsigned long vm = getVM();
+            for (unsigned long valNo = 1; valNo < vm; ++valNo)
+            {
+                status = getOFString(value, valNo);
+                if (status.bad())
+                    return status;
+                format.printNextArrayElementPrefix(out);
+                DcmJsonFormat::printNumberDecimal(out, value);
+            }
+            format.printValueSuffix(out);
+        }
+    }
+    /* write JSON Closer  */
+    writeJsonCloser(out, format);
     /* always report success */
     return EC_Normal;
 }

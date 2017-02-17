@@ -1,6 +1,6 @@
 /*
  *
- *  Copyright (C) 2001-2016, OFFIS e.V.
+ *  Copyright (C) 2001-2017, OFFIS e.V.
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  This software and supporting documentation were developed by
@@ -2838,12 +2838,12 @@ OFString OFStandard::getUserName()
         name,
         -1,
         &*buf.begin(),
-        buf.size(),
+        OFstatic_cast(int, buf.size()),
         OFnullptr,
         OFnullptr
     );
     return &*buf.begin();
-#elif defined(HAVE_CUSERID)
+#elif defined(HAVE_CUSERID) && !defined(__CYGWIN__)
     char buf[L_cuserid];
     return cuserid( buf );
 #elif defined(HAVE_GETLOGIN)

@@ -1,0 +1,3 @@
+[submodule "OpenJPEG"]
+	path = dcmjpeg/OpenJPEG
+	url = git@github.com:uclouvain/openjpeg.git

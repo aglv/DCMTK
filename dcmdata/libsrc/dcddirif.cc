@@ -1,6 +1,6 @@
 /*
  *
- *  Copyright (C) 2002-2016, OFFIS e.V.
+ *  Copyright (C) 2002-2017, OFFIS e.V.
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  This software and supporting documentation were developed by
@@ -667,7 +667,8 @@ static E_DirRecType sopClassToRecordType(const OFString &sopClass)
              compare(sopClass, UID_SpectaclePrescriptionReportStorage) ||
              compare(sopClass, UID_MacularGridThicknessAndVolumeReportStorage) ||
              compare(sopClass, UID_ImplantationPlanSRDocumentStorage) ||
-             compare(sopClass, UID_AcquisitionContextSRStorage))
+             compare(sopClass, UID_AcquisitionContextSRStorage) ||
+             compare(sopClass, UID_SimplifiedAdultEchoSRStorage))
     {
         result = ERT_SRDocument;
     }
@@ -1567,7 +1568,8 @@ OFCondition DicomDirInterface::checkSOPClassAndXfer(DcmMetaInfo *metainfo,
                                 compare(mediaSOPClassUID, UID_SpectaclePrescriptionReportStorage) ||
                                 compare(mediaSOPClassUID, UID_MacularGridThicknessAndVolumeReportStorage) ||
                                 compare(mediaSOPClassUID, UID_ImplantationPlanSRDocumentStorage) ||
-                                compare(mediaSOPClassUID, UID_AcquisitionContextSRStorage);
+                                compare(mediaSOPClassUID, UID_AcquisitionContextSRStorage) ||
+                                compare(mediaSOPClassUID, UID_SimplifiedAdultEchoSRStorage);
                      }
                     /* is it one of the waveform SOP Classes? */
                     if (!found)
@@ -5353,7 +5355,7 @@ OFBool DicomDirInterface::warnAboutInconsistentAttributes(DcmDirectoryRecord *re
             first = OFFalse;
         }
     }
-    if (!result & abortCheck)
+    if (!result && abortCheck)
         DCMDATA_ERROR("aborting on first inconsistent file: " << sourceFilename);
     /* return OFTrue in case of any inconsistency */
     return !result;

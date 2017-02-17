@@ -1,6 +1,6 @@
 /*
  *
- *  Copyright (C) 1994-2016, OFFIS e.V.
+ *  Copyright (C) 1994-2017, OFFIS e.V.
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  This software and supporting documentation were developed by
@@ -122,6 +122,10 @@ static const UIDNameMap uidNameMap[] = {
     { UID_DeflatedExplicitVRLittleEndianTransferSyntax,        "DeflatedLittleEndianExplicit" },
     { UID_JPEG2000LosslessOnlyTransferSyntax,                  "JPEG2000LosslessOnly" },
     { UID_JPEG2000TransferSyntax,                              "JPEG2000" },
+    { UID_JPEG2000Part2MulticomponentImageCompressionLosslessOnlyTransferSyntax, "JPEG2000MulticomponentLosslessOnly" },
+    { UID_JPEG2000Part2MulticomponentImageCompressionTransferSyntax,             "JPEG2000Multicomponent" },
+    { UID_JPIPReferencedTransferSyntax,                        "JPIPReferenced" },
+    { UID_JPIPReferencedDeflateTransferSyntax,                 "JPIPReferencedDeflate" },
     { UID_MPEG2MainProfileAtMainLevelTransferSyntax,           "MPEG2MainProfile@MainLevel" },
     { UID_MPEG2MainProfileAtHighLevelTransferSyntax,           "MPEG2MainProfile@HighLevel" },
     { UID_MPEG4HighProfileLevel4_1TransferSyntax,              "MPEG4HighProfile/Level4.1" },
@@ -129,10 +133,8 @@ static const UIDNameMap uidNameMap[] = {
     { UID_MPEG4HighProfileLevel4_2_For2DVideoTransferSyntax,   "MPEG4HighProfile/Level4.2For2DVideo" },
     { UID_MPEG4HighProfileLevel4_2_For3DVideoTransferSyntax,   "MPEG4HighProfile/Level4.2For3DVideo" },
     { UID_MPEG4StereoHighProfileLevel4_2TransferSyntax,        "MPEG4StereoHighProfile/Level4.2" },
-    { UID_JPEG2000Part2MulticomponentImageCompressionLosslessOnlyTransferSyntax, "JPEG2000MulticomponentLosslessOnly" },
-    { UID_JPEG2000Part2MulticomponentImageCompressionTransferSyntax,             "JPEG2000Multicomponent" },
-    { UID_JPIPReferencedTransferSyntax,                        "JPIPReferenced" },
-    { UID_JPIPReferencedDeflateTransferSyntax,                 "JPIPReferencedDeflate" },
+    { UID_HEVCMainProfileLevel5_1TransferSyntax,               "HEVCMainProfile/Level5.1" },
+    { UID_HEVCMain10ProfileLevel5_1TransferSyntax,             "HEVCMain10Profile/Level5.1" },
     { UID_RFC2557MIMEEncapsulationTransferSyntax,              "RFC2557MIMEEncapsulation" },
     { UID_XMLEncodingTransferSyntax,                           "XMLEncoding" },
 
@@ -151,6 +153,7 @@ static const UIDNameMap uidNameMap[] = {
     { UID_CardiacElectrophysiologyWaveformStorage,             "CardiacElectrophysiologyWaveformStorage" },
     { UID_ChestCADSRStorage,                                   "ChestCADSRStorage" },
     { UID_ColonCADSRStorage,                                   "ColonCADSRStorage" },
+    { UID_ColorPaletteStorage,                                 "ColorPaletteStorage" },
     { UID_ColorSoftcopyPresentationStateStorage,               "ColorSoftcopyPresentationStateStorage" },
     { UID_CompositingPlanarMPRVolumetricPresentationStateStorage, "CompositingPlanarMPRVolumetricPresentationStateStorage" },
     { UID_Comprehensive3DSRStorage,                            "Comprehensive3DSRStorage" },
@@ -235,6 +238,7 @@ static const UIDNameMap uidNameMap[] = {
     { UID_RTTreatmentSummaryRecordStorage,                     "RTTreatmentSummaryRecordStorage" },
     { UID_SecondaryCaptureImageStorage,                        "SecondaryCaptureImageStorage" },
     { UID_SegmentationStorage,                                 "SegmentationStorage" },
+    { UID_SimplifiedAdultEchoSRStorage,                        "SimplifiedAdultEchoSRStorage" },
     { UID_SpatialFiducialsStorage,                             "SpatialFiducialsStorage" },
     { UID_SpatialRegistrationStorage,                          "SpatialRegistrationStorage" },
     { UID_SpectaclePrescriptionReportStorage,                  "SpectaclePrescriptionReportStorage" },
@@ -257,7 +261,7 @@ static const UIDNameMap uidNameMap[] = {
     { UID_VLSlideCoordinatesMicroscopicImageStorage,           "VLSlideCoordinatesMicroscopicImageStorage" },
     { UID_VLWholeSlideMicroscopyImageStorage,                  "VLWholeSlideMicroscopyImageStorage" },
     { UID_WideFieldOphthalmicPhotographyStereographicProjectionImageStorage, "WideFieldOphthalmicPhotographyStereographicProjectionImageStorage" },
-    { UID_WideFieldOphthalmicPhotography3DCoordinatesImageStorage, "OphthalmicPhotography3DCoordinatesImageStorage" },
+    { UID_WideFieldOphthalmicPhotography3DCoordinatesImageStorage, "WideFieldOphthalmicPhotography3DCoordinatesImageStorage" },
     { UID_XAXRFGrayscaleSoftcopyPresentationStateStorage,      "XAXRFGrayscaleSoftcopyPresentationStateStorage" },
     { UID_XRay3DAngiographicImageStorage,                      "XRay3DAngiographicImageStorage" },
     { UID_XRay3DCraniofacialImageStorage,                      "XRay3DCraniofacialImageStorage" },
@@ -347,8 +351,7 @@ static const UIDNameMap uidNameMap[] = {
     { UID_CardiacRelevantPatientInformationQuery,              "CardiacRelevantPatientInformationQuery" },
     { UID_GeneralRelevantPatientInformationQuery,              "GeneralRelevantPatientInformationQuery" },
 
-    // Color Palette Storage and Query/Retrieve
-    { UID_ColorPaletteStorage,                                 "ColorPaletteStorage" },
+    // Color Palette Query/Retrieve
     { UID_FINDColorPaletteInformationModel,                    "FINDColorPaletteInformationModel" },
     { UID_MOVEColorPaletteInformationModel,                    "MOVEColorPaletteInformationModel" },
     { UID_GETColorPaletteInformationModel,                     "GETColorPaletteInformationModel" },
@@ -514,6 +517,10 @@ static const UIDNameMap uidNameMap[] = {
     { UID_HotMetalBlueColorPaletteSOPInstance,                 "HotMetalBlueColorPaletteSOPInstance" },
     { UID_PET20StepColorPaletteSOPInstance,                    "PET20StepColorPaletteSOPInstance" },
     { UID_PETColorPaletteSOPInstance,                          "PETColorPaletteSOPInstance" },
+    { UID_SpringColorPaletteSOPInstance,                       "SpringColorPaletteSOPInstance" },
+    { UID_SummerColorPaletteSOPInstance,                       "SummerColorPaletteSOPInstance" },
+    { UID_FallColorPaletteSOPInstance,                         "FallColorPaletteSOPInstance" },
+    { UID_WinterColorPaletteSOPInstance,                       "WinterColorPaletteSOPInstance" },
 
     // Draft Supplements
     { UID_DRAFT_RTBeamsDeliveryInstructionStorage,             "DRAFT_RTBeamsDeliveryInstructionStorage" },
@@ -539,8 +546,8 @@ static const int uidNameMap_size = OFstatic_cast(int, sizeof(uidNameMap) / sizeo
 /** an array of const strings containing all known Storage SOP Classes
  *  that fit into the conventional PATIENT-STUDY-SERIES-INSTANCE information
  *  model, i.e. everything a Storage SCP might want to store in a PACS.
- *  Special cases such as hanging protocol storage or the Storage SOP Class
- *  are not included in this list.
+ *  Special cases such as the Hanging Protocol or Color Palette Storage SOP
+ *  Class are not included in this list.
  *
  *  THIS LIST CONTAINS ALL STORAGE SOP CLASSES INCLUDING RETIRED ONES
  *  AND IS (MUCH) LARGER THAN 64 ENTRIES.
@@ -568,7 +575,6 @@ const char* dcmAllStorageSOPClassUIDs[] = {
     UID_ComputedRadiographyImageStorage,
     UID_ContentAssessmentResultsStorage,
     UID_CornealTopographyMapStorage,
-    UID_CTDefinedProcedureProtocolStorage,
     UID_CTImageStorage,
     UID_CTPerformedProcedureProtocolStorage,
     UID_DeformableSpatialRegistrationStorage,
@@ -591,13 +597,10 @@ const char* dcmAllStorageSOPClassUIDs[] = {
     UID_ExtensibleSRStorage,
     UID_GeneralAudioWaveformStorage,
     UID_GeneralECGWaveformStorage,
-    UID_GenericImplantTemplateStorage,
     UID_GrayscalePlanarMPRVolumetricPresentationStateStorage,
     UID_GrayscaleSoftcopyPresentationStateStorage,
     UID_HemodynamicWaveformStorage,
-    UID_ImplantAssemblyTemplateStorage,
     UID_ImplantationPlanSRDocumentStorage,
-    UID_ImplantTemplateGroupStorage,
     UID_IntraocularLensCalculationsStorage,
     UID_IntravascularOpticalCoherenceTomographyImageStorageForPresentation,
     UID_IntravascularOpticalCoherenceTomographyImageStorageForProcessing,
@@ -643,6 +646,7 @@ const char* dcmAllStorageSOPClassUIDs[] = {
     UID_RTTreatmentSummaryRecordStorage,
     UID_SecondaryCaptureImageStorage,
     UID_SegmentationStorage,
+    UID_SimplifiedAdultEchoSRStorage,
     UID_SpatialFiducialsStorage,
     UID_SpatialRegistrationStorage,
     UID_SpectaclePrescriptionReportStorage,
@@ -672,6 +676,13 @@ const char* dcmAllStorageSOPClassUIDs[] = {
     UID_XRayAngiographicImageStorage,
     UID_XRayRadiationDoseSRStorage,
     UID_XRayRadiofluoroscopicImageStorage,
+    // non-patient DICOM objects (do not fit into this list, see above):
+    // - UID_ColorPaletteStorage
+    // - UID_CTDefinedProcedureProtocolStorage
+    // - UID_GenericImplantTemplateStorage
+    // - UID_HangingProtocolStorage
+    // - UID_ImplantAssemblyTemplateStorage
+    // - UID_ImplantTemplateGroupStorage
     // retired
     UID_RETIRED_HardcopyColorImageStorage,
     UID_RETIRED_HardcopyGrayscaleImageStorage,
@@ -754,17 +765,17 @@ const char* dcmLongSCUStorageSOPClassUIDs[] = {
     UID_EnhancedXRFImageStorage,
     UID_GeneralAudioWaveformStorage,
     UID_GeneralECGWaveformStorage,
-    UID_GenericImplantTemplateStorage,
     UID_GrayscaleSoftcopyPresentationStateStorage,
     UID_HemodynamicWaveformStorage,
-    UID_ImplantAssemblyTemplateStorage,
     UID_ImplantationPlanSRDocumentStorage,
-    UID_ImplantTemplateGroupStorage,
     UID_IntraocularLensCalculationsStorage,
     UID_IntravascularOpticalCoherenceTomographyImageStorageForPresentation,
     UID_IntravascularOpticalCoherenceTomographyImageStorageForProcessing,
     UID_KeratometryMeasurementsStorage,
     UID_KeyObjectSelectionDocumentStorage,
+    UID_LegacyConvertedEnhancedCTImageStorage,
+    UID_LegacyConvertedEnhancedMRImageStorage,
+    UID_LegacyConvertedEnhancedPETImageStorage,
     UID_LensometryMeasurementsStorage,
     UID_MacularGridThicknessAndVolumeReportStorage,
     UID_MammographyCADSRStorage,
@@ -832,19 +843,23 @@ const char* dcmLongSCUStorageSOPClassUIDs[] = {
 //  UID_CompositingPlanarMPRVolumetricPresentationStateStorage,
 //  UID_ContentAssessmentResultsStorage,
 //  UID_CornealTopographyMapStorage,
-//  UID_CTDefinedProcedureProtocolStorage,
 //  UID_CTPerformedProcedureProtocolStorage,
 //  UID_ExtensibleSRStorage,
 //  UID_GrayscalePlanarMPRVolumetricPresentationStateStorage
-//  UID_LegacyConvertedEnhancedCTImageStorage,
-//  UID_LegacyConvertedEnhancedMRImageStorage,
-//  UID_LegacyConvertedEnhancedPETImageStorage,
 //  UID_ParametricMapStorage,
 //  UID_RadiopharmaceuticalRadiationDoseSRStorage,
 //  UID_RTBrachyApplicationSetupDeliveryInstructionStorage,
+//  UID_SimplifiedAdultEchoSRStorage,
 //  UID_TractographyResultsStorage,
 //  UID_WideFieldOphthalmicPhotographyStereographicProjectionImageStorage,
 //  UID_WideFieldOphthalmicPhotography3DCoordinatesImageStorage,
+    // non-patient
+//  UID_ColorPaletteStorage,
+//  UID_CTDefinedProcedureProtocolStorage,
+//  UID_GenericImplantTemplateStorage,
+//  UID_HangingProtocolStorage,
+//  UID_ImplantAssemblyTemplateStorage,
+//  UID_ImplantTemplateGroupStorage,
     // retired
     UID_RETIRED_HardcopyColorImageStorage,
     UID_RETIRED_HardcopyGrayscaleImageStorage,
@@ -1171,6 +1186,7 @@ static const DcmModalityTable modalities[] = {
     { UID_RTTreatmentSummaryRecordStorage,                         "RTs", 4096 },
     { UID_SecondaryCaptureImageStorage,                            "SC",  512 * 512 * 2 },
     { UID_SegmentationStorage,                                     "SG",  4096 },
+    { UID_SimplifiedAdultEchoSRStorage,                            "SRu", 4096 },
     { UID_SpatialFiducialsStorage,                                 "FID", 4096 },
     { UID_SpatialRegistrationStorage,                              "RGs", 4096 },
     { UID_SpectaclePrescriptionReportStorage,                      "SRs", 4096 },

@@ -6,13 +6,13 @@
 \page storescp storescp: DICOM storage (C-STORE) SCP
 \endif
 
-\section synopsis SYNOPSIS
+\section storescp_synopsis SYNOPSIS
 
 \verbatim
 storescp [options] [port]
 \endverbatim
 
-\section description DESCRIPTION
+\section storescp_description DESCRIPTION
 
 The \b storescp application implements a Service Class Provider (SCP) for the
 Storage Service Class.  It listens on a specific TCP/IP port for incoming
@@ -20,16 +20,16 @@ association requests from a Storage Service Class User (SCU) and can receive
 both DICOM images and other DICOM composite objects.  The \b storescp
 application also supports the Verification Service Class as an SCP.
 
-\section parameters PARAMETERS
+\section storescp_parameters PARAMETERS
 
 \verbatim
 port  tcp/ip port number to listen on
       (this parameter is required unless the --inetd option is specified)
 \endverbatim
 
-\section options OPTIONS
+\section storescp_options OPTIONS
 
-\subsection general_options general options
+\subsection storescp_general_options general options
 \verbatim
   -h    --help
           print this help text and exit
@@ -60,7 +60,7 @@ port  tcp/ip port number to listen on
           show presentation contexts in verbose mode
 \endverbatim
 
-\subsection multi_process_options multi-process options
+\subsection storescp_multi_process_options multi-process options
 \verbatim
         --single-process
           single process mode (default)
@@ -69,7 +69,7 @@ port  tcp/ip port number to listen on
           fork child process for each association
 \endverbatim
 
-\subsection network_options network options
+\subsection storescp_network_options network options
 \verbatim
 association negotiation profile from configuration file:
 
@@ -120,6 +120,15 @@ preferred network transfer syntaxes (not with --config-file):
   +xl   --prefer-mpeg4-bd
           prefer MPEG4 AVC/H.264 BD-compatible HP / Level 4.1 TS
 
+  +x2   --prefer-mpeg4-2-2d
+          prefer MPEG4 AVC/H.264 HP / Level 4.2 TS for 2D Videos
+
+  +x3   --prefer-mpeg4-2-3d
+          prefer MPEG4 AVC/H.264 HP / Level 4.2 TS for 3D Videos
+
+  +xo   --prefer-mpeg4-2-st
+          prefer MPEG4 AVC/H.264 Stereo HP / Level 4.2 TS
+
   +xr   --prefer-rle
           prefer RLE lossless TS
 
@@ -146,6 +155,9 @@ other network options:
           run from inetd super server (not with --fork)
 
           # not available on all systems (e.g. not on Windows)
+
+  -ts   --socket-timeout  [s]econds: integer (default: 60)
+          timeout for network socket (0 for none)
 
   -ta   --acse-timeout  [s]econds: integer (default: 30)
           timeout for ACSE messages
@@ -192,7 +204,7 @@ other network options:
           silently correct space-padded UIDs
 \endverbatim
 
-\subsection tls_options transport layer security (TLS) options
+\subsection storescp_tls_options transport layer security (TLS) options
 \verbatim
 transport protocol stack:
 
@@ -261,7 +273,7 @@ peer authentication:
 \endverbatim
 
 
-\subsection output_options output options
+\subsection storescp_output_options output options
 \verbatim
 general:
 
@@ -370,7 +382,7 @@ filename generation:
           append e to all filenames
 \endverbatim
 
-\subsection event_options event options
+\subsection storescp_event_options event options
 \verbatim
   -xcr  --exec-on-reception  [c]ommand: string
           execute command c after having received and processed
@@ -393,7 +405,7 @@ filename generation:
           execute command synchronously in foreground
 \endverbatim
 
-\section notes NOTES
+\section storescp_notes NOTES
 
 The semantic impacts of the above mentioned options is clear for the majority
 of options.  Some particular options, however, are so specific that they need
@@ -527,7 +539,7 @@ different study is received or the \e --eostudy-timeout is reached.  For this
 reason, the options \e --fork and \e --inet are incompatible with
 \e --exec-on-eostudy, \e --rename-on-eostudy and \e --sort-conc-studies.
 
-\subsection dicom_conformance DICOM Conformance
+\subsection storescp_dicom_conformance DICOM Conformance
 
 The \b storescp application supports the following SOP Classes as an SCP:
 
@@ -654,6 +666,7 @@ RadiopharmaceuticalRadiationDoseSRStorage            1.2.840.10008.5.1.4.1.1.88.
 ColonCADSRStorage                                    1.2.840.10008.5.1.4.1.1.88.69
 ImplantationPlanSRDocumentStorage                    1.2.840.10008.5.1.4.1.1.88.70
 AcquisitionContextSRStorage                          1.2.840.10008.5.1.4.1.1.88.71
+SimplifiedAdultEchoSRStorage                         1.2.840.10008.5.1.4.1.1.88.72
 ContentAssessmentResultsStorage                      1.2.840.10008.5.1.4.1.1.90.1
 EncapsulatedPDFStorage                               1.2.840.10008.5.1.4.1.1.104.1
 EncapsulatedCDAStorage                               1.2.840.10008.5.1.4.1.1.104.2
@@ -685,9 +698,6 @@ DICONDE_EddyCurrentMultiframeImageStorage            1.2.840.10008.5.1.4.1.1.601
 DRAFT_RTBeamsDeliveryInstructionStorage              1.2.840.10008.5.1.4.34.1
 RTBeamsDeliveryInstructionStorage                    1.2.840.10008.5.1.4.34.7
 RTBrachyApplicationSetupDeliveryInstructionStorage   1.2.840.10008.5.1.4.34.10
-GenericImplantTemplateStorage                        1.2.840.10008.5.1.4.43.1
-ImplantAssemblyTemplateStorage                       1.2.840.10008.5.1.4.44.1
-ImplantTemplateGroupStorage                          1.2.840.10008.5.1.4.45.1
 \endverbatim
 
 The \b storescp application will accept presentation contexts for all of the
@@ -726,6 +736,8 @@ MPEG4BDcompatibleHighProfileLevel4_1TransferSyntax   1.2.840.10008.1.2.4.103
 MPEG4HighProfileLevel4_2_For2DVideoTransferSyntax    1.2.840.10008.1.2.4.104
 MPEG4HighProfileLevel4_2_For3DVideoTransferSyntax    1.2.840.10008.1.2.4.105
 MPEG4StereoHighProfileLevel4_2TransferSyntax         1.2.840.10008.1.2.4.106
+HEVCMainProfileLevel5_1TransferSyntax                1.2.840.10008.1.2.4.107
+HEVCMain10ProfileLevel5_1TransferSyntax              1.2.840.10008.1.2.4.108
 RLELosslessTransferSyntax                            1.2.840.10008.1.2.5
 \endverbatim
 
@@ -737,7 +749,7 @@ However, using an appropriate association negotiation profile (see below)
 the optional support for extended negotiation can be added to particular SOP
 classes.
 
-\subsection access_control Access Control
+\subsection storescp_access_control Access Control
 
 When compiled on Unix platforms with TCP wrapper support, host-based access
 control can be enabled with the \e --access-control command line option.  In
@@ -746,7 +758,7 @@ tables for \b storescp are enforced.  The default locations of the host access
 control tables are <em>/etc/hosts.allow</em> and <em>/etc/hosts.deny</em>.
 Further details are described in <b>hosts_access</b>(5).
 
-\subsection running_from_inetd Running storescp from inetd
+\subsection storescp_running_from_inetd Running storescp from inetd
 
 On Posix platforms, \b storescp can be initiated through the inetd(8) super
 server.  This requires that \b storescp be configured in the
@@ -771,14 +783,14 @@ option (see below).
 Please note that when run through inetd, \b storescp is executed with root
 privileges, which may be a security risk.
 
-\subsection profiles Association Negotiation Profiles and Configuration Files
+\subsection storescp_profiles Association Negotiation Profiles and Configuration Files
 
 \b storescp supports a flexible mechanism for specifying the DICOM network
 association negotiation behavior, based on so-called "association negotiation
 profiles" which may be read from a configuration file.  The format and
 semantics of this configuration file are documented in \e asconfig.txt.
 
-\section logging LOGGING
+\section storescp_logging LOGGING
 
 The level of logging output of the various command line tools and underlying
 libraries can be specified by the user.  By default, only errors and warnings
@@ -797,7 +809,7 @@ messages to a particular output stream and for filtering certain messages
 based on the module or application where they are generated.  An example
 configuration file is provided in <em>\<etcdir\>/logger.cfg</em>.
 
-\section command_line COMMAND LINE
+\section storescp_command_line COMMAND LINE
 
 All command line tools use the following notation for parameters: square
 brackets enclose optional values (0-1), three trailing dots indicate that
@@ -819,7 +831,7 @@ allows one to summarize common combinations of options/parameters and avoids
 longish and confusing command lines (an example is provided in file
 <em>\<datadir\>/dumppat.txt</em>).
 
-\section environment ENVIRONMENT
+\section storescp_environment ENVIRONMENT
 
 The \b storescp utility will attempt to load DICOM data dictionaries specified
 in the \e DCMDICTPATH environment variable.  By default, i.e. if the
@@ -835,17 +847,17 @@ a semicolon (";") is used as a separator.  The data dictionary code will
 attempt to load each file specified in the \e DCMDICTPATH environment variable.
 It is an error if no data dictionary can be loaded.
 
-\section files FILES
+\section storescp_files FILES
 
 <em>\<docdir\>/asconfig.txt</em> - configuration file documentation
 \n<em>\<etcdir\>/storescp.cfg</em> - example association negotiation profile
 
-\section see_also SEE ALSO
+\section storescp_see_also SEE ALSO
 
 <b>storescu</b>(1)
 
-\section copyright COPYRIGHT
+\section storescp_copyright COPYRIGHT
 
-Copyright (C) 1996-2016 by OFFIS e.V., Escherweg 2, 26121 Oldenburg, Germany.
+Copyright (C) 1996-2017 by OFFIS e.V., Escherweg 2, 26121 Oldenburg, Germany.
 
 */

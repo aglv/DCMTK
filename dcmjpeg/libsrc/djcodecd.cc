@@ -132,10 +132,18 @@ OFCondition DJCodecDecoder::decode(
         result = pixItem->getUint8Array(jpegData);
         if (result.good())
         {
+          OFString str;
           if (jpegData == NULL) result = EC_CorruptedData; // JPEG data stream is empty/absent
           else
+          if (((DcmItem *)pixItem)->findAndGetOFString(DcmTagKey(0x0029, 0x0010), str).good() && !str.compare("GEIIS"))
+          { // from OsiriX: GE Icon pixel data are already and always compressed in JPEG -> dont touch lesion!
+            Uint16 *imageData16 = NULL;
+            if ((result = uncompressedPixelData.createUint16Array(fragmentLength/sizeof(Uint16), imageData16)).good())
+              memcpy(imageData16, jpegData, fragmentLength);
+          }
+          else
           {
-            Uint8 precision = scanJpegDataForBitDepth(jpegData, fragmentLength);
+            Uint8 precision = isJ2K()? imageBitsAllocated : scanJpegDataForBitDepth(jpegData, fragmentLength);
             if (precision == 0) result = EC_CannotChangeRepresentation; // something has gone wrong, bail out
             else
             {
@@ -163,6 +171,7 @@ OFCondition DJCodecDecoder::decode(
                 if (result.good())
                 {
                   Uint8 *imageData8 = OFreinterpret_cast(Uint8*, imageData16);
+                  OFBool forceSingleFragmentPerFrame = djcp->getForceSingleFragmentPerFrame();
 
                   while ((currentFrame < imageFrames)&&(result.good()))
                   {
@@ -180,6 +189,15 @@ OFCondition DJCodecDecoder::decode(
                           if (result.good())
                           {
                             result = jpeg->decode(jpegData, fragmentLength, imageData8, OFstatic_cast(Uint32, frameSize), isSigned);
+
+                            // check if we should enforce "one fragment per frame" while
+                            // decompressing a multi-frame image even if stream suspension occurs
+                            if ((EJ_Suspension == result) && forceSingleFragmentPerFrame)
+                            {
+                              // frame is incomplete. Nevertheless skip to next frame.
+                              // This permits decompression of faulty multi-frame images.
+                              result = EC_Normal;
+                            }
                           }
                         }
                       }

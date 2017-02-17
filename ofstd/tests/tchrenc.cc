@@ -1,6 +1,6 @@
 /*
  *
- *  Copyright (C) 2011-2012, OFFIS e.V.
+ *  Copyright (C) 2011-2016, OFFIS e.V.
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  This software and supporting documentation were developed by
@@ -27,17 +27,27 @@
 #include "dcmtk/ofstd/ofchrenc.h"
 
 
+static void checkConversionFlags(OFCharacterEncoding& charEnc,
+                                 const unsigned flags)
+{
+    if (OFCharacterEncoding::supportsConversionFlags(flags))
+    {
+        OFCHECK(charEnc.setConversionFlags(flags).good());
+        OFCHECK_EQUAL(charEnc.getConversionFlags(), flags);
+    }
+}
+
+
 OFTEST(ofstd_OFCharacterEncoding_1)
 {
     // the returned string should never be empty
     OFCHECK(!OFCharacterEncoding::getLibraryVersionString().empty());
-    // check whether libiconv support is available
+    // check whether character set conversion support is available
     if (OFCharacterEncoding::isLibraryAvailable())
     {
         OFCharacterEncoding charEnc;
         OFString resultStr;
         // first, do some basic validity checks
-        OFCHECK(!charEnc.getLocaleEncoding().empty());
         OFCHECK(charEnc.selectEncoding("ASCII", "UTF-8").good());
         OFCHECK(charEnc.convertString("Simple Text", resultStr).good());
         OFCHECK_EQUAL(resultStr, "Simple Text");
@@ -57,14 +67,16 @@ OFTEST(ofstd_OFCharacterEncoding_1)
         OFCHECK(charEnc.selectEncoding("", "ASCII").good());
         OFCHECK(charEnc.selectEncoding("ASCII", "").good());
         OFCHECK(charEnc.selectEncoding("ASCII", charEnc.getLocaleEncoding()).good());
-        charEnc.setTransliterationMode(OFTrue);
-        charEnc.setDiscardIllegalSequenceMode(OFTrue);
+        checkConversionFlags(charEnc, OFCharacterEncoding::AbortTranscodingOnIllegalSequence);
+        checkConversionFlags(charEnc, OFCharacterEncoding::DiscardIllegalSequences);
+        checkConversionFlags(charEnc, OFCharacterEncoding::TransliterateIllegalSequences);
+        checkConversionFlags(charEnc, OFCharacterEncoding::TransliterateIllegalSequences
+                                    | OFCharacterEncoding::DiscardIllegalSequences);
         charEnc.clear();
-        OFCHECK_EQUAL(charEnc.getTransliterationMode(), OFFalse);
-        OFCHECK_EQUAL(charEnc.getDiscardIllegalSequenceMode(), OFFalse);
         OFCHECK(charEnc.convertString("Simple Text", resultStr).bad());
     }
 }
+
 
 OFTEST(ofstd_OFCharacterEncoding_2)
 {
@@ -90,6 +102,7 @@ OFTEST(ofstd_OFCharacterEncoding_2)
     }
 }
 
+
 OFTEST(ofstd_OFCharacterEncoding_3)
 {
     if (OFCharacterEncoding::isLibraryAvailable())
@@ -107,39 +120,57 @@ OFTEST(ofstd_OFCharacterEncoding_3)
     }
 }
 
+
 OFTEST(ofstd_OFCharacterEncoding_4)
 {
     if (OFCharacterEncoding::isLibraryAvailable())
     {
         OFCharacterEncoding charEnc;
-        // enable transliteration mode
-        if (charEnc.setTransliterationMode(OFTrue).good())
+        OFCHECK(charEnc.selectEncoding("ISO-8859-1", "ASCII").good());
+        OFString resultStr;
+        if (OFCharacterEncoding::supportsConversionFlags(OFCharacterEncoding::AbortTranscodingOnIllegalSequence))
         {
-            OFString resultStr;
-            OFCHECK(charEnc.selectEncoding("ISO-8859-1", "ASCII").good());
+            OFCHECK(charEnc.setConversionFlags(OFCharacterEncoding::AbortTranscodingOnIllegalSequence).good());
+            OFCHECK(charEnc.convertString("J\366rg", resultStr).bad());
+        }
+        if (OFCharacterEncoding::supportsConversionFlags(OFCharacterEncoding::DiscardIllegalSequences))
+        {
+            OFCHECK(charEnc.setConversionFlags(OFCharacterEncoding::DiscardIllegalSequences).good());
+            OFCHECK(charEnc.convertString("J\366rg", resultStr).good());
+            OFCHECK_EQUAL(resultStr, "Jrg");
+        }
+        if (OFCharacterEncoding::supportsConversionFlags(OFCharacterEncoding::TransliterateIllegalSequences))
+        {
+            OFCHECK(charEnc.setConversionFlags(OFCharacterEncoding::TransliterateIllegalSequences).good());
             OFCHECK(charEnc.convertString("J\366rg", resultStr).good());
             OFCHECK_EQUAL(resultStr, "J\"org");
-            // disable transliteration mode
-            charEnc.setTransliterationMode(OFFalse);
-            OFCHECK(charEnc.convertString("J\366rg", resultStr).bad());
         }
     }
 }
+
 
 OFTEST(ofstd_OFCharacterEncoding_5)
 {
     if (OFCharacterEncoding::isLibraryAvailable())
     {
         OFCharacterEncoding charEnc;
-        // enable discard illegal sequence mode
-        if (charEnc.setDiscardIllegalSequenceMode(OFTrue).good())
+        OFCHECK(charEnc.selectEncoding("ISO-8859-1", "ASCII").good());
+        OFString resultStr;
+        if (OFCharacterEncoding::supportsConversionFlags(OFCharacterEncoding::TransliterateIllegalSequences))
         {
-            OFString resultStr;
-            OFCHECK(charEnc.selectEncoding("ISO-8859-1", "ASCII").good());
+            OFCHECK(charEnc.setConversionFlags(OFCharacterEncoding::TransliterateIllegalSequences).good());
+            OFCHECK(charEnc.convertString("J\366rg", resultStr).good());
+            OFCHECK_EQUAL(resultStr, "J\"org");
+        }
+        if (OFCharacterEncoding::supportsConversionFlags(OFCharacterEncoding::DiscardIllegalSequences))
+        {
+            OFCHECK(charEnc.setConversionFlags(OFCharacterEncoding::DiscardIllegalSequences).good());
             OFCHECK(charEnc.convertString("J\366rg", resultStr).good());
             OFCHECK_EQUAL(resultStr, "Jrg");
-            // disable discard illegal sequence mode
-            charEnc.setDiscardIllegalSequenceMode(OFFalse);
+        }
+        if (OFCharacterEncoding::supportsConversionFlags(OFCharacterEncoding::AbortTranscodingOnIllegalSequence))
+        {
+            OFCHECK(charEnc.setConversionFlags(OFCharacterEncoding::AbortTranscodingOnIllegalSequence).good());
             OFCHECK(charEnc.convertString("J\366rg", resultStr).bad());
         }
     }

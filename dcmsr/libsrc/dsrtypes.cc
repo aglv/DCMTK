@@ -55,6 +55,7 @@
 #include "dcmtk/dcmsr/dsrc3dcc.h"
 #include "dcmtk/dcmsr/dsrrrdcc.h"
 #include "dcmtk/dcmsr/dsracqcc.h"
+#include "dcmtk/dcmsr/dsrsaecc.h"
 
 #include "dcmtk/dcmdata/dcuid.h"
 #include "dcmtk/dcmdata/dcvrda.h"
@@ -74,96 +75,97 @@
  *---------------------------------*/
 
 /* read flags */
-const size_t DSRTypes::RF_readDigitalSignatures          = 1 <<  0;
-const size_t DSRTypes::RF_acceptUnknownRelationshipType  = 1 <<  1;
-const size_t DSRTypes::RF_acceptInvalidContentItemValue  = 1 <<  2;
-const size_t DSRTypes::RF_ignoreRelationshipConstraints  = 1 <<  3;
-const size_t DSRTypes::RF_ignoreContentItemErrors        = 1 <<  4;
-const size_t DSRTypes::RF_skipInvalidContentItems        = 1 <<  5;
-const size_t DSRTypes::RF_showCurrentlyProcessedItem     = 1 <<  6;
+const size_t DSRTypes::RF_readDigitalSignatures             = 1 <<  0;
+const size_t DSRTypes::RF_acceptUnknownRelationshipType     = 1 <<  1;
+const size_t DSRTypes::RF_acceptInvalidContentItemValue     = 1 <<  2;
+const size_t DSRTypes::RF_ignoreRelationshipConstraints     = 1 <<  3;
+const size_t DSRTypes::RF_ignoreContentItemErrors           = 1 <<  4;
+const size_t DSRTypes::RF_skipInvalidContentItems           = 1 <<  5;
+const size_t DSRTypes::RF_showCurrentlyProcessedItem        = 1 <<  6;
 
 /* renderHTML flags */
-const size_t DSRTypes::HF_neverExpandChildrenInline      = 1 <<  0;
-const size_t DSRTypes::HF_alwaysExpandChildrenInline     = 1 <<  1;
-const size_t DSRTypes::HF_renderInlineCodes              = 1 <<  2;
-const size_t DSRTypes::HF_useCodeDetailsTooltip          = 1 <<  3;
-const size_t DSRTypes::HF_renderConceptNameCodes         = 1 <<  4;
-const size_t DSRTypes::HF_renderNumericUnitCodes         = 1 <<  5;
-const size_t DSRTypes::HF_useCodeMeaningAsUnit           = 1 <<  6;
-const size_t DSRTypes::HF_renderPatientTitle             = 1 <<  7;
-const size_t DSRTypes::HF_renderNoDocumentHeader         = 1 <<  8;
-const size_t DSRTypes::HF_renderDcmtkFootnote            = 1 <<  9;
-const size_t DSRTypes::HF_renderFullData                 = 1 << 10;
-const size_t DSRTypes::HF_renderSectionTitlesInline      = 1 << 11;
-const size_t DSRTypes::HF_copyStyleSheetContent          = 1 << 12;
-const size_t DSRTypes::HF_HTML32Compatibility            = 1 << 13;
-const size_t DSRTypes::HF_XHTML11Compatibility           = 1 << 14;
-const size_t DSRTypes::HF_addDocumentTypeReference       = 1 << 15;
-const size_t DSRTypes::HF_omitGeneratorMetaElement       = 1 << 16;
+const size_t DSRTypes::HF_neverExpandChildrenInline         = 1 <<  0;
+const size_t DSRTypes::HF_alwaysExpandChildrenInline        = 1 <<  1;
+const size_t DSRTypes::HF_renderInlineCodes                 = 1 <<  2;
+const size_t DSRTypes::HF_useCodeDetailsTooltip             = 1 <<  3;
+const size_t DSRTypes::HF_renderConceptNameCodes            = 1 <<  4;
+const size_t DSRTypes::HF_renderNumericUnitCodes            = 1 <<  5;
+const size_t DSRTypes::HF_useCodeMeaningAsUnit              = 1 <<  6;
+const size_t DSRTypes::HF_renderPatientTitle                = 1 <<  7;
+const size_t DSRTypes::HF_renderNoDocumentHeader            = 1 <<  8;
+const size_t DSRTypes::HF_renderDcmtkFootnote               = 1 <<  9;
+const size_t DSRTypes::HF_renderFullData                    = 1 << 10;
+const size_t DSRTypes::HF_renderSectionTitlesInline         = 1 << 11;
+const size_t DSRTypes::HF_copyStyleSheetContent             = 1 << 12;
+const size_t DSRTypes::HF_HTML32Compatibility               = 1 << 13;
+const size_t DSRTypes::HF_XHTML11Compatibility              = 1 << 14;
+const size_t DSRTypes::HF_addDocumentTypeReference          = 1 << 15;
+const size_t DSRTypes::HF_omitGeneratorMetaElement          = 1 << 16;
 /* internal */
-const size_t DSRTypes::HF_renderItemsSeparately          = 1 << 17;
-const size_t DSRTypes::HF_renderItemInline               = 1 << 18;
-const size_t DSRTypes::HF_currentlyInsideAnnex           = 1 << 19;
-const size_t DSRTypes::HF_createFootnoteReferences       = 1 << 20;
-const size_t DSRTypes::HF_convertNonASCIICharacters      = 1 << 21;
+const size_t DSRTypes::HF_renderItemsSeparately             = 1 << 17;
+const size_t DSRTypes::HF_renderItemInline                  = 1 << 18;
+const size_t DSRTypes::HF_currentlyInsideAnnex              = 1 << 19;
+const size_t DSRTypes::HF_createFootnoteReferences          = 1 << 20;
+const size_t DSRTypes::HF_convertNonASCIICharacters         = 1 << 21;
 /* shortcuts */
-const size_t DSRTypes::HF_renderAllCodes                 = DSRTypes::HF_renderInlineCodes |
-                                                           DSRTypes::HF_renderConceptNameCodes |
-                                                           DSRTypes::HF_renderNumericUnitCodes;
-const size_t DSRTypes::HF_internalUseOnly                = DSRTypes::HF_renderItemsSeparately |
-                                                           DSRTypes::HF_renderItemInline |
-                                                           DSRTypes::HF_currentlyInsideAnnex |
-                                                           DSRTypes::HF_createFootnoteReferences |
-                                                           DSRTypes::HF_convertNonASCIICharacters;
+const size_t DSRTypes::HF_renderAllCodes                    = DSRTypes::HF_renderInlineCodes |
+                                                              DSRTypes::HF_renderConceptNameCodes |
+                                                              DSRTypes::HF_renderNumericUnitCodes;
+const size_t DSRTypes::HF_internalUseOnly                   = DSRTypes::HF_renderItemsSeparately |
+                                                              DSRTypes::HF_renderItemInline |
+                                                              DSRTypes::HF_currentlyInsideAnnex |
+                                                              DSRTypes::HF_createFootnoteReferences |
+                                                              DSRTypes::HF_convertNonASCIICharacters;
 
 /* read/writeXML flags */
-const size_t DSRTypes::XF_writeEmptyTags                 = 1 << 0;
-const size_t DSRTypes::XF_writeTemplateIdentification    = 1 << 1;
-const size_t DSRTypes::XF_alwaysWriteItemIdentifier      = 1 << 2;
-const size_t DSRTypes::XF_codeComponentsAsAttribute      = 1 << 3;
-const size_t DSRTypes::XF_relationshipTypeAsAttribute    = 1 << 4;
-const size_t DSRTypes::XF_valueTypeAsAttribute           = 1 << 5;
-const size_t DSRTypes::XF_templateIdentifierAsAttribute  = 1 << 6;
-const size_t DSRTypes::XF_useDcmsrNamespace              = 1 << 7;
-const size_t DSRTypes::XF_addSchemaReference             = 1 << 8;
-const size_t DSRTypes::XF_validateSchema                 = 1 << 9;
-const size_t DSRTypes::XF_templateElementEnclosesItems   = 1 << 10;
-const size_t DSRTypes::XF_addCommentsForIncludedTemplate = 1 << 11;
+const size_t DSRTypes::XF_writeEmptyTags                    = 1 << 0;
+const size_t DSRTypes::XF_writeTemplateIdentification       = 1 << 1;
+const size_t DSRTypes::XF_alwaysWriteItemIdentifier         = 1 << 2;
+const size_t DSRTypes::XF_codeComponentsAsAttribute         = 1 << 3;
+const size_t DSRTypes::XF_relationshipTypeAsAttribute       = 1 << 4;
+const size_t DSRTypes::XF_valueTypeAsAttribute              = 1 << 5;
+const size_t DSRTypes::XF_templateIdentifierAsAttribute     = 1 << 6;
+const size_t DSRTypes::XF_useDcmsrNamespace                 = 1 << 7;
+const size_t DSRTypes::XF_addSchemaReference                = 1 << 8;
+const size_t DSRTypes::XF_validateSchema                    = 1 << 9;
+const size_t DSRTypes::XF_templateElementEnclosesItems      = 1 << 10;
+const size_t DSRTypes::XF_addCommentsForIncludedTemplate    = 1 << 11;
+const size_t DSRTypes::XF_acceptEmptyStudySeriesInstanceUID = 1 << 12;
 /* shortcuts */
-const size_t DSRTypes::XF_encodeEverythingAsAttribute    = DSRTypes::XF_codeComponentsAsAttribute |
-                                                           DSRTypes::XF_relationshipTypeAsAttribute |
-                                                           DSRTypes::XF_valueTypeAsAttribute |
-                                                           DSRTypes::XF_templateIdentifierAsAttribute;
+const size_t DSRTypes::XF_encodeEverythingAsAttribute       = DSRTypes::XF_codeComponentsAsAttribute |
+                                                              DSRTypes::XF_relationshipTypeAsAttribute |
+                                                              DSRTypes::XF_valueTypeAsAttribute |
+                                                              DSRTypes::XF_templateIdentifierAsAttribute;
 
 /* print flags */
-const size_t DSRTypes::PF_printItemPosition              = 1 << 0;
-const size_t DSRTypes::PF_shortenLongItemValues          = 1 << 1;
-const size_t DSRTypes::PF_printSOPInstanceUID            = 1 << 2;
-const size_t DSRTypes::PF_printConceptNameCodes          = 1 << 3;
-const size_t DSRTypes::PF_printNoDocumentHeader          = 1 << 4;
-const size_t DSRTypes::PF_printTemplateIdentification    = 1 << 5;
-const size_t DSRTypes::PF_useANSIEscapeCodes             = 1 << 6;
-const size_t DSRTypes::PF_printLongSOPClassName          = 1 << 7;
-const size_t DSRTypes::PF_printSOPClassUID               = 1 << 8;
-const size_t DSRTypes::PF_printInvalidCodes              = 1 << 9;
-const size_t DSRTypes::PF_printNodeID                    = 1 << 10;
-const size_t DSRTypes::PF_indicateEnhancedEncodingMode   = 1 << 11;
-const size_t DSRTypes::PF_printAnnotation                = 1 << 12;
-const size_t DSRTypes::PF_hideIncludedTemplateNodes      = 1 << 13;
-const size_t DSRTypes::PF_dontCountIncludedTemplateNodes = 1 << 14;
+const size_t DSRTypes::PF_printItemPosition                 = 1 << 0;
+const size_t DSRTypes::PF_shortenLongItemValues             = 1 << 1;
+const size_t DSRTypes::PF_printSOPInstanceUID               = 1 << 2;
+const size_t DSRTypes::PF_printConceptNameCodes             = 1 << 3;
+const size_t DSRTypes::PF_printNoDocumentHeader             = 1 << 4;
+const size_t DSRTypes::PF_printTemplateIdentification       = 1 << 5;
+const size_t DSRTypes::PF_useANSIEscapeCodes                = 1 << 6;
+const size_t DSRTypes::PF_printLongSOPClassName             = 1 << 7;
+const size_t DSRTypes::PF_printSOPClassUID                  = 1 << 8;
+const size_t DSRTypes::PF_printInvalidCodes                 = 1 << 9;
+const size_t DSRTypes::PF_printNodeID                       = 1 << 10;
+const size_t DSRTypes::PF_indicateEnhancedEncodingMode      = 1 << 11;
+const size_t DSRTypes::PF_printAnnotation                   = 1 << 12;
+const size_t DSRTypes::PF_hideIncludedTemplateNodes         = 1 << 13;
+const size_t DSRTypes::PF_dontCountIncludedTemplateNodes    = 1 << 14;
 /* shortcuts */
-const size_t DSRTypes::PF_printAllCodes                  = DSRTypes::PF_printConceptNameCodes;
+const size_t DSRTypes::PF_printAllCodes                     = DSRTypes::PF_printConceptNameCodes;
 
 /* checkByReferenceRelationships modes */
-const size_t DSRTypes::CM_updatePositionString           = 1 << 0;
-const size_t DSRTypes::CM_updateNodeID                   = 1 << 1;
-const size_t DSRTypes::CM_resetReferenceTargetFlag       = 1 << 2;
+const size_t DSRTypes::CM_updatePositionString              = 1 << 0;
+const size_t DSRTypes::CM_updateNodeID                      = 1 << 1;
+const size_t DSRTypes::CM_resetReferenceTargetFlag          = 1 << 2;
 
 /* checkByReferenceRelationships bit masks (avoid conflicts!) */
-const size_t DSRTypes::CB_maskPrintFlags                 = DSRTypes::PF_dontCountIncludedTemplateNodes;
-const size_t DSRTypes::CB_maskReadFlags                  = DSRTypes::RF_acceptUnknownRelationshipType |
-                                                           DSRTypes::RF_ignoreRelationshipConstraints |
-                                                           DSRTypes::RF_showCurrentlyProcessedItem;
+const size_t DSRTypes::CB_maskPrintFlags                    = DSRTypes::PF_dontCountIncludedTemplateNodes;
+const size_t DSRTypes::CB_maskReadFlags                     = DSRTypes::RF_acceptUnknownRelationshipType |
+                                                              DSRTypes::RF_ignoreRelationshipConstraints |
+                                                              DSRTypes::RF_showCurrentlyProcessedItem;
 
 
 /*---------------------*
@@ -174,7 +176,7 @@ struct S_DocumentTypeNameMap
 {
     DSRTypes::E_DocumentType Type;
     const char *SOPClassUID;
-    OFBool EnhancedEquipmentModule;
+    size_t ExtendedModules;
     const char *Modality;
     const char *ReadableName;
 };
@@ -306,30 +308,34 @@ makeOFConditionConst(SR_EC_ValueSetConstraintViolated,          OFM_dcmsr, 32, O
 makeOFConditionConst(SR_EC_InvalidTemplateStructure,            OFM_dcmsr, 33, OF_error, "Invalid Template Structure");
 makeOFConditionConst(SR_EC_CannotProcessIncludedTemplates,      OFM_dcmsr, 34, OF_error, "Cannot process Document Tree with included Templates");
 
-
 // NOTE:
 // error codes 1000 and above are reserved for the submodule "cmr"
 
 
+/* extended IOD modules (only used internally) */
+const size_t EM_EnhancedEquipment = 1 << 0;
+const size_t EM_Timezone          = 1 << 1;
+
 static const S_DocumentTypeNameMap DocumentTypeNameMap[] =
 {
-    {DSRTypes::DT_invalid,                             "",                                             OFFalse, "",   "invalid document type"},
-    {DSRTypes::DT_BasicTextSR,                         UID_BasicTextSRStorage,                         OFFalse, "SR", "Basic Text SR"},
-    {DSRTypes::DT_EnhancedSR,                          UID_EnhancedSRStorage,                          OFFalse, "SR", "Enhanced SR"},
-    {DSRTypes::DT_ComprehensiveSR,                     UID_ComprehensiveSRStorage,                     OFFalse, "SR", "Comprehensive SR"},
-    {DSRTypes::DT_KeyObjectSelectionDocument,          UID_KeyObjectSelectionDocumentStorage,          OFFalse, "KO", "Key Object Selection Document"},
-    {DSRTypes::DT_MammographyCadSR,                    UID_MammographyCADSRStorage,                    OFFalse, "SR", "Mammography CAD SR"},
-    {DSRTypes::DT_ChestCadSR,                          UID_ChestCADSRStorage,                          OFFalse, "SR", "Chest CAD SR"},
-    {DSRTypes::DT_ColonCadSR,                          UID_ColonCADSRStorage,                          OFTrue,  "SR", "Colon CAD SR"},
-    {DSRTypes::DT_ProcedureLog,                        UID_ProcedureLogStorage,                        OFFalse, "SR", "Procedure Log"},
-    {DSRTypes::DT_XRayRadiationDoseSR,                 UID_XRayRadiationDoseSRStorage,                 OFTrue,  "SR", "X-Ray Radiation Dose SR"},
-    {DSRTypes::DT_SpectaclePrescriptionReport,         UID_SpectaclePrescriptionReportStorage,         OFTrue,  "SR", "Spectacle Prescription Report"},
-    {DSRTypes::DT_MacularGridThicknessAndVolumeReport, UID_MacularGridThicknessAndVolumeReportStorage, OFTrue,  "SR", "Macular Grid Thickness and Volume Report"},
-    {DSRTypes::DT_ImplantationPlanSRDocument,          UID_ImplantationPlanSRDocumentStorage,          OFTrue,  "SR", "Implantation Plan SR Document"},
-    {DSRTypes::DT_Comprehensive3DSR,                   UID_Comprehensive3DSRStorage,                   OFFalse, "SR", "Comprehensive 3D SR"},
-    {DSRTypes::DT_RadiopharmaceuticalRadiationDoseSR,  UID_RadiopharmaceuticalRadiationDoseSRStorage,  OFTrue,  "SR", "Radiopharmaceutical Radiation Dose SR"},
-    {DSRTypes::DT_ExtensibleSR,                        UID_ExtensibleSRStorage,                        OFTrue,  "SR", "Extensible SR"},
-    {DSRTypes::DT_AcquisitionContextSR,                UID_AcquisitionContextSRStorage,                OFTrue,  "SR", "Acquisition Context SR"}
+    {DSRTypes::DT_invalid,                             "",                                             0,                                  "",   "invalid document type"},
+    {DSRTypes::DT_BasicTextSR,                         UID_BasicTextSRStorage,                         0,                                  "SR", "Basic Text SR"},
+    {DSRTypes::DT_EnhancedSR,                          UID_EnhancedSRStorage,                          0,                                  "SR", "Enhanced SR"},
+    {DSRTypes::DT_ComprehensiveSR,                     UID_ComprehensiveSRStorage,                     0,                                  "SR", "Comprehensive SR"},
+    {DSRTypes::DT_KeyObjectSelectionDocument,          UID_KeyObjectSelectionDocumentStorage,          0,                                  "KO", "Key Object Selection Document"},
+    {DSRTypes::DT_MammographyCadSR,                    UID_MammographyCADSRStorage,                    0,                                  "SR", "Mammography CAD SR"},
+    {DSRTypes::DT_ChestCadSR,                          UID_ChestCADSRStorage,                          0,                                  "SR", "Chest CAD SR"},
+    {DSRTypes::DT_ColonCadSR,                          UID_ColonCADSRStorage,                          EM_EnhancedEquipment,               "SR", "Colon CAD SR"},
+    {DSRTypes::DT_ProcedureLog,                        UID_ProcedureLogStorage,                        0,                                  "SR", "Procedure Log"},
+    {DSRTypes::DT_XRayRadiationDoseSR,                 UID_XRayRadiationDoseSRStorage,                 EM_EnhancedEquipment,               "SR", "X-Ray Radiation Dose SR"},
+    {DSRTypes::DT_SpectaclePrescriptionReport,         UID_SpectaclePrescriptionReportStorage,         EM_EnhancedEquipment,               "SR", "Spectacle Prescription Report"},
+    {DSRTypes::DT_MacularGridThicknessAndVolumeReport, UID_MacularGridThicknessAndVolumeReportStorage, EM_EnhancedEquipment,               "SR", "Macular Grid Thickness and Volume Report"},
+    {DSRTypes::DT_ImplantationPlanSRDocument,          UID_ImplantationPlanSRDocumentStorage,          EM_EnhancedEquipment,               "SR", "Implantation Plan SR Document"},
+    {DSRTypes::DT_Comprehensive3DSR,                   UID_Comprehensive3DSRStorage,                   0,                                  "SR", "Comprehensive 3D SR"},
+    {DSRTypes::DT_RadiopharmaceuticalRadiationDoseSR,  UID_RadiopharmaceuticalRadiationDoseSRStorage,  EM_EnhancedEquipment,               "SR", "Radiopharmaceutical Radiation Dose SR"},
+    {DSRTypes::DT_ExtensibleSR,                        UID_ExtensibleSRStorage,                        EM_EnhancedEquipment,               "SR", "Extensible SR"},
+    {DSRTypes::DT_AcquisitionContextSR,                UID_AcquisitionContextSRStorage,                EM_EnhancedEquipment,               "SR", "Acquisition Context SR"},
+    {DSRTypes::DT_SimplifiedAdultEchoSR,               UID_SimplifiedAdultEchoSRStorage,               EM_EnhancedEquipment | EM_Timezone, "SR", "Simplified Adult Echo SR"}
 };
 
 
@@ -544,7 +550,16 @@ OFBool DSRTypes::requiresEnhancedEquipmentModule(const E_DocumentType documentTy
     const S_DocumentTypeNameMap *iterator = DocumentTypeNameMap;
     while ((iterator->Type != DT_last) && (iterator->Type != documentType))
         iterator++;
-    return iterator->EnhancedEquipmentModule;
+    return (iterator->ExtendedModules & EM_EnhancedEquipment) > 0;
+}
+
+
+OFBool DSRTypes::requiresTimezoneModule(const E_DocumentType documentType)
+{
+    const S_DocumentTypeNameMap *iterator = DocumentTypeNameMap;
+    while ((iterator->Type != DT_last) && (iterator->Type != documentType))
+        iterator++;
+    return (iterator->ExtendedModules & EM_Timezone) > 0;
 }
 
 
@@ -1181,6 +1196,15 @@ const OFString &DSRTypes::currentDateTime(OFString &dateTimeString)
 }
 
 
+const OFString &DSRTypes::localTimezone(OFString &timezoneString)
+{
+    OFString dateTimeString;
+    DcmDateTime::getCurrentDateTime(dateTimeString, OFFalse /*seconds*/, OFFalse /*fraction*/, OFTrue /*timeZone*/);
+    timezoneString.assign(dateTimeString.substr(8 /* YYYYMMDD */ + 4 /* HHMM */, 5 /* &ZZZZ */));
+    return timezoneString;
+}
+
+
 const OFString &DSRTypes::dicomToReadableDate(const OFString &dicomDate,
                                               OFString &readableDate)
 {
@@ -1461,6 +1485,9 @@ DSRIODConstraintChecker *DSRTypes::createIODConstraintChecker(const E_DocumentTy
             break;
         case DT_AcquisitionContextSR:
             checker = new DSRAcquisitionContextConstraintChecker();
+            break;
+        case DT_SimplifiedAdultEchoSR:
+            checker = new DSRSimplifiedAdultEchoSRConstraintChecker();
             break;
         case DT_invalid:
             /* nothing to do */

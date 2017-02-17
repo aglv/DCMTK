@@ -1,6 +1,6 @@
 /*
  *
- *  Copyright (C) 1996-2013, OFFIS e.V.
+ *  Copyright (C) 1996-2017, OFFIS e.V.
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  This software and supporting documentation were developed by
@@ -44,6 +44,7 @@ END_EXTERN_C
 #include "dcmtk/dcmnet/dicom.h"      /* for DICOM_APPLICATION_REQUESTOR */
 #include "dcmtk/dcmnet/dimse.h"
 #include "dcmtk/dcmnet/diutil.h"
+#include "dcmtk/dcmnet/dcmtrans.h"   /* for dcmSocketSend/ReceiveTimeout */
 #include "dcmtk/dcmnet/dcasccfg.h"   /* for class DcmAssociationConfiguration */
 #include "dcmtk/dcmnet/dcasccff.h"   /* for class DcmAssociationConfigurationFile */
 #include "dcmtk/dcmdata/dcdatset.h"
@@ -124,6 +125,7 @@ static const char *opt_profileName = NULL;
 T_DIMSE_BlockingMode opt_blockMode = DIMSE_BLOCKING;
 int opt_dimse_timeout = 0;
 int opt_acse_timeout = 30;
+OFCmdSignedInt opt_socket_timeout = 60;
 
 #ifdef WITH_ZLIB
 static OFCmdUnsignedInt opt_compressionLevel = 0;
@@ -258,10 +260,13 @@ int main(int argc, char *argv[])
       cmd.addOption("--propose-j2k-lossy",    "-xw",     "propose JPEG 2000 lossy TS\nand all uncompressed transfer syntaxes");
       cmd.addOption("--propose-jls-lossless", "-xt",     "propose JPEG-LS lossless TS\nand all uncompressed transfer syntaxes");
       cmd.addOption("--propose-jls-lossy",    "-xu",     "propose JPEG-LS lossy TS\nand all uncompressed transfer syntaxes");
-      cmd.addOption("--propose-mpeg2",        "-xm",     "propose MPEG2 Main Profile @ Main Level TS only");
-      cmd.addOption("--propose-mpeg2-high",   "-xh",     "propose MPEG2 Main Profile @ High Level TS only");
-      cmd.addOption("--propose-mpeg4",        "-xn",     "propose MPEG4 AVC/H.264 HP / Level 4.1 TS only");
-      cmd.addOption("--propose-mpeg4-bd",     "-xl",     "propose MPEG4 AVC/H.264 BD-compatible TS only");
+      cmd.addOption("--propose-mpeg2",        "-xm",     "propose MPEG2 Main Profile @ Main Level TS");
+      cmd.addOption("--propose-mpeg2-high",   "-xh",     "propose MPEG2 Main Profile @ High Level TS");
+      cmd.addOption("--propose-mpeg4",        "-xn",     "propose MPEG4 AVC/H.264 HP / Level 4.1 TS");
+      cmd.addOption("--propose-mpeg4-bd",     "-xl",     "propose MPEG4 AVC/H.264 BD-compatible TS");
+      cmd.addOption("--propose-mpeg4-2-2d",   "-x2",     "propose MPEG4 AVC/H.264 HP / Level 4.2 TS (2D)");
+      cmd.addOption("--propose-mpeg4-2-3d",   "-x3",     "propose MPEG4 AVC/H.264 HP / Level 4.2 TS (3D)");
+      cmd.addOption("--propose-mpeg4-2-st",   "-xo",     "propose MPEG4 AVC/H.264 Stereo / Level 4.2 TS");
       cmd.addOption("--propose-rle",          "-xr",     "propose RLE lossless TS\nand all uncompressed transfer syntaxes");
 #ifdef WITH_ZLIB
       cmd.addOption("--propose-deflated",     "-xd",     "propose deflated expl. VR little endian TS\nand all uncompressed transfer syntaxes");
@@ -289,25 +294,27 @@ int main(int argc, char *argv[])
       cmd.addOption("--pos-response",         "-rsp",    "expect positive response");
     cmd.addSubGroup("other network options:");
       cmd.addOption("--timeout",              "-to",  1, "[s]econds: integer (default: unlimited)", "timeout for connection requests");
-      CONVERT_TO_STRING("[s]econds: integer (default: " << opt_acse_timeout << ")", optString1);
-      cmd.addOption("--acse-timeout",         "-ta",  1, optString1.c_str(), "timeout for ACSE messages");
+      CONVERT_TO_STRING("[s]econds: integer (default: " << opt_socket_timeout << ")", optString1);
+      cmd.addOption("--socket-timeout",       "-ts",  1, optString1.c_str(), "timeout for network socket (0 for none)");
+      CONVERT_TO_STRING("[s]econds: integer (default: " << opt_acse_timeout << ")", optString2);
+      cmd.addOption("--acse-timeout",         "-ta",  1, optString2.c_str(), "timeout for ACSE messages");
       cmd.addOption("--dimse-timeout",        "-td",  1, "[s]econds: integer (default: unlimited)", "timeout for DIMSE messages");
-      CONVERT_TO_STRING("[n]umber of bytes: integer (" << ASC_MINIMUMPDUSIZE << ".." << ASC_MAXIMUMPDUSIZE << ")", optString2);
-      CONVERT_TO_STRING("set max receive pdu to n bytes (default: " << opt_maxReceivePDULength << ")", optString3);
-      cmd.addOption("--max-pdu",              "-pdu", 1, optString2.c_str(), optString3.c_str());
-      cmd.addOption("--max-send-pdu",                 1, optString2.c_str(), "restrict max send pdu to n bytes");
+      CONVERT_TO_STRING("[n]umber of bytes: integer (" << ASC_MINIMUMPDUSIZE << ".." << ASC_MAXIMUMPDUSIZE << ")", optString3);
+      CONVERT_TO_STRING("set max receive pdu to n bytes (default: " << opt_maxReceivePDULength << ")", optString4);
+      cmd.addOption("--max-pdu",              "-pdu", 1, optString3.c_str(), optString4.c_str());
+      cmd.addOption("--max-send-pdu",                 1, optString3.c_str(), "restrict max send pdu to n bytes");
       cmd.addOption("--repeat",                       1, "[n]umber: integer", "repeat n times");
       cmd.addOption("--abort",                           "abort association instead of releasing it");
       cmd.addOption("--no-halt",              "-nh",     "do not halt if unsuccessful store encountered\n(default: do halt)");
       cmd.addOption("--uid-padding",          "-up",     "silently correct space-padded UIDs");
 
       cmd.addOption("--invent-instance",      "+II",     "invent a new SOP instance UID for every image\nsent");
-      CONVERT_TO_STRING("invent a new series UID after n images" << OFendl << "have been sent (default: " << opt_inventSeriesCount << ")", optString4);
-      cmd.addOption("--invent-series",        "+IR",  1, "[n]umber: integer (implies --invent-instance)", optString4.c_str());
-      CONVERT_TO_STRING("invent a new study UID after n series" << OFendl << "have been sent (default: " << opt_inventStudyCount << ")", optString5);
-      cmd.addOption("--invent-study",         "+IS",  1, "[n]umber: integer (implies --invent-instance)", optString5.c_str());
-      CONVERT_TO_STRING("invent a new patient ID and name after n studies" << OFendl << "have been sent (default: " << opt_inventPatientCount << ")", optString6);
-      cmd.addOption("--invent-patient",       "+IP",  1, "[n]umber: integer (implies --invent-instance)", optString6.c_str());
+      CONVERT_TO_STRING("invent a new series UID after n images" << OFendl << "have been sent (default: " << opt_inventSeriesCount << ")", optString5);
+      cmd.addOption("--invent-series",        "+IR",  1, "[n]umber: integer (implies --invent-instance)", optString5.c_str());
+      CONVERT_TO_STRING("invent a new study UID after n series" << OFendl << "have been sent (default: " << opt_inventStudyCount << ")", optString6);
+      cmd.addOption("--invent-study",         "+IS",  1, "[n]umber: integer (implies --invent-instance)", optString6.c_str());
+      CONVERT_TO_STRING("invent a new patient ID and name after n studies" << OFendl << "have been sent (default: " << opt_inventPatientCount << ")", optString7);
+      cmd.addOption("--invent-patient",       "+IP",  1, "[n]umber: integer (implies --invent-instance)", optString7.c_str());
 
 #ifdef WITH_OPENSSL
   cmd.addGroup("transport layer security (TLS) options:");
@@ -430,6 +437,9 @@ int main(int argc, char *argv[])
       if (cmd.findOption("--propose-mpeg2-high")) opt_networkTransferSyntax = EXS_MPEG2MainProfileAtHighLevel;
       if (cmd.findOption("--propose-mpeg4")) opt_networkTransferSyntax = EXS_MPEG4HighProfileLevel4_1;
       if (cmd.findOption("--propose-mpeg4-bd")) opt_networkTransferSyntax = EXS_MPEG4BDcompatibleHighProfileLevel4_1;
+      if (cmd.findOption("--propose-mpeg4-2-2d")) opt_networkTransferSyntax = EXS_MPEG4HighProfileLevel4_2_For2DVideo;
+      if (cmd.findOption("--propose-mpeg4-2-3d")) opt_networkTransferSyntax = EXS_MPEG4HighProfileLevel4_2_For3DVideo;
+      if (cmd.findOption("--propose-mpeg4-2-st")) opt_networkTransferSyntax = EXS_MPEG4StereoHighProfileLevel4_2;
       if (cmd.findOption("--propose-rle")) opt_networkTransferSyntax = EXS_RLELossless;
 #ifdef WITH_ZLIB
       if (cmd.findOption("--propose-deflated")) opt_networkTransferSyntax = EXS_DeflatedLittleEndianExplicit;
@@ -456,6 +466,9 @@ int main(int argc, char *argv[])
         app.checkConflict("--config-file", "--propose-mpeg2-high", opt_networkTransferSyntax == EXS_MPEG2MainProfileAtHighLevel);
         app.checkConflict("--config-file", "--propose-mpeg4", opt_networkTransferSyntax == EXS_MPEG4HighProfileLevel4_1);
         app.checkConflict("--config-file", "--propose-mpeg4-bd", opt_networkTransferSyntax == EXS_MPEG4BDcompatibleHighProfileLevel4_1);
+        app.checkConflict("--config-file", "--propose-mpeg4-2-2d", opt_networkTransferSyntax == EXS_MPEG4HighProfileLevel4_2_For2DVideo);
+        app.checkConflict("--config-file", "--propose-mpeg4-2-3d", opt_networkTransferSyntax == EXS_MPEG4HighProfileLevel4_2_For3DVideo);
+        app.checkConflict("--config-file", "--propose-mpeg4-2-st", opt_networkTransferSyntax == EXS_MPEG4StereoHighProfileLevel4_2);
         app.checkConflict("--config-file", "--propose-rle", opt_networkTransferSyntax == EXS_RLELossless);
 #ifdef WITH_ZLIB
         app.checkConflict("--config-file", "--propose-deflated", opt_networkTransferSyntax == EXS_DeflatedLittleEndianExplicit);
@@ -496,6 +509,12 @@ int main(int argc, char *argv[])
         app.checkValue(cmd.getValueAndCheckMin(opt_timeout, 1));
         dcmConnectionTimeout.set(OFstatic_cast(Sint32, opt_timeout));
       }
+
+      if (cmd.findOption("--socket-timeout"))
+        app.checkValue(cmd.getValueAndCheckMin(opt_socket_timeout, -1));
+      // always set the timeout values since the global default might be different
+      dcmSocketSendTimeout.set(OFstatic_cast(Sint32, opt_socket_timeout));
+      dcmSocketReceiveTimeout.set(OFstatic_cast(Sint32, opt_socket_timeout));
 
       if (cmd.findOption("--acse-timeout"))
       {
@@ -1216,7 +1235,10 @@ addStoragePresentationContexts(T_ASC_Parameters *params,
       (opt_networkTransferSyntax != EXS_MPEG2MainProfileAtMainLevel) &&
       (opt_networkTransferSyntax != EXS_MPEG2MainProfileAtHighLevel) &&
       (opt_networkTransferSyntax != EXS_MPEG4HighProfileLevel4_1) &&
-      (opt_networkTransferSyntax != EXS_MPEG4BDcompatibleHighProfileLevel4_1))
+      (opt_networkTransferSyntax != EXS_MPEG4BDcompatibleHighProfileLevel4_1) &&
+      (opt_networkTransferSyntax != EXS_MPEG4HighProfileLevel4_2_For2DVideo) &&
+      (opt_networkTransferSyntax != EXS_MPEG4HighProfileLevel4_2_For3DVideo) &&
+      (opt_networkTransferSyntax != EXS_MPEG4StereoHighProfileLevel4_2))
   {
     fallbackSyntaxes.push_back(UID_LittleEndianExplicitTransferSyntax);
     fallbackSyntaxes.push_back(UID_BigEndianExplicitTransferSyntax);
@@ -1699,10 +1721,12 @@ configureUserIdentityRequest(T_ASC_Parameters *params)
         delete[] buf;
         return EC_IllegalCall;
       }
+      // Casting to Uint16 should be safe since it is checked above that file
+      // size does not exceed 65535 bytes.
       if (opt_identMode == ASC_USER_IDENTITY_KERBEROS)
-        cond = ASC_setIdentRQKerberos(params, buf, bytesRead, opt_identResponse);
+        cond = ASC_setIdentRQKerberos(params, buf, OFstatic_cast(Uint16,bytesRead), opt_identResponse);
       else
-        cond = ASC_setIdentRQSaml(params, buf, bytesRead, opt_identResponse);
+        cond = ASC_setIdentRQSaml(params, buf, OFstatic_cast(Uint16,bytesRead), opt_identResponse);
       delete[] buf;
       break;
     }

@@ -68,3 +68,4 @@ EP_Interpretation DcmJpegHelper::getPhotometricInterpretation(DcmItem *item)
   }
   return EPI_Unknown;
 }
+

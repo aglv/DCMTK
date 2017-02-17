@@ -1,6 +1,6 @@
 /*
  *
- *  Copyright (C) 1994-2014, OFFIS e.V.
+ *  Copyright (C) 1994-2017, OFFIS e.V.
  *  All rights reserved.  See COPYRIGHT file for details.
  *
  *  This software and supporting documentation were developed by
@@ -55,6 +55,7 @@ END_EXTERN_C
 #include "dcmtk/dcmnet/dicom.h"         /* for DICOM_APPLICATION_ACCEPTOR */
 #include "dcmtk/dcmnet/dimse.h"
 #include "dcmtk/dcmnet/diutil.h"
+#include "dcmtk/dcmnet/dcmtrans.h"      /* for dcmSocketSend/ReceiveTimeout */
 #include "dcmtk/dcmnet/dcasccfg.h"      /* for class DcmAssociationConfiguration */
 #include "dcmtk/dcmnet/dcasccff.h"      /* for class DcmAssociationConfigurationFile */
 #include "dcmtk/dcmdata/dcfilefo.h"
@@ -179,6 +180,7 @@ static const char *opt_profileName = NULL;
 T_DIMSE_BlockingMode opt_blockMode = DIMSE_BLOCKING;
 int                opt_dimse_timeout = 0;
 int                opt_acse_timeout = 30;
+OFCmdSignedInt     opt_socket_timeout = 60;
 
 #if defined(HAVE_FORK) || defined(_WIN32)
 OFBool             opt_forkMode = OFFalse;
@@ -221,6 +223,13 @@ extern "C" void sigChildHandler(int)
 #endif
 
 
+/* helper macro for converting stream output to a string */
+#define CONVERT_TO_STRING(output, string) \
+    optStream.str(""); \
+    optStream.clear(); \
+    optStream << output << OFStringStream_ends; \
+    OFSTRINGSTREAM_GETOFSTRING(optStream, string)
+
 #define SHORTCOL 4
 #define LONGCOL 21
 
@@ -242,8 +251,9 @@ int main(int argc, char *argv[])
   WSAStartup(winSockVersionNeeded, &winSockData);
 #endif
 
-  char tempstr[20];
   OFString temp_str;
+  OFOStringStream optStream;
+
   OFConsoleApplication app(OFFIS_CONSOLE_APPLICATION, "DICOM storage (C-STORE) SCP", rcsid);
   OFCommandLine cmd;
 
@@ -285,6 +295,9 @@ int main(int argc, char *argv[])
       cmd.addOption("--prefer-mpeg2-high",      "+xh",     "prefer MPEG2 Main Profile @ High Level TS");
       cmd.addOption("--prefer-mpeg4",           "+xn",     "prefer MPEG4 AVC/H.264 HP / Level 4.1 TS");
       cmd.addOption("--prefer-mpeg4-bd",        "+xl",     "prefer MPEG4 AVC/H.264 BD-compatible TS");
+      cmd.addOption("--prefer-mpeg4-2-2d",      "+x2",     "prefer MPEG4 AVC/H.264 HP / Level 4.2 TS (2D)");
+      cmd.addOption("--prefer-mpeg4-2-3d",      "+x3",     "prefer MPEG4 AVC/H.264 HP / Level 4.2 TS (3D)");
+      cmd.addOption("--prefer-mpeg4-2-st",      "+xo",     "prefer MPEG4 AVC/H.264 Stereo HP / Level 4.2 TS");
       cmd.addOption("--prefer-rle",             "+xr",     "prefer RLE lossless TS");
 #ifdef WITH_ZLIB
       cmd.addOption("--prefer-deflated",        "+xd",     "prefer deflated expl. VR little endian TS");
@@ -303,26 +316,16 @@ int main(int argc, char *argv[])
       // this option is only offered on Posix platforms
       cmd.addOption("--inetd",                  "-id",     "run from inetd super server (not with --fork)");
 #endif
-
-      cmd.addOption("--acse-timeout",           "-ta",  1, "[s]econds: integer (default: 30)", "timeout for ACSE messages");
+      CONVERT_TO_STRING("[s]econds: integer (default: " << opt_socket_timeout << ")", optString1);
+      cmd.addOption("--socket-timeout",         "-ts",  1, optString1.c_str(), "timeout for network socket (0 for none)");
+      CONVERT_TO_STRING("[s]econds: integer (default: " << opt_acse_timeout << ")", optString2);
+      cmd.addOption("--acse-timeout",           "-ta",  1, optString2.c_str(), "timeout for ACSE messages");
       cmd.addOption("--dimse-timeout",          "-td",  1, "[s]econds: integer (default: unlimited)", "timeout for DIMSE messages");
+      cmd.addOption("--aetitle",                "-aet", 1, "[a]etitle: string", "set my AE title (default: " APPLICATIONTITLE ")");
+      CONVERT_TO_STRING("[n]umber of bytes: integer (" << ASC_MINIMUMPDUSIZE << ".." << ASC_MAXIMUMPDUSIZE << ")", optString3);
+      CONVERT_TO_STRING("set max receive pdu to n bytes (default: " << opt_maxPDU << ")", optString4);
+      cmd.addOption("--max-pdu",                "-pdu", 1, optString3.c_str(), optString4.c_str());
 
-      OFString opt1 = "set my AE title (default: ";
-      opt1 += APPLICATIONTITLE;
-      opt1 += ")";
-      cmd.addOption("--aetitle",                "-aet", 1, "[a]etitle: string", opt1.c_str());
-      OFString opt3 = "set max receive pdu to n bytes (def.: ";
-      sprintf(tempstr, "%ld", OFstatic_cast(long, ASC_DEFAULTMAXPDU));
-      opt3 += tempstr;
-      opt3 += ")";
-      OFString opt4 = "[n]umber of bytes: integer (";
-      sprintf(tempstr, "%ld", OFstatic_cast(long, ASC_MINIMUMPDUSIZE));
-      opt4 += tempstr;
-      opt4 += "..";
-      sprintf(tempstr, "%ld", OFstatic_cast(long, ASC_MAXIMUMPDUSIZE));
-      opt4 += tempstr;
-      opt4 += ")";
-      cmd.addOption("--max-pdu",                "-pdu", 1, opt4.c_str(), opt3.c_str());
       cmd.addOption("--disable-host-lookup",    "-dhl",    "disable hostname lookup");
       cmd.addOption("--refuse",                            "refuse association");
       cmd.addOption("--reject",                            "reject association if no implement. class UID");
@@ -553,6 +556,9 @@ int main(int argc, char *argv[])
     if (cmd.findOption("--prefer-mpeg2-high")) opt_networkTransferSyntax = EXS_MPEG2MainProfileAtHighLevel;
     if (cmd.findOption("--prefer-mpeg4")) opt_networkTransferSyntax = EXS_MPEG4HighProfileLevel4_1;
     if (cmd.findOption("--prefer-mpeg4-bd")) opt_networkTransferSyntax = EXS_MPEG4BDcompatibleHighProfileLevel4_1;
+    if (cmd.findOption("--prefer-mpeg4-2-2d")) opt_networkTransferSyntax = EXS_MPEG4HighProfileLevel4_2_For2DVideo;
+    if (cmd.findOption("--prefer-mpeg4-2-3d")) opt_networkTransferSyntax = EXS_MPEG4HighProfileLevel4_2_For3DVideo;
+    if (cmd.findOption("--prefer-mpeg4-2-st")) opt_networkTransferSyntax = EXS_MPEG4StereoHighProfileLevel4_2;
     if (cmd.findOption("--prefer-rle")) opt_networkTransferSyntax = EXS_RLELossless;
 #ifdef WITH_ZLIB
     if (cmd.findOption("--prefer-deflated")) opt_networkTransferSyntax = EXS_DeflatedLittleEndianExplicit;
@@ -565,6 +571,12 @@ int main(int argc, char *argv[])
     }
     cmd.endOptionBlock();
     if (opt_networkTransferSyntax != EXS_Unknown) opt_acceptAllXfers = OFFalse;
+
+    if (cmd.findOption("--socket-timeout"))
+      app.checkValue(cmd.getValueAndCheckMin(opt_socket_timeout, -1));
+    // always set the timeout values since the global default might be different
+    dcmSocketSendTimeout.set(OFstatic_cast(Sint32, opt_socket_timeout));
+    dcmSocketReceiveTimeout.set(OFstatic_cast(Sint32, opt_socket_timeout));
 
     if (cmd.findOption("--acse-timeout"))
     {
@@ -609,6 +621,9 @@ int main(int argc, char *argv[])
       app.checkConflict("--config-file", "--prefer-mpeg2-high", opt_networkTransferSyntax == EXS_MPEG2MainProfileAtHighLevel);
       app.checkConflict("--config-file", "--prefer-mpeg4", opt_networkTransferSyntax == EXS_MPEG4HighProfileLevel4_1);
       app.checkConflict("--config-file", "--prefer-mpeg4-bd", opt_networkTransferSyntax == EXS_MPEG4BDcompatibleHighProfileLevel4_1);
+      app.checkConflict("--config-file", "--prefer-mpeg4-2-2d", opt_networkTransferSyntax == EXS_MPEG4HighProfileLevel4_2_For2DVideo);
+      app.checkConflict("--config-file", "--prefer-mpeg4-2-3d", opt_networkTransferSyntax == EXS_MPEG4HighProfileLevel4_2_For3DVideo);
+      app.checkConflict("--config-file", "--prefer-mpeg4-2-st", opt_networkTransferSyntax == EXS_MPEG4StereoHighProfileLevel4_2);
       app.checkConflict("--config-file", "--prefer-rle", opt_networkTransferSyntax == EXS_RLELossless);
 #ifdef WITH_ZLIB
       app.checkConflict("--config-file", "--prefer-deflated", opt_networkTransferSyntax == EXS_DeflatedLittleEndianExplicit);
@@ -687,6 +702,9 @@ int main(int argc, char *argv[])
       app.checkConflict("--write-xfer-little", "--prefer-mpeg2-high", opt_networkTransferSyntax == EXS_MPEG2MainProfileAtHighLevel);
       app.checkConflict("--write-xfer-little", "--prefer-mpeg4", opt_networkTransferSyntax == EXS_MPEG4HighProfileLevel4_1);
       app.checkConflict("--write-xfer-little", "--prefer-mpeg4-bd", opt_networkTransferSyntax == EXS_MPEG4BDcompatibleHighProfileLevel4_1);
+      app.checkConflict("--write-xfer-little", "--prefer-mpeg4-2-2d", opt_networkTransferSyntax == EXS_MPEG4HighProfileLevel4_2_For2DVideo);
+      app.checkConflict("--write-xfer-little", "--prefer-mpeg4-2-3d", opt_networkTransferSyntax == EXS_MPEG4HighProfileLevel4_2_For3DVideo);
+      app.checkConflict("--write-xfer-little", "--prefer-mpeg4-2-st", opt_networkTransferSyntax == EXS_MPEG4StereoHighProfileLevel4_2);
       app.checkConflict("--write-xfer-little", "--prefer-rle", opt_networkTransferSyntax == EXS_RLELossless);
       // we don't have to check a conflict for --prefer-deflated because we can always convert that to uncompressed.
       opt_writeTransferSyntax = EXS_LittleEndianExplicit;
@@ -706,6 +724,9 @@ int main(int argc, char *argv[])
       app.checkConflict("--write-xfer-big", "--prefer-mpeg2-high", opt_networkTransferSyntax == EXS_MPEG2MainProfileAtHighLevel);
       app.checkConflict("--write-xfer-big", "--prefer-mpeg4", opt_networkTransferSyntax == EXS_MPEG4HighProfileLevel4_1);
       app.checkConflict("--write-xfer-big", "--prefer-mpeg4-bd", opt_networkTransferSyntax == EXS_MPEG4BDcompatibleHighProfileLevel4_1);
+      app.checkConflict("--write-xfer-big", "--prefer-mpeg4-2-2d", opt_networkTransferSyntax == EXS_MPEG4HighProfileLevel4_2_For2DVideo);
+      app.checkConflict("--write-xfer-big", "--prefer-mpeg4-2-3d", opt_networkTransferSyntax == EXS_MPEG4HighProfileLevel4_2_For3DVideo);
+      app.checkConflict("--write-xfer-big", "--prefer-mpeg4-2-st", opt_networkTransferSyntax == EXS_MPEG4StereoHighProfileLevel4_2);
       app.checkConflict("--write-xfer-big", "--prefer-rle", opt_networkTransferSyntax == EXS_RLELossless);
       // we don't have to check a conflict for --prefer-deflated because we can always convert that to uncompressed.
       opt_writeTransferSyntax = EXS_BigEndianExplicit;
@@ -725,6 +746,9 @@ int main(int argc, char *argv[])
       app.checkConflict("--write-xfer-implicit", "--prefer-mpeg2-high", opt_networkTransferSyntax == EXS_MPEG2MainProfileAtHighLevel);
       app.checkConflict("--write-xfer-implicit", "--prefer-mpeg4", opt_networkTransferSyntax == EXS_MPEG4HighProfileLevel4_1);
       app.checkConflict("--write-xfer-implicit", "--prefer-mpeg4-bd", opt_networkTransferSyntax == EXS_MPEG4BDcompatibleHighProfileLevel4_1);
+      app.checkConflict("--write-xfer-implicit", "--prefer-mpeg4-2-2d", opt_networkTransferSyntax == EXS_MPEG4HighProfileLevel4_2_For2DVideo);
+      app.checkConflict("--write-xfer-implicit", "--prefer-mpeg4-2-3d", opt_networkTransferSyntax == EXS_MPEG4HighProfileLevel4_2_For3DVideo);
+      app.checkConflict("--write-xfer-implicit", "--prefer-mpeg4-2-st", opt_networkTransferSyntax == EXS_MPEG4StereoHighProfileLevel4_2);
       app.checkConflict("--write-xfer-implicit", "--prefer-rle", opt_networkTransferSyntax == EXS_RLELossless);
       // we don't have to check a conflict for --prefer-deflated because we can always convert that to uncompressed.
       opt_writeTransferSyntax = EXS_LittleEndianImplicit;
@@ -745,6 +769,9 @@ int main(int argc, char *argv[])
       app.checkConflict("--write-xfer-deflated", "--prefer-mpeg2-high", opt_networkTransferSyntax == EXS_MPEG2MainProfileAtHighLevel);
       app.checkConflict("--write-xfer-deflated", "--prefer-mpeg4", opt_networkTransferSyntax == EXS_MPEG4HighProfileLevel4_1);
       app.checkConflict("--write-xfer-deflated", "--prefer-mpeg4-bd", opt_networkTransferSyntax == EXS_MPEG4BDcompatibleHighProfileLevel4_1);
+      app.checkConflict("--write-xfer-deflated", "--prefer-mpeg4-2-2d", opt_networkTransferSyntax == EXS_MPEG4HighProfileLevel4_2_For2DVideo);
+      app.checkConflict("--write-xfer-deflated", "--prefer-mpeg4-2-3d", opt_networkTransferSyntax == EXS_MPEG4HighProfileLevel4_2_For3DVideo);
+      app.checkConflict("--write-xfer-deflated", "--prefer-mpeg4-2-st", opt_networkTransferSyntax == EXS_MPEG4StereoHighProfileLevel4_2);
       app.checkConflict("--write-xfer-deflated", "--prefer-rle", opt_networkTransferSyntax == EXS_RLELossless);
       opt_writeTransferSyntax = EXS_DeflatedLittleEndianExplicit;
     }
@@ -1031,7 +1058,7 @@ int main(int argc, char *argv[])
 
     // read socket handle number from stdin, i.e. the anonymous pipe
     // to which our parent process has written the handle number.
-    if (ReadFile(hStdIn, buf, sizeof(buf), &bytesRead, NULL))
+    if (ReadFile(hStdIn, buf, sizeof(buf) - 1, &bytesRead, NULL))
     {
       // make sure buffer is zero terminated
       buf[bytesRead] = '\0';
@@ -1216,7 +1243,9 @@ static OFCondition acceptAssociation(T_ASC_Network *net, DcmAssociationConfigura
     UID_VerificationSOPClass
   };
 
-  const char* transferSyntaxes[] = { NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL };
+  const char* transferSyntaxes[] = { NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,  // 10
+                                     NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,  // 20
+                                     NULL };                                                      // +1
   int numTransferSyntaxes = 0;
 
   // try to receive an association. Here we either want to use blocking or
@@ -1420,6 +1449,30 @@ static OFCondition acceptAssociation(T_ASC_Network *net, DcmAssociationConfigura
       transferSyntaxes[3] = UID_LittleEndianImplicitTransferSyntax;
       numTransferSyntaxes = 4;
       break;
+    case EXS_MPEG4HighProfileLevel4_2_For2DVideo:
+      /* we prefer MPEG4 HP/L4.2 for 2d Videos */
+      transferSyntaxes[0] = UID_MPEG4HighProfileLevel4_2_For2DVideoTransferSyntax;
+      transferSyntaxes[1] = UID_LittleEndianExplicitTransferSyntax;
+      transferSyntaxes[2] = UID_BigEndianExplicitTransferSyntax;
+      transferSyntaxes[3] = UID_LittleEndianImplicitTransferSyntax;
+      numTransferSyntaxes = 4;
+      break;
+    case EXS_MPEG4HighProfileLevel4_2_For3DVideo:
+      /* we prefer MPEG4 HP/L4.2 for 3d Videos */
+      transferSyntaxes[0] = UID_MPEG4HighProfileLevel4_2_For3DVideoTransferSyntax;
+      transferSyntaxes[1] = UID_LittleEndianExplicitTransferSyntax;
+      transferSyntaxes[2] = UID_BigEndianExplicitTransferSyntax;
+      transferSyntaxes[3] = UID_LittleEndianImplicitTransferSyntax;
+      numTransferSyntaxes = 4;
+      break;
+    case EXS_MPEG4StereoHighProfileLevel4_2:
+      /* we prefer MPEG4 Stereo HP/L4.2 */
+      transferSyntaxes[0] = UID_MPEG4StereoHighProfileLevel4_2TransferSyntax;
+      transferSyntaxes[1] = UID_LittleEndianExplicitTransferSyntax;
+      transferSyntaxes[2] = UID_BigEndianExplicitTransferSyntax;
+      transferSyntaxes[3] = UID_LittleEndianImplicitTransferSyntax;
+      numTransferSyntaxes = 4;
+      break;
     case EXS_RLELossless:
       /* we prefer RLE Lossless */
       transferSyntaxes[0] = UID_RLELosslessTransferSyntax;
@@ -1459,17 +1512,19 @@ static OFCondition acceptAssociation(T_ASC_Network *net, DcmAssociationConfigura
         transferSyntaxes[12] = UID_MPEG4HighProfileLevel4_2_For2DVideoTransferSyntax;
         transferSyntaxes[13] = UID_MPEG4HighProfileLevel4_2_For3DVideoTransferSyntax;
         transferSyntaxes[14] = UID_MPEG4StereoHighProfileLevel4_2TransferSyntax;
-        transferSyntaxes[15] = UID_DeflatedExplicitVRLittleEndianTransferSyntax;
+        transferSyntaxes[15] = UID_HEVCMainProfileLevel5_1TransferSyntax;
+        transferSyntaxes[16] = UID_HEVCMain10ProfileLevel5_1TransferSyntax;
+        transferSyntaxes[17] = UID_DeflatedExplicitVRLittleEndianTransferSyntax;
         if (gLocalByteOrder == EBO_LittleEndian)
         {
-          transferSyntaxes[16] = UID_LittleEndianExplicitTransferSyntax;
-          transferSyntaxes[17] = UID_BigEndianExplicitTransferSyntax;
+          transferSyntaxes[18] = UID_LittleEndianExplicitTransferSyntax;
+          transferSyntaxes[19] = UID_BigEndianExplicitTransferSyntax;
         } else {
-          transferSyntaxes[16] = UID_BigEndianExplicitTransferSyntax;
-          transferSyntaxes[17] = UID_LittleEndianExplicitTransferSyntax;
+          transferSyntaxes[18] = UID_BigEndianExplicitTransferSyntax;
+          transferSyntaxes[19] = UID_LittleEndianExplicitTransferSyntax;
         }
-        transferSyntaxes[18] = UID_LittleEndianImplicitTransferSyntax;
-        numTransferSyntaxes = 19;
+        transferSyntaxes[20] = UID_LittleEndianImplicitTransferSyntax;
+        numTransferSyntaxes = 21;
       } else {
         /* We prefer explicit transfer syntaxes.
          * If we are running on a Little Endian machine we prefer

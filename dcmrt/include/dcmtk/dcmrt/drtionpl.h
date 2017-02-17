@@ -6,8 +6,8 @@
  *
  *  Header file for class DRTIonPlanIOD
  *
- *  Generated automatically from DICOM PS 3.3-2016d
- *  File created on 2016-10-12 13:44:31
+ *  Generated automatically from DICOM PS 3.3-2016e
+ *  File created on 2016-11-23 14:23:36
  *
  */
 
@@ -79,6 +79,9 @@
 
 
 /** Interface class for RTIonPlanIOD
+ *  @note Because of its many member variables, an instance of this class requires quite
+ *    some memory. So be careful when creating automatic variables from this class (the
+ *    stack size might be exceeded); it is probably better to use the heap space.
  */
 class DCMTK_DCMRT_EXPORT DRTIonPlanIOD
   : protected DRTTypes
@@ -103,6 +106,7 @@ class DCMTK_DCMRT_EXPORT DRTIonPlanIOD
 
     /** assigment operator
      *  @param copy IOD object to be copied
+     *  @return reference to this object
      */
     DRTIonPlanIOD &operator=(const DRTIonPlanIOD &copy);
 
