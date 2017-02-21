@@ -440,7 +440,7 @@ OFCondition DJCodecDecoder::decodeFrame(
           if (jpegData == NULL) result = EC_CorruptedData; // JPEG data stream is empty/absent
           else
           {
-            Uint8 precision = scanJpegDataForBitDepth(jpegData, OFstatic_cast(Uint32, fragmentLength));
+            Uint8 precision = isJ2K()? imageBitsAllocated : scanJpegDataForBitDepth(jpegData, fragmentLength);
             if (precision == 0) result = EC_CannotChangeRepresentation; // something has gone wrong, bail out
             else
             {

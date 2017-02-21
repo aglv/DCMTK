@@ -73,8 +73,10 @@ ENDMACRO(DCMTK_ADD_EXECUTABLE)
 # extra arguments - names of the library's source files
 #
 MACRO(DCMTK_ADD_LIBRARY LIBRARY)
+	file(GLOB LIBRARY_HEADERS "../include/dcmtk/${LIBRARY}/*.h")
+
     # Actually add the library first
-    ADD_LIBRARY(${LIBRARY}${DCMTK_LIBRARY_SUFFIX} ${DCMTK_LIBRARY_TYPE} ${ARGN})
+    ADD_LIBRARY(${LIBRARY}${DCMTK_LIBRARY_SUFFIX} ${DCMTK_LIBRARY_TYPE} ${ARGN} ${LIBRARY_HEADERS})
     SET(DCMTK_ALL_LIBRARIES ${DCMTK_ALL_LIBRARIES} ${LIBRARY}${DCMTK_LIBRARY_SUFFIX} CACHE INTERNAL "List of all libraries in the DCMTK.")
 
     # set proper version information for shared library
