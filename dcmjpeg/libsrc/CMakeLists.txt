@@ -6,8 +6,7 @@ DCMTK_ADD_LIBRARY(dcmjpeg ddpiimpl dipijpeg djcodecd djcodece djcparam djdecbas 
 
 DCMTK_TARGET_LINK_MODULES(dcmjpeg ofstd oflog dcmdata dcmimgle dcmimage ijg8 ijg12 ijg16)
 
-IF(DCMTK_DEFAULT_INTEGRATION_CLASS)
+IF(DCMTK_WITH_OPENJPEG)
   ADD_DEPENDENCIES(dcmjpeg openjp2)
   INCLUDE_DIRECTORIES(${dcmjpeg_SOURCE_DIR}/OpenJPEG/src/lib ${dcmjpeg_BINARY_DIR}/OpenJPEG/src/lib/openjp2)
-  #DCMTK_TARGET_LINK_MODULES(openjp2)
-ENDIF(DCMTK_DEFAULT_INTEGRATION_CLASS)
+ENDIF(DCMTK_WITH_OPENJPEG)

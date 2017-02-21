@@ -1,4 +1,4 @@
-#ifdef DCMTK_DEFAULT_INTEGRATION_CLASS
+#ifdef DCMTK_WITH_OPENJPEG
 
 #include "dcmtk/config/integration.h"
 
@@ -74,7 +74,7 @@ namespace djopen2k {
     
 }
 
-OFCondition DcmIntegrationDefault::decodeJ2K(void *j2kData, Uint32 j2kDataSize,
+OFCondition DefaultDcmIntegration::decodeJ2K(void *j2kData, Uint32 j2kDataSize,
                                              void *&rawData, Uint32 &rawDataSize,
                                              OFBool expectSignedRawData, EP_Interpretation &inter)
 {
@@ -444,7 +444,7 @@ OFCondition DcmIntegrationDefault::decodeJ2K(void *j2kData, Uint32 j2kDataSize,
     return EC_Normal;
 }
 
-OFCondition DcmIntegrationDefault::encodeJ2K(Uint16 columns, Uint16 rows,
+OFCondition DefaultDcmIntegration::encodeJ2K(Uint16 columns, Uint16 rows,
                                              EP_Interpretation inter, Uint8 bitsPerSample, Uint16 samplesPerPixel,
                                              void *rawData,
                                              void *&j2kData, Uint32 &j2kDataSize,
@@ -1131,4 +1131,4 @@ namespace djopen2k {
     
 }
 
-#endif
+#endif // DCMTK_WITH_OPENJPEG
