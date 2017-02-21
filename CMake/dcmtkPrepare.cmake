@@ -89,7 +89,6 @@ OPTION(DCMTK_WITH_DOXYGEN "Build API documentation with DOXYGEN." ON)
 OPTION(DCMTK_GENERATE_DOXYGEN_TAGFILE "Generate a tag file with DOXYGEN." OFF)
 OPTION(DCMTK_WIDE_CHAR_FILE_IO_FUNCTIONS "Build with wide char file I/O functions." OFF)
 OPTION(DCMTK_WIDE_CHAR_MAIN_FUNCTION "Build command line tools with wide char main function." OFF)
-OPTION(DCMTK_KEEP_UIDS "Don't regenerate UIDs when encoding/decoding images." OFF)
 
 # Built-in (compiled-in) dictionary enabled on Windows per default, otherwise
 # disabled. Loading of external dictionary via run-time is, per default,
